@@ -1,1 +1,86 @@
-# context7-mcp
+# Context7 MCP Server
+
+In this repository, we provide an MCP Server for [Context7](https://context7.com), which offers access to high-quality documentation for popular packages and libraries.
+
+This lets you use Cursor, Windsurf, Claude Desktop, or any MCP Client, to use natural language to search and access documentation for packages, e.g.:
+
+- "What are the main features of React hooks?"
+- "How do I implement authentication with Next.js?"
+- "Show me documentation for Upstash Redis"
+- "Get examples of using React Query"
+
+## Usage
+
+### Requirements
+
+- Node.js >= v18.0.0
+- Cursor, Windsurf, Claude Desktop or another MCP Client
+
+### How to use locally
+
+#### Installing for Cursor
+
+Add this command to the MCP list in Cursor. For more info, check the [Cursor MCP](https://docs.cursor.com/context/model-context-protocol) docs.
+
+```bash
+npx -y @upstash/context7-mcp
+```
+
+#### Installing for Windsurf
+
+Add this to your Windsurf MCP config file. For more info, check the [Windsurf MCP](https://docs.windsurf.com/windsurf/mcp) docs.
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ]
+    }
+  }
+}
+```
+
+### Tools
+
+- `list-available-packages`: Lists all available documentation packages from Context7
+- `get-package-documentation`: Retrieves documentation for a specific package with options for:
+  - `packageName`: Name of the package to retrieve docs for
+  - `topic`: Specific topic within the package to focus the documentation on
+  - `tokens`: Maximum number of tokens to retrieve (default: 5000)
+
+## Development
+
+Clone the project and run:
+
+```bash
+npm install
+```
+
+You can use the following commands to format and lint the code:
+
+```bash
+npm run format
+npm run lint
+```
+
+### Building
+
+```bash
+npm run build
+```
+
+### Testing with MCP Inspector
+
+You can also use the MCP Inspector to test the tools by following the MCP documentation for setting up the inspector.
+
+```bash
+npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp
+```
+
+## License
+
+MIT

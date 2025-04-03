@@ -1,5 +1,5 @@
 {
-  "name": "context7-mcp",
+  "name": "@upstash/context7-mcp",
   "version": "1.0.0",
   "description": "MCP server for Context7",
   "main": "index.js",
