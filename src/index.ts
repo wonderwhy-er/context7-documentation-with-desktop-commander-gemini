@@ -1,13 +1,13 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-import { Project } from "./lib/types.js";
-
-const CONTEXT7_BASE_URL = "https://context7.com";
+import { fetchProjects, fetchPackageDocumentation } from "./lib/api.js";
+import { formatProjectsList } from "./lib/utils.js";
 
 // Create server instance
 const server = new McpServer({
-  name: "context7",
+  name: "Context7",
+  description: "Retrieves documentation for packages.",
   version: "1.0.0",
   capabilities: {
     resources: {},
@@ -15,58 +15,39 @@ const server = new McpServer({
   },
 });
 
-// Helper function for making Context7 API requests
-async function makeContext7Request<T>(url: string): Promise<T | null> {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      return null;
-    }
-    return await response.json();
-  } catch (error) {
-    console.error("Error making Context7 API request:", error);
-    return null;
-  }
-}
-
-// Helper function for formatting projects
-function formatProject(project: Project): string {
-  return `Title: ${project.settings.title}\n Package name to fetch context: ${project.settings.project}\n`;
-}
-
-// Register context7 tools
+// Register Context7 tools
 server.tool(
-  "see-available-packages",
-  "See the list of packages that are finalized and available to fetch their context",
+  "list-available-packages",
+  "Lists all packages from Context7. The package names can be used with 'get-package-documentation' to retrieve documentation.",
   async () => {
-    const packagesUrl = `${CONTEXT7_BASE_URL}/api/projects`;
-    const packagesData = await makeContext7Request<Project[]>(packagesUrl);
+    const projects = await fetchProjects();
 
-    if (!packagesData) {
+    if (!projects) {
       return {
         content: [
           {
             type: "text",
-            text: "Failed to retrieve packages data",
+            text: "Failed to retrieve packages data from Context7",
           },
         ],
       };
     }
 
-    const projects = packagesData || [];
-    if (projects.length === 0) {
+    // Filter projects to only include those with state "finalized"
+    const finalizedProjects = projects.filter((project) => project.version.state === "finalized");
+
+    if (finalizedProjects.length === 0) {
       return {
         content: [
           {
             type: "text",
-            text: "No packages available",
+            text: "No finalized documentation packages available",
           },
         ],
       };
     }
 
-    const formattedProjects = projects.map(formatProject);
-    const projectsText = `${formattedProjects.length} available packages:\n\n${formattedProjects.join("\n")}`;
+    const projectsText = formatProjectsList(finalizedProjects);
 
     return {
       content: [
@@ -80,84 +61,56 @@ server.tool(
 );
 
 server.tool(
-  "get-package-context",
-  "Get a specific package's context based on it's documentation",
+  "get-package-documentation",
+  "Retrieves documentation for a specific package from Context7. Use 'list-available-packages' first to see what's available.",
   {
-    packageName: z.string().describe("Name of the package to retrieve context for"),
-    tokens: z.number().min(5000).optional().describe("Number of tokens to retrieve context for"),
-    topic: z.string().optional().describe("Topic of search to rerank context for"),
+    packageName: z
+      .string()
+      .describe(
+        "Name of the package/library to retrieve documentation for (e.g., 'upstash-redis', 'nextjs'). Must match exactly a package name from 'list-available-packages'."
+      ),
+    topic: z
+      .string()
+      .describe(
+        "Specific topic within the package to focus the documentation on (e.g., 'hooks', 'routing')."
+      ),
+    tokens: z
+      .number()
+      .min(5000)
+      .optional()
+      .describe(
+        "Maximum number of tokens of documentation to retrieve (default: 5000).Higher values provide more comprehensive documentation but use more context window."
+      ),
   },
   async ({ packageName, tokens = 5000, topic = "" }) => {
-    try {
-      let contextURL = `${CONTEXT7_BASE_URL}/${packageName}/llm.txt`;
-      const params = [];
+    const documentationText = await fetchPackageDocumentation(packageName, tokens, topic);
 
-      if (tokens) {
-        params.push(`tokens=${tokens}`);
-      }
-      if (topic) {
-        params.push(`topic=${encodeURIComponent(topic)}`);
-      }
-
-      if (params.length > 0) {
-        contextURL += `?${params.join("&")}`;
-      }
-
-      const response = await fetch(contextURL);
-
-      if (!response.ok) {
-        if (response.status === 404) {
-          return {
-            content: [
-              {
-                type: "text",
-                text: "Project not found or not finalized.",
-              },
-            ],
-          };
-        }
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const text = await response.text();
-
-      if (!text || text === "No content available" || text === "No context data available") {
-        return {
-          content: [
-            {
-              type: "text",
-              text: "No context data available",
-            },
-          ],
-        };
-      }
-
+    if (!documentationText) {
       return {
         content: [
           {
             type: "text",
-            text: text,
-          },
-        ],
-      };
-    } catch (error) {
-      console.error("Error fetching package context:", error);
-      return {
-        content: [
-          {
-            type: "text",
-            text: `Failed to retrieve context for project: ${packageName}`,
+            text: "Documentation not found or not finalized for this package. Verify you've provided a valid package name exactly as listed by the 'list-available-packages' tool.",
           },
         ],
       };
     }
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: documentationText,
+        },
+      ],
+    };
   }
 );
 
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error("Context7 MCP Server running on stdio");
+  console.error("Context7 Documentation MCP Server running on stdio");
 }
 
 main().catch((error) => {
