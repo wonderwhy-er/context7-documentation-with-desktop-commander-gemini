@@ -4,7 +4,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import { fetchProjects, fetchLibraryDocumentation } from "./lib/api.js";
-import { formatProjectsList } from "./lib/utils.js";
+import { formatProjectsList, rerankProjects } from "./lib/utils.js";
 
 // Create server instance
 const server = new McpServer({
@@ -21,7 +21,13 @@ const server = new McpServer({
 server.tool(
   "list-available-docs",
   "Lists all available library documentation from Context7. The library names can be used with 'get-library-documentation' to retrieve documentation.",
-  async () => {
+  {
+    libraryName: z
+      .string()
+      .optional()
+      .describe("Optional library name to search for and rerank results based on"),
+  },
+  async ({ libraryName }) => {
     const projects = await fetchProjects();
 
     if (!projects) {
@@ -49,7 +55,12 @@ server.tool(
       };
     }
 
-    const projectsText = formatProjectsList(finalizedProjects);
+    // Rerank projects if a library name is provided
+    const rankedProjects = libraryName
+      ? rerankProjects(finalizedProjects, libraryName)
+      : finalizedProjects;
+
+    const projectsText = formatProjectsList(rankedProjects);
 
     return {
       content: [
