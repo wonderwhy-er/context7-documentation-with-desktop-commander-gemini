@@ -21,19 +21,19 @@ export async function fetchProjects(): Promise<Project[] | null> {
 }
 
 /**
- * Fetches documentation context for a specific package
- * @param packageName The package name to fetch documentation for
+ * Fetches documentation context for a specific library
+ * @param libraryName The library name to fetch documentation for
  * @param tokens Number of tokens to retrieve (default: 5000)
  * @param topic Optional topic to rerank context for
  * @returns The documentation text or null if the request fails
  */
-export async function fetchPackageDocumentation(
-  packageName: string,
+export async function fetchLibraryDocumentation(
+  libraryName: string,
   tokens: number = 5000,
   topic: string = ""
 ): Promise<string | null> {
   try {
-    let contextURL = `${CONTEXT7_BASE_URL}/${packageName}/llm.txt`;
+    let contextURL = `${CONTEXT7_BASE_URL}/${libraryName}/llm.txt`;
     const params = [];
 
     if (tokens) {
@@ -62,7 +62,7 @@ export async function fetchPackageDocumentation(
 
     return text;
   } catch (error) {
-    console.error("Error fetching package documentation:", error);
+    console.error("Error fetching library documentation:", error);
     return null;
   }
 }

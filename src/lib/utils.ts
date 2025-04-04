@@ -6,7 +6,7 @@ import { Project } from "./types.js";
  * @returns Formatted project string
  */
 export function formatProject(project: Project): string {
-  return `Title: ${project.settings.title}\nPackage name: ${project.settings.project}\n`;
+  return `Title: ${project.settings.title}\nLibrary name: ${project.settings.project}\n`;
 }
 
 /**
@@ -16,5 +16,5 @@ export function formatProject(project: Project): string {
  */
 export function formatProjectsList(projects: Project[]): string {
   const formattedProjects = projects.map(formatProject);
-  return `${formattedProjects.length} available documentation packages:\n\n${formattedProjects.join("\n")}`;
+  return `${formattedProjects.length} available documentation libraries:\n\n${formattedProjects.join("\n")}`;
 }

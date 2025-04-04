@@ -3,13 +3,13 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-import { fetchProjects, fetchPackageDocumentation } from "./lib/api.js";
+import { fetchProjects, fetchLibraryDocumentation } from "./lib/api.js";
 import { formatProjectsList } from "./lib/utils.js";
 
 // Create server instance
 const server = new McpServer({
   name: "Context7",
-  description: "Retrieves documentation for packages.",
+  description: "Retrieves documentation and code examples for software libraries.",
   version: "1.0.0",
   capabilities: {
     resources: {},
@@ -19,8 +19,8 @@ const server = new McpServer({
 
 // Register Context7 tools
 server.tool(
-  "list-available-packages",
-  "Lists all packages from Context7. The package names can be used with 'get-package-documentation' to retrieve documentation.",
+  "list-available-docs",
+  "Lists all available library documentation from Context7. The library names can be used with 'get-library-documentation' to retrieve documentation.",
   async () => {
     const projects = await fetchProjects();
 
@@ -29,7 +29,7 @@ server.tool(
         content: [
           {
             type: "text",
-            text: "Failed to retrieve packages data from Context7",
+            text: "Failed to retrieve library documentation data from Context7",
           },
         ],
       };
@@ -43,7 +43,7 @@ server.tool(
         content: [
           {
             type: "text",
-            text: "No finalized documentation packages available",
+            text: "No finalized documentation libraries available",
           },
         ],
       };
@@ -63,18 +63,19 @@ server.tool(
 );
 
 server.tool(
-  "get-package-documentation",
-  "Retrieves documentation for a specific package from Context7. Use 'list-available-packages' first to see what's available.",
+  "get-library-documentation",
+  "Retrieves documentation for a specific library from Context7. Use 'list-available-docs' first to see what's available.",
   {
-    packageName: z
+    libraryName: z
       .string()
       .describe(
-        "Name of the package/library to retrieve documentation for (e.g., 'upstash-redis', 'nextjs'). Must match exactly a package name from 'list-available-packages'."
+        "Name of the library to retrieve documentation for (e.g., 'upstash-redis', 'nextjs'). Must match exactly a library name from 'list-available-docs'."
       ),
     topic: z
       .string()
+      .optional()
       .describe(
-        "Specific topic within the package to focus the documentation on (e.g., 'hooks', 'routing')."
+        "Specific topic within the library to focus the documentation on (e.g., 'hooks', 'routing')."
       ),
     tokens: z
       .number()
@@ -84,15 +85,15 @@ server.tool(
         "Maximum number of tokens of documentation to retrieve (default: 5000).Higher values provide more comprehensive documentation but use more context window."
       ),
   },
-  async ({ packageName, tokens = 5000, topic = "" }) => {
-    const documentationText = await fetchPackageDocumentation(packageName, tokens, topic);
+  async ({ libraryName, tokens = 5000, topic = "" }) => {
+    const documentationText = await fetchLibraryDocumentation(libraryName, tokens, topic);
 
     if (!documentationText) {
       return {
         content: [
           {
             type: "text",
-            text: "Documentation not found or not finalized for this package. Verify you've provided a valid package name exactly as listed by the 'list-available-packages' tool.",
+            text: "Documentation not found or not finalized for this library. Verify you've provided a valid library name exactly as listed by the 'list-available-docs' tool.",
           },
         ],
       };

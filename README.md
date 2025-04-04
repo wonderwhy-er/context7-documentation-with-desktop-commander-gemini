@@ -1,12 +1,12 @@
 # Context7 MCP Server
 
-In this repository, we provide an MCP Server for [Context7](https://context7.com), which offers access to high-quality documentation for popular packages and libraries.
+In this repository, we provide an MCP Server for [Context7](https://context7.com), which offers access to high-quality documentation for popular libraries.
 
-This lets you use Cursor, Windsurf, Claude Desktop, or any MCP Client, to use natural language to search and access documentation for packages, e.g.:
+This lets you use Cursor, Windsurf, Claude Desktop, or any MCP Client, to use natural language to search and access documentation for libraries, e.g.:
 
 - "What are the main features of React hooks?"
 - "How do I implement authentication with Next.js?"
-- "Show me documentation for Upstash Redis"
+- "Rate limiting with Redis"
 - "Get examples of using React Query"
 
 ## Usage
@@ -46,11 +46,11 @@ Add this to your Windsurf MCP config file. For more info, check the [Windsurf MC
 
 ### Tools
 
-- `list-available-packages`: Lists all available documentation packages from Context7
-- `get-package-documentation`: Retrieves documentation for a specific package with options for:
-  - `packageName`: Name of the package to retrieve docs for
-  - `topic`: Specific topic within the package to focus the documentation on
-  - `tokens`: Maximum number of tokens to retrieve (default: 5000)
+- `list-available-docs`: Lists all available documentation libraries from Context7
+- `get-library-documentation`: Retrieves documentation for a specific library with options for:
+  - `libraryName`: Name of the library to retrieve docs for
+  - `topic`: Specific topic within the library
+  - `tokens`: Maximum tokens to retrieve (default: 5000)
 
 ## Development
 
