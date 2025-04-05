@@ -33,7 +33,7 @@ export async function fetchLibraryDocumentation(
   topic: string = ""
 ): Promise<string | null> {
   try {
-    let contextURL = `${CONTEXT7_BASE_URL}/${libraryName}/llm.txt`;
+    let contextURL = `${CONTEXT7_BASE_URL}/${libraryName}/llms.txt`;
     const params = [];
 
     if (tokens) {
