@@ -35,10 +35,7 @@ Add this to your Windsurf MCP config file. For more info, check the [Windsurf MC
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp"
-      ]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
