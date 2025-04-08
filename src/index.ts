@@ -80,7 +80,7 @@ server.tool(
     libraryName: z
       .string()
       .describe(
-        "Name of the library to retrieve documentation for (e.g., 'upstash-redis', 'nextjs'). Must match exactly a library name from 'list-available-docs'."
+        "Name of the library to retrieve documentation for (e.g., 'mongodb/docs', 'vercel/nextjs'). Must match exactly a library name from 'list-available-docs'."
       ),
     topic: z
       .string()
@@ -93,7 +93,7 @@ server.tool(
       .min(5000)
       .optional()
       .describe(
-        "Maximum number of tokens of documentation to retrieve (default: 5000).Higher values provide more comprehensive documentation but use more context window."
+        "Maximum number of tokens of documentation to retrieve (default: 5000). Higher values provide more comprehensive documentation but use more context window."
       ),
   },
   async ({ libraryName, tokens = 5000, topic = "" }) => {

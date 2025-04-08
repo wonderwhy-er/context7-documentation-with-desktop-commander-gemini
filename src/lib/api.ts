@@ -33,33 +33,43 @@ export async function fetchLibraryDocumentation(
   topic: string = ""
 ): Promise<string | null> {
   try {
-    let contextURL = `${CONTEXT7_BASE_URL}/${libraryName}/llms.txt`;
-    const params = [];
+    // if libraryName has a "/" as the first character, remove it
+    if (libraryName.startsWith("/")) {
+      libraryName = libraryName.slice(1);
+    }
 
+    // Handle folders parameter
+    let basePath = libraryName;
+    let folders = "";
+    if (libraryName.includes("?folders=")) {
+      const [path, foldersParam] = libraryName.split("?folders=");
+      basePath = path;
+      folders = foldersParam;
+    }
+    let contextURL = `${CONTEXT7_BASE_URL}/${basePath}/llms.txt`;
+    const params = [];
+    if (folders) {
+      params.push(`folders=${encodeURIComponent(folders)}`);
+    }
     if (tokens) {
       params.push(`tokens=${tokens}`);
     }
     if (topic) {
       params.push(`topic=${encodeURIComponent(topic)}`);
     }
-
     if (params.length > 0) {
       contextURL += `?${params.join("&")}`;
     }
 
     const response = await fetch(contextURL);
-
     if (!response.ok) {
       console.error(`Failed to fetch documentation: ${response.status}`);
       return null;
     }
-
     const text = await response.text();
-
     if (!text || text === "No content available" || text === "No context data available") {
       return null;
     }
-
     return text;
   } catch (error) {
     console.error("Error fetching library documentation:", error);

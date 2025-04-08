@@ -70,6 +70,19 @@ npm run lint
 npm run build
 ```
 
+### Local Configuration
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "node",
+      "args": ["/ABSOLUTE/PATH/TO/PARENT/FOLDER/context7-mcp/build/index.js"]
+    }
+  }
+}
+```
+
 ### Testing with MCP Inspector
 
 You can also use the MCP Inspector to test the tools by following the MCP documentation for setting up the inspector.
