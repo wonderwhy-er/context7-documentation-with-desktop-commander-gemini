@@ -1,8 +1,8 @@
 import { Project } from "./types.js";
 
 /**
- * Format a project for display
- * @param project The project to format
+ * Format a project into a string representation
+ * @param project Project to format
  * @returns Formatted project string
  */
 export function formatProject(project: Project): string {
@@ -10,54 +10,158 @@ export function formatProject(project: Project): string {
 }
 
 /**
- * Format a list of projects for display
- * @param projects List of projects to format
- * @returns Formatted text with all projects
+ * Format a list of projects into a string representation
+ * @param projects Projects to format
+ * @returns Formatted projects string
  */
 export function formatProjectsList(projects: Project[]): string {
   const formattedProjects = projects.map(formatProject);
-  return `${formattedProjects.length} available documentation libraries:\n\n${formattedProjects.join("\n")}`;
+  return (
+    formattedProjects.length +
+    " available documentation libraries:\n\n" +
+    formattedProjects.join("\n")
+  );
 }
 
 /**
  * Rerank projects based on a search term
- * @param projects List of projects to rerank
- * @param searchTerm Term to rerank by (matches against project name and title)
- * @returns Reranked list of projects
+ * @param projects Projects to rerank
+ * @param searchTerm Search term to rerank by
+ * @returns Reranked projects
  */
 export function rerankProjects(projects: Project[], searchTerm: string): Project[] {
   if (!searchTerm) return projects;
-  const lowerSearchTerm = searchTerm.toLowerCase();
+
+  // Normalize the search term - remove special characters and convert to lowercase
+  const normalizedSearchTerm = searchTerm.toLowerCase().replace(/[^\w\s]/g, "");
+
   return [...projects].sort((a, b) => {
     const aTitle = a.settings.title.toLowerCase();
     const aProject = a.settings.project.toLowerCase();
+    const aProjectName = aProject.split("/").pop() || "";
+    const aProjectPath = aProject.split("/").slice(0, -1).join("/");
+
     const bTitle = b.settings.title.toLowerCase();
     const bProject = b.settings.project.toLowerCase();
+    const bProjectName = bProject.split("/").pop() || "";
+    const bProjectPath = bProject.split("/").slice(0, -1).join("/");
 
-    // Exact matches first
-    const aExactMatch = aProject === lowerSearchTerm || aTitle === lowerSearchTerm;
-    const bExactMatch = bProject === lowerSearchTerm || bTitle === lowerSearchTerm;
+    // Normalize project names for better matching - remove special characters
+    const normalizedATitle = aTitle.replace(/[^\w\s]/g, "");
+    const normalizedAProject = aProject.replace(/[^\w\s]/g, "");
+    const normalizedAProjectName = aProjectName.replace(/[^\w\s]/g, "");
 
-    if (aExactMatch && !bExactMatch) return -1;
-    if (!aExactMatch && bExactMatch) return 1;
+    const normalizedBTitle = bTitle.replace(/[^\w\s]/g, "");
+    const normalizedBProject = bProject.replace(/[^\w\s]/g, "");
+    const normalizedBProjectName = bProjectName.replace(/[^\w\s]/g, "");
 
-    // Then starts-with matches
-    const aStartsWithMatch =
-      aProject.startsWith(lowerSearchTerm) || aTitle.startsWith(lowerSearchTerm);
-    const bStartsWithMatch =
-      bProject.startsWith(lowerSearchTerm) || bTitle.startsWith(lowerSearchTerm);
+    // Calculate match scores for better ranking
+    const aScore = calculateMatchScore(normalizedSearchTerm, {
+      original: {
+        title: aTitle,
+        project: aProject,
+        projectName: aProjectName,
+        projectPath: aProjectPath,
+      },
+      normalized: {
+        title: normalizedATitle,
+        project: normalizedAProject,
+        projectName: normalizedAProjectName,
+      },
+    });
 
-    if (aStartsWithMatch && !bStartsWithMatch) return -1;
-    if (!aStartsWithMatch && bStartsWithMatch) return 1;
+    const bScore = calculateMatchScore(normalizedSearchTerm, {
+      original: {
+        title: bTitle,
+        project: bProject,
+        projectName: bProjectName,
+        projectPath: bProjectPath,
+      },
+      normalized: {
+        title: normalizedBTitle,
+        project: normalizedBProject,
+        projectName: normalizedBProjectName,
+      },
+    });
 
-    // Then contains matches
-    const aContainsMatch = aProject.includes(lowerSearchTerm) || aTitle.includes(lowerSearchTerm);
-    const bContainsMatch = bProject.includes(lowerSearchTerm) || bTitle.includes(lowerSearchTerm);
-
-    if (aContainsMatch && !bContainsMatch) return -1;
-    if (!aContainsMatch && bContainsMatch) return 1;
+    // Higher score first
+    if (aScore !== bScore) {
+      return bScore - aScore;
+    }
 
     // Default to alphabetical by project name
     return aProject.localeCompare(bProject);
   });
+}
+
+/**
+ * Calculate a match score for ranking
+ * Higher score means better match
+ */
+function calculateMatchScore(
+  searchTerm: string,
+  projectData: {
+    original: { title: string; project: string; projectName: string; projectPath: string };
+    normalized: { title: string; project: string; projectName: string };
+  }
+): number {
+  const { original, normalized } = projectData;
+  let score = 0;
+
+  // Exact matches (highest priority)
+  if (
+    original.project === searchTerm ||
+    original.title === searchTerm ||
+    original.projectName === searchTerm
+  ) {
+    score += 100;
+  }
+
+  // Normalized exact matches
+  if (
+    normalized.project === searchTerm ||
+    normalized.title === searchTerm ||
+    normalized.projectName === searchTerm
+  ) {
+    score += 90;
+  }
+
+  // Starts with matches
+  if (
+    original.project.startsWith(searchTerm) ||
+    original.title.startsWith(searchTerm) ||
+    original.projectName.startsWith(searchTerm)
+  ) {
+    score += 80;
+  }
+
+  // Normalized starts with matches
+  if (
+    normalized.project.startsWith(searchTerm) ||
+    normalized.title.startsWith(searchTerm) ||
+    normalized.projectName.startsWith(searchTerm)
+  ) {
+    score += 70;
+  }
+
+  // Contains matches
+  if (
+    original.project.includes(searchTerm) ||
+    original.title.includes(searchTerm) ||
+    original.projectName.includes(searchTerm) ||
+    original.projectPath.includes(searchTerm)
+  ) {
+    score += 60;
+  }
+
+  // Normalized contains matches
+  if (
+    normalized.project.includes(searchTerm) ||
+    normalized.title.includes(searchTerm) ||
+    normalized.projectName.includes(searchTerm)
+  ) {
+    score += 50;
+  }
+
+  return score;
 }
