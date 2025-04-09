@@ -25,7 +25,7 @@ server.tool(
     libraryName: z
       .string()
       .optional()
-      .describe("Optional library name to search for and rerank results based on"),
+      .describe("Optional library name to search for and rerank results based on."),
   },
   async ({ libraryName }) => {
     const projects = await fetchProjects();

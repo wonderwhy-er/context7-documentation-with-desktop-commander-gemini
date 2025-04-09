@@ -44,6 +44,7 @@ Add this to your Windsurf MCP config file. For more info, check the [Windsurf MC
 ### Tools
 
 - `list-available-docs`: Lists all available documentation libraries from Context7
+  - `libraryName`: Optional library name to search for and rerank results based on
 - `get-library-documentation`: Retrieves documentation for a specific library with options for:
   - `libraryName`: Name of the library to retrieve docs for
   - `topic`: Specific topic within the library
