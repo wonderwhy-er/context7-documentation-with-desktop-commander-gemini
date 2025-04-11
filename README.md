@@ -84,23 +84,16 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
 
 ## Development
 
-Clone the project and run:
+Clone the project and install dependencies:
 
 ```bash
-npm install
-```
-
-Format and lint:
-
-```bash
-npm run format
-npm run lint
+bun i
 ```
 
 Build:
 
 ```bash
-npm run build
+bun run build
 ```
 
 ### Local Configuration Example
