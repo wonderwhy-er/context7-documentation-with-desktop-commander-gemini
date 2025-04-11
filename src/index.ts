@@ -9,7 +9,7 @@ import { formatProjectsList, rerankProjects } from "./lib/utils.js";
 // Create server instance
 const server = new McpServer({
   name: "Context7",
-  description: "Retrieves up-to-date documentation and code examples for npm packages.",
+  description: "Retrieves up-to-date documentation and code examples for any library.",
   version: "1.0.0",
   capabilities: {
     resources: {},

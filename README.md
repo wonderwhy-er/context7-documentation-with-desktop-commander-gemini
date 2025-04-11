@@ -75,7 +75,7 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
 
 ### Available Tools
 
-- `resolve-library-id`: Resolves a general npm package name into a Context7-compatible library ID.
+- `resolve-library-id`: Resolves a general library name into a Context7-compatible library ID.
   - `libraryName` (optional): Search and rerank results
 - `get-library-docs`: Fetches documentation for a library using a Context7-compatible library ID.
   - `context7CompatibleLibraryID` (required)
