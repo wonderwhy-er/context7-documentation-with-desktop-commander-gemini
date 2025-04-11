@@ -9,7 +9,7 @@ import { formatProjectsList, rerankProjects } from "./lib/utils.js";
 // Create server instance
 const server = new McpServer({
   name: "Context7",
-  description: "Retrieves documentation and code examples for software libraries.",
+  description: "Retrieves up-to-date documentation and code examples for npm packages.",
   version: "1.0.0",
   capabilities: {
     resources: {},
@@ -19,8 +19,8 @@ const server = new McpServer({
 
 // Register Context7 tools
 server.tool(
-  "list-available-docs",
-  "Lists all available library documentation from Context7. The library names can be used with 'get-library-documentation' to retrieve documentation.",
+  "resolve-library-id",
+  "Required first step: Resolves a general package name into a Context7-compatible library ID. Must be called before using 'get-library-docs' to retrieve a valid Context7-compatible library ID.",
   {
     libraryName: z
       .string()
@@ -66,7 +66,7 @@ server.tool(
       content: [
         {
           type: "text",
-          text: projectsText,
+          text: "Available libraries and their Context7-compatible library ID:\n\n" + projectsText,
         },
       ],
     };
@@ -74,37 +74,39 @@ server.tool(
 );
 
 server.tool(
-  "get-library-documentation",
-  "Retrieves documentation for a specific library from Context7. Use 'list-available-docs' first to see what's available.",
+  "get-library-docs",
+  "Fetches up-to-date documentation for a library. You must call 'resolve-library-id' first to obtain the exact Context7-compatible library ID required to use this tool.",
   {
-    libraryName: z
+    context7CompatibleLibraryID: z
       .string()
       .describe(
-        "Name of the library to retrieve documentation for (e.g., 'mongodb/docs', 'vercel/nextjs'). Must match exactly a library name from 'list-available-docs'."
+        "Exact Context7-compatible library ID (e.g., 'mongodb/docs', 'vercel/nextjs') retrieved from 'resolve-library-id'."
       ),
     topic: z
       .string()
       .optional()
-      .describe(
-        "Specific topic within the library to focus the documentation on (e.g., 'hooks', 'routing')."
-      ),
+      .describe("Topic to focus documentation on (e.g., 'hooks', 'routing')."),
     tokens: z
       .number()
       .min(5000)
       .optional()
       .describe(
-        "Maximum number of tokens of documentation to retrieve (default: 5000). Higher values provide more comprehensive documentation but use more context window."
+        "Maximum number of tokens of documentation to retrieve (default: 5000). Higher values provide more context but consume more tokens."
       ),
   },
-  async ({ libraryName, tokens = 5000, topic = "" }) => {
-    const documentationText = await fetchLibraryDocumentation(libraryName, tokens, topic);
+  async ({ context7CompatibleLibraryID, tokens = 5000, topic = "" }) => {
+    const documentationText = await fetchLibraryDocumentation(
+      context7CompatibleLibraryID,
+      tokens,
+      topic
+    );
 
     if (!documentationText) {
       return {
         content: [
           {
             type: "text",
-            text: "Documentation not found or not finalized for this library. Verify you've provided a valid library name exactly as listed by the 'list-available-docs' tool.",
+            text: "Documentation not found or not finalized for this library. This might have happened because you used an invalid Context7-compatible library ID. To get a valid Context7-compatible library ID, use the 'resolve-library-id' with the package name you wish to retrieve documentation for.",
           },
         ],
       };
