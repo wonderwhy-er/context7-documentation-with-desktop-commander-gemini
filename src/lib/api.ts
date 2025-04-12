@@ -46,20 +46,10 @@ export async function fetchLibraryDocumentation(
       basePath = path;
       folders = foldersParam;
     }
-    let contextURL = `${CONTEXT7_BASE_URL}/${basePath}/llms.txt`;
-    const params = [];
-    if (folders) {
-      params.push(`folders=${encodeURIComponent(folders)}`);
-    }
-    if (tokens) {
-      params.push(`tokens=${tokens}`);
-    }
-    if (topic) {
-      params.push(`topic=${encodeURIComponent(topic)}`);
-    }
-    if (params.length > 0) {
-      contextURL += `?${params.join("&")}`;
-    }
+    const contextURL = new URL(`${CONTEXT7_BASE_URL}/${basePath}/llms.txt`);
+    if (folders) contextURL.set('folders', folders)
+    if (tokens) contextURL.set('tokens', tokens)
+    if (topic) contextURL.set('topic', topic)
 
     const response = await fetch(contextURL);
     if (!response.ok) {
