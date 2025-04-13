@@ -47,9 +47,9 @@ export async function fetchLibraryDocumentation(
       folders = foldersParam;
     }
     const contextURL = new URL(`${CONTEXT7_BASE_URL}/${basePath}/llms.txt`);
-    if (folders) contextURL.set("folders", folders);
-    if (tokens) contextURL.set("tokens", tokens);
-    if (topic) contextURL.set("topic", topic);
+    if (folders) contextURL.searchParams.set("folders", folders);
+    if (tokens) contextURL.searchParams.set("tokens", tokens.toString());
+    if (topic) contextURL.searchParams.set("topic", topic);
 
     const response = await fetch(contextURL);
     if (!response.ok) {
