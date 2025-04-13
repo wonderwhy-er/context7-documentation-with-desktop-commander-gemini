@@ -14,16 +14,16 @@ Context7 MCP pulls up-to-date, version-specific documentation and code examples 
 
 Add `use context7` to your question in Cursor:
 
-```
-"How do I use the new Next.js `after` function? use context7"
-```
-
-```
-"How do I invalidate a query in React Query? use context7"
+```txt
+How do I use the new Next.js `after` function? use context7
 ```
 
+```txt
+How do I invalidate a query in React Query? use context7
 ```
-"How do I protect a route with NextAuth? use context7"
+
+```txt
+How do I protect a route with NextAuth? use context7
 ```
 
 Context7 fetches up-to-date documentation and working code examples right into your LLM’s context.
