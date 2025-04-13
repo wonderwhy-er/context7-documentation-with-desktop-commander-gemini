@@ -45,7 +45,7 @@ No tab-switching, no hallucinated APIs that don't exist, no outdated code genera
 
 Go to: `Settings` -> `Cursor Settings` -> `MCP` -> `Add new global MCP server`
 
-Paste this into your Cursor `~/.cursor/mcp.json` file. See [Cursor MCP docs](https://docs.cursor.com/context/model-context-protocol) for more info. 
+Paste this into your Cursor `~/.cursor/mcp.json` file. See [Cursor MCP docs](https://docs.cursor.com/context/model-context-protocol) for more info.
 
 ```json
 {
