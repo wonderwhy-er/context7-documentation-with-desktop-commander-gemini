@@ -8,7 +8,7 @@ const CONTEXT7_BASE_URL = "https://context7.com";
  */
 export async function fetchProjects(): Promise<Project[] | null> {
   try {
-    const response = await fetch(`${CONTEXT7_BASE_URL}/api/projects`);
+    const response = await fetch(`${CONTEXT7_BASE_URL}/api/libraries`);
     if (!response.ok) {
       console.error(`Failed to fetch projects: ${response.status}`);
       return null;
