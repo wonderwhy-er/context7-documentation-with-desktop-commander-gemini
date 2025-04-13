@@ -8,7 +8,7 @@ const CONTEXT7_BASE_URL = "https://context7.com";
  */
 export async function fetchProjects(): Promise<Project[] | null> {
   try {
-    const response = await fetch(`${CONTEXT7_BASE_URL}/api/projects`);
+    const response = await fetch(`${CONTEXT7_BASE_URL}/api/libraries`);
     if (!response.ok) {
       console.error(`Failed to fetch projects: ${response.status}`);
       return null;
@@ -47,11 +47,15 @@ export async function fetchLibraryDocumentation(
       folders = foldersParam;
     }
     const contextURL = new URL(`${CONTEXT7_BASE_URL}/${basePath}/llms.txt`);
-    if (folders) contextURL.set('folders', folders)
-    if (tokens) contextURL.set('tokens', tokens)
-    if (topic) contextURL.set('topic', topic)
+    if (folders) contextURL.searchParams.set("folders", folders);
+    if (tokens) contextURL.searchParams.set("tokens", tokens.toString());
+    if (topic) contextURL.searchParams.set("topic", topic);
 
-    const response = await fetch(contextURL);
+    const response = await fetch(contextURL, {
+      headers: {
+        "X-Context7-Source": "mcp-server",
+      },
+    });
     if (!response.ok) {
       console.error(`Failed to fetch documentation: ${response.status}`);
       return null;
