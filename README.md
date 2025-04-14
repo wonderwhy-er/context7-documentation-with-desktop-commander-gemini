@@ -73,6 +73,22 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
 }
 ```
 
+### Install in VSCode
+
+Add this to your VSCode MCP config file. See [VSCode MCP docs](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) for more info.
+
+```json
+{
+  "servers": {
+    "Context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
 ### Available Tools
 
 - `resolve-library-id`: Resolves a general library name into a Context7-compatible library ID.
