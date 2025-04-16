@@ -1,36 +1,24 @@
-export interface ProjectSettings {
+export interface SearchResult {
+  id: string;
   title: string;
-  project: string;
-  folders: string[];
-  docsRepoUrl: string;
-}
-
-export interface Version {
+  branch: string;
   lastUpdate: string;
-  state: "initial" | "parsed" | "finalized" | "invalid_docs" | "error" | "stop" | "delete";
-  parseDuration: number;
+  state: DocumentState;
   totalTokens: number;
   totalSnippets: number;
-  averageTokens: number;
+  totalPages: number;
 }
 
-export interface Project {
-  settings: ProjectSettings;
-  version: Version;
+export interface SearchResponse {
+  results: SearchResult[];
 }
 
-export interface CodeListElement {
-  language: string;
-  code: string;
-}
-
-export interface CodeSnippet {
-  codeTitle: string;
-  codeDescription: string;
-  codeLanguage: string;
-  codeTokens: number;
-  codeId: string;
-  pageTitle: string;
-  codeList: CodeListElement[];
-  relavance: number;
-}
+// Version state is still needed for validating search results
+export type DocumentState =
+  | "initial"
+  | "parsed"
+  | "finalized"
+  | "invalid_docs"
+  | "error"
+  | "stop"
+  | "delete";

@@ -1,57 +1,53 @@
-import { Project } from "./types.js";
+import { SearchResponse } from "./types.js";
 
-const CONTEXT7_BASE_URL = "https://context7.com";
+const CONTEXT7_API_BASE_URL = "https://context7.com/api";
+const DEFAULT_TYPE = "txt";
 
 /**
- * Fetches projects from the Context7 API
- * @returns Array of projects or null if the request fails
+ * Searches for libraries matching the given query
+ * @param query The search query
+ * @returns Search results or null if the request fails
  */
-export async function fetchProjects(): Promise<Project[] | null> {
+export async function searchLibraries(query: string): Promise<SearchResponse | null> {
   try {
-    const response = await fetch(`${CONTEXT7_BASE_URL}/api/libraries`);
+    const url = new URL(`${CONTEXT7_API_BASE_URL}/v1/search`);
+    url.searchParams.set("query", query);
+    const response = await fetch(url);
     if (!response.ok) {
-      console.error(`Failed to fetch projects: ${response.status}`);
+      console.error(`Failed to search libraries: ${response.status}`);
       return null;
     }
     return await response.json();
   } catch (error) {
-    console.error("Error fetching projects:", error);
+    console.error("Error searching libraries:", error);
     return null;
   }
 }
 
 /**
  * Fetches documentation context for a specific library
- * @param libraryName The library name to fetch documentation for
- * @param tokens Number of tokens to retrieve (default: 5000)
- * @param topic Optional topic to rerank context for
+ * @param libraryId The library ID to fetch documentation for
+ * @param options Options for the request
  * @returns The documentation text or null if the request fails
  */
 export async function fetchLibraryDocumentation(
-  libraryName: string,
-  tokens: number = 5000,
-  topic: string = ""
+  libraryId: string,
+  options: {
+    tokens?: number;
+    topic?: string;
+    folders?: string;
+  } = {}
 ): Promise<string | null> {
   try {
-    // if libraryName has a "/" as the first character, remove it
-    if (libraryName.startsWith("/")) {
-      libraryName = libraryName.slice(1);
+    if (libraryId.startsWith("/")) {
+      libraryId = libraryId.slice(1);
     }
-
-    // Handle folders parameter
-    let basePath = libraryName;
-    let folders = "";
-    if (libraryName.includes("?folders=")) {
-      const [path, foldersParam] = libraryName.split("?folders=");
-      basePath = path;
-      folders = foldersParam;
-    }
-    const contextURL = new URL(`${CONTEXT7_BASE_URL}/${basePath}/llms.txt`);
-    if (folders) contextURL.searchParams.set("folders", folders);
-    if (tokens) contextURL.searchParams.set("tokens", tokens.toString());
-    if (topic) contextURL.searchParams.set("topic", topic);
-
-    const response = await fetch(contextURL, {
+    const url = new URL(`${CONTEXT7_API_BASE_URL}/v1/${libraryId}`);
+    if (options.tokens) url.searchParams.set("tokens", options.tokens.toString());
+    if (options.topic) url.searchParams.set("topic", options.topic);
+    if (options.folders) url.searchParams.set("folders", options.folders);
+    url.searchParams.set("type", DEFAULT_TYPE);
+    const response = await fetch(url, {
       headers: {
         "X-Context7-Source": "mcp-server",
       },
