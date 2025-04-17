@@ -1,6 +1,6 @@
 {
   "name": "@upstash/context7-mcp",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "MCP server for Context7",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,8 +12,8 @@
     "type": "git",
     "url": "git+https://github.com/upstash/context7-mcp.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["modelcontextprotocol", "mcp", "context7"],
+  "author": "abdush",
   "license": "MIT",
   "type": "module",
   "bin": {
