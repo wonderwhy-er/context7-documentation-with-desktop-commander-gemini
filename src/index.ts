@@ -3,14 +3,16 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-import { fetchProjects, fetchLibraryDocumentation } from "./lib/api.js";
-import { formatProjectsList, rerankProjects } from "./lib/utils.js";
+import { searchLibraries, fetchLibraryDocumentation } from "./lib/api.js";
+import { formatSearchResults } from "./lib/utils.js";
+
+const DEFAULT_MINIMUM_TOKENS = 5000;
 
 // Create server instance
 const server = new McpServer({
   name: "Context7",
   description: "Retrieves up-to-date documentation and code examples for any library.",
-  version: "1.0.0",
+  version: "1.0.4",
   capabilities: {
     resources: {},
     tools: {},
@@ -28,9 +30,9 @@ server.tool(
       .describe("Optional library name to search for and rerank results based on."),
   },
   async ({ libraryName }) => {
-    const projects = await fetchProjects();
+    const searchResponse = await searchLibraries(libraryName || "");
 
-    if (!projects) {
+    if (!searchResponse || !searchResponse.results) {
       return {
         content: [
           {
@@ -41,32 +43,24 @@ server.tool(
       };
     }
 
-    // Filter projects to only include those with state "finalized"
-    const finalizedProjects = projects.filter((project) => project.version.state === "finalized");
-
-    if (finalizedProjects.length === 0) {
+    if (searchResponse.results.length === 0) {
       return {
         content: [
           {
             type: "text",
-            text: "No finalized documentation libraries available",
+            text: "No documentation libraries available",
           },
         ],
       };
     }
 
-    // Rerank projects if a library name is provided
-    const rankedProjects = libraryName
-      ? rerankProjects(finalizedProjects, libraryName)
-      : finalizedProjects;
-
-    const projectsText = formatProjectsList(rankedProjects);
+    const resultsText = formatSearchResults(searchResponse);
 
     return {
       content: [
         {
           type: "text",
-          text: "Available libraries and their Context7-compatible library ID:\n\n" + projectsText,
+          text: "Available libraries and their Context7-compatible library IDs:\n\n" + resultsText,
         },
       ],
     };
@@ -88,18 +82,28 @@ server.tool(
       .describe("Topic to focus documentation on (e.g., 'hooks', 'routing')."),
     tokens: z
       .number()
-      .min(5000)
+      .min(DEFAULT_MINIMUM_TOKENS)
       .optional()
       .describe(
-        "Maximum number of tokens of documentation to retrieve (default: 5000). Higher values provide more context but consume more tokens."
+        `Maximum number of tokens of documentation to retrieve (default: ${DEFAULT_MINIMUM_TOKENS}). Higher values provide more context but consume more tokens.`
       ),
   },
-  async ({ context7CompatibleLibraryID, tokens = 5000, topic = "" }) => {
-    const documentationText = await fetchLibraryDocumentation(
-      context7CompatibleLibraryID,
+  async ({ context7CompatibleLibraryID, tokens = DEFAULT_MINIMUM_TOKENS, topic = "" }) => {
+    // Extract folders parameter if present in the ID
+    let folders = "";
+    let libraryId = context7CompatibleLibraryID;
+
+    if (context7CompatibleLibraryID.includes("?folders=")) {
+      const [id, foldersParam] = context7CompatibleLibraryID.split("?folders=");
+      libraryId = id;
+      folders = foldersParam;
+    }
+
+    const documentationText = await fetchLibraryDocumentation(libraryId, {
       tokens,
-      topic
-    );
+      topic,
+      folders,
+    });
 
     if (!documentationText) {
       return {
