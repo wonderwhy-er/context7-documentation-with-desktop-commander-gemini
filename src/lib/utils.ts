@@ -20,5 +20,5 @@ export function formatSearchResults(searchResponse: SearchResponse): string {
   }
 
   const formattedResults = searchResponse.results.map(formatSearchResult);
-  return formattedResults.join("\n\n");
+  return formattedResults.join("\n\n--------------------\n");
 }
