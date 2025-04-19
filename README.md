@@ -131,6 +131,25 @@ bun run build
 npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp@latest
 ```
 
+## Troubleshooting
+
+### ERR_MODULE_NOT_FOUND
+
+If you see this error, try using `bunx` instead of `npx`.
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "bunx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}
+```
+
+This often resolves module resolution issues, especially in environments where `npx` does not properly install or resolve packages.
+
 ## License
 
 MIT
