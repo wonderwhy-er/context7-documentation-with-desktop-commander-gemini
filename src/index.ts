@@ -26,11 +26,10 @@ server.tool(
   {
     libraryName: z
       .string()
-      .optional()
-      .describe("Optional library name to search for and rerank results based on."),
+      .describe("Library name to search for and retrieve a Context7-compatible library ID."),
   },
   async ({ libraryName }) => {
-    const searchResponse = await searchLibraries(libraryName || "");
+    const searchResponse = await searchLibraries(libraryName);
 
     if (!searchResponse || !searchResponse.results) {
       return {

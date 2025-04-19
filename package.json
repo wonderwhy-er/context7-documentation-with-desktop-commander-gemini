@@ -12,7 +12,11 @@
     "type": "git",
     "url": "git+https://github.com/upstash/context7-mcp.git"
   },
-  "keywords": ["modelcontextprotocol", "mcp", "context7"],
+  "keywords": [
+    "modelcontextprotocol",
+    "mcp",
+    "context7"
+  ],
   "author": "abdush",
   "license": "MIT",
   "type": "module",

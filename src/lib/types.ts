@@ -1,6 +1,7 @@
 export interface SearchResult {
   id: string;
   title: string;
+  description?: string;
   branch: string;
   lastUpdate: string;
   state: DocumentState;
