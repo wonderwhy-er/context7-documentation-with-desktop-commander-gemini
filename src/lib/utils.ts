@@ -6,7 +6,7 @@ import { SearchResponse, SearchResult } from "./types.js";
  * @returns Formatted search result string
  */
 export function formatSearchResult(result: SearchResult): string {
-  return `Title: ${result.title}\n\nContext7-compatible library ID: ${result.id}`;
+  return `Title: ${result.title}\n\nContext7-compatible library ID: ${result.id}\n\nDescription: ${result.description}`;
 }
 
 /**
