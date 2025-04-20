@@ -1,5 +1,7 @@
 # Context7 MCP - Up-to-date Docs For Any Cursor Prompt
 
+[![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp)
+
 ## ❌ Without Context7
 
 LLMs rely on outdated or generic information about the libraries you use. You get:
@@ -41,8 +43,6 @@ No tab-switching, no hallucinated APIs that don't exist, no outdated code genera
 - Node.js >= v18.0.0
 - Cursor, Windsurf, Claude Desktop or another MCP Client
 
-> **Note on Runtimes:** While `npx` (Node.js) is the recommended default for broader compatibility, an alternative using `deno` is provided below for users prioritizing enhanced security. Deno allows explicit control over script permissions (like network access) via flags such as `--allow-net`, reducing potential risks. See [#7](https://github.com/upstash/context7-mcp/issues/7) for the discussion.
-
 ### Install in Cursor
 
 Go to: `Settings` -> `Cursor Settings` -> `MCP` -> `Add new global MCP server`
@@ -61,7 +61,23 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 ```
 
 <details>
-<summary>Alternative: Use Deno (Enhanced Security)</summary>
+<summary>Alternative: Use Bun</summary>
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "bunx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary>Alternative: Use Deno</summary>
 
 ```json
 {
@@ -91,22 +107,6 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
 }
 ```
 
-<details>
-<summary>Alternative: Use Deno (Enhanced Security)</summary>
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "deno",
-      "args": ["run", "--allow-net", "npm:@upstash/context7-mcp"]
-    }
-  }
-}
-```
-
-</details>
-
 ### Install in VSCode
 
 Add this to your VSCode MCP config file. See [VSCode MCP docs](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) for more info.
@@ -122,23 +122,6 @@ Add this to your VSCode MCP config file. See [VSCode MCP docs](https://code.visu
   }
 }
 ```
-
-<details>
-<summary>Alternative: Use Deno (Enhanced Security)</summary>
-
-```json
-{
-  "servers": {
-    "Context7": {
-      "type": "stdio",
-      "command": "deno",
-      "args": ["run", "--allow-net", "npm:@upstash/context7-mcp"]
-    }
-  }
-}
-```
-
-</details>
 
 ### Available Tools
 
