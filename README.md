@@ -26,7 +26,7 @@ How do I invalidate a query in React Query? use context7
 How do I protect a route with NextAuth? use context7
 ```
 
-Context7 fetches up-to-date documentation and working code examples right into your LLM’s context.
+Context7 fetches up-to-date documentation and working code examples right into your LLM's context.
 
 - 1️⃣ Ask your question naturally
 - 2️⃣ Tell the LLM to `use context7`
@@ -41,11 +41,13 @@ No tab-switching, no hallucinated APIs that don't exist, no outdated code genera
 - Node.js >= v18.0.0
 - Cursor, Windsurf, Claude Desktop or another MCP Client
 
+> **Note on Runtimes:** While `npx` (Node.js) is the recommended default for broader compatibility, an alternative using `deno` is provided below for users prioritizing enhanced security. Deno allows explicit control over script permissions (like network access) via flags such as `--allow-net`, reducing potential risks. See [#7](https://github.com/upstash/context7-mcp/issues/7) for the discussion.
+
 ### Install in Cursor
 
 Go to: `Settings` -> `Cursor Settings` -> `MCP` -> `Add new global MCP server`
 
-Paste this into your Cursor `~/.cursor/mcp.json` file. See [Cursor MCP docs](https://docs.cursor.com/context/model-context-protocol) for more info.
+Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file is the recommended approach. See [Cursor MCP docs](https://docs.cursor.com/context/model-context-protocol) for more info.
 
 ```json
 {
@@ -57,6 +59,22 @@ Paste this into your Cursor `~/.cursor/mcp.json` file. See [Cursor MCP docs](htt
   }
 }
 ```
+
+<details>
+<summary>Alternative: Use Deno (Enhanced Security)</summary>
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "deno",
+      "args": ["run", "--allow-net", "npm:@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+</details>
 
 ### Install in Windsurf
 
@@ -73,6 +91,22 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
 }
 ```
 
+<details>
+<summary>Alternative: Use Deno (Enhanced Security)</summary>
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "deno",
+      "args": ["run", "--allow-net", "npm:@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+</details>
+
 ### Install in VSCode
 
 Add this to your VSCode MCP config file. See [VSCode MCP docs](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) for more info.
@@ -88,6 +122,23 @@ Add this to your VSCode MCP config file. See [VSCode MCP docs](https://code.visu
   }
 }
 ```
+
+<details>
+<summary>Alternative: Use Deno (Enhanced Security)</summary>
+
+```json
+{
+  "servers": {
+    "Context7": {
+      "type": "stdio",
+      "command": "deno",
+      "args": ["run", "--allow-net", "npm:@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+</details>
 
 ### Available Tools
 
