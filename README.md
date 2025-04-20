@@ -1,4 +1,5 @@
 # Context7 MCP - Up-to-date Docs For Any Cursor Prompt
+[![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp)
 
 [![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp)
 
@@ -42,6 +43,14 @@ No tab-switching, no hallucinated APIs that don't exist, no outdated code genera
 
 - Node.js >= v18.0.0
 - Cursor, Windsurf, Claude Desktop or another MCP Client
+
+### Installing via Smithery
+
+To install Context7 MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@upstash/context7-mcp):
+
+```bash
+npx -y @smithery/cli install @upstash/context7-mcp --client claude
+```
 
 ### Install in Cursor
 
