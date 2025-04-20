@@ -1,6 +1,4 @@
 # Context7 MCP - Up-to-date Docs For Any Cursor Prompt
-[![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp)
-
 [![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp)
 
 ## ❌ Without Context7
