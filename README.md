@@ -214,6 +214,10 @@ If you see this error, try using `bunx` instead of `npx`.
 
 This often resolves module resolution issues, especially in environments where `npx` does not properly install or resolve packages.
 
+## Context7 in media
+
++ [Better Stack: "Free Tool Makes Cursor 10x Smarter"](https://youtu.be/52FC3qObp9E)
+
 ## License
 
 MIT
