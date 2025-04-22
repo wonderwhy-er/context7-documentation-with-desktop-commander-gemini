@@ -1,4 +1,5 @@
 # Context7 MCP - Up-to-date Docs For Any Prompt
+
 [![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp)
 
 ## ❌ Without Context7
@@ -22,7 +23,6 @@ Create a basic Next.js project with app router. use context7
 ```txt
 Create a script to delete the rows where the city is "" given PostgreSQL credentials. use context7
 ```
-
 
 Context7 fetches up-to-date code examples and documentation right into your LLM's context.
 
@@ -153,7 +153,7 @@ Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude D
 ### Available Tools
 
 - `resolve-library-id`: Resolves a general library name into a Context7-compatible library ID.
-  - `libraryName` (optional): Search and rerank results
+  - `libraryName` (required)
 - `get-library-docs`: Fetches documentation for a library using a Context7-compatible library ID.
   - `context7CompatibleLibraryID` (required)
   - `topic` (optional): Focus the docs on a specific topic (e.g., "routing", "hooks")
@@ -211,9 +211,17 @@ If you see this error, try using `bunx` instead of `npx`.
 
 This often resolves module resolution issues, especially in environments where `npx` does not properly install or resolve packages.
 
+### MCP Client Errors
+
+1. Try removing `@latest` from the package name.
+
+2. Try using `bunx` as an alternative.
+
+3. Try using `deno` as an alternative.
+
 ## Context7 in media
 
-+ [Better Stack: "Free Tool Makes Cursor 10x Smarter"](https://youtu.be/52FC3qObp9E)
+- [Better Stack: "Free Tool Makes Cursor 10x Smarter"](https://youtu.be/52FC3qObp9E)
 
 ## License
 
