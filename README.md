@@ -223,6 +223,10 @@ This often resolves module resolution issues, especially in environments where `
 
 - [Better Stack: "Free Tool Makes Cursor 10x Smarter"](https://youtu.be/52FC3qObp9E)
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=upstash/context7&type=Date)](https://www.star-history.com/#upstash/context7&Date)
+
 ## License
 
 MIT
