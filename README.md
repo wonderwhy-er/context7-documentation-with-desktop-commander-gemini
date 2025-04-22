@@ -1,4 +1,5 @@
 # Context7 MCP - Up-to-date Docs For Any Prompt
+
 [![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp)
 
 ## ❌ Without Context7
@@ -22,7 +23,6 @@ Create a basic Next.js project with app router. use context7
 ```txt
 Create a script to delete the rows where the city is "" given PostgreSQL credentials. use context7
 ```
-
 
 Context7 fetches up-to-date code examples and documentation right into your LLM's context.
 
@@ -153,11 +153,11 @@ Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude D
 ### Available Tools
 
 - `resolve-library-id`: Resolves a general library name into a Context7-compatible library ID.
-  - `libraryName` (optional): Search and rerank results
+  - `libraryName` (required)
 - `get-library-docs`: Fetches documentation for a library using a Context7-compatible library ID.
   - `context7CompatibleLibraryID` (required)
   - `topic` (optional): Focus the docs on a specific topic (e.g., "routing", "hooks")
-  - `tokens` (optional, default 5000): Max number of tokens to return
+  - `tokens` (optional, default 5000): Max number of tokens to return. Values less than 5000 are automatically increased to 5000.
 
 ## Development
 
@@ -211,9 +211,26 @@ If you see this error, try using `bunx` instead of `npx`.
 
 This often resolves module resolution issues, especially in environments where `npx` does not properly install or resolve packages.
 
-## Context7 in media
+### MCP Client Errors
 
-+ [Better Stack: "Free Tool Makes Cursor 10x Smarter"](https://youtu.be/52FC3qObp9E)
+1. Try removing `@latest` from the package name.
+
+2. Try using `bunx` as an alternative.
+
+3. Try using `deno` as an alternative.
+
+## Context7 In Media
+
+- [Better Stack: "Free Tool Makes Cursor 10x Smarter"](https://youtu.be/52FC3qObp9E)
+- [Cole Medin: "This is Hands Down the BEST MCP Server for AI Coding Assistants"](https://www.youtube.com/watch?v=G7gK8H6u7Rs)
+- [Income stream surfers: "Context7 + SequentialThinking MCPs: Is This AGI?"](https://www.youtube.com/watch?v=-ggvzyLpK6o)
+- [Julian Goldie SEO: "Context7: New MCP AI Agent Update"](https://www.youtube.com/watch?v=CTZm6fBYisc)
+- [JeredBlu: "Context 7 MCP: Get Documentation Instantly + VS Code Setup"](https://www.youtube.com/watch?v=-ls0D-rtET4)
+- [Income stream surfers: "Context7: The New MCP Server That Will CHANGE AI Coding"](https://www.youtube.com/watch?v=PS-2Azb-C3M)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=upstash/context7&type=Date)](https://www.star-history.com/#upstash/context7&Date)
 
 ## License
 

@@ -81,9 +81,7 @@ server.tool(
       .describe("Topic to focus documentation on (e.g., 'hooks', 'routing')."),
     tokens: z
       .preprocess((val) => (typeof val === "string" ? Number(val) : val), z.number())
-      .refine((val) => typeof val === "number" && val >= DEFAULT_MINIMUM_TOKENS, {
-        message: `Must be a number >= ${DEFAULT_MINIMUM_TOKENS}`,
-      })
+      .transform((val) => (val < DEFAULT_MINIMUM_TOKENS ? DEFAULT_MINIMUM_TOKENS : val))
       .optional()
       .describe(
         `Maximum number of tokens of documentation to retrieve (default: ${DEFAULT_MINIMUM_TOKENS}). Higher values provide more context but consume more tokens.`
