@@ -157,7 +157,7 @@ Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude D
 - `get-library-docs`: Fetches documentation for a library using a Context7-compatible library ID.
   - `context7CompatibleLibraryID` (required)
   - `topic` (optional): Focus the docs on a specific topic (e.g., "routing", "hooks")
-  - `tokens` (optional, default 5000): Max number of tokens to return
+  - `tokens` (optional, default 5000): Max number of tokens to return. Values less than 5000 are automatically increased to 5000.
 
 ## Development
 
