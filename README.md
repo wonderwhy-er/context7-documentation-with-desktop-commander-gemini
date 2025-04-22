@@ -13,23 +13,20 @@ LLMs rely on outdated or generic information about the libraries you use. You ge
 
 Context7 MCP pulls up-to-date, version-specific documentation and code examples straight from the source — and places them directly into your prompt.
 
-Add `use context7` to your question in Cursor:
+Add `use context7` to your prompt in Cursor:
 
 ```txt
-How do I use the new Next.js `after` function? use context7
+Create a basic Next.js project with app router. use context7
 ```
 
 ```txt
-How do I invalidate a query in React Query? use context7
+Create a script to delete the rows where the city is "" given PostgreSQL credentials. use context7
 ```
 
-```txt
-How do I protect a route with NextAuth? use context7
-```
 
-Context7 fetches up-to-date documentation and working code examples right into your LLM's context.
+Context7 fetches up-to-date code examples and documentation right into your LLM's context.
 
-- 1️⃣ Ask your question naturally
+- 1️⃣ Write your prompt naturally
 - 2️⃣ Tell the LLM to `use context7`
 - 3️⃣ Get working code answers
 
