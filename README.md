@@ -199,6 +199,9 @@ If you prefer to run the MCP server in a Docker container:
     {
       "mcpServers": {
         "Сontext7": {
+        "autoApprove": [],
+        "disabled": false,
+        "timeout": 60,
           "command": "docker",
           "args": ["run", "-i", "--rm", "context7-mcp"],
           "transportType": "stdio"
@@ -206,7 +209,7 @@ If you prefer to run the MCP server in a Docker container:
       }
     }
     ```
-    *Note: This is an example configuration. Please refer to the specific examples for your MCP client (like Cursor, VS Code, etc.) earlier in this README to adapt the structure (e.g., `mcpServers` vs `servers`) and server name (`context7` vs `Context7`). Also, ensure the image name in `args` matches the tag used during the `docker build` command.*
+    *Note: This is an example configuration. Please refer to the specific examples for your MCP client (like Cursor, VS Code, etc.) earlier in this README to adapt the structure (e.g., `mcpServers` vs `servers`). Also, ensure the image name in `args` matches the tag used during the `docker build` command.*
 
 ### Available Tools
 
