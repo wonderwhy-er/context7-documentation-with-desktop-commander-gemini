@@ -12,7 +12,7 @@ const DEFAULT_MINIMUM_TOKENS = 5000;
 const server = new McpServer({
   name: "Context7",
   description: "Retrieves up-to-date documentation and code examples for any library.",
-  version: "1.0.4",
+  version: "1.0.6",
   capabilities: {
     resources: {},
     tools: {},
