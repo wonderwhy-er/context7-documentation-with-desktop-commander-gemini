@@ -46,7 +46,7 @@ jobs:
           npm publish --access public
 
       - name: Publish release candidate
-        if: "!github.event.release.prerelease"
+        if: "github.event.release.prerelease"
         run: |
           npm pkg delete scripts.prepare
           npm publish --access public --tag=canary
