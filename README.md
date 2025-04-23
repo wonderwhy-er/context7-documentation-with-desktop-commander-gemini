@@ -155,6 +155,59 @@ Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude D
 }
 ```
 
+### Using Docker
+
+If you prefer to run the MCP server in a Docker container:
+
+1.  **Build the Docker Image:**
+
+    First, create a `Dockerfile` in the project root (or anywhere you prefer):
+
+    <details>
+    <summary>Click to see Dockerfile content</summary>
+
+    ```Dockerfile
+    FROM node:18-alpine
+
+    WORKDIR /app
+
+    # Install the latest version globally
+    RUN npm install -g @upstash/context7-mcp@latest
+
+    # Expose default port if needed (optional, depends on MCP client interaction)
+    # EXPOSE 3000
+
+    # Default command to run the server
+    CMD ["context7-mcp"]
+    ```
+
+    </details>
+
+    Then, build the image using a tag (e.g., `context7-mcp`). **Make sure Docker Desktop (or the Docker daemon) is running.** Run the following command in the same directory where you saved the `Dockerfile`:
+
+    ```bash
+    docker build -t context7-mcp .
+    ```
+
+2.  **Configure Your MCP Client:**
+
+    Update your MCP client's configuration to use the Docker command.
+
+    *Example for a cline_mcp_settings.json:*
+
+    ```json
+    {
+      "mcpServers": {
+        "Сontext7": {
+          "command": "docker",
+          "args": ["run", "-i", "--rm", "context7-mcp"],
+          "transportType": "stdio"
+        }
+      }
+    }
+    ```
+    *Note: This is an example configuration. Please refer to the specific examples for your MCP client (like Cursor, VS Code, etc.) earlier in this README to adapt the structure (e.g., `mcpServers` vs `servers`) and server name (`context7` vs `Context7`). Also, ensure the image name in `args` matches the tag used during the `docker build` command.*
+
 ### Available Tools
 
 - `resolve-library-id`: Resolves a general library name into a Context7-compatible library ID.
