@@ -60,7 +60,11 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": [
+        "-y", 
+        "--node-options=--experimental-vm-modules",
+        "@upstash/context7-mcp@1.0.6"
+      ]
     }
   }
 }
@@ -107,7 +111,11 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": [
+        "-y", 
+        "--node-options=--experimental-vm-modules",
+        "@upstash/context7-mcp@1.0.6"
+      ]
     }
   }
 }
@@ -126,7 +134,11 @@ Add this to your VS Code MCP config file. See [VS Code MCP docs](https://code.vi
     "Context7": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": [
+        "-y", 
+        "--node-options=--experimental-vm-modules",
+        "@upstash/context7-mcp@1.0.6"
+      ]
     }
   }
 }
@@ -167,7 +179,11 @@ Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude D
   "mcpServers": {
     "Context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": [
+  "-y", 
+  "--node-options=--experimental-vm-modules",
+  "@upstash/context7-mcp@1.0.6"
+]
     }
   }
 }
