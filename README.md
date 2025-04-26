@@ -298,6 +298,8 @@ This often resolves module resolution issues, especially in environments where `
 
 3. Try using `deno` as an alternative.
 
+4. Make sure you are using Node v18 or higher to have native fetch support with `npx`.
+
 ## Context7 In Media
 
 - [Better Stack: "Free Tool Makes Cursor 10x Smarter"](https://youtu.be/52FC3qObp9E)
