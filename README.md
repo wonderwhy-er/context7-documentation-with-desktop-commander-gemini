@@ -290,27 +290,9 @@ If you see this error, try using `bunx` instead of `npx`.
 
 This often resolves module resolution issues, especially in environments where `npx` does not properly install or resolve packages.
 
-Alternatively, you can also try the following setups depending on your editor:
+### ESM Resolution Issues
 
-**VS Code:**
-
-```json
-{
-  "servers": {
-    "Context7": {
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "-y", 
-        "--node-options=--experimental-vm-modules",
-        "@upstash/context7-mcp@1.0.6"
-      ]
-    }
-  }
-}
-```
-
-**Cursor / Windsurf / Claude Desktop:**
+If you encounter an error like: `Error: Cannot find module 'uriTemplate.js'` try running with the `--experimental-vm-modules` flag:
 
 ```json
 {
