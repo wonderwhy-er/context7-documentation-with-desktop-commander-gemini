@@ -60,11 +60,7 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": [
-        "-y", 
-        "--node-options=--experimental-vm-modules",
-        "@upstash/context7-mcp@1.0.6"
-      ]
+      "args": ["-y", "@upstash/context7-mcp@latest"]
     }
   }
 }
@@ -111,11 +107,7 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": [
-        "-y", 
-        "--node-options=--experimental-vm-modules",
-        "@upstash/context7-mcp@1.0.6"
-      ]
+      "args": ["-y", "@upstash/context7-mcp@latest"]
     }
   }
 }
@@ -134,11 +126,7 @@ Add this to your VS Code MCP config file. See [VS Code MCP docs](https://code.vi
     "Context7": {
       "type": "stdio",
       "command": "npx",
-      "args": [
-        "-y", 
-        "--node-options=--experimental-vm-modules",
-        "@upstash/context7-mcp@1.0.6"
-      ]
+      "args": ["-y", "@upstash/context7-mcp@latest"]
     }
   }
 }
@@ -179,11 +167,7 @@ Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude D
   "mcpServers": {
     "Context7": {
       "command": "npx",
-      "args": [
-  "-y", 
-  "--node-options=--experimental-vm-modules",
-  "@upstash/context7-mcp@1.0.6"
-]
+      "args": ["-y", "@upstash/context7-mcp@latest"]
     }
   }
 }
@@ -306,6 +290,43 @@ If you see this error, try using `bunx` instead of `npx`.
 
 This often resolves module resolution issues, especially in environments where `npx` does not properly install or resolve packages.
 
+Alternatively, you can also try the following setups depending on your editor:
+
+**VS Code:**
+
+```json
+{
+  "servers": {
+    "Context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y", 
+        "--node-options=--experimental-vm-modules",
+        "@upstash/context7-mcp@1.0.6"
+      ]
+    }
+  }
+}
+```
+
+**Cursor / Windsurf / Claude Desktop:**
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y", 
+        "--node-options=--experimental-vm-modules",
+        "@upstash/context7-mcp@1.0.6"
+      ]
+    }
+  }
+}
+```
+
 ### MCP Client Errors
 
 1. Try removing `@latest` from the package name.
@@ -313,6 +334,7 @@ This often resolves module resolution issues, especially in environments where `
 2. Try using `bunx` as an alternative.
 
 3. Try using `deno` as an alternative.
+
 
 ## Context7 In Media
 
