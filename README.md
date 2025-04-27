@@ -335,6 +335,7 @@ Alternatively, you can also try the following setups depending on your editor:
 
 3. Try using `deno` as an alternative.
 
+4. Make sure you are using Node v18 or higher to have native fetch support with `npx`.
 
 ## Context7 In Media
 
