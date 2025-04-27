@@ -143,7 +143,7 @@ It can be installed via [Zed Extensions](https://zed.dev/extensions?query=Contex
       "command": {
         "path": "npx",
         "args": ["-y", "@upstash/context7-mcp@latest"]
-      }
+      },
       "settings": {}
     }
   }
