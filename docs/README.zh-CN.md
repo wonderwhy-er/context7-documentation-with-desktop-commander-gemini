@@ -1,6 +1,6 @@
 # Context7 MCP - 为所有Prompt获取最新文档
 
-[![网站](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery徽章](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp)
+[![网站](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery徽章](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp) [<img alt="在VS Code中安装 (npx)" src="https://img.shields.io/badge/VS_Code-VS_Code?style=flat-square&label=安装Context7%20MCP&color=0098FF">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%257B%2522name%2522%253A%2522context7%2522%252C%2522config%2522%253A%257B%2522command%2522%253A%2522npx%2522%252C%2522args%2522%253A%255B%2522-y%2522%252C%2522%2540upstash%252Fcontext7-mcp%2540latest%2522%255D%257D%257D)
 
 ## ❌ 不使用Context7
 
@@ -125,6 +125,24 @@ npx -y @smithery/cli install @upstash/context7-mcp --client claude
       "type": "stdio",
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}
+```
+
+### 在Zed中安装
+
+可以通过[Zed扩展](https://zed.dev/extensions?query=Context7)安装，或者你可以将以下内容添加到你的Zed `settings.json`文件中。更多信息请参见[Zed Context Server文档](https://zed.dev/docs/assistant/context-servers)。
+
+```json
+{
+  "context_servers": {
+    "Context7": {
+      "command": {
+        "path": "npx",
+        "args": ["-y", "@upstash/context7-mcp@latest"]
+      },
+      "settings": {}
     }
   }
 }
@@ -261,13 +279,14 @@ npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp@latest
 
 3. 尝试使用`deno`作为替代方案。
 
+4. 确保你使用的是Node v18或更高版本，以便使用`npx`时获得原生fetch支持。
+
 ## Context7媒体报道
 
 - [Better Stack: "免费工具让Cursor变得更智能10倍"](https://youtu.be/52FC3qObp9E)
 - [Cole Medin: "这绝对是AI编码助手的最佳MCP服务器"](https://www.youtube.com/watch?v=G7gK8H6u7Rs)
 - [Income stream surfers: "Context7 + SequentialThinking MCPs: 这是AGI吗？"](https://www.youtube.com/watch?v=-ggvzyLpK6o)
 - [Julian Goldie SEO: "Context7: 新的MCP AI代理更新"](https://www.youtube.com/watch?v=CTZm6fBYisc)
-- [JeredBlu: "Context 7 MCP: 即时获取文档 + VS Code设置"](https://www.youtube.com/watch?v=-ls0D-rtET4)
 - [JeredBlu: "Context 7 MCP: 即时获取文档 + VS Code设置"](https://www.youtube.com/watch?v=-ls0D-rtET4)
 - [Income stream surfers: "Context7: 将改变AI编码的新MCP服务器"](https://www.youtube.com/watch?v=PS-2Azb-C3M)
 
