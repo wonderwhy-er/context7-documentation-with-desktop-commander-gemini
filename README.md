@@ -290,6 +290,43 @@ If you see this error, try using `bunx` instead of `npx`.
 
 This often resolves module resolution issues, especially in environments where `npx` does not properly install or resolve packages.
 
+Alternatively, you can also try the following setups depending on your editor:
+
+**VS Code:**
+
+```json
+{
+  "servers": {
+    "Context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y", 
+        "--node-options=--experimental-vm-modules",
+        "@upstash/context7-mcp@1.0.6"
+      ]
+    }
+  }
+}
+```
+
+**Cursor / Windsurf / Claude Desktop:**
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y", 
+        "--node-options=--experimental-vm-modules",
+        "@upstash/context7-mcp@1.0.6"
+      ]
+    }
+  }
+}
+```
+
 ### MCP Client Errors
 
 1. Try removing `@latest` from the package name.
