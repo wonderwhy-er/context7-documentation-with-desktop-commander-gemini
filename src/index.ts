@@ -11,14 +11,14 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // Get DEFAULT_MINIMUM_TOKENS from environment variable or use default
-let DEFAULT_MINIMUM_TOKENS = 5000;
+let DEFAULT_MINIMUM_TOKENS = 10000;
 if (process.env.DEFAULT_MINIMUM_TOKENS) {
   const parsedValue = parseInt(process.env.DEFAULT_MINIMUM_TOKENS, 10);
   if (!isNaN(parsedValue) && parsedValue > 0) {
     DEFAULT_MINIMUM_TOKENS = parsedValue;
   } else {
-    console.error(
-      `Warning: Invalid DEFAULT_MINIMUM_TOKENS value provided in environment variable. Using default value of 5000`
+    console.warn(
+      `Warning: Invalid DEFAULT_MINIMUM_TOKENS value provided in environment variable. Using default value of 10000`
     );
   }
 }

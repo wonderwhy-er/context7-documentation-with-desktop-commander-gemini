@@ -232,7 +232,7 @@ If you prefer to run the MCP server in a Docker container:
 
 ### Environment Variables
 
-- `DEFAULT_MINIMUM_TOKENS`: Set the minimum token count for documentation retrieval (default: 5000).
+- `DEFAULT_MINIMUM_TOKENS`: Set the minimum token count for documentation retrieval (default: 10000).
 
 Examples:
 
@@ -257,7 +257,7 @@ Examples:
 - `get-library-docs`: Fetches documentation for a library using a Context7-compatible library ID.
   - `context7CompatibleLibraryID` (required)
   - `topic` (optional): Focus the docs on a specific topic (e.g., "routing", "hooks")
-  - `tokens` (optional, default 5000): Max number of tokens to return. Values less than the configured `DEFAULT_MINIMUM_TOKENS` value are automatically increased to that value.
+  - `tokens` (optional, default 10000): Max number of tokens to return. Values less than the configured `DEFAULT_MINIMUM_TOKENS` value or the default value of 10000 are automatically increased to that value.
 
 ## Development
 

@@ -216,7 +216,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
 - `get-library-docs`: 使用Context7兼容的库ID获取库的文档。
   - `context7CompatibleLibraryID` (必需)
   - `topic` (可选): 将文档集中在特定主题上（例如"routing"、"hooks"）
-  - `tokens` (可选，默认5000): 返回的最大令牌数。小于5000的值会自动增加到5000。
+  - `tokens` (可选，默认10000): 返回的最大令牌数。小于10000的值会自动增加到10000。
 
 ## 开发
 

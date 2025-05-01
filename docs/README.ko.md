@@ -156,7 +156,7 @@ Claude Desktop의 `claude_desktop_config.json` 파일에 다음을 추가하세�
 - `get-library-docs`: Context7이 인식하는 라이브러리 ID를 사용하여 해당 라이브러리의 문서를 가져옵니다.
   - `context7CompatibleLibraryID` (필수)
   - `topic` (선택): 특정 주제의 문서만 가져오기 (예: "routing", "hooks")
-  - `tokens` (선택, 기본값 5000): 가져올 문서의 최대 토큰 수. 5000 미만으로 설정하면 자동으로 5000으로 조정됨
+  - `tokens` (선택, 기본값 10000): 가져올 문서의 최대 토큰 수. 10000 미만으로 설정하면 자동으로 10000으로 조정됨
 
 ## 개발
 
