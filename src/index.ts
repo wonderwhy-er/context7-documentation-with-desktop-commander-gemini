@@ -5,8 +5,23 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 import { searchLibraries, fetchLibraryDocumentation } from "./lib/api.js";
 import { formatSearchResults } from "./lib/utils.js";
+import dotenv from "dotenv";
 
-const DEFAULT_MINIMUM_TOKENS = 5000;
+// Load environment variables from .env file if present
+dotenv.config();
+
+// Get DEFAULT_MINIMUM_TOKENS from environment variable or use default
+let DEFAULT_MINIMUM_TOKENS = 5000;
+if (process.env.DEFAULT_MINIMUM_TOKENS) {
+  const parsedValue = parseInt(process.env.DEFAULT_MINIMUM_TOKENS, 10);
+  if (!isNaN(parsedValue) && parsedValue > 0) {
+    DEFAULT_MINIMUM_TOKENS = parsedValue;
+  } else {
+    console.error(
+      `Warning: Invalid DEFAULT_MINIMUM_TOKENS value provided in environment variable. Using default value of 5000`
+    );
+  }
+}
 
 // Create server instance
 const server = new McpServer({
