@@ -37,7 +37,17 @@ const server = new McpServer({
 // Register Context7 tools
 server.tool(
   "resolve-library-id",
-  "Required first step: Resolves a general package name into a Context7-compatible library ID. Must be called before using 'get-library-docs' to retrieve a valid Context7-compatible library ID.",
+  `Resolves a package name to a Context7-compatible library ID and returns a list of matching libraries.
+
+You MUST call this function before 'get-library-docs' to obtain a valid Context7-compatible library ID.
+
+When selecting the best match, consider:
+- Name similarity to the query
+- Description relevance
+- Code Snippet count (documentation coverage)
+- GitHub Stars (popularity)
+
+Return the selected library ID and explain your choice. If there are multiple good matches, mention this but proceed with the most relevant one.`,
   {
     libraryName: z
       .string()
@@ -74,7 +84,20 @@ server.tool(
       content: [
         {
           type: "text",
-          text: "Available libraries and their Context7-compatible library IDs:\n\n" + resultsText,
+          text: `Available Libraries (top matches):
+
+Each result includes:
+- Library ID: Context7-compatible identifier (format: /org/repo)
+- Name: Library or package name
+- Description: Short summary
+- Code Snippets: Number of available code examples
+- GitHub Stars: Popularity indicator
+
+For best results, select libraries based on name match, popularity (stars), snippet coverage, and relevance to your use case.
+
+---
+
+${resultsText}`,
         },
       ],
     };

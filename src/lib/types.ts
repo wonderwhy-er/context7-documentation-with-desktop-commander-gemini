@@ -8,6 +8,7 @@ export interface SearchResult {
   totalTokens: number;
   totalSnippets: number;
   totalPages: number;
+  stars: number;
 }
 
 export interface SearchResponse {
@@ -15,11 +16,4 @@ export interface SearchResponse {
 }
 
 // Version state is still needed for validating search results
-export type DocumentState =
-  | "initial"
-  | "parsed"
-  | "finalized"
-  | "invalid_docs"
-  | "error"
-  | "stop"
-  | "delete";
+export type DocumentState = "initial" | "finalized" | "error" | "delete";
