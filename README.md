@@ -229,6 +229,25 @@ If you prefer to run the MCP server in a Docker container:
     ```
     *Note: This is an example configuration. Please refer to the specific examples for your MCP client (like Cursor, VS Code, etc.) earlier in this README to adapt the structure (e.g., `mcpServers` vs `servers`). Also, ensure the image name in `args` matches the tag used during the `docker build` command.*
 
+### Environment Variables
+
+- `DEFAULT_MINIMUM_TOKENS`: Set the minimum token count for documentation retrieval (default: 5000).
+
+Examples:
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"],
+      "env": {
+        "DEFAULT_MINIMUM_TOKENS": "10000"
+      }
+    }
+  }
+}
+```
+
 ### Available Tools
 
 - `resolve-library-id`: Resolves a general library name into a Context7-compatible library ID.
@@ -236,7 +255,7 @@ If you prefer to run the MCP server in a Docker container:
 - `get-library-docs`: Fetches documentation for a library using a Context7-compatible library ID.
   - `context7CompatibleLibraryID` (required)
   - `topic` (optional): Focus the docs on a specific topic (e.g., "routing", "hooks")
-  - `tokens` (optional, default 5000): Max number of tokens to return. Values less than 5000 are automatically increased to 5000.
+  - `tokens` (optional, default 5000): Max number of tokens to return. Values less than the configured `DEFAULT_MINIMUM_TOKENS` value are automatically increased to that value.
 
 ## Development
 
