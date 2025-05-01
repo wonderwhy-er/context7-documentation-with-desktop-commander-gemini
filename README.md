@@ -207,7 +207,7 @@ If you prefer to run the MCP server in a Docker container:
     docker build -t context7-mcp .
     ```
 
-2.  **Configure Your MCP Client:**
+2. **Configure Your MCP Client:**
 
     Update your MCP client's configuration to use the Docker command.
 
@@ -227,6 +227,7 @@ If you prefer to run the MCP server in a Docker container:
       }
     }
     ```
+
     *Note: This is an example configuration. Please refer to the specific examples for your MCP client (like Cursor, VS Code, etc.) earlier in this README to adapt the structure (e.g., `mcpServers` vs `servers`). Also, ensure the image name in `args` matches the tag used during the `docker build` command.*
 
 ### Environment Variables
@@ -234,6 +235,7 @@ If you prefer to run the MCP server in a Docker container:
 - `DEFAULT_MINIMUM_TOKENS`: Set the minimum token count for documentation retrieval (default: 5000).
 
 Examples:
+
 ```json
 {
   "mcpServers": {
@@ -339,6 +341,7 @@ If you encounter an error like: `Error: Cannot find module 'uriTemplate.js'` try
 4. Make sure you are using Node v18 or higher to have native fetch support with `npx`.
 
 ## Disclaimer
+
 Context7 projects are community-contributed and while we strive to maintain high quality, we cannot guarantee the accuracy, completeness, or security of all library documentation. Projects listed in Context7 are developed and maintained by their respective owners, not by Context7. If you encounter any suspicious, inappropriate, or potentially harmful content, please use the "Report" button on the project page to notify us immediately. We take all reports seriously and will review flagged content promptly to maintain the integrity and safety of our platform. By using Context7, you acknowledge that you do so at your own discretion and risk.
 
 ## Context7 In Media
@@ -349,6 +352,8 @@ Context7 projects are community-contributed and while we strive to maintain high
 - [Julian Goldie SEO: "Context7: New MCP AI Agent Update"](https://www.youtube.com/watch?v=CTZm6fBYisc)
 - [JeredBlu: "Context 7 MCP: Get Documentation Instantly + VS Code Setup"](https://www.youtube.com/watch?v=-ls0D-rtET4)
 - [Income stream surfers: "Context7: The New MCP Server That Will CHANGE AI Coding"](https://www.youtube.com/watch?v=PS-2Azb-C3M)
+- [AICodeKing: "Context7 + Cline & RooCode: This MCP Server Makes CLINE 100X MORE EFFECTIVE!"](https://www.youtube.com/watch?v=qZfENAPMnyo)
+- [Sean Kochel: "5 MCP Servers For Vibe Coding Glory (Just Plug-In & Go)"](https://www.youtube.com/watch?v=LqTQi8qexJM)
 
 ## Star History
 
