@@ -6,7 +6,11 @@ import { SearchResponse, SearchResult } from "./types.js";
  * @returns Formatted search result string
  */
 export function formatSearchResult(result: SearchResult): string {
-  return `Title: ${result.title}\n\nContext7-compatible library ID: ${result.id}\n\nDescription: ${result.description}`;
+  return `- Title: ${result.title}
+- Context7-compatible library ID: ${result.id}
+- Description: ${result.description}
+- Code Snippets: ${result.totalSnippets}
+- GitHub Stars: ${result.stars}`;
 }
 
 /**
@@ -20,5 +24,5 @@ export function formatSearchResults(searchResponse: SearchResponse): string {
   }
 
   const formattedResults = searchResponse.results.map(formatSearchResult);
-  return formattedResults.join("\n\n--------------------\n");
+  return formattedResults.join("\n---\n");
 }

@@ -238,7 +238,7 @@ Jika Anda lebih suka menjalankan server MCP dalam kontainer Docker:
 - `get-library-docs`: Mengambil dokumentasi untuk library menggunakan ID library yang kompatibel dengan Context7.
   - `context7CompatibleLibraryID` (wajib)
   - `topic` (opsional): Fokuskan dokumentasi pada topik tertentu (misalnya, "routing", "hooks")
-  - `tokens` (opsional, default 5000): Jumlah maksimum token yang akan dihasilkan. Nilai kurang dari 5000 secara otomatis ditingkatkan menjadi 5000.
+  - `tokens` (opsional, default 10000): Jumlah maksimum token yang akan dihasilkan. Nilai kurang dari 10000 secara otomatis ditingkatkan menjadi 10000.
 
 ## Pengembangan
 

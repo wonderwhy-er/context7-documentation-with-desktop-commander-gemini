@@ -160,7 +160,7 @@ Añade esto a tu archivo `claude_desktop_config.json` de Claude Desktop. Consult
 - `get-library-docs`: Obtiene documentación para una biblioteca utilizando un ID de biblioteca compatible con Context7.
   - `context7CompatibleLibraryID` (requerido)
   - `topic` (opcional): Enfoca la documentación en un tema específico (p. ej., "routing", "hooks")
-  - `tokens` (opcional, por defecto 5000): Número máximo de tokens a devolver. Los valores inferiores a 5000 se aumentan automáticamente a 5000.
+  - `tokens` (opcional, por defecto 10000): Número máximo de tokens a devolver. Los valores inferiores a 10000 se aumentan automáticamente a 10000.
 
 ## Desarrollo
 
