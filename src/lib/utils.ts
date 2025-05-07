@@ -1,22 +1,40 @@
 import { SearchResponse, SearchResult } from "./types.js";
 
 /**
- * Format a search result into a string representation
- * @param result SearchResult to format
- * @returns Formatted search result string
+ * Formats a search result into a human-readable string representation.
+ * Only shows code snippet count and GitHub stars when available (not equal to -1).
+ *
+ * @param result The SearchResult object to format
+ * @returns A formatted string with library information
  */
 export function formatSearchResult(result: SearchResult): string {
-  return `- Title: ${result.title}
-- Context7-compatible library ID: ${result.id}
-- Description: ${result.description}
-- Code Snippets: ${result.totalSnippets}
-- GitHub Stars: ${result.stars}`;
+  // Always include these basic details
+  const formattedResult = [
+    `- Title: ${result.title}`,
+    `- Context7-compatible library ID: ${result.id}`,
+    `- Description: ${result.description}`,
+  ];
+
+  // Only add code snippets count if it's a valid value
+  if (result.totalSnippets !== -1 && result.totalSnippets !== undefined) {
+    formattedResult.push(`- Code Snippets: ${result.totalSnippets}`);
+  }
+
+  // Only add GitHub stars if it's a valid value
+  if (result.stars !== -1 && result.stars !== undefined) {
+    formattedResult.push(`- GitHub Stars: ${result.stars}`);
+  }
+
+  // Join all parts with newlines
+  return formattedResult.join("\n");
 }
 
 /**
- * Format search results into a string representation
- * @param searchResponse The search response to format
- * @returns Formatted search results string
+ * Formats a search response into a human-readable string representation.
+ * Each result is formatted using formatSearchResult.
+ *
+ * @param searchResponse The SearchResponse object to format
+ * @returns A formatted string with search results
  */
 export function formatSearchResults(searchResponse: SearchResponse): string {
   if (!searchResponse.results || searchResponse.results.length === 0) {
