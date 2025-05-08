@@ -209,6 +209,26 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
    - 当前Cursor版本(0.49.5), 请不要使用本方式启动MCP server，详情：[Cursor官方说明](https://docs.cursor.com/context/model-context-protocol#remote-development)
    </em>
 
+### 在Windows上安装
+在windows上的配置相对于linux或macos来说有些许不同，(*示例使用的`Cline`*), 其它编辑器同理, 参考`command`和`args`的配置即可
+```json
+{
+  "mcpServers": {
+    "github.com/upstash/context7-mcp": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
+
 ### 可用工具
 
 - `resolve-library-id`: 将通用库名称解析为Context7兼容的库ID。

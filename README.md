@@ -231,6 +231,26 @@ If you prefer to run the MCP server in a Docker container:
 
     *Note: This is an example configuration. Please refer to the specific examples for your MCP client (like Cursor, VS Code, etc.) earlier in this README to adapt the structure (e.g., `mcpServers` vs `servers`). Also, ensure the image name in `args` matches the tag used during the `docker build` command.*
 
+### Install in Windows
+The configuration on Windows is slightly different compared to Linux or macOS (*`Cline` is used in the example*). The same principle applies to other editors; refer to the configuration of `command` and `args`.
+```json
+{
+  "mcpServers": {
+    "github.com/upstash/context7-mcp": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
+
 ### Environment Variables
 
 - `DEFAULT_MINIMUM_TOKENS`: Set the minimum token count for documentation retrieval (default: 10000).
