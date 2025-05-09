@@ -174,6 +174,23 @@ Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude D
 }
 ```
 
+### Install in BoltAI
+
+Open the "Settings" page of the app, navigate to "Plugins," and enter the following JSON:
+
+```json
+{
+	"mcpServers": {
+		"context7": {
+			"args": ["-y", "@upstash/context7-mcp@latest"],
+			"command": "npx"
+		}
+	}
+}
+```
+
+Once saved, enter in the chat `get-library-docs` followed by your Context7 documentation ID (e.g., `get-library-docs /nuxt/ui`). More information is available on [BoltAI's Documentation site](https://docs.boltai.com/docs/plugins/mcp-servers). For BoltAI on iOS, [see this guide](https://docs.boltai.com/docs/boltai-mobile/mcp-servers).
+
 ### Using Docker
 
 If you prefer to run the MCP server in a Docker container:
