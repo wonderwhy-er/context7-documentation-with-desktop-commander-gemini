@@ -171,6 +171,21 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
 }
 ```
 
+### Установка в BoltAI
+
+Откройте страницу "Settings", перейдите в "Plugins" и добавьте следующие JSON-строки:
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "args": ["-y", "@upstash/context7-mcp@latest"],
+      "command": "npx"
+    }
+  }
+}
+```
+
 ### Используя Docker
 
 Если вы предпочитаете запускать MCP сервер в Docker контейнере:
