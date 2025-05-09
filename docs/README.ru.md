@@ -229,7 +229,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
 
 ### Переменные окружения
 
-- `DEFAULT_MINIMUM_TOKENS`: минимальное количество токенов, необходимое для получения документации (по умолчанию: 5000).
+- `DEFAULT_MINIMUM_TOKENS`: минимальное количество токенов, необходимое для получения документации (по умолчанию: 10000).
 
 Examples:
 ```json
@@ -253,7 +253,7 @@ Examples:
 - `get-library-docs`: получает документацию по библиотеке по совместимому с Context7 идентификатору.
   - `context7CompatibleLibraryID` (обязательно)
   - `topic` (необязательно): фокусирует документацию на определённой теме (например, "routing", "hooks")
-  - `tokens` (необязательно, по умолчанию 5000): максимальное число токенов в ответе. Значения ниже заданного `DEFAULT_MINIMUM_TOKENS` будут автоматически увеличены до него.
+  - `tokens` (необязательно, по умолчанию 10000): максимальное число токенов в ответе. Значения ниже заданного `DEFAULT_MINIMUM_TOKENS` будут автоматически увеличены до него.
 
 ## Разработка
 
@@ -351,6 +351,8 @@ npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp@latest
 - [Julian Goldie SEO: "Context7: обновление MCP-агента"](https://www.youtube.com/watch?v=CTZm6fBYisc)
 - [JeredBlu: "Context 7 MCP: мгновенный доступ к документации + настройка для VS Code"](https://www.youtube.com/watch?v=-ls0D-rtET4)
 - [Income stream surfers: "Context7: новый MCP-сервер, который изменит кодинг с ИИ"](https://www.youtube.com/watch?v=PS-2Azb-C3M)
+- [AICodeKing: "Context7 + Cline & RooCode: Этот MCP сервер делает CLINE в 100 раз ЭФФЕКТИВНЕЕ!"](https://www.youtube.com/watch?v=qZfENAPMnyo)
+- [Sean Kochel: "5 MCP серверов для стремительного вайб-программирования (Подключи и Работай)"](https://www.youtube.com/watch?v=LqTQi8qexJM)
 
 ## История звёзд на GitHub
 
