@@ -88,7 +88,7 @@ npx -y @smithery/cli install @upstash/context7-mcp --client claude
   "mcpServers": {
     "context7": {
       "command": "deno",
-      "args": ["run", "--allow-net", "npm:@upstash/context7-mcp"]
+      "args": ["run", "--allow-env", "--allow-net", "npm:@upstash/context7-mcp"]
     }
   }
 }
@@ -226,6 +226,27 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
     }
     ```
     *Примечение: это пример конфигурации. Обратитесь к конкретным примерам для вашего MCP-клиента (например, Cursor, VS Code и т.д.), в предыдущих разделах этого README, чтобы адаптировать структуру (например, `mcpServers` вместо `servers`). Также убедитесь, что имя образа в `args` соответствует тегу, использованному при выполнении команды `docker build`.*
+
+### Установка в Windows
+Конфигурация в Windows немного отличается от Linux или macOS (*в качестве примера используется `Cline`*). Однако, эти же же принципы применимы и к другим редакторам. В случае необходимости обратитесь к настройкам `command` и `args`.
+
+```json
+{
+  "mcpServers": {
+    "github.com/upstash/context7-mcp": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
 
 ### Переменные окружения
 
