@@ -88,7 +88,7 @@ npx -y @smithery/cli install @upstash/context7-mcp --client claude
   "mcpServers": {
     "context7": {
       "command": "deno",
-      "args": ["run", "--allow-net", "npm:@upstash/context7-mcp"]
+      "args": ["run", "--allow-env", "--allow-net", "npm:@upstash/context7-mcp"]
     }
   }
 }
@@ -171,11 +171,26 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
 }
 ```
 
+### Установка в BoltAI
+
+Откройте страницу "Settings", перейдите в "Plugins" и добавьте следующие JSON-строки:
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "args": ["-y", "@upstash/context7-mcp@latest"],
+      "command": "npx"
+    }
+  }
+}
+```
+
 ### Используя Docker
 
 Если вы предпочитаете запускать MCP сервер в Docker контейнере:
 
-1.  **Создайте образ Docker:**
+1. **Создайте образ Docker:**
 
     Во-первых, создайте `Dockerfile` в корне вашего проекта (или в любом другом месте):
 
@@ -205,7 +220,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
     docker build -t context7-mcp .
     ```
 
-2.  **Настройте ваш MCP клиент:**
+2. **Настройте ваш MCP клиент:**
 
     Обновите вашу конфигурацию MCP клиента, чтобы использовать Docker команду.
 
@@ -225,13 +240,37 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
       }
     }
     ```
+
     *Примечение: это пример конфигурации. Обратитесь к конкретным примерам для вашего MCP-клиента (например, Cursor, VS Code и т.д.), в предыдущих разделах этого README, чтобы адаптировать структуру (например, `mcpServers` вместо `servers`). Также убедитесь, что имя образа в `args` соответствует тегу, использованному при выполнении команды `docker build`.*
+
+### Установка в Windows
+
+Конфигурация в Windows немного отличается от Linux или macOS (*в качестве примера используется `Cline`*). Однако, эти же же принципы применимы и к другим редакторам. В случае необходимости обратитесь к настройкам `command` и `args`.
+
+```json
+{
+  "mcpServers": {
+    "github.com/upstash/context7-mcp": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
 
 ### Переменные окружения
 
-- `DEFAULT_MINIMUM_TOKENS`: минимальное количество токенов, необходимое для получения документации (по умолчанию: 5000).
+- `DEFAULT_MINIMUM_TOKENS`: минимальное количество токенов, необходимое для получения документации (по умолчанию: 10000).
 
 Examples:
+
 ```json
 {
   "mcpServers": {
@@ -253,7 +292,7 @@ Examples:
 - `get-library-docs`: получает документацию по библиотеке по совместимому с Context7 идентификатору.
   - `context7CompatibleLibraryID` (обязательно)
   - `topic` (необязательно): фокусирует документацию на определённой теме (например, "routing", "hooks")
-  - `tokens` (необязательно, по умолчанию 5000): максимальное число токенов в ответе. Значения ниже заданного `DEFAULT_MINIMUM_TOKENS` будут автоматически увеличены до него.
+  - `tokens` (необязательно, по умолчанию 10000): максимальное число токенов в ответе. Значения ниже заданного `DEFAULT_MINIMUM_TOKENS` будут автоматически увеличены до него.
 
 ## Разработка
 
@@ -337,6 +376,7 @@ npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp@latest
 4. Убедитесь, что используете версию Node v18 или выше, чтобы `npx` поддерживал встроенный `fetch`.
 
 ## Отказ от ответственности
+
 Проекты Context7 создаются сообществом. Мы стремимся поддерживать высокое качество, однако не можем гарантировать точность, полноту или безопасность всей документации по библиотекам. Проекты, представленные в Context7, разрабатываются и поддерживаются их авторами, а не командой Context7.
 
 Если вы столкнётесь с подозрительным, неуместным или потенциально вредоносным контентом, пожалуйста, воспользуйтесь кнопкой "Report" на странице проекта, чтобы немедленно сообщить нам. Мы внимательно относимся ко всем обращениям и оперативно проверяем помеченные материалы, чтобы обеспечить надёжность и безопасность платформы.
@@ -351,6 +391,8 @@ npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp@latest
 - [Julian Goldie SEO: "Context7: обновление MCP-агента"](https://www.youtube.com/watch?v=CTZm6fBYisc)
 - [JeredBlu: "Context 7 MCP: мгновенный доступ к документации + настройка для VS Code"](https://www.youtube.com/watch?v=-ls0D-rtET4)
 - [Income stream surfers: "Context7: новый MCP-сервер, который изменит кодинг с ИИ"](https://www.youtube.com/watch?v=PS-2Azb-C3M)
+- [AICodeKing: "Context7 + Cline & RooCode: Этот MCP сервер делает CLINE в 100 раз ЭФФЕКТИВНЕЕ!"](https://www.youtube.com/watch?v=qZfENAPMnyo)
+- [Sean Kochel: "5 MCP серверов для стремительного вайб-программирования (Подключи и Работай)"](https://www.youtube.com/watch?v=LqTQi8qexJM)
 
 ## История звёзд на GitHub
 
