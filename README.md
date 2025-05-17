@@ -382,6 +382,13 @@ If you encounter an error like: `Error: Cannot find module 'uriTemplate.js'` try
 
 Context7 projects are community-contributed and while we strive to maintain high quality, we cannot guarantee the accuracy, completeness, or security of all library documentation. Projects listed in Context7 are developed and maintained by their respective owners, not by Context7. If you encounter any suspicious, inappropriate, or potentially harmful content, please use the "Report" button on the project page to notify us immediately. We take all reports seriously and will review flagged content promptly to maintain the integrity and safety of our platform. By using Context7, you acknowledge that you do so at your own discretion and risk.
 
+## Connect with Us
+
+Stay updated and join our community:
+- 📢 Follow us on [X](https://x.com/contextai) for the latest news and updates
+- 🌐 Visit our [Website](https://context7.com)
+- 💬 Join our [Discord Community](https://discord.gg/your-discord) (if applicable)
+
 ## Context7 In Media
 
 - [Better Stack: "Free Tool Makes Cursor 10x Smarter"](https://youtu.be/52FC3qObp9E)
