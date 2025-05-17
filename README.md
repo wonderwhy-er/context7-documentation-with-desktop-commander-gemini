@@ -387,7 +387,7 @@ Context7 projects are community-contributed and while we strive to maintain high
 Stay updated and join our community:
 - 📢 Follow us on [X](https://x.com/contextai) for the latest news and updates
 - 🌐 Visit our [Website](https://context7.com)
-- 💬 Join our [Discord Community](https://discord.gg/your-discord) (if applicable)
+- 💬 Join our [Discord Community](https://upstash.com/discord) (if applicable)
 
 ## Context7 In Media
 
