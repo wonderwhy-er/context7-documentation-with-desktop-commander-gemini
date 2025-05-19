@@ -114,12 +114,12 @@ ${resultsText}`,
 
 server.tool(
   "get-library-docs",
-  "Fetches up-to-date documentation for a library. You must call 'resolve-library-id' first to obtain the exact Context7-compatible library ID required to use this tool.",
+  "Fetches up-to-date documentation for a library. You must call 'resolve-library-id' first to obtain the exact Context7-compatible library ID required to use this tool, UNLESS the user explicitly provides a library ID in the format 'library:/org/project'.",
   {
     context7CompatibleLibraryID: z
       .string()
       .describe(
-        "Exact Context7-compatible library ID (e.g., 'mongodb/docs', 'vercel/nextjs') retrieved from 'resolve-library-id'."
+        "Exact Context7-compatible library ID (e.g., 'mongodb/docs', 'vercel/nextjs') retrieved from 'resolve-library-id' or directly from user query in the format 'library:/org/project'."
       ),
     topic: z
       .string()
