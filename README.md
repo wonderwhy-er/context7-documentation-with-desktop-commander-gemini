@@ -61,7 +61,7 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -75,7 +75,7 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
   "mcpServers": {
     "context7": {
       "command": "bunx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -108,7 +108,7 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -127,7 +127,7 @@ Add this to your VS Code MCP config file. See [VS Code MCP docs](https://code.vi
     "Context7": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -143,7 +143,7 @@ It can be installed via [Zed Extensions](https://zed.dev/extensions?query=Contex
     "Context7": {
       "command": {
         "path": "npx",
-        "args": ["-y", "@upstash/context7-mcp@latest"]
+        "args": ["-y", "@upstash/context7-mcp"]
       },
       "settings": {}
     }
@@ -156,7 +156,7 @@ It can be installed via [Zed Extensions](https://zed.dev/extensions?query=Contex
 Run this command. See [Claude Code MCP docs](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp) for more info.
 
 ```sh
-claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
+claude mcp add context7 -- npx -y @upstash/context7-mcp
 ```
 
 ### Install in Claude Desktop
@@ -168,7 +168,7 @@ Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude D
   "mcpServers": {
     "Context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -183,7 +183,7 @@ Open the "Settings" page of the app, navigate to "Plugins," and enter the follow
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -208,7 +208,7 @@ If you prefer to run the MCP server in a Docker container:
     WORKDIR /app
 
     # Install the latest version globally
-    RUN npm install -g @upstash/context7-mcp@latest
+    RUN npm install -g @upstash/context7-mcp
 
     # Expose default port if needed (optional, depends on MCP client interaction)
     # EXPOSE 3000
@@ -259,7 +259,7 @@ The configuration on Windows is slightly different compared to Linux or macOS (*
         "/c",
         "npx",
         "-y",
-        "@upstash/context7-mcp@latest"
+        "@upstash/context7-mcp"
       ],
       "disabled": false,
       "autoApprove": []
@@ -279,7 +279,7 @@ Examples:
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"],
+      "args": ["-y", "@upstash/context7-mcp"],
       "env": {
         "DEFAULT_MINIMUM_TOKENS": "10000"
       }
@@ -327,7 +327,7 @@ bun run build
 ### Testing with MCP Inspector
 
 ```bash
-npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp@latest
+npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp
 ```
 
 ## Troubleshooting
@@ -341,7 +341,7 @@ If you see this error, try using `bunx` instead of `npx`.
   "mcpServers": {
     "context7": {
       "command": "bunx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -361,7 +361,7 @@ If you encounter an error like: `Error: Cannot find module 'uriTemplate.js'` try
       "args": [
         "-y",
         "--node-options=--experimental-vm-modules",
-        "@upstash/context7-mcp@1.0.6"
+        "@upstash/context7-mcp"
       ]
     }
   }
@@ -380,7 +380,7 @@ Use the `--experimental-fetch` flag with `npx` to bypass TLS-related issues:
       "args": [
         "-y",
         "--node-options=--experimental-fetch",
-        "@upstash/context7-mcp@latest"
+        "@upstash/context7-mcp"
       ]
     }
   }
@@ -389,7 +389,7 @@ Use the `--experimental-fetch` flag with `npx` to bypass TLS-related issues:
 
 ### MCP Client Errors
 
-1. Try removing `@latest` from the package name.
+1. Try adding `@latest` to the package name.
 
 2. Try using `bunx` as an alternative.
 
