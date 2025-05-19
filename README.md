@@ -368,6 +368,25 @@ If you encounter an error like: `Error: Cannot find module 'uriTemplate.js'` try
 }
 ```
 
+### TLS/Certificate Issues
+
+Use the `--experimental-fetch` flag with `npx` to bypass TLS-related issues:
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "--node-options=--experimental-fetch",
+        "@upstash/context7-mcp@latest"
+      ]
+    }
+  }
+}
+```
+
 ### MCP Client Errors
 
 1. Try removing `@latest` from the package name.
