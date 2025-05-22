@@ -39,7 +39,7 @@ server.tool(
   "resolve-library-id",
   `Resolves a package/product name to a Context7-compatible library ID and returns a list of matching libraries.
 
-You MUST call this function before 'get-library-docs' to obtain a valid Context7-compatible library ID.
+You MUST call this function before 'get-library-docs' to obtain a valid Context7-compatible library ID UNLESS the user explicitly provides a library ID in the format 'library:/org/project' or 'library:/org/project/version' in their query.
 
 Selection Process:
 1. Analyze the query to understand what library/package the user is looking for
@@ -100,6 +100,7 @@ Each result includes:
 - Description: Short summary
 - Code Snippets: Number of available code examples
 - Trust Score: Authority indicator
+- Versions: List of versions if available. Use one of those versions if and only if the user explicitly provides a version in their query.
 
 For best results, select libraries based on name match, trust score, snippet coverage, and relevance to your use case.
 
@@ -114,12 +115,12 @@ ${resultsText}`,
 
 server.tool(
   "get-library-docs",
-  "Fetches up-to-date documentation for a library. You must call 'resolve-library-id' first to obtain the exact Context7-compatible library ID required to use this tool, UNLESS the user explicitly provides a library ID in the format 'library:/org/project'.",
+  "Fetches up-to-date documentation for a library. You must call 'resolve-library-id' first to obtain the exact Context7-compatible library ID required to use this tool, UNLESS the user explicitly provides a library ID in the format 'library:/org/project' or 'library:/org/project/version' in their query.",
   {
     context7CompatibleLibraryID: z
       .string()
       .describe(
-        "Exact Context7-compatible library ID (e.g., 'mongodb/docs', 'vercel/nextjs') retrieved from 'resolve-library-id' or directly from user query in the format 'library:/org/project'."
+        "Exact Context7-compatible library ID (e.g., 'mongodb/docs', 'vercel/nextjs', 'supabase/supabase', 'vercel/nextjs/v14.3.0-canary.87') retrieved from 'resolve-library-id' or directly from user query in the format 'library:/org/project' or 'library:/org/project/version'."
       ),
     topic: z
       .string()
