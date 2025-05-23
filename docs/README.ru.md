@@ -58,7 +58,7 @@ npx -y @smithery/cli install @upstash/context7-mcp --client claude
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -72,7 +72,7 @@ npx -y @smithery/cli install @upstash/context7-mcp --client claude
   "mcpServers": {
     "context7": {
       "command": "bunx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -105,7 +105,7 @@ npx -y @smithery/cli install @upstash/context7-mcp --client claude
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -124,7 +124,7 @@ npx -y @smithery/cli install @upstash/context7-mcp --client claude
     "Context7": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -140,7 +140,7 @@ npx -y @smithery/cli install @upstash/context7-mcp --client claude
     "Context7": {
       "command": {
         "path": "npx",
-        "args": ["-y", "@upstash/context7-mcp@latest"]
+        "args": ["-y", "@upstash/context7-mcp"]
       },
       "settings": {}
     }
@@ -153,7 +153,7 @@ npx -y @smithery/cli install @upstash/context7-mcp --client claude
 Запустите следующую команду для установки. Смотрите [документацию Claude Code MCP](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp) для получения дополнительной информации.
 
 ```sh
-claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
+claude mcp add context7 -- npx -y @upstash/context7-mcp
 ```
 
 ### Установка в Claude Desktop
@@ -165,7 +165,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
   "mcpServers": {
     "Context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -179,7 +179,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
 {
   "mcpServers": {
     "context7": {
-      "args": ["-y", "@upstash/context7-mcp@latest"],
+      "args": ["-y", "@upstash/context7-mcp"],
       "command": "npx"
     }
   }
@@ -203,7 +203,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
     WORKDIR /app
 
     # Установите последнюю версию пакета глобально
-    RUN npm install -g @upstash/context7-mcp@latest
+    RUN npm install -g @upstash/context7-mcp
 
     # Откройте стандартный порт, если это необходимо (необязательно, это зависит от взаимодействия с MCP клиентом)
     # EXPOSE 3000
@@ -256,7 +256,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
         "/c",
         "npx",
         "-y",
-        "@upstash/context7-mcp@latest"
+        "@upstash/context7-mcp"
       ],
       "disabled": false,
       "autoApprove": []
@@ -276,7 +276,7 @@ Examples:
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"],
+      "args": ["-y", "@upstash/context7-mcp"],
       "env": {
         "DEFAULT_MINIMUM_TOKENS": "10000"
       }
@@ -324,7 +324,7 @@ bun run build
 ### Тестирование с помощью инспектора MCP
 
 ```bash
-npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp@latest
+npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp
 ```
 
 ## Решение проблем
@@ -338,7 +338,7 @@ npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp@latest
   "mcpServers": {
     "context7": {
       "command": "bunx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -358,7 +358,7 @@ npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp@latest
       "args": [
         "-y",
         "--node-options=--experimental-vm-modules",
-        "@upstash/context7-mcp@1.0.6"
+        "@upstash/context7-mcp"
       ]
     }
   }
@@ -386,7 +386,7 @@ npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp@latest
 
 ### Ошибки MCP клиента
 
-1. Попробуйте убрать тег `@latest` из имени пакета.
+1. Попробуйте добавить тег `@latest` в имя пакета.
 
 2. Попробуйте использовать `bunx` как альтернативу `npx`.
 
