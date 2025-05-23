@@ -365,6 +365,25 @@ npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp@latest
 }
 ```
 
+### Проблемы с TLS/сертификатами
+
+Используйте флаг `--experimental-fetch` c `npx`, чтобы избежать ошибки, связанные с TLS:
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "--node-options=--experimental-fetch",
+        "@upstash/context7-mcp"
+      ]
+    }
+  }
+}
+```
+
 ### Ошибки MCP клиента
 
 1. Попробуйте убрать тег `@latest` из имени пакета.
