@@ -383,7 +383,7 @@ npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp@latest
 
 Используя Context7, вы признаёте, что делаете это по собственному усмотрению и на свой страх и риск.
 
-## Context7 In Media
+## Context7 в СМИ
 
 - [Better Stack: "Бесплатный инструмент делает Cursor в 10 раз умнее"](https://youtu.be/52FC3qObp9E)
 - [Cole Medin: "Это, без сомнения, ЛУЧШИЙ MCP-сервер для AI-помощников в коде"](https://www.youtube.com/watch?v=G7gK8H6u7Rs)
