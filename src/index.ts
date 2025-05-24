@@ -135,20 +135,9 @@ server.tool(
       ),
   },
   async ({ context7CompatibleLibraryID, tokens = DEFAULT_MINIMUM_TOKENS, topic = "" }) => {
-    // Extract folders parameter if present in the ID
-    let folders = "";
-    let libraryId = context7CompatibleLibraryID;
-
-    if (context7CompatibleLibraryID.includes("?folders=")) {
-      const [id, foldersParam] = context7CompatibleLibraryID.split("?folders=");
-      libraryId = id;
-      folders = foldersParam;
-    }
-
-    const documentationText = await fetchLibraryDocumentation(libraryId, {
+    const documentationText = await fetchLibraryDocumentation(context7CompatibleLibraryID, {
       tokens,
       topic,
-      folders,
     });
 
     if (!documentationText) {
