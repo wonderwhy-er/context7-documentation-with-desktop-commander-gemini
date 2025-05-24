@@ -10,6 +10,7 @@ export interface SearchResult {
   totalPages: number;
   stars?: number;
   trustScore?: number;
+  versions?: string[];
 }
 
 export interface SearchResponse {

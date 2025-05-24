@@ -25,6 +25,11 @@ export function formatSearchResult(result: SearchResult): string {
     formattedResult.push(`- Trust Score: ${result.trustScore}`);
   }
 
+  // Only add versions if it's a valid value
+  if (result.versions !== undefined && result.versions.length > 0) {
+    formattedResult.push(`- Versions: ${result.versions.join(", ")}`);
+  }
+
   // Join all parts with newlines
   return formattedResult.join("\n");
 }

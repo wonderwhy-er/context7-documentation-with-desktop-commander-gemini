@@ -39,7 +39,7 @@ server.tool(
   "resolve-library-id",
   `Resolves a package/product name to a Context7-compatible library ID and returns a list of matching libraries.
 
-You MUST call this function before 'get-library-docs' to obtain a valid Context7-compatible library ID.
+You MUST call this function before 'get-library-docs' to obtain a valid Context7-compatible library ID UNLESS the user explicitly provides a library ID in the format '/org/project' or '/org/project/version' in their query.
 
 Selection Process:
 1. Analyze the query to understand what library/package the user is looking for
@@ -95,11 +95,12 @@ For ambiguous queries, request clarification before proceeding with a best-guess
           text: `Available Libraries (top matches):
 
 Each result includes:
-- Library ID: Context7-compatible identifier (format: /org/repo)
+- Library ID: Context7-compatible identifier (format: /org/project)
 - Name: Library or package name
 - Description: Short summary
 - Code Snippets: Number of available code examples
 - Trust Score: Authority indicator
+- Versions: List of versions if available. Use one of those versions if and only if the user explicitly provides a version in their query.
 
 For best results, select libraries based on name match, trust score, snippet coverage, and relevance to your use case.
 
@@ -114,12 +115,12 @@ ${resultsText}`,
 
 server.tool(
   "get-library-docs",
-  "Fetches up-to-date documentation for a library. You must call 'resolve-library-id' first to obtain the exact Context7-compatible library ID required to use this tool.",
+  "Fetches up-to-date documentation for a library. You must call 'resolve-library-id' first to obtain the exact Context7-compatible library ID required to use this tool, UNLESS the user explicitly provides a library ID in the format '/org/project' or '/org/project/version' in their query.",
   {
     context7CompatibleLibraryID: z
       .string()
       .describe(
-        "Exact Context7-compatible library ID (e.g., 'mongodb/docs', 'vercel/nextjs') retrieved from 'resolve-library-id'."
+        "Exact Context7-compatible library ID (e.g., '/mongodb/docs', '/vercel/next.js', '/supabase/supabase', '/vercel/next.js/v14.3.0-canary.87') retrieved from 'resolve-library-id' or directly from user query in the format '/org/project' or '/org/project/version'."
       ),
     topic: z
       .string()
@@ -134,20 +135,9 @@ server.tool(
       ),
   },
   async ({ context7CompatibleLibraryID, tokens = DEFAULT_MINIMUM_TOKENS, topic = "" }) => {
-    // Extract folders parameter if present in the ID
-    let folders = "";
-    let libraryId = context7CompatibleLibraryID;
-
-    if (context7CompatibleLibraryID.includes("?folders=")) {
-      const [id, foldersParam] = context7CompatibleLibraryID.split("?folders=");
-      libraryId = id;
-      folders = foldersParam;
-    }
-
-    const documentationText = await fetchLibraryDocumentation(libraryId, {
+    const documentationText = await fetchLibraryDocumentation(context7CompatibleLibraryID, {
       tokens,
       topic,
-      folders,
     });
 
     if (!documentationText) {

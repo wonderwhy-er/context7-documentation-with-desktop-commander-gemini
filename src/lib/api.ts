@@ -35,7 +35,6 @@ export async function fetchLibraryDocumentation(
   options: {
     tokens?: number;
     topic?: string;
-    folders?: string;
   } = {}
 ): Promise<string | null> {
   try {
@@ -45,7 +44,6 @@ export async function fetchLibraryDocumentation(
     const url = new URL(`${CONTEXT7_API_BASE_URL}/v1/${libraryId}`);
     if (options.tokens) url.searchParams.set("tokens", options.tokens.toString());
     if (options.topic) url.searchParams.set("topic", options.topic);
-    if (options.folders) url.searchParams.set("folders", options.folders);
     url.searchParams.set("type", DEFAULT_TYPE);
     const response = await fetch(url, {
       headers: {
