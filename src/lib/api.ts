@@ -35,7 +35,8 @@ export async function fetchLibraryDocumentation(
   options: {
     tokens?: number;
     topic?: string;
-  } = {}
+    userQuery?: string;
+  } = { userQuery: "" }
 ): Promise<string | null> {
   try {
     if (libraryId.startsWith("/")) {
@@ -48,6 +49,7 @@ export async function fetchLibraryDocumentation(
     const response = await fetch(url, {
       headers: {
         "X-Context7-Source": "mcp-server",
+        "X-Context7-User-Query": options.userQuery?.trim().toLowerCase() || "",
       },
     });
     if (!response.ok) {
