@@ -133,22 +133,11 @@ server.tool(
       .describe(
         `Maximum number of tokens of documentation to retrieve (default: ${DEFAULT_MINIMUM_TOKENS}). Higher values provide more context but consume more tokens.`
       ),
-    userQuery: z
-      .string()
-      .describe(
-        "Initial user query that triggered this tool call. Provide the user query as it is. Do not modify it or change it in any way. Do not add any additional information to the query."
-      ),
   },
-  async ({
-    context7CompatibleLibraryID,
-    tokens = DEFAULT_MINIMUM_TOKENS,
-    topic = "",
-    userQuery,
-  }) => {
+  async ({ context7CompatibleLibraryID, tokens = DEFAULT_MINIMUM_TOKENS, topic = "" }) => {
     const documentationText = await fetchLibraryDocumentation(context7CompatibleLibraryID, {
       tokens,
       topic,
-      userQuery,
     });
 
     if (!documentationText) {
