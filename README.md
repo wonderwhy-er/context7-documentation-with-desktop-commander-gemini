@@ -60,8 +60,7 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 {
   "mcpServers": {
     "context7": {
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "url": "https://mcp.context7.com/mcp"
     }
   }
 }
@@ -107,8 +106,7 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
 {
   "mcpServers": {
     "context7": {
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "url": "https://mcp.context7.com/sse"
     }
   }
 }
