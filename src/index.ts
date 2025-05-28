@@ -177,7 +177,10 @@ async function main() {
   const transportType = process.env.MCP_TRANSPORT || "stdio";
 
   if (transportType === "http" || transportType === "sse") {
-    const port = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
+    // Get initial port from environment or use default
+    const initialPort = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
+    // Keep track of which port we end up using
+    let actualPort = initialPort;
     const httpServer = createServer(async (req, res) => {
       const url = parse(req.url || "").pathname;
 
@@ -250,11 +253,28 @@ async function main() {
       }
     });
 
-    httpServer.listen(port, () => {
-      console.error(
-        `Context7 Documentation MCP Server running on ${transportType.toUpperCase()} at http://localhost:${port}/mcp and legacy SSE at /sse`
-      );
-    });
+    // Function to attempt server listen with port fallback
+    const startServer = (port: number, maxAttempts = 10) => {
+      httpServer.once("error", (err: NodeJS.ErrnoException) => {
+        if (err.code === "EADDRINUSE" && port < initialPort + maxAttempts) {
+          console.warn(`Port ${port} is in use, trying port ${port + 1}...`);
+          startServer(port + 1, maxAttempts);
+        } else {
+          console.error(`Failed to start server: ${err.message}`);
+          process.exit(1);
+        }
+      });
+
+      httpServer.listen(port, () => {
+        actualPort = port;
+        console.error(
+          `Context7 Documentation MCP Server running on ${transportType.toUpperCase()} at http://localhost:${actualPort}/mcp and legacy SSE at /sse`
+        );
+      });
+    };
+
+    // Start the server with initial port
+    startServer(initialPort);
   } else {
     // Stdio transport - this is already stateless by nature
     const server = createServerInstance();
