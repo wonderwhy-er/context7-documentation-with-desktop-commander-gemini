@@ -27,10 +27,10 @@ RUN npm install --production --ignore-scripts
 
 # Set default environment variables for HTTP mode
 ENV MCP_TRANSPORT=http
-ENV PORT=8080
+ENV PORT=3000
 
 # Expose HTTP port
-EXPOSE 8080
+EXPOSE 3000
 
 # Default command
 CMD ["node", "dist/index.js"]
