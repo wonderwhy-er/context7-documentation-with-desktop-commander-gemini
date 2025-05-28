@@ -2,8 +2,7 @@
 
 [![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp) [<img alt="Install in VS Code (npx)" src="https://img.shields.io/badge/VS_Code-VS_Code?style=flat-square&label=Install%20Context7%20MCP&color=0098FF">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22context7%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40upstash%2Fcontext7-mcp%40latest%22%5D%7D)
 
-[![中文文档](https://img.shields.io/badge/docs-中文版-yellow)](./docs/README.zh-CN.md) [![한국어 문서](https://img.shields.io/badge/docs-한국어-green)](./docs/README.ko.md) [![Documentación en Español](https://img.shields.io/badge/docs-Español-orange)](./docs/README.es.md) [![Documentation en Français](https://img.shields.io/badge/docs-Français-blue)](./docs/README.fr.md) [![Documentação em Português (Brasil)](https://img.shields.io/badge/docs-Português%20(Brasil)-purple)](./docs/README.pt-BR.md) [![Documentazione in italiano](https://img.shields.io/badge/docs-Italian-red)](./docs/README.it.md) [![Dokumentasi Bahasa Indonesia](https://img.shields.io/badge/docs-Bahasa%20Indonesia-pink)](./docs/README.id-ID.md) [![Dokumentation auf Deutsch](https://img.shields.io/badge/docs-Deutsch-darkgreen)](./docs/README.de.md) [![Документация на русском языке](https://img.shields.io/badge/docs-Русский-darkblue)](./docs/README.ru.md) [![Türkçe Doküman](https://img.shields.io/badge/docs-Türkçe-blue)](./docs/README.tr.md) [![Arabic Documentation](https://img.shields.io/badge/docs-Arabic-white)](./docs/README.ar.md)
-
+[![中文文档](https://img.shields.io/badge/docs-中文版-yellow)](./docs/README.zh-CN.md) [![한국어 문서](https://img.shields.io/badge/docs-한국어-green)](./docs/README.ko.md) [![Documentación en Español](https://img.shields.io/badge/docs-Español-orange)](./docs/README.es.md) [![Documentation en Français](https://img.shields.io/badge/docs-Français-blue)](./docs/README.fr.md) [![Documentação em Português (Brasil)](https://img.shields.io/badge/docs-Português%20(Brasil)-purple)](./docs/README.pt-BR.md) [![Documentazione in italiano](https://img.shields.io/badge/docs-Italian-red)](./docs/README.it.md) [![Dokumentasi Bahasa Indonesia](https://img.shields.io/badge/docs-Bahasa%20Indonesia-pink)](./docs/README.id-ID.md) [![Dokumentation auf Deutsch](https://img.shields.io/badge/docs-Deutsch-darkgreen)](./docs/README.de.md) [![Документация на русском языке](https://img.shields.io/badge/docs-Русский-darkblue)](./docs/README.ru.md) [![Türkçe Dokümantasyon](https://img.shields.io/badge/docs-Türkçe-blue)](./docs/README.tr.md) [![Arabic Documentation](https://img.shields.io/badge/docs-Arabic-white)](./docs/README.ar.md)
 
 ## ❌ Without Context7
 
@@ -44,17 +43,33 @@ No tab-switching, no hallucinated APIs that don't exist, no outdated code genera
 
 ### Installing via Smithery
 
-To install Context7 MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@upstash/context7-mcp):
+To install Context7 MCP Server for any client automatically via [Smithery](https://smithery.ai/server/@upstash/context7-mcp):
 
 ```bash
-npx -y @smithery/cli install @upstash/context7-mcp --client claude
+npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME> --key <YOUR_SMITHERY_KEY>
 ```
+
+You can find your Smithery key in the [Smithery.ai webpage](https://smithery.ai/server/@upstash/context7-mcp).
 
 ### Install in Cursor
 
 Go to: `Settings` -> `Cursor Settings` -> `MCP` -> `Add new global MCP server`
 
 Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file is the recommended approach. You may also install in a specific project by creating `.cursor/mcp.json` in your project folder. See [Cursor MCP docs](https://docs.cursor.com/context/model-context-protocol) for more info.
+
+#### Cursor Remote Server Connection
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}
+```
+
+#### Cursor Local Server Connection
 
 ```json
 {
@@ -102,6 +117,20 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 ### Install in Windsurf
 
 Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.windsurf.com/windsurf/mcp) for more info.
+
+#### Windsurf Remote Server Connection
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "serverUrl": "https://mcp.context7.com/sse"
+    }
+  }
+}
+```
+
+#### Windsurf Local Server Connection
 
 ```json
 {
@@ -195,7 +224,7 @@ Once saved, enter in the chat `get-library-docs` followed by your Context7 docum
 
 If you prefer to run the MCP server in a Docker container:
 
-1.  **Build the Docker Image:**
+1. **Build the Docker Image:**
 
     First, create a `Dockerfile` in the project root (or anywhere you prefer):
 
@@ -249,7 +278,9 @@ If you prefer to run the MCP server in a Docker container:
     *Note: This is an example configuration. Please refer to the specific examples for your MCP client (like Cursor, VS Code, etc.) earlier in this README to adapt the structure (e.g., `mcpServers` vs `servers`). Also, ensure the image name in `args` matches the tag used during the `docker build` command.*
 
 ### Install in Windows
+
 The configuration on Windows is slightly different compared to Linux or macOS (*`Cline` is used in the example*). The same principle applies to other editors; refer to the configuration of `command` and `args`.
+
 ```json
 {
   "mcpServers": {
@@ -272,7 +303,7 @@ The configuration on Windows is slightly different compared to Linux or macOS (*
 
 - `DEFAULT_MINIMUM_TOKENS`: Set the minimum token count for documentation retrieval (default: 10000).
 
-Examples:
+Example configuration with environment variables:
 
 ```json
 {
@@ -281,7 +312,7 @@ Examples:
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp"],
       "env": {
-        "DEFAULT_MINIMUM_TOKENS": "10000"
+        "DEFAULT_MINIMUM_TOKENS": "6000"
       }
     }
   }
@@ -290,10 +321,13 @@ Examples:
 
 ### Available Tools
 
+Context7 MCP provides the following tools that LLMs can use:
+
 - `resolve-library-id`: Resolves a general library name into a Context7-compatible library ID.
-  - `libraryName` (required)
+  - `libraryName` (required): The name of the library to search for
+
 - `get-library-docs`: Fetches documentation for a library using a Context7-compatible library ID.
-  - `context7CompatibleLibraryID` (required)
+  - `context7CompatibleLibraryID` (required): Exact Context7-compatible library ID (e.g., `/mongodb/docs`, `/vercel/next.js`)
   - `topic` (optional): Focus the docs on a specific topic (e.g., "routing", "hooks")
   - `tokens` (optional, default 10000): Max number of tokens to return. Values less than the configured `DEFAULT_MINIMUM_TOKENS` value or the default value of 10000 are automatically increased to that value.
 
@@ -332,9 +366,9 @@ npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp
 
 ## Troubleshooting
 
-### ERR_MODULE_NOT_FOUND
+### Module Not Found Errors
 
-If you see this error, try using `bunx` instead of `npx`.
+If you encounter `ERR_MODULE_NOT_FOUND`, try using `bunx` instead of `npx`:
 
 ```json
 {
@@ -347,11 +381,11 @@ If you see this error, try using `bunx` instead of `npx`.
 }
 ```
 
-This often resolves module resolution issues, especially in environments where `npx` does not properly install or resolve packages.
+This often resolves module resolution issues in environments where `npx` doesn't properly install or resolve packages.
 
 ### ESM Resolution Issues
 
-If you encounter an error like: `Error: Cannot find module 'uriTemplate.js'` try running with the `--experimental-vm-modules` flag:
+For errors like `Error: Cannot find module 'uriTemplate.js'`, try the `--experimental-vm-modules` flag:
 
 ```json
 {
@@ -370,7 +404,7 @@ If you encounter an error like: `Error: Cannot find module 'uriTemplate.js'` try
 
 ### TLS/Certificate Issues
 
-Use the `--experimental-fetch` flag with `npx` to bypass TLS-related issues:
+Use the `--experimental-fetch` flag to bypass TLS-related problems:
 
 ```json
 {
@@ -387,15 +421,12 @@ Use the `--experimental-fetch` flag with `npx` to bypass TLS-related issues:
 }
 ```
 
-### MCP Client Errors
+### General MCP Client Errors
 
-1. Try adding `@latest` to the package name.
-
-2. Try using `bunx` as an alternative.
-
-3. Try using `deno` as an alternative.
-
-4. Make sure you are using Node v18 or higher to have native fetch support with `npx`.
+1. Try adding `@latest` to the package name
+2. Use `bunx` as an alternative to `npx`
+3. Consider using `deno` as another alternative
+4. Ensure you're using Node.js v18 or higher for native fetch support
 
 ## Disclaimer
 
@@ -404,18 +435,19 @@ Context7 projects are community-contributed and while we strive to maintain high
 ## Connect with Us
 
 Stay updated and join our community:
+
 - 📢 Follow us on [X](https://x.com/contextai) for the latest news and updates
 - 🌐 Visit our [Website](https://context7.com)
-- 💬 Join our [Discord Community](https://upstash.com/discord) (if applicable)
+- 💬 Join our [Discord Community](https://upstash.com/discord)
 
 ## Context7 In Media
 
 - [Better Stack: "Free Tool Makes Cursor 10x Smarter"](https://youtu.be/52FC3qObp9E)
 - [Cole Medin: "This is Hands Down the BEST MCP Server for AI Coding Assistants"](https://www.youtube.com/watch?v=G7gK8H6u7Rs)
-- [Income stream surfers: "Context7 + SequentialThinking MCPs: Is This AGI?"](https://www.youtube.com/watch?v=-ggvzyLpK6o)
+- [Income Stream Surfers: "Context7 + SequentialThinking MCPs: Is This AGI?"](https://www.youtube.com/watch?v=-ggvzyLpK6o)
 - [Julian Goldie SEO: "Context7: New MCP AI Agent Update"](https://www.youtube.com/watch?v=CTZm6fBYisc)
 - [JeredBlu: "Context 7 MCP: Get Documentation Instantly + VS Code Setup"](https://www.youtube.com/watch?v=-ls0D-rtET4)
-- [Income stream surfers: "Context7: The New MCP Server That Will CHANGE AI Coding"](https://www.youtube.com/watch?v=PS-2Azb-C3M)
+- [Income Stream Surfers: "Context7: The New MCP Server That Will CHANGE AI Coding"](https://www.youtube.com/watch?v=PS-2Azb-C3M)
 - [AICodeKing: "Context7 + Cline & RooCode: This MCP Server Makes CLINE 100X MORE EFFECTIVE!"](https://www.youtube.com/watch?v=qZfENAPMnyo)
 - [Sean Kochel: "5 MCP Servers For Vibe Coding Glory (Just Plug-In & Go)"](https://www.youtube.com/watch?v=LqTQi8qexJM)
 
