@@ -150,6 +150,21 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
 
 Add this to your VS Code MCP config file. See [VS Code MCP docs](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) for more info.
 
+#### VS Code Remote Server Connection
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}
+```
+
+#### VS Code Local Server Connection
+
 ```json
 {
   "servers": {
@@ -183,6 +198,14 @@ It can be installed via [Zed Extensions](https://zed.dev/extensions?query=Contex
 ### Install in Claude Code
 
 Run this command. See [Claude Code MCP docs](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp) for more info.
+
+#### Claude Code Remote Server Connection
+
+```sh
+claude mcp add --transport sse context7 https://mcp.context7.com/sse
+```
+
+#### Claude Code Local Server Connection
 
 ```sh
 claude mcp add context7 -- npx -y @upstash/context7-mcp
@@ -301,7 +324,9 @@ The configuration on Windows is slightly different compared to Linux or macOS (*
 
 ### Environment Variables
 
-- `DEFAULT_MINIMUM_TOKENS`: Set the minimum token count for documentation retrieval (default: 10000).
+The Context7 MCP server supports the following environment variables:
+
+- `DEFAULT_MINIMUM_TOKENS`: Set the minimum token count for documentation retrieval (default: 10000)
 
 Example configuration with environment variables:
 
