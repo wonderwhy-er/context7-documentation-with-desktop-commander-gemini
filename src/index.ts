@@ -35,7 +35,7 @@ function createServerInstance() {
   const server = new McpServer({
     name: "Context7",
     description: "Retrieves up-to-date documentation and code examples for any library.",
-    version: "1.0.7",
+    version: "1.0.13",
     capabilities: {
       resources: {},
       tools: {},
@@ -182,12 +182,12 @@ async function main() {
       const url = parse(req.url || "").pathname;
 
       // Set CORS headers for all responses
-      res.setHeader('Access-Control-Allow-Origin', '*');
-      res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE');
-      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, MCP-Session-Id, mcp-session-id');
+      res.setHeader("Access-Control-Allow-Origin", "*");
+      res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS,DELETE");
+      res.setHeader("Access-Control-Allow-Headers", "Content-Type, MCP-Session-Id, mcp-session-id");
 
       // Handle preflight OPTIONS requests
-      if (req.method === 'OPTIONS') {
+      if (req.method === "OPTIONS") {
         res.writeHead(200);
         res.end();
         return;
@@ -199,7 +199,7 @@ async function main() {
 
         if (url === "/mcp") {
           const transport = new StreamableHTTPServerTransport({
-            sessionIdGenerator: undefined
+            sessionIdGenerator: undefined,
           });
           await requestServer.connect(transport);
           await transport.handleRequest(req, res);
@@ -217,7 +217,7 @@ async function main() {
           // Get session ID from query parameters
           const parsedUrl = parse(req.url || "", true);
           const sessionId = parsedUrl.query.sessionId as string;
-          
+
           if (!sessionId) {
             res.writeHead(400);
             res.end("Missing sessionId parameter");
@@ -235,8 +235,8 @@ async function main() {
           // Handle the POST message with the existing transport
           await sseTransport.handlePostMessage(req, res);
         } else if (url === "/ping") {
-          res.writeHead(200, { 'Content-Type': 'text/plain' });
-          res.end('pong');
+          res.writeHead(200, { "Content-Type": "text/plain" });
+          res.end("pong");
         } else {
           res.writeHead(404);
           res.end("Not found");
@@ -251,7 +251,9 @@ async function main() {
     });
 
     httpServer.listen(port, () => {
-      console.error(`Context7 Documentation MCP Server running on ${transportType.toUpperCase()} at http://localhost:${port}/mcp and legacy SSE at /sse`);
+      console.error(
+        `Context7 Documentation MCP Server running on ${transportType.toUpperCase()} at http://localhost:${port}/mcp and legacy SSE at /sse`
+      );
     });
   } else {
     // Stdio transport - this is already stateless by nature
