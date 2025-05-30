@@ -2,8 +2,7 @@
 
 [![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp) [<img alt="Install in VS Code (npx)" src="https://img.shields.io/badge/VS_Code-VS_Code?style=flat-square&label=Install%20Context7%20MCP&color=0098FF">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22context7%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40upstash%2Fcontext7-mcp%40latest%22%5D%7D)
 
-[![中文文档](https://img.shields.io/badge/docs-中文版-yellow)](./docs/README.zh-CN.md) [![한국어 문서](https://img.shields.io/badge/docs-한국어-green)](./docs/README.ko.md) [![Documentación en Español](https://img.shields.io/badge/docs-Español-orange)](./docs/README.es.md) [![Documentation en Français](https://img.shields.io/badge/docs-Français-blue)](./docs/README.fr.md) [![Documentação em Português (Brasil)](https://img.shields.io/badge/docs-Português%20(Brasil)-purple)](./docs/README.pt-BR.md) [![Documentazione in italiano](https://img.shields.io/badge/docs-Italian-red)](./docs/README.it.md) [![Dokumentasi Bahasa Indonesia](https://img.shields.io/badge/docs-Bahasa%20Indonesia-pink)](./docs/README.id-ID.md) [![Dokumentation auf Deutsch](https://img.shields.io/badge/docs-Deutsch-darkgreen)](./docs/README.de.md) [![Документация на русском языке](https://img.shields.io/badge/docs-Русский-darkblue)](./docs/README.ru.md) [![Türkçe Doküman](https://img.shields.io/badge/docs-Türkçe-blue)](./docs/README.tr.md) [![Arabic Documentation](https://img.shields.io/badge/docs-Arabic-white)](./docs/README.ar.md)
-
+[![中文文档](https://img.shields.io/badge/docs-中文版-yellow)](./docs/README.zh-CN.md) [![한국어 문서](https://img.shields.io/badge/docs-한국어-green)](./docs/README.ko.md) [![Documentación en Español](https://img.shields.io/badge/docs-Español-orange)](./docs/README.es.md) [![Documentation en Français](https://img.shields.io/badge/docs-Français-blue)](./docs/README.fr.md) [![Documentação em Português (Brasil)](<https://img.shields.io/badge/docs-Português%20(Brasil)-purple>)](./docs/README.pt-BR.md) [![Documentazione in italiano](https://img.shields.io/badge/docs-Italian-red)](./docs/README.it.md) [![Dokumentasi Bahasa Indonesia](https://img.shields.io/badge/docs-Bahasa%20Indonesia-pink)](./docs/README.id-ID.md) [![Dokumentation auf Deutsch](https://img.shields.io/badge/docs-Deutsch-darkgreen)](./docs/README.de.md) [![Документация на русском языке](https://img.shields.io/badge/docs-Русский-darkblue)](./docs/README.ru.md) [![Türkçe Doküman](https://img.shields.io/badge/docs-Türkçe-blue)](./docs/README.tr.md) [![Arabic Documentation](https://img.shields.io/badge/docs-Arabic-white)](./docs/README.ar.md)
 
 ## ❌ Without Context7
 
@@ -35,7 +34,11 @@ Context7 fetches up-to-date code examples and documentation right into your LLM'
 
 No tab-switching, no hallucinated APIs that don't exist, no outdated code generations.
 
-## 🛠️ Getting Started
+## 📚 Adding Projects
+
+Check out our [project addition guide](./docs/adding-projects.md) to learn how to add (or update) your favorite libraries to Context7.
+
+## 🛠️ Installation
 
 ### Requirements
 
@@ -225,19 +228,19 @@ If you prefer to run the MCP server in a Docker container:
     docker build -t context7-mcp .
     ```
 
-2. **Configure Your MCP Client:**
+2.  **Configure Your MCP Client:**
 
     Update your MCP client's configuration to use the Docker command.
 
-    *Example for a cline_mcp_settings.json:*
+    _Example for a cline_mcp_settings.json:_
 
     ```json
     {
       "mcpServers": {
         "Сontext7": {
-        "autoApprove": [],
-        "disabled": false,
-        "timeout": 60,
+          "autoApprove": [],
+          "disabled": false,
+          "timeout": 60,
           "command": "docker",
           "args": ["run", "-i", "--rm", "context7-mcp"],
           "transportType": "stdio"
@@ -246,21 +249,18 @@ If you prefer to run the MCP server in a Docker container:
     }
     ```
 
-    *Note: This is an example configuration. Please refer to the specific examples for your MCP client (like Cursor, VS Code, etc.) earlier in this README to adapt the structure (e.g., `mcpServers` vs `servers`). Also, ensure the image name in `args` matches the tag used during the `docker build` command.*
+    _Note: This is an example configuration. Please refer to the specific examples for your MCP client (like Cursor, VS Code, etc.) earlier in this README to adapt the structure (e.g., `mcpServers` vs `servers`). Also, ensure the image name in `args` matches the tag used during the `docker build` command._
 
 ### Install in Windows
-The configuration on Windows is slightly different compared to Linux or macOS (*`Cline` is used in the example*). The same principle applies to other editors; refer to the configuration of `command` and `args`.
+
+The configuration on Windows is slightly different compared to Linux or macOS (_`Cline` is used in the example_). The same principle applies to other editors; refer to the configuration of `command` and `args`.
+
 ```json
 {
   "mcpServers": {
     "github.com/upstash/context7-mcp": {
       "command": "cmd",
-      "args": [
-        "/c",
-        "npx",
-        "-y",
-        "@upstash/context7-mcp@latest"
-      ],
+      "args": ["/c", "npx", "-y", "@upstash/context7-mcp@latest"],
       "disabled": false,
       "autoApprove": []
     }
@@ -358,11 +358,7 @@ If you encounter an error like: `Error: Cannot find module 'uriTemplate.js'` try
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": [
-        "-y",
-        "--node-options=--experimental-vm-modules",
-        "@upstash/context7-mcp@1.0.6"
-      ]
+      "args": ["-y", "--node-options=--experimental-vm-modules", "@upstash/context7-mcp@1.0.6"]
     }
   }
 }
@@ -385,6 +381,7 @@ Context7 projects are community-contributed and while we strive to maintain high
 ## Connect with Us
 
 Stay updated and join our community:
+
 - 📢 Follow us on [X](https://x.com/contextai) for the latest news and updates
 - 🌐 Visit our [Website](https://context7.com)
 - 💬 Join our [Discord Community](https://upstash.com/discord) (if applicable)
