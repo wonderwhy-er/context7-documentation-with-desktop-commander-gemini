@@ -2,7 +2,7 @@
 
 [![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp) [<img alt="Install in VS Code (npx)" src="https://img.shields.io/badge/VS_Code-VS_Code?style=flat-square&label=Install%20Context7%20MCP&color=0098FF">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22context7%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40upstash%2Fcontext7-mcp%40latest%22%5D%7D)
 
-[![中文文档](https://img.shields.io/badge/docs-中文版-yellow)](./docs/README.zh-CN.md) [![한국어 문서](https://img.shields.io/badge/docs-한국어-green)](./docs/README.ko.md) [![Documentación en Español](https://img.shields.io/badge/docs-Español-orange)](./docs/README.es.md) [![Documentation en Français](https://img.shields.io/badge/docs-Français-blue)](./docs/README.fr.md) [![Documentação em Português (Brasil)](https://img.shields.io/badge/docs-Português%20(Brasil)-purple)](./docs/README.pt-BR.md) [![Documentazione in italiano](https://img.shields.io/badge/docs-Italian-red)](./docs/README.it.md) [![Dokumentasi Bahasa Indonesia](https://img.shields.io/badge/docs-Bahasa%20Indonesia-pink)](./docs/README.id-ID.md) [![Dokumentation auf Deutsch](https://img.shields.io/badge/docs-Deutsch-darkgreen)](./docs/README.de.md) [![Документация на русском языке](https://img.shields.io/badge/docs-Русский-darkblue)](./docs/README.ru.md) [![Türkçe Dokümantasyon](https://img.shields.io/badge/docs-Türkçe-blue)](./docs/README.tr.md) [![Arabic Documentation](https://img.shields.io/badge/docs-Arabic-white)](./docs/README.ar.md)
+[![中文文档](https://img.shields.io/badge/docs-中文版-yellow)](./docs/README.zh-CN.md) [![한국어 문서](https://img.shields.io/badge/docs-한국어-green)](./docs/README.ko.md) [![Documentación en Español](https://img.shields.io/badge/docs-Español-orange)](./docs/README.es.md) [![Documentation en Français](https://img.shields.io/badge/docs-Français-blue)](./docs/README.fr.md) [![Documentação em Português (Brasil)](<https://img.shields.io/badge/docs-Português%20(Brasil)-purple>)](./docs/README.pt-BR.md) [![Documentazione in italiano](https://img.shields.io/badge/docs-Italian-red)](./docs/README.it.md) [![Dokumentasi Bahasa Indonesia](https://img.shields.io/badge/docs-Bahasa%20Indonesia-pink)](./docs/README.id-ID.md) [![Dokumentation auf Deutsch](https://img.shields.io/badge/docs-Deutsch-darkgreen)](./docs/README.de.md) [![Документация на русском языке](https://img.shields.io/badge/docs-Русский-darkblue)](./docs/README.ru.md) [![Türkçe Doküman](https://img.shields.io/badge/docs-Türkçe-blue)](./docs/README.tr.md) [![Arabic Documentation](https://img.shields.io/badge/docs-Arabic-white)](./docs/README.ar.md)
 
 ## ❌ Without Context7
 
@@ -34,7 +34,11 @@ Context7 fetches up-to-date code examples and documentation right into your LLM'
 
 No tab-switching, no hallucinated APIs that don't exist, no outdated code generations.
 
-## 🛠️ Getting Started
+## 📚 Adding Projects
+
+Check out our [project addition guide](./docs/adding-projects.md) to learn how to add (or update) your favorite libraries to Context7.
+
+## 🛠️ Installation
 
 ### Requirements
 
@@ -249,72 +253,67 @@ If you prefer to run the MCP server in a Docker container:
 
 1. **Build the Docker Image:**
 
-    First, create a `Dockerfile` in the project root (or anywhere you prefer):
+   First, create a `Dockerfile` in the project root (or anywhere you prefer):
 
-    <details>
-    <summary>Click to see Dockerfile content</summary>
+   <details>
+   <summary>Click to see Dockerfile content</summary>
 
-    ```Dockerfile
-    FROM node:18-alpine
+   ```Dockerfile
+   FROM node:18-alpine
 
-    WORKDIR /app
+   WORKDIR /app
 
-    # Install the latest version globally
-    RUN npm install -g @upstash/context7-mcp
+   # Install the latest version globally
+   RUN npm install -g @upstash/context7-mcp
 
-    # Expose default port if needed (optional, depends on MCP client interaction)
-    # EXPOSE 3000
+   # Expose default port if needed (optional, depends on MCP client interaction)
+   # EXPOSE 3000
 
-    # Default command to run the server
-    CMD ["context7-mcp"]
-    ```
+   # Default command to run the server
+   CMD ["context7-mcp"]
+   ```
 
-    </details>
+   </details>
 
-    Then, build the image using a tag (e.g., `context7-mcp`). **Make sure Docker Desktop (or the Docker daemon) is running.** Run the following command in the same directory where you saved the `Dockerfile`:
+   Then, build the image using a tag (e.g., `context7-mcp`). **Make sure Docker Desktop (or the Docker daemon) is running.** Run the following command in the same directory where you saved the `Dockerfile`:
 
-    ```bash
-    docker build -t context7-mcp .
-    ```
+   ```bash
+   docker build -t context7-mcp .
+   ```
 
 2. **Configure Your MCP Client:**
 
-    Update your MCP client's configuration to use the Docker command.
+   Update your MCP client's configuration to use the Docker command.
 
-    *Example for a cline_mcp_settings.json:*
+   _Example for a cline_mcp_settings.json:_
 
-    ```json
-    {
-      "mcpServers": {
-        "Сontext7": {
-        "autoApprove": [],
-        "disabled": false,
-        "timeout": 60,
-          "command": "docker",
-          "args": ["run", "-i", "--rm", "context7-mcp"],
-          "transportType": "stdio"
-        }
-      }
-    }
-    ```
+   ```json
+   {
+     "mcpServers": {
+       "Сontext7": {
+         "autoApprove": [],
+         "disabled": false,
+         "timeout": 60,
+         "command": "docker",
+         "args": ["run", "-i", "--rm", "context7-mcp"],
+         "transportType": "stdio"
+       }
+     }
+   }
+   ```
 
-    *Note: This is an example configuration. Please refer to the specific examples for your MCP client (like Cursor, VS Code, etc.) earlier in this README to adapt the structure (e.g., `mcpServers` vs `servers`). Also, ensure the image name in `args` matches the tag used during the `docker build` command.*
+   _Note: This is an example configuration. Please refer to the specific examples for your MCP client (like Cursor, VS Code, etc.) earlier in this README to adapt the structure (e.g., `mcpServers` vs `servers`). Also, ensure the image name in `args` matches the tag used during the `docker build` command._
 
 ### Install in Windows
 
-The configuration on Windows is slightly different compared to Linux or macOS (*`Cline` is used in the example*). The same principle applies to other editors; refer to the configuration of `command` and `args`.
+The configuration on Windows is slightly different compared to Linux or macOS (_`Cline` is used in the example_). The same principle applies to other editors; refer to the configuration of `command` and `args`.
 
 ```json
 {
   "mcpServers": {
     "github.com/upstash/context7-mcp": {
       "command": "cmd",
-      "args": [
-        "/c",
-        "npx",
-        "-y",
-        "@upstash/context7-mcp"
-      ],
+      "args": ["/c", "npx", "-y", "@upstash/context7-mcp@latest"],
       "disabled": false,
       "autoApprove": []
     }
@@ -349,6 +348,7 @@ Example configuration with environment variables:
 Context7 MCP provides the following tools that LLMs can use:
 
 - `resolve-library-id`: Resolves a general library name into a Context7-compatible library ID.
+
   - `libraryName` (required): The name of the library to search for
 
 - `get-library-docs`: Fetches documentation for a library using a Context7-compatible library ID.
@@ -417,11 +417,7 @@ For errors like `Error: Cannot find module 'uriTemplate.js'`, try the `--experim
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": [
-        "-y",
-        "--node-options=--experimental-vm-modules",
-        "@upstash/context7-mcp"
-      ]
+      "args": ["-y", "--node-options=--experimental-vm-modules", "@upstash/context7-mcp@1.0.6"]
     }
   }
 }
@@ -436,11 +432,7 @@ Use the `--experimental-fetch` flag to bypass TLS-related problems:
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": [
-        "-y",
-        "--node-options=--experimental-fetch",
-        "@upstash/context7-mcp"
-      ]
+      "args": ["-y", "--node-options=--experimental-fetch", "@upstash/context7-mcp"]
     }
   }
 }
