@@ -94,6 +94,25 @@ These defaults help ensure that coding agents receive relevant, current document
 3. **Add helpful rules**: Include common gotchas or best practices that coding agents should know when generating code
 4. **Maintain version history**: Keep important previous versions accessible for projects that need older APIs
 
+## Adding a Version
+
+To add a new version to your existing library:
+
+1. **Add version to the `context7.json` file**: Update the `previousVersions` array with your new version:
+
+   ```json
+   "previousVersions": [
+     {
+       "tag": "v2.0.0",
+       "title": "version 2.0.0"
+     }
+   ]
+   ```
+
+   > **Note**: The `tag` value must exactly match an existing Git tag in your GitHub repository.
+
+2. **Refresh your library**: Go to your library page on Context7 and trigger a refresh to index the new version.
+
 ## Need Help?
 
 If you encounter issues or need assistance adding your project, please [report an issue](https://context7.com/add-library?tab=github) or reach out to our community.
