@@ -45,7 +45,8 @@ Check out our [project addition guide](./docs/adding-projects.md) to learn how t
 - Node.js >= v18.0.0
 - Cursor, Windsurf, Claude Desktop or another MCP Client
 
-### Installing via Smithery
+<details>
+<summary>### Installing via Smithery</summary>
 
 To install Context7 MCP Server for any client automatically via [Smithery](https://smithery.ai/server/@upstash/context7-mcp):
 
@@ -55,7 +56,10 @@ npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME>
 
 You can find your Smithery key in the [Smithery.ai webpage](https://smithery.ai/server/@upstash/context7-mcp).
 
-### Install in Cursor
+</details>
+
+<details>
+<summary>### Install in Cursor</summary>
 
 Go to: `Settings` -> `Cursor Settings` -> `MCP` -> `Add new global MCP server`
 
@@ -118,7 +122,10 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 
 </details>
 
-### Install in Windsurf
+</details>
+
+<details>
+<summary>### Install in Windsurf</summary>
 
 Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.windsurf.com/windsurf/mcp) for more info.
 
@@ -147,7 +154,10 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
 }
 ```
 
-### Install in VS Code
+</details>
+
+<details>
+<summary>### Install in VS Code</summary>
 
 [<img alt="Install in VS Code (npx)" src="https://img.shields.io/badge/VS_Code-VS_Code?style=flat-square&label=Install%20Context7%20MCP&color=0098FF">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22context7%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40upstash%2Fcontext7-mcp%40latest%22%5D%7D)
 [<img alt="Install in VS Code Insiders (npx)" src="https://img.shields.io/badge/VS_Code_Insiders-VS_Code_Insiders?style=flat-square&label=Install%20Context7%20MCP&color=24bfa5">](https://insiders.vscode.dev/redirect?url=vscode-insiders%3Amcp%2Finstall%3F%7B%22name%22%3A%22context7%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40upstash%2Fcontext7-mcp%40latest%22%5D%7D)
@@ -181,7 +191,10 @@ Add this to your VS Code MCP config file. See [VS Code MCP docs](https://code.vi
 }
 ```
 
-### Install in Zed
+</details>
+
+<details>
+<summary>### Install in Zed</summary>
 
 It can be installed via [Zed Extensions](https://zed.dev/extensions?query=Context7) or you can add this to your Zed `settings.json`. See [Zed Context Server docs](https://zed.dev/docs/assistant/context-servers) for more info.
 
@@ -199,7 +212,10 @@ It can be installed via [Zed Extensions](https://zed.dev/extensions?query=Contex
 }
 ```
 
-### Install in Claude Code
+</details>
+
+<details>
+<summary>### Install in Claude Code</summary>
 
 Run this command. See [Claude Code MCP docs](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp) for more info.
 
@@ -215,7 +231,10 @@ claude mcp add --transport sse context7 https://mcp.context7.com/sse
 claude mcp add context7 -- npx -y @upstash/context7-mcp
 ```
 
-### Install in Claude Desktop
+</details>
+
+<details>
+<summary>### Install in Claude Desktop</summary>
 
 Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude Desktop MCP docs](https://modelcontextprotocol.io/quickstart/user) for more info.
 
@@ -230,7 +249,10 @@ Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude D
 }
 ```
 
-### Install in BoltAI
+</details>
+
+<details>
+<summary>### Install in BoltAI</summary>
 
 Open the "Settings" page of the app, navigate to "Plugins," and enter the following JSON:
 
@@ -247,7 +269,10 @@ Open the "Settings" page of the app, navigate to "Plugins," and enter the follow
 
 Once saved, enter in the chat `get-library-docs` followed by your Context7 documentation ID (e.g., `get-library-docs /nuxt/ui`). More information is available on [BoltAI's Documentation site](https://docs.boltai.com/docs/plugins/mcp-servers). For BoltAI on iOS, [see this guide](https://docs.boltai.com/docs/boltai-mobile/mcp-servers).
 
-### Using Docker
+</details>
+
+<details>
+<summary>### Using Docker</summary>
 
 If you prefer to run the MCP server in a Docker container:
 
@@ -304,7 +329,10 @@ If you prefer to run the MCP server in a Docker container:
 
    _Note: This is an example configuration. Please refer to the specific examples for your MCP client (like Cursor, VS Code, etc.) earlier in this README to adapt the structure (e.g., `mcpServers` vs `servers`). Also, ensure the image name in `args` matches the tag used during the `docker build` command._
 
-### Install in Windows
+</details>
+
+<details>
+<summary>### Install in Windows</summary>
 
 The configuration on Windows is slightly different compared to Linux or macOS (_`Cline` is used in the example_). The same principle applies to other editors; refer to the configuration of `command` and `args`.
 
@@ -320,6 +348,8 @@ The configuration on Windows is slightly different compared to Linux or macOS (_
   }
 }
 ```
+
+</details>
 
 ### Environment Variables
 
