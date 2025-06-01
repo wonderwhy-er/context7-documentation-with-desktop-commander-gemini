@@ -351,6 +351,32 @@ The configuration on Windows is slightly different compared to Linux or macOS (_
 
 </details>
 
+<details>
+<summary><b>Install in Augment Code</b></summary>
+
+To configure Context7 MCP in Augment Code, follow these steps:
+
+1. Press Cmd/Ctrl Shift P or go to the hamburger menu in the Augment panel
+2. Select Edit Settings
+3. Under Advanced, click Edit in settings.json
+4. Add the server configuration to the `mcpServers` array in the `augment.advanced` object
+
+```json
+"augment.advanced": {
+    "mcpServers": [
+        {
+            "name": "context7",
+            "command": "npx",
+            "args": ["-y", "@upstash/context7-mcp"]
+        }
+    ]
+}
+```
+
+Once the MCP server is added, restart your editor. If you receive any errors, check the syntax to make sure closing brackets or commas are not missing.
+
+</details>
+
 ## 🔧 Environment Variables
 
 The Context7 MCP server supports the following environment variables:
