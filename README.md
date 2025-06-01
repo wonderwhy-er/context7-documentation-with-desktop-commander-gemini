@@ -46,7 +46,7 @@ Check out our [project addition guide](./docs/adding-projects.md) to learn how t
 - Cursor, Windsurf, Claude Desktop or another MCP Client
 
 <details>
-<summary>### Installing via Smithery</summary>
+<summary><b>Installing via Smithery</b></summary>
 
 To install Context7 MCP Server for any client automatically via [Smithery](https://smithery.ai/server/@upstash/context7-mcp):
 
@@ -59,7 +59,7 @@ You can find your Smithery key in the [Smithery.ai webpage](https://smithery.ai/
 </details>
 
 <details>
-<summary>### Install in Cursor</summary>
+<summary><b>Install in Cursor</b></summary>
 
 Go to: `Settings` -> `Cursor Settings` -> `MCP` -> `Add new global MCP server`
 
@@ -125,7 +125,7 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 </details>
 
 <details>
-<summary>### Install in Windsurf</summary>
+<summary><b>Install in Windsurf</b></summary>
 
 Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.windsurf.com/windsurf/mcp) for more info.
 
@@ -157,7 +157,7 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
 </details>
 
 <details>
-<summary>### Install in VS Code</summary>
+<summary><b>Install in VS Code</b></summary>
 
 [<img alt="Install in VS Code (npx)" src="https://img.shields.io/badge/VS_Code-VS_Code?style=flat-square&label=Install%20Context7%20MCP&color=0098FF">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22context7%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40upstash%2Fcontext7-mcp%40latest%22%5D%7D)
 [<img alt="Install in VS Code Insiders (npx)" src="https://img.shields.io/badge/VS_Code_Insiders-VS_Code_Insiders?style=flat-square&label=Install%20Context7%20MCP&color=24bfa5">](https://insiders.vscode.dev/redirect?url=vscode-insiders%3Amcp%2Finstall%3F%7B%22name%22%3A%22context7%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40upstash%2Fcontext7-mcp%40latest%22%5D%7D)
@@ -194,7 +194,7 @@ Add this to your VS Code MCP config file. See [VS Code MCP docs](https://code.vi
 </details>
 
 <details>
-<summary>### Install in Zed</summary>
+<summary><b>Install in Zed</b></summary>
 
 It can be installed via [Zed Extensions](https://zed.dev/extensions?query=Context7) or you can add this to your Zed `settings.json`. See [Zed Context Server docs](https://zed.dev/docs/assistant/context-servers) for more info.
 
@@ -215,7 +215,7 @@ It can be installed via [Zed Extensions](https://zed.dev/extensions?query=Contex
 </details>
 
 <details>
-<summary>### Install in Claude Code</summary>
+<summary><b>Install in Claude Code</b></summary>
 
 Run this command. See [Claude Code MCP docs](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp) for more info.
 
@@ -234,7 +234,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 </details>
 
 <details>
-<summary>### Install in Claude Desktop</summary>
+<summary><b>Install in Claude Desktop</b></summary>
 
 Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude Desktop MCP docs](https://modelcontextprotocol.io/quickstart/user) for more info.
 
@@ -252,7 +252,7 @@ Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude D
 </details>
 
 <details>
-<summary>### Install in BoltAI</summary>
+<summary><b>Install in BoltAI</b></summary>
 
 Open the "Settings" page of the app, navigate to "Plugins," and enter the following JSON:
 
@@ -272,7 +272,7 @@ Once saved, enter in the chat `get-library-docs` followed by your Context7 docum
 </details>
 
 <details>
-<summary>### Using Docker</summary>
+<summary><b>Using Docker</b></summary>
 
 If you prefer to run the MCP server in a Docker container:
 
@@ -332,7 +332,7 @@ If you prefer to run the MCP server in a Docker container:
 </details>
 
 <details>
-<summary>### Install in Windows</summary>
+<summary><b>Install in Windows</b></summary>
 
 The configuration on Windows is slightly different compared to Linux or macOS (_`Cline` is used in the example_). The same principle applies to other editors; refer to the configuration of `command` and `args`.
 
@@ -351,7 +351,7 @@ The configuration on Windows is slightly different compared to Linux or macOS (_
 
 </details>
 
-### Environment Variables
+## 🔧 Environment Variables
 
 The Context7 MCP server supports the following environment variables:
 
@@ -373,7 +373,7 @@ Example configuration with environment variables:
 }
 ```
 
-### Available Tools
+## 🔨 Available Tools
 
 Context7 MCP provides the following tools that LLMs can use:
 
@@ -386,7 +386,7 @@ Context7 MCP provides the following tools that LLMs can use:
   - `topic` (optional): Focus the docs on a specific topic (e.g., "routing", "hooks")
   - `tokens` (optional, default 10000): Max number of tokens to return. Values less than the configured `DEFAULT_MINIMUM_TOKENS` value or the default value of 10000 are automatically increased to that value.
 
-## Development
+## 💻 Development
 
 Clone the project and install dependencies:
 
@@ -400,7 +400,8 @@ Build:
 bun run build
 ```
 
-### Local Configuration Example
+<details>
+<summary><b>Local Configuration Example</b></summary>
 
 ```json
 {
@@ -413,15 +414,21 @@ bun run build
 }
 ```
 
-### Testing with MCP Inspector
+</details>
+
+<details>
+<summary><b>Testing with MCP Inspector</b></summary>
 
 ```bash
 npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp
 ```
 
-## Troubleshooting
+</details>
 
-### Module Not Found Errors
+## 🚨 Troubleshooting
+
+<details>
+<summary><b>Module Not Found Errors</b></summary>
 
 If you encounter `ERR_MODULE_NOT_FOUND`, try using `bunx` instead of `npx`:
 
@@ -438,7 +445,10 @@ If you encounter `ERR_MODULE_NOT_FOUND`, try using `bunx` instead of `npx`:
 
 This often resolves module resolution issues in environments where `npx` doesn't properly install or resolve packages.
 
-### ESM Resolution Issues
+</details>
+
+<details>
+<summary><b>ESM Resolution Issues</b></summary>
 
 For errors like `Error: Cannot find module 'uriTemplate.js'`, try the `--experimental-vm-modules` flag:
 
@@ -453,7 +463,10 @@ For errors like `Error: Cannot find module 'uriTemplate.js'`, try the `--experim
 }
 ```
 
-### TLS/Certificate Issues
+</details>
+
+<details>
+<summary><b>TLS/Certificate Issues</b></summary>
 
 Use the `--experimental-fetch` flag to bypass TLS-related problems:
 
@@ -468,18 +481,23 @@ Use the `--experimental-fetch` flag to bypass TLS-related problems:
 }
 ```
 
-### General MCP Client Errors
+</details>
+
+<details>
+<summary><b>General MCP Client Errors</b></summary>
 
 1. Try adding `@latest` to the package name
 2. Use `bunx` as an alternative to `npx`
 3. Consider using `deno` as another alternative
 4. Ensure you're using Node.js v18 or higher for native fetch support
 
-## Disclaimer
+</details>
+
+## ⚠️ Disclaimer
 
 Context7 projects are community-contributed and while we strive to maintain high quality, we cannot guarantee the accuracy, completeness, or security of all library documentation. Projects listed in Context7 are developed and maintained by their respective owners, not by Context7. If you encounter any suspicious, inappropriate, or potentially harmful content, please use the "Report" button on the project page to notify us immediately. We take all reports seriously and will review flagged content promptly to maintain the integrity and safety of our platform. By using Context7, you acknowledge that you do so at your own discretion and risk.
 
-## Connect with Us
+## 🤝 Connect with Us
 
 Stay updated and join our community:
 
@@ -487,7 +505,7 @@ Stay updated and join our community:
 - 🌐 Visit our [Website](https://context7.com)
 - 💬 Join our [Discord Community](https://upstash.com/discord)
 
-## Context7 In Media
+## 📺 Context7 In Media
 
 - [Better Stack: "Free Tool Makes Cursor 10x Smarter"](https://youtu.be/52FC3qObp9E)
 - [Cole Medin: "This is Hands Down the BEST MCP Server for AI Coding Assistants"](https://www.youtube.com/watch?v=G7gK8H6u7Rs)
@@ -498,10 +516,10 @@ Stay updated and join our community:
 - [AICodeKing: "Context7 + Cline & RooCode: This MCP Server Makes CLINE 100X MORE EFFECTIVE!"](https://www.youtube.com/watch?v=qZfENAPMnyo)
 - [Sean Kochel: "5 MCP Servers For Vibe Coding Glory (Just Plug-In & Go)"](https://www.youtube.com/watch?v=LqTQi8qexJM)
 
-## Star History
+## ⭐ Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=upstash/context7&type=Date)](https://www.star-history.com/#upstash/context7&Date)
 
-## License
+## 📄 License
 
 MIT
