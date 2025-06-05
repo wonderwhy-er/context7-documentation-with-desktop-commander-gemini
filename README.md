@@ -65,7 +65,11 @@ Go to: `Settings` -> `Cursor Settings` -> `MCP` -> `Add new global MCP server`
 
 Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file is the recommended approach. You may also install in a specific project by creating `.cursor/mcp.json` in your project folder. See [Cursor MCP docs](https://docs.cursor.com/context/model-context-protocol) for more info.
 
+> Since Cursor 1.0, you can click the install button below for instant one-click installation.
+
 #### Cursor Remote Server Connection
+
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=context7&config=eyJ1cmwiOiJodHRwczovL21jcC5jb250ZXh0Ny5jb20vbWNwIn0%3D)
 
 ```json
 {
@@ -78,6 +82,8 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 ```
 
 #### Cursor Local Server Connection
+
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IC15IEB1cHN0YXNoL2NvbnRleHQ3LW1jcCJ9)
 
 ```json
 {
@@ -92,6 +98,8 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 
 <details>
 <summary>Alternative: Use Bun</summary>
+
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=context7&config=eyJjb21tYW5kIjoiYnVueCAteSBAdXBzdGFzaC9jb250ZXh0Ny1tY3AifQ%3D%3D)
 
 ```json
 {
@@ -108,6 +116,8 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 
 <details>
 <summary>Alternative: Use Deno</summary>
+
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=context7&config=eyJjb21tYW5kIjoiZGVubyBydW4gLS1hbGxvdy1lbnYgLS1hbGxvdy1uZXQgbnBtOkB1cHN0YXNoL2NvbnRleHQ3LW1jcCJ9)
 
 ```json
 {
