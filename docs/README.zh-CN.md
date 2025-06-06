@@ -187,15 +187,15 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
 
    更新MCP客户端配置以使用Docker命令。
 
-   *cline_mcp_settings.json配置示例：*
+   _cline_mcp_settings.json配置示例：_
 
    ```json
    {
      "mcpServers": {
        "Сontext7": {
-       "autoApprove": [],
-       "disabled": false,
-       "timeout": 60,
+         "autoApprove": [],
+         "disabled": false,
+         "timeout": 60,
          "command": "docker",
          "args": ["run", "-i", "--rm", "context7-mcp"],
          "transportType": "stdio"
@@ -203,25 +203,24 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
      }
    }
    ```
-   *注意事项：*
+
+   _注意事项：_
    <em>
+
    - 此为示例配置。请参考前面README中针对具体MCP客户端（如Cursor、VS Code等）的示例来调整结构（如`mcpServers`与`servers`）。同时确保`args`中的镜像名称与`docker build`命令使用的标签一致。
    - 当前Cursor版本(0.49.5), 请不要使用本方式启动MCP server，详情：[Cursor官方说明](https://docs.cursor.com/context/model-context-protocol#remote-development)
-   </em>
+     </em>
 
 ### 在Windows上安装
-在windows上的配置相对于linux或macos来说有些许不同，(*示例使用的`Cline`*), 其它编辑器同理, 参考`command`和`args`的配置即可
+
+在windows上的配置相对于linux或macos来说有些许不同，(_示例使用的`Cline`_), 其它编辑器同理, 参考`command`和`args`的配置即可
+
 ```json
 {
   "mcpServers": {
     "github.com/upstash/context7-mcp": {
       "command": "cmd",
-      "args": [
-        "/c",
-        "npx",
-        "-y",
-        "@upstash/context7-mcp@latest"
-      ],
+      "args": ["/c", "npx", "-y", "@upstash/context7-mcp@latest"],
       "disabled": false,
       "autoApprove": []
     }
@@ -270,7 +269,6 @@ bun run build
 ```bash
 npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp@latest
 ```
-
 
 ## 故障排除
 

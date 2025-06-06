@@ -192,72 +192,67 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 
 1. **Создайте образ Docker:**
 
-    Во-первых, создайте `Dockerfile` в корне вашего проекта (или в любом другом месте):
+   Во-первых, создайте `Dockerfile` в корне вашего проекта (или в любом другом месте):
 
-    <details>
-    <summary>Нажмите, чтобы просмотреть содержимое файла Dockerfile</summary>
+   <details>
+   <summary>Нажмите, чтобы просмотреть содержимое файла Dockerfile</summary>
 
-    ```Dockerfile
-    FROM node:18-alpine
+   ```Dockerfile
+   FROM node:18-alpine
 
-    WORKDIR /app
+   WORKDIR /app
 
-    # Установите последнюю версию пакета глобально
-    RUN npm install -g @upstash/context7-mcp
+   # Установите последнюю версию пакета глобально
+   RUN npm install -g @upstash/context7-mcp
 
-    # Откройте стандартный порт, если это необходимо (необязательно, это зависит от взаимодействия с MCP клиентом)
-    # EXPOSE 3000
+   # Откройте стандартный порт, если это необходимо (необязательно, это зависит от взаимодействия с MCP клиентом)
+   # EXPOSE 3000
 
-    # Стандартная команда для запуска сервера
-    CMD ["context7-mcp"]
-    ```
+   # Стандартная команда для запуска сервера
+   CMD ["context7-mcp"]
+   ```
 
-    </details>
+   </details>
 
-    Затем, соберите образ, используя тег (например, `context7-mcp`). **Убедитесь, что Docker Desktop (или демон Docker) работает.** Запустите следующую команду в этой же директории, где сохранён `Dockerfile`:
+   Затем, соберите образ, используя тег (например, `context7-mcp`). **Убедитесь, что Docker Desktop (или демон Docker) работает.** Запустите следующую команду в этой же директории, где сохранён `Dockerfile`:
 
-    ```bash
-    docker build -t context7-mcp .
-    ```
+   ```bash
+   docker build -t context7-mcp .
+   ```
 
 2. **Настройте ваш MCP клиент:**
 
-    Обновите вашу конфигурацию MCP клиента, чтобы использовать Docker команду.
+   Обновите вашу конфигурацию MCP клиента, чтобы использовать Docker команду.
 
-    *Пример для cline_mcp_settings.json:*
+   _Пример для cline_mcp_settings.json:_
 
-    ```json
-    {
-      "mcpServers": {
-        "Сontext7": {
-        "autoApprove": [],
-        "disabled": false,
-        "timeout": 60,
-          "command": "docker",
-          "args": ["run", "-i", "--rm", "context7-mcp"],
-          "transportType": "stdio"
-        }
-      }
-    }
-    ```
+   ```json
+   {
+     "mcpServers": {
+       "Сontext7": {
+         "autoApprove": [],
+         "disabled": false,
+         "timeout": 60,
+         "command": "docker",
+         "args": ["run", "-i", "--rm", "context7-mcp"],
+         "transportType": "stdio"
+       }
+     }
+   }
+   ```
 
-    *Примечение: это пример конфигурации. Обратитесь к конкретным примерам для вашего MCP-клиента (например, Cursor, VS Code и т.д.), в предыдущих разделах этого README, чтобы адаптировать структуру (например, `mcpServers` вместо `servers`). Также убедитесь, что имя образа в `args` соответствует тегу, использованному при выполнении команды `docker build`.*
+   _Примечение: это пример конфигурации. Обратитесь к конкретным примерам для вашего MCP-клиента (например, Cursor, VS Code и т.д.), в предыдущих разделах этого README, чтобы адаптировать структуру (например, `mcpServers` вместо `servers`). Также убедитесь, что имя образа в `args` соответствует тегу, использованному при выполнении команды `docker build`._
 
 ### Установка в Windows
 
-Конфигурация в Windows немного отличается от Linux или macOS (*в качестве примера используется `Cline`*). Однако, эти же же принципы применимы и к другим редакторам. В случае необходимости обратитесь к настройкам `command` и `args`.
+Конфигурация в Windows немного отличается от Linux или macOS (_в качестве примера используется `Cline`_). Однако, эти же же принципы применимы и к другим редакторам. В случае необходимости обратитесь к настройкам `command` и `args`.
 
 ```json
 {
   "mcpServers": {
     "github.com/upstash/context7-mcp": {
       "command": "cmd",
-      "args": [
-        "/c",
-        "npx",
-        "-y",
-        "@upstash/context7-mcp"
-      ],
+      "args": ["/c", "npx", "-y", "@upstash/context7-mcp"],
       "disabled": false,
       "autoApprove": []
     }
@@ -355,11 +350,7 @@ npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": [
-        "-y",
-        "--node-options=--experimental-vm-modules",
-        "@upstash/context7-mcp"
-      ]
+      "args": ["-y", "--node-options=--experimental-vm-modules", "@upstash/context7-mcp"]
     }
   }
 }
@@ -374,11 +365,7 @@ npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": [
-        "-y",
-        "--node-options=--experimental-fetch",
-        "@upstash/context7-mcp"
-      ]
+      "args": ["-y", "--node-options=--experimental-fetch", "@upstash/context7-mcp"]
     }
   }
 }

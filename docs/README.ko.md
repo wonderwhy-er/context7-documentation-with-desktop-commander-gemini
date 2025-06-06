@@ -151,6 +151,7 @@ Claude Desktop의 `claude_desktop_config.json` 파일에 다음을 추가하세�
 ### 사용 가능한 도구
 
 - `resolve-library-id`: 일반적인 라이브러리 이름을 Context7이 인식할 수 있는 라이브러리 ID로 변환합니다.
+
   - `libraryName` (필수): 검색하고자 하는 라이브러리 이름
 
 - `get-library-docs`: Context7이 인식하는 라이브러리 ID를 사용하여 해당 라이브러리의 문서를 가져옵니다.
