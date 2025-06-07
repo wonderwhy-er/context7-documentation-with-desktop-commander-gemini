@@ -226,15 +226,15 @@ Si vous préférez exécuter le serveur MCP dans un conteneur Docker :
 
     Mettez à jour la configuration de votre client MCP pour utiliser la commande Docker.
 
-    *Exemple pour un fichier cline_mcp_settings.json :*
+    _Exemple pour un fichier cline_mcp_settings.json :_
 
     ```json
     {
       "mcpServers": {
         "Сontext7": {
-        "autoApprove": [],
-        "disabled": false,
-        "timeout": 60,
+          "autoApprove": [],
+          "disabled": false,
+          "timeout": 60,
           "command": "docker",
           "args": ["run", "-i", "--rm", "context7-mcp"],
           "transportType": "stdio"
@@ -242,23 +242,19 @@ Si vous préférez exécuter le serveur MCP dans un conteneur Docker :
       }
     }
     ```
-    *Note : Ceci est un exemple. Adaptez la structure selon votre client MCP (voir plus haut dans ce README). Assurez-vous que le nom de l’image dans `args` correspond au tag utilisé lors du build.*
+
+    _Note : Ceci est un exemple. Adaptez la structure selon votre client MCP (voir plus haut dans ce README). Assurez-vous que le nom de l’image dans `args` correspond au tag utilisé lors du build._
 
 ### Installation sous Windows
 
-La configuration sous Windows est légèrement différente par rapport à Linux ou macOS (*`Cline` est utilisé dans l'exemple*). Le même principe s'applique à d'autres éditeurs; référez-vous à la configuration de `command` et `args`.
+La configuration sous Windows est légèrement différente par rapport à Linux ou macOS (_`Cline` est utilisé dans l'exemple_). Le même principe s'applique à d'autres éditeurs; référez-vous à la configuration de `command` et `args`.
 
 ```json
 {
   "mcpServers": {
     "github.com/upstash/context7-mcp": {
       "command": "cmd",
-      "args": [
-        "/c",
-        "npx",
-        "-y",
-        "@upstash/context7-mcp@latest"
-      ],
+      "args": ["/c", "npx", "-y", "@upstash/context7-mcp@latest"],
       "disabled": false,
       "autoApprove": []
     }
@@ -356,11 +352,7 @@ Si vous rencontrez une erreur comme : `Error: Cannot find module 'uriTemplate.js
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": [
-        "-y",
-        "--node-options=--experimental-vm-modules",
-        "@upstash/context7-mcp@1.0.6"
-      ]
+      "args": ["-y", "--node-options=--experimental-vm-modules", "@upstash/context7-mcp@1.0.6"]
     }
   }
 }

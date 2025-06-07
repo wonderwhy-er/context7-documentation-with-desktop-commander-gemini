@@ -8,19 +8,30 @@ const DEFAULT_TYPE = "txt";
  * @param query The search query
  * @returns Search results or null if the request fails
  */
-export async function searchLibraries(query: string): Promise<SearchResponse | null> {
+export async function searchLibraries(query: string): Promise<SearchResponse> {
   try {
     const url = new URL(`${CONTEXT7_API_BASE_URL}/v1/search`);
     url.searchParams.set("query", query);
     const response = await fetch(url);
     if (!response.ok) {
-      console.error(`Failed to search libraries: ${response.status}`);
-      return null;
+      const errorCode = response.status;
+      if (errorCode === 429) {
+        console.error(`Rate limited due to too many requests. Please try again later.`);
+        return {
+          results: [],
+          error: `Rate limited due to too many requests. Please try again later.`,
+        } as SearchResponse;
+      }
+      console.error(`Failed to search libraries. Please try again later. Error code: ${errorCode}`);
+      return {
+        results: [],
+        error: `Failed to search libraries. Please try again later. Error code: ${errorCode}`,
+      } as SearchResponse;
     }
     return await response.json();
   } catch (error) {
     console.error("Error searching libraries:", error);
-    return null;
+    return { results: [], error: `Error searching libraries: ${error}` } as SearchResponse;
   }
 }
 
@@ -51,8 +62,15 @@ export async function fetchLibraryDocumentation(
       },
     });
     if (!response.ok) {
-      console.error(`Failed to fetch documentation: ${response.status}`);
-      return null;
+      const errorCode = response.status;
+      if (errorCode === 429) {
+        const errorMessage = `Rate limited due to too many requests. Please try again later.`;
+        console.error(errorMessage);
+        return errorMessage;
+      }
+      const errorMessage = `Failed to fetch documentation. Please try again later. Error code: ${errorCode}`;
+      console.error(errorMessage);
+      return errorMessage;
     }
     const text = await response.text();
     if (!text || text === "No content available" || text === "No context data available") {
@@ -60,7 +78,8 @@ export async function fetchLibraryDocumentation(
     }
     return text;
   } catch (error) {
-    console.error("Error fetching library documentation:", error);
-    return null;
+    const errorMessage = `Error fetching library documentation. Please try again later. ${error}`;
+    console.error(errorMessage);
+    return errorMessage;
   }
 }

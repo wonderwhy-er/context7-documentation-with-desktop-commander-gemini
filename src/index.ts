@@ -5,6 +5,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 import { searchLibraries, fetchLibraryDocumentation } from "./lib/api.js";
 import { formatSearchResults } from "./lib/utils.js";
+import { SearchResponse } from "./lib/types.js";
 import dotenv from "dotenv";
 import { createServer } from "http";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
@@ -70,25 +71,16 @@ For ambiguous queries, request clarification before proceeding with a best-guess
         .describe("Library name to search for and retrieve a Context7-compatible library ID."),
     },
     async ({ libraryName }) => {
-      const searchResponse = await searchLibraries(libraryName);
+      const searchResponse: SearchResponse = await searchLibraries(libraryName);
 
-      if (!searchResponse || !searchResponse.results) {
+      if (!searchResponse.results || searchResponse.results.length === 0) {
         return {
           content: [
             {
               type: "text",
-              text: "Failed to retrieve library documentation data from Context7",
-            },
-          ],
-        };
-      }
-
-      if (searchResponse.results.length === 0) {
-        return {
-          content: [
-            {
-              type: "text",
-              text: "No documentation libraries available",
+              text: searchResponse.error
+                ? searchResponse.error
+                : "Failed to retrieve library documentation data from Context7",
             },
           ],
         };
@@ -143,12 +135,12 @@ ${resultsText}`,
         ),
     },
     async ({ context7CompatibleLibraryID, tokens = DEFAULT_MINIMUM_TOKENS, topic = "" }) => {
-      const documentationText = await fetchLibraryDocumentation(context7CompatibleLibraryID, {
+      const fetchDocsResponse = await fetchLibraryDocumentation(context7CompatibleLibraryID, {
         tokens,
         topic,
       });
 
-      if (!documentationText) {
+      if (!fetchDocsResponse) {
         return {
           content: [
             {
@@ -163,7 +155,7 @@ ${resultsText}`,
         content: [
           {
             type: "text",
-            text: documentationText,
+            text: fetchDocsResponse,
           },
         ],
       };
