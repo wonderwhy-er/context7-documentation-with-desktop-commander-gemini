@@ -420,6 +420,30 @@ Add this to your Roo Code MCP configuration file. See [Roo Code MCP docs](https:
 
 </details>
 
+<details>
+<summary><b>Install in Zencoder</b></summary>
+
+To configure Context7 MCP in Zencoder, follow these steps:
+
+1. Go to the Zencoder menu (...)
+2. From the dropdown menu, select Agent tools
+3. Click on the Add custom MCP
+4. Add the name and server configuration from below, and make sure to hit the Install button
+
+```json
+{
+    "command": "npx",
+    "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+    ]
+}
+```
+
+Once the MCP server is added, you can easily continue using it.
+
+</details>
+
 ## 🔧 Environment Variables
 
 The Context7 MCP server supports the following environment variables:
