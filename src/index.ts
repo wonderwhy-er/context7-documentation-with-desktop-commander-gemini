@@ -9,7 +9,6 @@ import { SearchResponse } from "./lib/types.js";
 import { createServer } from "http";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
-import { parse } from "url";
 import { Command } from "commander";
 
 const DEFAULT_MINIMUM_TOKENS = 10000;
@@ -25,6 +24,15 @@ const cliOptions = program.opts<{
   transport: string;
   port: string;
 }>();
+
+// Validate transport option
+const allowedTransports = ["stdio", "http", "sse"];
+if (!allowedTransports.includes(cliOptions.transport)) {
+  console.error(
+    `Invalid --transport value: '${cliOptions.transport}'. Must be one of: stdio, http, sse.`
+  );
+  process.exit(1);
+}
 
 // Transport configuration
 const TRANSPORT_TYPE = (cliOptions.transport || "stdio") as "stdio" | "http" | "sse";
@@ -217,8 +225,9 @@ async function main() {
           await requestServer.connect(sseTransport);
         } else if (url === "/messages" && req.method === "POST") {
           // Get session ID from query parameters
-          const parsedUrl = parse(req.url || "", true);
-          const sessionId = parsedUrl.query.sessionId as string;
+          const sessionId =
+            new URL(req.url || "", `http://${req.headers.host}`).searchParams.get("sessionId") ??
+            "";
 
           if (!sessionId) {
             res.writeHead(400);
