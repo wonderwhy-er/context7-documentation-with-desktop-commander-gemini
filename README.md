@@ -444,6 +444,23 @@ Once the MCP server is added, you can easily continue using it.
 
 </details>
 
+<details>
+<summary><b>Install in Amazon Q Developer CLI</b></summary>
+
+Add this to your Amazon Q Developer CLI configuration file. See [Amazon Q Developer CLI docs](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line-mcp-configuration.html) for more details.
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}
+```
+</details>
+
 ## 🔧 Environment Variables
 
 The Context7 MCP server supports the following environment variables:
