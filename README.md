@@ -420,28 +420,6 @@ Add this to your Roo Code MCP configuration file. See [Roo Code MCP docs](https:
 
 </details>
 
-## 🔧 Environment Variables
-
-The Context7 MCP server supports the following environment variables:
-
-- `DEFAULT_MINIMUM_TOKENS`: Set the minimum token count for documentation retrieval (default: 10000)
-
-Example configuration with environment variables:
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"],
-      "env": {
-        "DEFAULT_MINIMUM_TOKENS": "6000"
-      }
-    }
-  }
-}
-```
-
 ## 🔨 Available Tools
 
 Context7 MCP provides the following tools that LLMs can use:
@@ -453,7 +431,7 @@ Context7 MCP provides the following tools that LLMs can use:
 - `get-library-docs`: Fetches documentation for a library using a Context7-compatible library ID.
   - `context7CompatibleLibraryID` (required): Exact Context7-compatible library ID (e.g., `/mongodb/docs`, `/vercel/next.js`)
   - `topic` (optional): Focus the docs on a specific topic (e.g., "routing", "hooks")
-  - `tokens` (optional, default 10000): Max number of tokens to return. Values less than the configured `DEFAULT_MINIMUM_TOKENS` value or the default value of 10000 are automatically increased to that value.
+  - `tokens` (optional, default 10000): Max number of tokens to return. Values less than the default value of 10000 are automatically increased to 10000.
 
 ## 💻 Development
 
@@ -467,6 +445,25 @@ Build:
 
 ```bash
 bun run build
+```
+
+Run the server:
+
+```bash
+bun run dist/index.js
+```
+
+### CLI Arguments
+
+`context7-mcp` accepts the following CLI flags:
+
+- `--transport <stdio|http|sse>` – Transport to use (`stdio` by default).
+- `--port <number>` – Port to listen on when using `http` or `sse` transport (default `3000`).
+
+Example with http transport and port 8080:
+
+```bash
+bun run dist/index.js --transport http --port 8080
 ```
 
 <details>

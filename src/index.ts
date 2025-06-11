@@ -6,27 +6,34 @@ import { z } from "zod";
 import { searchLibraries, fetchLibraryDocumentation } from "./lib/api.js";
 import { formatSearchResults } from "./lib/utils.js";
 import { SearchResponse } from "./lib/types.js";
-import dotenv from "dotenv";
 import { createServer } from "http";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { parse } from "url";
+import { Command } from "commander";
 
-// Load environment variables from .env file if present
-dotenv.config();
+const DEFAULT_MINIMUM_TOKENS = 10000;
 
-// Get DEFAULT_MINIMUM_TOKENS from environment variable or use default
-let DEFAULT_MINIMUM_TOKENS = 10000;
-if (process.env.DEFAULT_MINIMUM_TOKENS) {
-  const parsedValue = parseInt(process.env.DEFAULT_MINIMUM_TOKENS, 10);
-  if (!isNaN(parsedValue) && parsedValue > 0) {
-    DEFAULT_MINIMUM_TOKENS = parsedValue;
-  } else {
-    console.warn(
-      `Warning: Invalid DEFAULT_MINIMUM_TOKENS value provided in environment variable. Using default value of 10000`
-    );
-  }
-}
+// Parse CLI arguments using commander
+const program = new Command()
+  .option("--transport <stdio|http|sse>", "transport type", "stdio")
+  .option("--port <number>", "port for HTTP/SSE transport", "3000")
+  .allowUnknownOption() // let MCP Inspector / other wrappers pass through extra flags
+  .parse(process.argv);
+
+const cliOptions = program.opts<{
+  transport: string;
+  port: string;
+}>();
+
+// Transport configuration
+const TRANSPORT_TYPE = (cliOptions.transport || "stdio") as "stdio" | "http" | "sse";
+
+// HTTP/SSE port configuration
+const CLI_PORT = (() => {
+  const parsed = parseInt(cliOptions.port, 10);
+  return isNaN(parsed) ? undefined : parsed;
+})();
 
 // Store SSE transports by session ID
 const sseTransports: Record<string, SSEServerTransport> = {};
@@ -166,15 +173,15 @@ ${resultsText}`,
 }
 
 async function main() {
-  const transportType = process.env.MCP_TRANSPORT || "stdio";
+  const transportType = TRANSPORT_TYPE;
 
   if (transportType === "http" || transportType === "sse") {
     // Get initial port from environment or use default
-    const initialPort = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
+    const initialPort = CLI_PORT ?? 3000;
     // Keep track of which port we end up using
     let actualPort = initialPort;
     const httpServer = createServer(async (req, res) => {
-      const url = parse(req.url || "").pathname;
+      const url = new URL(req.url || "", `http://${req.headers.host}`).pathname;
 
       // Set CORS headers for all responses
       res.setHeader("Access-Control-Allow-Origin", "*");
