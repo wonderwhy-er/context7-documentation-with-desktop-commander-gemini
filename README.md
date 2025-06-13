@@ -204,6 +204,45 @@ Add this to your VS Code MCP config file. See [VS Code MCP docs](https://code.vi
 </details>
 
 <details>
+<summary><b>Install in Visual Studio 2022</b></summary>
+
+You can configure Context7 MCP in Visual Studio 2022 by following the [Visual Studio MCP Servers documentation](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022).
+
+Add this to your Visual Studio MCP config file (see the [Visual Studio docs](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022) for details):
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "context7": {
+        "type": "http",
+        "url": "https://mcp.context7.com/mcp"
+      }
+    }
+  }
+}
+```
+
+Or, for a local server:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "context7": {
+        "type": "stdio",
+        "command": "npx",
+        "args": ["-y", "@upstash/context7-mcp"]
+      }
+    }
+  }
+}
+```
+
+For more information and troubleshooting, refer to the [Visual Studio MCP Servers documentation](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022).
+</details>
+
+<details>
 <summary><b>Install in Zed</b></summary>
 
 It can be installed via [Zed Extensions](https://zed.dev/extensions?query=Context7) or you can add this to your Zed `settings.json`. See [Zed Context Server docs](https://zed.dev/docs/assistant/context-servers) for more info.
