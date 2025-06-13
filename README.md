@@ -124,7 +124,7 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
   "mcpServers": {
     "context7": {
       "command": "deno",
-      "args": ["run", "--allow-env", "--allow-net", "npm:@upstash/context7-mcp"]
+      "args": ["run", "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION", "--allow-net", "npm:@upstash/context7-mcp"]
     }
   }
 }
