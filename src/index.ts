@@ -48,15 +48,16 @@ const sseTransports: Record<string, SSEServerTransport> = {};
 
 // Function to create a new server instance with all tools registered
 function createServerInstance() {
-  const server = new McpServer({
-    name: "Context7",
-    description: "Retrieves up-to-date documentation and code examples for any library.",
-    version: "1.0.13",
-    capabilities: {
-      resources: {},
-      tools: {},
+  const server = new McpServer(
+    {
+      name: "Context7",
+      version: "1.0.13",
     },
-  });
+    {
+      instructions:
+        "Use this server to retrieve up-to-date documentation and code examples for any library.",
+    }
+  );
 
   // Register Context7 tools
   server.tool(
