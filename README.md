@@ -522,6 +522,8 @@ Add this to your Amazon Q Developer CLI configuration file. See [Amazon Q Develo
 <details>
 <summary><b>Install in Qodo Gen</b></summary>
 
+See [Qodo Gen docs](https://docs.qodo.ai/qodo-documentation/qodo-gen/qodo-gen-chat/agentic-mode/agentic-tools-mcps) for more details.
+
 1. Open Qodo Gen chat panel in VSCode or IntelliJ.
 2. Click Connect more tools.
 3. Click + Add new MCP.
