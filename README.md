@@ -519,6 +519,27 @@ Add this to your Amazon Q Developer CLI configuration file. See [Amazon Q Develo
 ```
 </details>
 
+<details>
+<summary><b>Install in Qodo Gen</b></summary>
+
+See [Qodo Gen docs](https://docs.qodo.ai/qodo-documentation/qodo-gen/qodo-gen-chat/agentic-mode/agentic-tools-mcps) for more details.
+
+1. Open Qodo Gen chat panel in VSCode or IntelliJ.
+2. Click Connect more tools.
+3. Click + Add new MCP.
+4. Add the following configuration:
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}
+```
+</details>
+
 ## 🔨 Available Tools
 
 Context7 MCP provides the following tools that LLMs can use:
