@@ -166,6 +166,20 @@ Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude D
 </details>
 
 <details>
+<summary>
+<b>Install in Cline</b>
+</summary>
+
+You can easily install Context7 through the Cline MCP Server Marketplace by following these instructions:
+
+1. Open **Cline**.
+1. Click the hamburger menu icon (☰) to enter the **MCP Servers** section.
+2. Use the search bar within the **Marketplace** tab to find *Context7*.
+3. Click the **Install** button.
+
+</details>
+
+<details>
 <summary><b>Install in Cursor</b></summary>
 
 Go to: `Settings` -> `Cursor Settings` -> `MCP` -> `Add new global MCP server`
