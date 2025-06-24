@@ -271,6 +271,12 @@ Run this command. See [Claude Code MCP docs](https://docs.anthropic.com/en/docs/
 #### Claude Code Remote Server Connection
 
 ```sh
+claude mcp add --transport http context7 https://mcp.context7.com/mcp
+```
+
+Or using SSE transport:
+
+```sh
 claude mcp add --transport sse context7 https://mcp.context7.com/sse
 ```
 
