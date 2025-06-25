@@ -271,6 +271,12 @@ Run this command. See [Claude Code MCP docs](https://docs.anthropic.com/en/docs/
 #### Claude Code Remote Server Connection
 
 ```sh
+claude mcp add --transport http context7 https://mcp.context7.com/mcp
+```
+
+Or using SSE transport:
+
+```sh
 claude mcp add --transport sse context7 https://mcp.context7.com/sse
 ```
 
@@ -538,6 +544,31 @@ See [Qodo Gen docs](https://docs.qodo.ai/qodo-documentation/qodo-gen/qodo-gen-ch
   }
 }
 ```
+</details>
+
+<details>
+<summary><b>Install in JetBrains AI Assistant</b></summary>
+
+See [JetBrains AI Assistant Documentation](https://www.jetbrains.com/help/ai-assistant/configure-an-mcp-server.html) for more details.
+
+1. In JetBrains IDEs go to `Settings` -> `Tools` -> `AI Assistant` -> `Model Context Protocol (MCP)`
+2. Click `+ Add`.
+3. Click on `Command` in the top-left corner of the dialog and select the As JSON option from the list
+4. Add this configuration and click `OK`
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+5. Click `Apply` to save changes.
+
 </details>
 
 ## 🔨 Available Tools
