@@ -307,6 +307,20 @@ Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude D
 </details>
 
 <details>
+<summary>
+<b>Install in Cline</b>
+</summary>
+
+You can easily install Context7 through the [Cline MCP Server Marketplace](https://cline.bot/mcp-marketplace) by following these instructions:
+
+1. Open **Cline**.
+1. Click the hamburger menu icon (☰) to enter the **MCP Servers** section.
+2. Use the search bar within the **Marketplace** tab to find *Context7*.
+3. Click the **Install** button.
+
+</details>
+
+<details>
 <summary><b>Install in BoltAI</b></summary>
 
 Open the "Settings" page of the app, navigate to "Plugins," and enter the following JSON:
