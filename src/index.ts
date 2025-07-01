@@ -226,8 +226,25 @@ async function main() {
         return typeof value === "string" ? value : value[0];
       };
 
+      // Extract Authorization header and remove Bearer prefix if present
+      const extractBearerToken = (
+        authHeader: string | string[] | undefined
+      ): string | undefined => {
+        const header = extractHeaderValue(authHeader);
+        if (!header) return undefined;
+
+        // If it starts with 'Bearer ', remove that prefix
+        if (header.startsWith("Bearer ")) {
+          return header.substring(7).trim();
+        }
+
+        // Otherwise return the raw value
+        return header;
+      };
+
       // Check headers in order of preference
       const apiKey =
+        extractBearerToken(req.headers.authorization) ||
         extractHeaderValue(req.headers["x-context7-api-key"]) || // Standard with x- prefix
         extractHeaderValue(req.headers["context7-api-key"]) || // Without x- prefix
         extractHeaderValue(req.headers["context7_api_key"]) || // With underscores
