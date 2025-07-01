@@ -128,7 +128,12 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
   "mcpServers": {
     "context7": {
       "command": "deno",
-      "args": ["run", "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION", "--allow-net", "npm:@upstash/context7-mcp"]
+      "args": [
+        "run",
+        "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION",
+        "--allow-net",
+        "npm:@upstash/context7-mcp"
+      ]
     }
   }
 }
@@ -244,6 +249,7 @@ Or, for a local server:
 ```
 
 For more information and troubleshooting, refer to the [Visual Studio MCP Servers documentation](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022).
+
 </details>
 
 <details>
@@ -341,9 +347,9 @@ Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude D
 You can easily install Context7 through the [Cline MCP Server Marketplace](https://cline.bot/mcp-marketplace) by following these instructions:
 
 1. Open **Cline**.
-1. Click the hamburger menu icon (☰) to enter the **MCP Servers** section.
-2. Use the search bar within the **Marketplace** tab to find *Context7*.
-3. Click the **Install** button.
+2. Click the hamburger menu icon (☰) to enter the **MCP Servers** section.
+3. Use the search bar within the **Marketplace** tab to find _Context7_.
+4. Click the **Install** button.
 
 </details>
 
@@ -537,11 +543,8 @@ To configure Context7 MCP in Zencoder, follow these steps:
 
 ```json
 {
-    "command": "npx",
-    "args": [
-        "-y",
-        "@upstash/context7-mcp@latest"
-    ]
+  "command": "npx",
+  "args": ["-y", "@upstash/context7-mcp@latest"]
 }
 ```
 
@@ -564,6 +567,7 @@ Add this to your Amazon Q Developer CLI configuration file. See [Amazon Q Develo
   }
 }
 ```
+
 </details>
 
 <details>
@@ -585,6 +589,7 @@ See [Qodo Gen docs](https://docs.qodo.ai/qodo-documentation/qodo-gen/qodo-gen-ch
   }
 }
 ```
+
 </details>
 
 <details>
@@ -625,10 +630,7 @@ See [Warp Model Context Protocol Documentation](https://docs.warp.dev/knowledge-
 {
   "Context7": {
     "command": "npx",
-    "args": [
-      "-y",
-      "@upstash/context7-mcp"
-    ],
+    "args": ["-y", "@upstash/context7-mcp"],
     "env": {},
     "working_directory": null,
     "start_on_launch": true

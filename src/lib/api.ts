@@ -16,7 +16,7 @@ export async function searchLibraries(query: string, apiKey?: string): Promise<S
 
     const headers: Record<string, string> = {};
     if (apiKey) {
-      headers["X-Context7-API-Key"] = apiKey;
+      headers["Authorization"] = `Bearer ${apiKey}`;
     }
 
     const response = await fetch(url, { headers });
@@ -70,7 +70,7 @@ export async function fetchLibraryDocumentation(
       "X-Context7-Source": "mcp-server",
     };
     if (apiKey) {
-      headers["X-Context7-API-Key"] = apiKey;
+      headers["Authorization"] = `Bearer ${apiKey}`;
     }
 
     const response = await fetch(url, { headers });

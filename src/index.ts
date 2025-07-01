@@ -210,7 +210,7 @@ async function main() {
       res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS,DELETE");
       res.setHeader(
         "Access-Control-Allow-Headers",
-        "Content-Type, MCP-Session-Id, mcp-session-id, X-Context7-API-Key, context7-api-key, context7_api_key, x-api-key"
+        "Content-Type, MCP-Session-Id, mcp-session-id, X-Context7-API-Key, context7-api-key, context7_api_key, x-api-key, Authorization"
       );
 
       // Handle preflight OPTIONS requests
