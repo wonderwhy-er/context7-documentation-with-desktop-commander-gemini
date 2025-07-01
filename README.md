@@ -75,7 +75,10 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 {
   "mcpServers": {
     "context7": {
-      "url": "https://mcp.context7.com/mcp"
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "your_api_key"
+      }
     }
   }
 }
@@ -90,7 +93,7 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
     }
   }
 }
@@ -106,7 +109,7 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
   "mcpServers": {
     "context7": {
       "command": "bunx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
     }
   }
 }
@@ -158,7 +161,7 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
     }
   }
 }
@@ -195,7 +198,7 @@ Add this to your VS Code MCP config file. See [VS Code MCP docs](https://code.vi
     "context7": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
     }
   }
 }
@@ -232,7 +235,7 @@ Or, for a local server:
       "context7": {
         "type": "stdio",
         "command": "npx",
-        "args": ["-y", "@upstash/context7-mcp"]
+        "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
       }
     }
   }
@@ -253,7 +256,7 @@ It can be installed via [Zed Extensions](https://zed.dev/extensions?query=Contex
     "Context7": {
       "command": {
         "path": "npx",
-        "args": ["-y", "@upstash/context7-mcp"]
+        "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
       },
       "settings": {}
     }
@@ -294,19 +297,19 @@ Run this command. See [Claude Code MCP docs](https://docs.anthropic.com/en/docs/
 #### Claude Code Remote Server Connection
 
 ```sh
-claude mcp add --transport http context7 https://mcp.context7.com/mcp
+claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "Context7-API-Key: your-key"
 ```
 
 Or using SSE transport:
 
 ```sh
-claude mcp add --transport sse context7 https://mcp.context7.com/sse
+claude mcp add --transport sse context7 https://mcp.context7.com/sse --header "Context7-API-Key: your-key"
 ```
 
 #### Claude Code Local Server Connection
 
 ```sh
-claude mcp add context7 -- npx -y @upstash/context7-mcp
+claude mcp add context7 -- npx -y @upstash/context7-mcp --api-key your-key
 ```
 
 </details>
@@ -675,11 +678,12 @@ bun run dist/index.js
 
 - `--transport <stdio|http|sse>` – Transport to use (`stdio` by default).
 - `--port <number>` – Port to listen on when using `http` or `sse` transport (default `3000`).
+- `--api-key <key>` – API key for stdio transport if you want to authenticate requests.
 
 Example with http transport and port 8080:
 
 ```bash
-bun run dist/index.js --transport http --port 8080
+bun run dist/index.js --transport http --port 8080 --api-key your_api_key
 ```
 
 <details>
@@ -690,7 +694,7 @@ bun run dist/index.js --transport http --port 8080
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["tsx", "/path/to/folder/context7-mcp/src/index.ts"]
+      "args": ["tsx", "/path/to/folder/context7-mcp/src/index.ts", "--api-key", "your_api_key"]
     }
   }
 }
