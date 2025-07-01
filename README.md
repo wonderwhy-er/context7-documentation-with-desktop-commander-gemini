@@ -44,6 +44,7 @@ Check out our [project addition guide](./docs/adding-projects.md) to learn how t
 
 - Node.js >= v18.0.0
 - Cursor, Windsurf, Claude Desktop or another MCP Client
+- Context7 API Key (Optional for higher rate limits) (Get yours by creating an account at [context7.com/console](https://context7.com/console))
 
 <details>
 <summary><b>Installing via Smithery</b></summary>
@@ -676,9 +677,9 @@ bun run dist/index.js
 
 `context7-mcp` accepts the following CLI flags:
 
-- `--transport <stdio|http|sse>` – Transport to use (`stdio` by default).
-- `--port <number>` – Port to listen on when using `http` or `sse` transport (default `3000`).
-- `--api-key <key>` – API key for stdio transport if you want to authenticate requests.
+- `--transport <stdio|http>` – Transport to use (`stdio` by default). Note that HTTP transport automatically provides both HTTP and SSE endpoints.
+- `--port <number>` – Port to listen on when using `http` transport (default `3000`).
+- `--api-key <key>` – API key for authentication. You can get your API key by creating an account at [context7.com/console](https://context7.com/console).
 
 Example with http transport and port 8080:
 

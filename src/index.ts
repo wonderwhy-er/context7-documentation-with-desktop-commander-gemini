@@ -15,9 +15,9 @@ const DEFAULT_MINIMUM_TOKENS = 10000;
 
 // Parse CLI arguments using commander
 const program = new Command()
-  .option("--transport <stdio|http|sse>", "transport type", "stdio")
-  .option("--port <number>", "port for HTTP/SSE transport", "3000")
-  .option("--api-key <key>", "API key for stdio transport")
+  .option("--transport <stdio|http>", "transport type", "stdio")
+  .option("--port <number>", "port for HTTP transport", "3000")
+  .option("--api-key <key>", "API key for authentication")
   .allowUnknownOption() // let MCP Inspector / other wrappers pass through extra flags
   .parse(process.argv);
 
@@ -28,18 +28,18 @@ const cliOptions = program.opts<{
 }>();
 
 // Validate transport option
-const allowedTransports = ["stdio", "http", "sse"];
+const allowedTransports = ["stdio", "http"];
 if (!allowedTransports.includes(cliOptions.transport)) {
   console.error(
-    `Invalid --transport value: '${cliOptions.transport}'. Must be one of: stdio, http, sse.`
+    `Invalid --transport value: '${cliOptions.transport}'. Must be one of: stdio, http.`
   );
   process.exit(1);
 }
 
 // Transport configuration
-const TRANSPORT_TYPE = (cliOptions.transport || "stdio") as "stdio" | "http" | "sse";
+const TRANSPORT_TYPE = (cliOptions.transport || "stdio") as "stdio" | "http";
 
-// HTTP/SSE port configuration
+// HTTP port configuration
 const CLI_PORT = (() => {
   const parsed = parseInt(cliOptions.port, 10);
   return isNaN(parsed) ? undefined : parsed;
@@ -197,7 +197,7 @@ ${resultsText}`,
 async function main() {
   const transportType = TRANSPORT_TYPE;
 
-  if (transportType === "http" || transportType === "sse") {
+  if (transportType === "http") {
     // Get initial port from environment or use default
     const initialPort = CLI_PORT ?? 3000;
     // Keep track of which port we end up using
@@ -306,7 +306,7 @@ async function main() {
       httpServer.listen(port, () => {
         actualPort = port;
         console.error(
-          `Context7 Documentation MCP Server running on ${transportType.toUpperCase()} at http://localhost:${actualPort}/mcp and legacy SSE at /sse`
+          `Context7 Documentation MCP Server running on ${transportType.toUpperCase()} at http://localhost:${actualPort}/mcp with SSE endpoint at /sse`
         );
       });
     };
