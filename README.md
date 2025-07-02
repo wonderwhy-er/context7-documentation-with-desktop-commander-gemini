@@ -169,11 +169,7 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
 <details>
 <summary><b>Install in Trae</b></summary>
 
-At the top right of the side chat box, click the Settings icon, and select MCP from the menu.
-The MCP tab appears.
-Click the + Add button and select Add Manually from the menu.
-The Configure Manually window appears.
-Fill in the JSON configuration information for that MCP server.
+Use the Add manually feature and fill in the JSON configuration information for that MCP server.
 For more details, visit the [Trae documentation](https://docs.trae.ai/ide/model-context-protocol?_lang=en).
 
 #### Trae Remote Server Connection
