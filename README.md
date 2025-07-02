@@ -34,22 +34,6 @@ Context7 fetches up-to-date code examples and documentation right into your LLM'
 
 No tab-switching, no hallucinated APIs that don't exist, no outdated code generations.
 
-- **Or, skip `use context7` altogether:**
-> If you don’t want to add `use context7` to every prompt, you can define a simple rule in your `.windsurfrules` file in Windsurf or from `Cursor Settings > Rules` section in Cursor (or the equivalent in your MCP client) to auto-invoke Context7 on any code question:
-> ```toml
-> [[calls]]
-> match = "when the user requests code examples, setup or configuration steps, or library/API usage"
-> tool  = "context7"
-> ```
-> From then on you’ll get Context7’s docs in any related conversation without typing anything extra. You can add your use cases to the match part.
-
-- **Or, directly use a specific library:**  
-> If you already know exactly which library you want to use, add its Context7 ID to your prompt. That way, Context7 MCP server can skip the library-matching step and directly continue with retrieving docs.
-> ```txt
-> Show me how to install and configure the '/upstash/context7' MCP server in Cursor.
-> ```
-> The slash syntax tells the MCP tool exactly which library to load docs for.
-
 ## 📚 Adding Projects
 
 Check out our [project addition guide](./docs/adding-projects.md) to learn how to add (or update) your favorite libraries to Context7.
@@ -664,6 +648,26 @@ Context7 MCP provides the following tools that LLMs can use:
   - `context7CompatibleLibraryID` (required): Exact Context7-compatible library ID (e.g., `/mongodb/docs`, `/vercel/next.js`)
   - `topic` (optional): Focus the docs on a specific topic (e.g., "routing", "hooks")
   - `tokens` (optional, default 10000): Max number of tokens to return. Values less than the default value of 10000 are automatically increased to 10000.
+
+## 🛟 Tips
+
+### Add a Rule
+> If you don’t want to add `use context7` to every prompt, you can define a simple rule in your `.windsurfrules` file in Windsurf or from `Cursor Settings > Rules` section in Cursor (or the equivalent in your MCP client) to auto-invoke Context7 on any code question:
+> ```toml
+> [[calls]]
+> match = "when the user requests code examples, setup or configuration steps, or library/API documentation"
+> tool  = "context7"
+> ```
+> From then on you’ll get Context7’s docs in any related conversation without typing anything extra. You can add your use cases to the match part.
+
+### Use Library Id
+> If you already know exactly which library you want to use, add its Context7 ID to your prompt. That way, Context7 MCP server can skip the library-matching step and directly continue with retrieving docs.
+> ```txt
+> implement basic authentication with supabase. use library /supabase/supabase for api and docs
+> ```
+> The slash syntax tells the MCP tool exactly which library to load docs for.
+
+
 
 ## 💻 Development
 
