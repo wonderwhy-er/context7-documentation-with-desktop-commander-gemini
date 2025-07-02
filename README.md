@@ -19,11 +19,11 @@ Context7 MCP pulls up-to-date, version-specific documentation and code examples 
 Add `use context7` to your prompt in Cursor:
 
 ```txt
-Create a basic Next.js project with app router. use context7
+Create a Next.js middleware that checks for a valid JWT in cookies and redirects unauthenticated users to `/login`. use context7
 ```
 
 ```txt
-Create a script to delete the rows where the city is "" given PostgreSQL credentials. use context7
+Configure a Cloudflare Worker script to cache JSON API responses for five minutes. use context7
 ```
 
 Context7 fetches up-to-date code examples and documentation right into your LLM's context.
@@ -33,6 +33,22 @@ Context7 fetches up-to-date code examples and documentation right into your LLM'
 - 3️⃣ Get working code answers
 
 No tab-switching, no hallucinated APIs that don't exist, no outdated code generations.
+
+- **Or, skip `use context7` altogether:**
+> If you don’t want to add `use context7` to every prompt, you can define a simple rule in your `.windsurfrules` file in Windsurf or from `Cursor Settings > Rules` section in Cursor (or the equivalent in your MCP client) to auto-invoke Context7 on any code question:
+> ```toml
+> [[calls]]
+> match = "when the user requests code examples, setup or configuration steps, or library/API usage"
+> tool  = "context7"
+> ```
+> From then on you’ll get Context7’s docs in any related conversation without typing anything extra. You can add your use cases to the match part.
+
+- **Or, directly use a specific library:**  
+> If you already know exactly which library you want to use, add its Context7 ID to your prompt. That way, Context7 MCP server can skip the library-matching step and directly continue with retrieving docs.
+> ```txt
+> Show me how to install and configure the '/upstash/context7' MCP server in Cursor.
+> ```
+> The slash syntax tells the MCP tool exactly which library to load docs for.
 
 ## 📚 Adding Projects
 
