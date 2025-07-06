@@ -681,7 +681,7 @@ Add this to your Opencode configuration file. See [Opencode MCP docs](https://op
 
 ```json
 "mcp": {
-  "remotemcp": {
+  "context7": {
     "type": "remote",
     "url": "https://mcp.context7.com/mcp",
     "enabled": true
@@ -695,7 +695,7 @@ Add this to your Opencode configuration file. See [Opencode MCP docs](https://op
 
 {
   "mcp": {
-    "localmcp": {
+    "context7": {
       "type": "local",
       "command": ["npx", "-y", "@upstash/context7-mcp"],
       "enabled": true
