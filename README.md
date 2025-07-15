@@ -706,6 +706,37 @@ Add this to your Opencode configuration file. See [Opencode MCP docs](https://op
 
 </details>
 
+<details>
+<summary><b>Install in Kiro</b></summary>
+
+See [Kiro Model Context Protocol Documentation](https://kiro.dev/docs/mcp/configuration/) for details.
+
+1. Navigate `Kiro` > `MCP Servers`
+2. Add a new MCP server by clicking the `+ Add` button.
+3. Paste the configuration given below:
+
+```json
+{
+  "mcpServers": {
+    "Context7": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@upstash/context7-mcp"
+    ],
+    "env": {},
+    "disabled": false,
+    "autoApprove": []
+    }
+  }
+}
+
+```
+
+4. Click `Save` to apply the changes.
+
+</details>
+
 ## 🔨 Available Tools
 
 Context7 MCP provides the following tools that LLMs can use:
