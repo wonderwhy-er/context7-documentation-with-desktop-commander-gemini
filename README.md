@@ -776,6 +776,20 @@ See [Kiro Model Context Protocol Documentation](https://kiro.dev/docs/mcp/config
 4. Click `Save` to apply the changes.
 
 </details>
+<details>
+<summary><b>Install in OpenAI Codex</b></summary>
+
+See [OpenAI Codex](https://github.com/openai/codex) for more information.
+
+Add the following configuration to your OpenAI Codex MCP server settings:
+
+```toml
+[mcp_servers.context7]
+args = ["-y", "@upstash/context7-mcp"]
+command = "npx"
+```
+
+</details>
 
 ## 🔨 Available Tools
 
