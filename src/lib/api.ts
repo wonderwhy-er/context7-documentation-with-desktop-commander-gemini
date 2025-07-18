@@ -5,8 +5,10 @@ const CONTEXT7_API_BASE_URL = "https://context7.com/api";
 const DEFAULT_TYPE = "txt";
 
 // Encryption configuration
-const ENCRYPTION_KEY = process.env.CLIENT_IP_ENCRYPTION_KEY || "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f";
-const ALGORITHM = 'aes-256-cbc';
+const ENCRYPTION_KEY =
+  process.env.CLIENT_IP_ENCRYPTION_KEY ||
+  "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f";
+const ALGORITHM = "aes-256-cbc";
 
 // Validate encryption key
 function validateEncryptionKey(key: string): boolean {
@@ -19,13 +21,13 @@ function encryptClientIp(clientIp: string): string {
     console.error("Invalid encryption key format. Must be 64 hex characters.");
     return clientIp; // Fallback to unencrypted
   }
-  
+
   try {
     const iv = randomBytes(16);
-    const cipher = createCipheriv(ALGORITHM, Buffer.from(ENCRYPTION_KEY, 'hex'), iv);
-    let encrypted = cipher.update(clientIp, 'utf8', 'hex');
-    encrypted += cipher.final('hex');
-    return iv.toString('hex') + ':' + encrypted;
+    const cipher = createCipheriv(ALGORITHM, Buffer.from(ENCRYPTION_KEY, "hex"), iv);
+    let encrypted = cipher.update(clientIp, "utf8", "hex");
+    encrypted += cipher.final("hex");
+    return iv.toString("hex") + ":" + encrypted;
   } catch (error) {
     console.error("Error encrypting client IP:", error);
     return clientIp; // Fallback to unencrypted
@@ -37,19 +39,19 @@ export function decryptClientIp(encryptedIp: string): string | null {
     console.error("Invalid encryption key format. Cannot decrypt.");
     return null;
   }
-  
+
   try {
-    const parts = encryptedIp.split(':');
+    const parts = encryptedIp.split(":");
     if (parts.length !== 2) {
       // Not encrypted, return as-is
       return encryptedIp;
     }
-    
-    const iv = Buffer.from(parts[0], 'hex');
+
+    const iv = Buffer.from(parts[0], "hex");
     const encrypted = parts[1];
-    const decipher = createDecipheriv(ALGORITHM, Buffer.from(ENCRYPTION_KEY, 'hex'), iv);
-    let decrypted = decipher.update(encrypted, 'hex', 'utf8');
-    decrypted += decipher.final('utf8');
+    const decipher = createDecipheriv(ALGORITHM, Buffer.from(ENCRYPTION_KEY, "hex"), iv);
+    let decrypted = decipher.update(encrypted, "hex", "utf8");
+    decrypted += decipher.final("utf8");
     return decrypted;
   } catch (error) {
     console.error("Error decrypting client IP:", error);
@@ -67,12 +69,12 @@ export async function searchLibraries(query: string, clientIp?: string): Promise
   try {
     const url = new URL(`${CONTEXT7_API_BASE_URL}/v1/search`);
     url.searchParams.set("query", query);
-    
+
     const headers: Record<string, string> = {};
     if (clientIp) {
       headers["mcp-client-ip"] = encryptClientIp(clientIp);
     }
-    
+
     const response = await fetch(url, { headers });
     if (!response.ok) {
       const errorCode = response.status;
@@ -119,14 +121,14 @@ export async function fetchLibraryDocumentation(
     if (options.tokens) url.searchParams.set("tokens", options.tokens.toString());
     if (options.topic) url.searchParams.set("topic", options.topic);
     url.searchParams.set("type", DEFAULT_TYPE);
-    
+
     const headers: Record<string, string> = {
       "X-Context7-Source": "mcp-server",
     };
     if (clientIp) {
       headers["mcp-client-ip"] = encryptClientIp(clientIp);
     }
-    
+
     const response = await fetch(url, { headers });
     if (!response.ok) {
       const errorCode = response.status;

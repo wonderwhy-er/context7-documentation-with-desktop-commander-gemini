@@ -55,7 +55,7 @@ function getClientIp(req: IncomingMessage): string | undefined {
     const ips = Array.isArray(forwardedFor) ? forwardedFor[0] : forwardedFor;
     return ips.split(",")[0].trim();
   }
-  
+
   // Fall back to socket remote address
   return req.socket?.remoteAddress || undefined;
 }
@@ -165,10 +165,14 @@ ${resultsText}`,
         ),
     },
     async ({ context7CompatibleLibraryID, tokens = DEFAULT_MINIMUM_TOKENS, topic = "" }) => {
-      const fetchDocsResponse = await fetchLibraryDocumentation(context7CompatibleLibraryID, {
-        tokens,
-        topic,
-      }, clientIp);
+      const fetchDocsResponse = await fetchLibraryDocumentation(
+        context7CompatibleLibraryID,
+        {
+          tokens,
+          topic,
+        },
+        clientIp
+      );
 
       if (!fetchDocsResponse) {
         return {
@@ -221,7 +225,7 @@ async function main() {
       try {
         // Extract client IP address using socket remote address (most reliable)
         const clientIp = getClientIp(req);
-        
+
         // Create new server instance for each request
         const requestServer = createServerInstance(clientIp);
 
