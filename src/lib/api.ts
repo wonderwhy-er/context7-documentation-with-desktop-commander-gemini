@@ -34,30 +34,7 @@ function encryptClientIp(clientIp: string): string {
   }
 }
 
-export function decryptClientIp(encryptedIp: string): string | null {
-  if (!validateEncryptionKey(ENCRYPTION_KEY)) {
-    console.error("Invalid encryption key format. Cannot decrypt.");
-    return null;
-  }
 
-  try {
-    const parts = encryptedIp.split(":");
-    if (parts.length !== 2) {
-      // Not encrypted, return as-is
-      return encryptedIp;
-    }
-
-    const iv = Buffer.from(parts[0], "hex");
-    const encrypted = parts[1];
-    const decipher = createDecipheriv(ALGORITHM, Buffer.from(ENCRYPTION_KEY, "hex"), iv);
-    let decrypted = decipher.update(encrypted, "hex", "utf8");
-    decrypted += decipher.final("utf8");
-    return decrypted;
-  } catch (error) {
-    console.error("Error decrypting client IP:", error);
-    return null;
-  }
-}
 
 /**
  * Searches for libraries matching the given query
