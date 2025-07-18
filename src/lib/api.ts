@@ -1,5 +1,5 @@
 import { SearchResponse } from "./types.js";
-import { createCipheriv, createDecipheriv, randomBytes } from "crypto";
+import { createCipheriv, randomBytes } from "crypto";
 
 const CONTEXT7_API_BASE_URL = "https://context7.com/api";
 const DEFAULT_TYPE = "txt";
@@ -33,8 +33,6 @@ function encryptClientIp(clientIp: string): string {
     return clientIp; // Fallback to unencrypted
   }
 }
-
-
 
 /**
  * Searches for libraries matching the given query
