@@ -5,10 +5,20 @@ const CONTEXT7_API_BASE_URL = "https://context7.com/api";
 const DEFAULT_TYPE = "txt";
 
 // Encryption configuration
-const ENCRYPTION_KEY = process.env.CLIENT_IP_ENCRYPTION_KEY || "default";
+const ENCRYPTION_KEY = process.env.CLIENT_IP_ENCRYPTION_KEY || "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f";
 const ALGORITHM = 'aes-256-cbc';
 
+// Validate encryption key
+function validateEncryptionKey(key: string): boolean {
+  // Must be exactly 64 hex characters (32 bytes)
+  return /^[0-9a-fA-F]{64}$/.test(key);
+}
+
 function encryptClientIp(clientIp: string): string {
+  if (!validateEncryptionKey(ENCRYPTION_KEY)) {
+    console.error("Invalid encryption key format. Must be 64 hex characters.");
+    return clientIp; // Fallback to unencrypted
+  }
   
   try {
     const iv = randomBytes(16);
@@ -23,6 +33,10 @@ function encryptClientIp(clientIp: string): string {
 }
 
 export function decryptClientIp(encryptedIp: string): string | null {
+  if (!validateEncryptionKey(ENCRYPTION_KEY)) {
+    console.error("Invalid encryption key format. Cannot decrypt.");
+    return null;
+  }
   
   try {
     const parts = encryptedIp.split(':');
