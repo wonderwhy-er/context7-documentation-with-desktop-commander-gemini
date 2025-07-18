@@ -653,6 +653,7 @@ See [JetBrains AI Assistant Documentation](https://www.jetbrains.com/help/ai-ass
 ```
 
 5. Click `Apply` to save changes.
+6. The same way context7 could be added for JetBrains Junie in `Settings` -> `Tools` -> `Junie` -> `MCP Settings`
 
 </details>
 
