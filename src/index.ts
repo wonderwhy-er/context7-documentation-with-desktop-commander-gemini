@@ -10,6 +10,7 @@ import { createServer } from "http";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { Command } from "commander";
+import { IncomingMessage } from "http";
 
 const DEFAULT_MINIMUM_TOKENS = 10000;
 
@@ -46,8 +47,12 @@ const CLI_PORT = (() => {
 // Store SSE transports by session ID
 const sseTransports: Record<string, SSEServerTransport> = {};
 
+function getClientIp(req: IncomingMessage): string | undefined {
+  return req.socket?.remoteAddress || undefined;
+}
+
 // Function to create a new server instance with all tools registered
-function createServerInstance() {
+function createServerInstance(clientIp?: string) {
   const server = new McpServer(
     {
       name: "Context7",
@@ -87,7 +92,7 @@ For ambiguous queries, request clarification before proceeding with a best-guess
         .describe("Library name to search for and retrieve a Context7-compatible library ID."),
     },
     async ({ libraryName }) => {
-      const searchResponse: SearchResponse = await searchLibraries(libraryName);
+      const searchResponse: SearchResponse = await searchLibraries(libraryName, clientIp);
 
       if (!searchResponse.results || searchResponse.results.length === 0) {
         return {
@@ -154,7 +159,7 @@ ${resultsText}`,
       const fetchDocsResponse = await fetchLibraryDocumentation(context7CompatibleLibraryID, {
         tokens,
         topic,
-      });
+      }, clientIp);
 
       if (!fetchDocsResponse) {
         return {
@@ -205,8 +210,11 @@ async function main() {
       }
 
       try {
+        // Extract client IP address using socket remote address (most reliable)
+        const clientIp = getClientIp(req);
+        
         // Create new server instance for each request
-        const requestServer = createServerInstance();
+        const requestServer = createServerInstance(clientIp);
 
         if (url === "/mcp") {
           const transport = new StreamableHTTPServerTransport({
