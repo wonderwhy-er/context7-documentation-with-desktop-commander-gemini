@@ -70,7 +70,7 @@ export async function searchLibraries(query: string, clientIp?: string): Promise
     
     const headers: Record<string, string> = {};
     if (clientIp) {
-      headers["X-Client-IP"] = encryptClientIp(clientIp);
+      headers["mcp-client-ip"] = encryptClientIp(clientIp);
     }
     
     const response = await fetch(url, { headers });
@@ -124,7 +124,7 @@ export async function fetchLibraryDocumentation(
       "X-Context7-Source": "mcp-server",
     };
     if (clientIp) {
-      headers["X-Client-IP"] = encryptClientIp(clientIp);
+      headers["mcp-client-ip"] = encryptClientIp(clientIp);
     }
     
     const response = await fetch(url, { headers });
