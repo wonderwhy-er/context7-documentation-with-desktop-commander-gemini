@@ -1,7 +1,47 @@
 import { SearchResponse } from "./types.js";
+import { createCipheriv, createDecipheriv, randomBytes } from "crypto";
 
 const CONTEXT7_API_BASE_URL = "https://context7.com/api";
 const DEFAULT_TYPE = "txt";
+
+// Encryption configuration
+const ENCRYPTION_KEY = process.env.CLIENT_IP_ENCRYPTION_KEY || "default";
+const ALGORITHM = 'aes-256-cbc';
+
+function encryptClientIp(clientIp: string): string {
+  
+  try {
+    const iv = randomBytes(16);
+    const cipher = createCipheriv(ALGORITHM, Buffer.from(ENCRYPTION_KEY, 'hex'), iv);
+    let encrypted = cipher.update(clientIp, 'utf8', 'hex');
+    encrypted += cipher.final('hex');
+    return iv.toString('hex') + ':' + encrypted;
+  } catch (error) {
+    console.error("Error encrypting client IP:", error);
+    return clientIp; // Fallback to unencrypted
+  }
+}
+
+export function decryptClientIp(encryptedIp: string): string | null {
+  
+  try {
+    const parts = encryptedIp.split(':');
+    if (parts.length !== 2) {
+      // Not encrypted, return as-is
+      return encryptedIp;
+    }
+    
+    const iv = Buffer.from(parts[0], 'hex');
+    const encrypted = parts[1];
+    const decipher = createDecipheriv(ALGORITHM, Buffer.from(ENCRYPTION_KEY, 'hex'), iv);
+    let decrypted = decipher.update(encrypted, 'hex', 'utf8');
+    decrypted += decipher.final('utf8');
+    return decrypted;
+  } catch (error) {
+    console.error("Error decrypting client IP:", error);
+    return null;
+  }
+}
 
 /**
  * Searches for libraries matching the given query
@@ -16,7 +56,7 @@ export async function searchLibraries(query: string, clientIp?: string): Promise
     
     const headers: Record<string, string> = {};
     if (clientIp) {
-      headers["X-Client-IP"] = clientIp;
+      headers["X-Client-IP"] = encryptClientIp(clientIp);
     }
     
     const response = await fetch(url, { headers });
@@ -70,7 +110,7 @@ export async function fetchLibraryDocumentation(
       "X-Context7-Source": "mcp-server",
     };
     if (clientIp) {
-      headers["X-Client-IP"] = clientIp;
+      headers["X-Client-IP"] = encryptClientIp(clientIp);
     }
     
     const response = await fetch(url, { headers });

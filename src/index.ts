@@ -48,6 +48,15 @@ const CLI_PORT = (() => {
 const sseTransports: Record<string, SSEServerTransport> = {};
 
 function getClientIp(req: IncomingMessage): string | undefined {
+  // Check for X-Forwarded-For header (set by AWS ELB and other load balancers)
+  const forwardedFor = req.headers["x-forwarded-for"];
+  if (forwardedFor) {
+    // X-Forwarded-For can contain multiple IPs, take the first one
+    const ips = Array.isArray(forwardedFor) ? forwardedFor[0] : forwardedFor;
+    return ips.split(",")[0].trim();
+  }
+  
+  // Fall back to socket remote address
   return req.socket?.remoteAddress || undefined;
 }
 
