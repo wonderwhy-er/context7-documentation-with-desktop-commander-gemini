@@ -213,7 +213,7 @@ async function main() {
       // Set CORS headers for all responses
       res.setHeader("Access-Control-Allow-Origin", "*");
       res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS,DELETE");
-      res.setHeader("Access-Control-Allow-Headers", "Content-Type, mcp-session-id");
+      res.setHeader("Access-Control-Allow-Headers", "Content-Type, MCP-Session-Id, MCP-Protocol-Version");
       res.setHeader("Access-Control-Expose-Headers", "MCP-Session-Id");
 
       // Handle preflight OPTIONS requests
