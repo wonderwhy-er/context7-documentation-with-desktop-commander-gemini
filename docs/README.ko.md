@@ -311,6 +311,18 @@ Visual Studio MCP 설정 파일에 다음을 추가하세요(자세한 내용은
 {
   "mcpServers": {
     "context7": {
+      "httpUrl": "https://mcp.context7.com/mcp"
+    }
+  }
+}
+```
+
+또는 로컬 서버의 경우:
+
+```json
+{
+  "mcpServers": {
+    "context7": {
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp"]
     }
@@ -726,6 +738,51 @@ Opencode 설정 파일에 다음을 추가하세요. 자세한 내용은 [Openco
     }
   }
 }
+```
+
+</details>
+<details>
+
+<summary><b>Kiro에 설치</b></summary>
+
+자세한 내용은 [Kiro 모델 컨텍스트 프로토콜 문서](https://kiro.dev/docs/mcp/configuration/)를 참조하세요.
+
+1. `Kiro` > `MCP 서버`로 이동합니다.
+2. `+ 추가` 버튼을 클릭하여 새 MCP 서버를 추가합니다.
+3. 아래에 주어진 설정을 붙여넣습니다:
+
+```json
+{
+  "mcpServers": {
+    "Context7": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@upstash/context7-mcp"
+    ],
+    "env": {},
+    "disabled": false,
+    "autoApprove": []
+    }
+  }
+}
+
+```
+
+4. `저장`을 클릭하여 변경 사항을 적용합니다.
+
+</details>
+<details>
+<summary><b>OpenAI Codex에 설치</b></summary>
+
+자세한 내용은 [OpenAI Codex](https://github.com/openai/codex)를 참조하세요.
+
+OpenAI Codex MCP 서버 설정에 다음 설정을 추가하세요:
+
+```toml
+[mcp_servers.context7]
+args = ["-y", "@upstash/context7-mcp"]
+command = "npx"
 ```
 
 </details>
