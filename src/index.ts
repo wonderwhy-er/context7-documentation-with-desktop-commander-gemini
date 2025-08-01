@@ -49,14 +49,12 @@ const sseTransports: Record<string, SSEServerTransport> = {};
 
 function getClientIp(req: IncomingMessage): string | undefined {
   // Check both possible header casings
-  const forwardedFor =
-    req.headers["x-forwarded-for"] ||
-    req.headers["X-Forwarded-For"];
+  const forwardedFor = req.headers["x-forwarded-for"] || req.headers["X-Forwarded-For"];
 
   if (forwardedFor) {
     // X-Forwarded-For can contain multiple IPs
     const ips = Array.isArray(forwardedFor) ? forwardedFor[0] : forwardedFor;
-    const ipList = ips.split(",").map(ip => ip.trim());
+    const ipList = ips.split(",").map((ip) => ip.trim());
 
     // Find the first public IP address
     for (const ip of ipList) {
