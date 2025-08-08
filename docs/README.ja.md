@@ -124,7 +124,12 @@ Smithery キーは [Smithery.ai Web ページ](https://smithery.ai/server/@upsta
   "mcpServers": {
     "context7": {
       "command": "deno",
-      "args": ["run", "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION", "--allow-net", "npm:@upstash/context7-mcp"]
+      "args": [
+        "run",
+        "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION",
+        "--allow-net",
+        "npm:@upstash/context7-mcp"
+      ]
     }
   }
 }
@@ -240,6 +245,7 @@ Smithery キーは [Smithery.ai Web ページ](https://smithery.ai/server/@upsta
 ```
 
 詳細情報とトラブルシューティングについては、[Visual Studio MCP サーバードキュメント](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022) を参照してください。
+
 </details>
 
 <details>
@@ -331,10 +337,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
-      "tools": [
-        "get-library-docs",
-        "resolve-library-id"
-      ]
+      "tools": ["get-library-docs", "resolve-library-id"]
     }
   }
 }
@@ -514,11 +517,8 @@ Zencoder で Context7 MCP を設定するには、以下の手順に従います
 
 ```json
 {
-    "command": "npx",
-    "args": [
-        "-y",
-        "@upstash/context7-mcp@latest"
-    ]
+  "command": "npx",
+  "args": ["-y", "@upstash/context7-mcp@latest"]
 }
 ```
 
@@ -541,6 +541,7 @@ MCP サーバーが追加されたら、簡単に使用を続けることがで�
   }
 }
 ```
+
 </details>
 
 ## 🔨 利用可能なツール

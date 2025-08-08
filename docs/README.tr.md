@@ -183,10 +183,7 @@ Aşağıdaki yapılandırmayı Copilot Coding Agent'ın `mcp` bölümüne ekleyi
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
-      "tools": [
-        "get-library-docs",
-        "resolve-library-id"
-      ]
+      "tools": ["get-library-docs", "resolve-library-id"]
     }
   }
 }

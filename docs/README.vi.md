@@ -124,7 +124,12 @@ Paste cấu hình sau vào file Cursor `~/.cursor/mcp.json` là cách được k
   "mcpServers": {
     "context7": {
       "command": "deno",
-      "args": ["run", "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION", "--allow-net", "npm:@upstash/context7-mcp"]
+      "args": [
+        "run",
+        "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION",
+        "--allow-net",
+        "npm:@upstash/context7-mcp"
+      ]
     }
   }
 }
@@ -191,10 +196,7 @@ Sử dụng tính năng Add manually và điền thông tin cấu hình JSON cho
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp"
-      ]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -276,6 +278,7 @@ Hoặc, cho local server:
 ```
 
 Để biết thêm thông tin và khắc phục sự cố, tham khảo [tài liệu Visual Studio MCP Servers](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022).
+
 </details>
 
 <details>
@@ -386,7 +389,7 @@ Bạn có thể dễ dàng cài đặt Context7 thông qua [Cline MCP Server Mar
 
 1. Mở **Cline**.
 2. Click biểu tượng menu hamburger (☰) để vào phần **MCP Servers**.
-3. Sử dụng thanh tìm kiếm trong tab **Marketplace** để tìm *Context7*.
+3. Sử dụng thanh tìm kiếm trong tab **Marketplace** để tìm _Context7_.
 4. Click nút **Install**.
 
 </details>
@@ -581,11 +584,8 @@ Thêm cấu hình này vào file cấu hình Roo Code MCP của bạn. Xem [tài
 
 ```json
 {
-    "command": "npx",
-    "args": [
-        "-y",
-        "@upstash/context7-mcp@latest"
-    ]
+  "command": "npx",
+  "args": ["-y", "@upstash/context7-mcp@latest"]
 }
 ```
 
@@ -608,6 +608,7 @@ Thêm cấu hình này vào file cấu hình Amazon Q Developer CLI của bạn.
   }
 }
 ```
+
 </details>
 
 <details>
@@ -629,6 +630,7 @@ Xem [tài liệu Qodo Gen](https://docs.qodo.ai/qodo-documentation/qodo-gen/qodo
   }
 }
 ```
+
 </details>
 
 <details>
@@ -670,10 +672,7 @@ Xem [Tài liệu Warp Model Context Protocol](https://docs.warp.dev/knowledge-an
 {
   "Context7": {
     "command": "npx",
-    "args": [
-      "-y",
-      "@upstash/context7-mcp"
-    ],
+    "args": ["-y", "@upstash/context7-mcp"],
     "env": {},
     "working_directory": null,
     "start_on_launch": true
@@ -705,7 +704,6 @@ Thêm cấu hình này vào file cấu hình Opencode của bạn. Xem [tài li�
 #### Kết nối Opencode Local Server
 
 ```json
-
 {
   "mcp": {
     "context7": {
@@ -733,10 +731,7 @@ Thêm cấu hình sau vào phần `mcp` trong file cấu hình Copilot Coding Ag
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
-      "tools": [
-        "get-library-docs",
-        "resolve-library-id"
-      ]
+      "tools": ["get-library-docs", "resolve-library-id"]
     }
   }
 }
@@ -760,18 +755,14 @@ Xem [Tài liệu Kiro Model Context Protocol](https://kiro.dev/docs/mcp/configur
 {
   "mcpServers": {
     "Context7": {
-    "command": "npx",
-    "args": [
-      "-y",
-      "@upstash/context7-mcp"
-    ],
-    "env": {},
-    "disabled": false,
-    "autoApprove": []
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "env": {},
+      "disabled": false,
+      "autoApprove": []
     }
   }
 }
-
 ```
 
 4. Click `Save` để áp dụng thay đổi.
@@ -797,12 +788,14 @@ command = "npx"
 Xem [LM Studio MCP Support](https://lmstudio.ai/blog/lmstudio-v0.3.17) để biết thêm thông tin.
 
 #### Cài đặt một cú click:
+
 [![Add MCP Server context7 to LM Studio](https://files.lmstudio.ai/deeplink/mcp-install-light.svg)](https://lmstudio.ai/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB1cHN0YXNoL2NvbnRleHQ3LW1jcCJdfQ%3D%3D)
 
 #### Thiết lập thủ công:
 
 1. Điều hướng đến `Program` (bên phải) > `Install` > `Edit mcp.json`.
 2. Paste cấu hình được cung cấp bên dưới:
+
 ```json
 {
   "mcpServers": {
@@ -813,6 +806,7 @@ Xem [LM Studio MCP Support](https://lmstudio.ai/blog/lmstudio-v0.3.17) để bi�
   }
 }
 ```
+
 3. Click `Save` để áp dụng thay đổi.
 4. Bật/tắt MCP server từ bên phải, dưới `Program`, hoặc bằng cách click biểu tượng plug ở cuối hộp chat.
 
@@ -834,19 +828,25 @@ Context7 MCP cung cấp các công cụ sau mà LLM có thể sử dụng:
 ## 🛟 Mẹo
 
 ### Thêm Quy Tắc
+
 > Nếu bạn không muốn thêm `use context7` vào mỗi prompt, bạn có thể định nghĩa một quy tắc đơn giản trong file `.windsurfrules` của bạn trong Windsurf hoặc từ phần `Cursor Settings > Rules` trong Cursor (hoặc tương đương trong MCP client của bạn) để tự động gọi Context7 trên bất kỳ câu hỏi code nào:
+>
 > ```toml
 > [[calls]]
 > match = "when the user requests code examples, setup or configuration steps, or library/API documentation"
 > tool  = "context7"
 > ```
+>
 > Từ đó bạn sẽ nhận được tài liệu Context7 trong bất kỳ cuộc hội thoại liên quan nào mà không cần gõ thêm gì. Bạn có thể thêm các trường hợp sử dụng của mình vào phần match.
 
 ### Sử dụng Library Id
+
 > Nếu bạn đã biết chính xác thư viện nào muốn sử dụng, hãy thêm Context7 ID của nó vào prompt của bạn. Cách đó, Context7 MCP server có thể bỏ qua bước matching thư viện và trực tiếp tiếp tục với việc lấy tài liệu.
+>
 > ```txt
 > implement basic authentication with supabase. use library /supabase/supabase for api and docs
 > ```
+>
 > Cú pháp dấu gạch chéo nói với MCP tool chính xác thư viện nào cần load tài liệu.
 
 ## 💻 Phát Triển

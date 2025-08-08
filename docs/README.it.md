@@ -183,10 +183,7 @@ Aggiungi la seguente configurazione alla sezione `mcp` del file di configurazion
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
-      "tools": [
-        "get-library-docs",
-        "resolve-library-id"
-      ]
+      "tools": ["get-library-docs", "resolve-library-id"]
     }
   }
 }

@@ -163,17 +163,13 @@ Agrega la siguiente configuración a la sección `mcp` de tu archivo de configur
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
-      "tools": [
-        "get-library-docs",
-        "resolve-library-id"
-      ]
+      "tools": ["get-library-docs", "resolve-library-id"]
     }
   }
 }
 ```
 
 Para más información, consulta la [documentación oficial de GitHub](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/agents/copilot-coding-agent/extending-copilot-coding-agent-with-mcp).
-
 
 ### Herramientas Disponibles
 

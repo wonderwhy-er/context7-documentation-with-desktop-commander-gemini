@@ -124,7 +124,12 @@ Smithery 키는 [Smithery.ai 웹페이지](https://smithery.ai/server/@upstash/c
   "mcpServers": {
     "context7": {
       "command": "deno",
-      "args": ["run", "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION", "--allow-net", "npm:@upstash/context7-mcp"]
+      "args": [
+        "run",
+        "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION",
+        "--allow-net",
+        "npm:@upstash/context7-mcp"
+      ]
     }
   }
 }
@@ -191,10 +196,7 @@ Windsurf MCP 설정 파일에 다음을 추가하세요. 자세한 내용은 [Wi
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp"
-      ]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -276,6 +278,7 @@ Visual Studio MCP 설정 파일에 다음을 추가하세요(자세한 내용은
 ```
 
 자세한 정보 및 문제 해결은 [Visual Studio MCP 서버 문서](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022)를 참조하세요.
+
 </details>
 
 <details>
@@ -422,10 +425,7 @@ Claude Desktop의 `claude_desktop_config.json` 파일에 다음을 추가하세�
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
-      "tools": [
-        "get-library-docs",
-        "resolve-library-id"
-      ]
+      "tools": ["get-library-docs", "resolve-library-id"]
     }
   }
 }
@@ -605,11 +605,8 @@ Zencoder에서 Context7 MCP를 설정하려면 다음 단계를 따르세요:
 
 ```json
 {
-    "command": "npx",
-    "args": [
-        "-y",
-        "@upstash/context7-mcp@latest"
-    ]
+  "command": "npx",
+  "args": ["-y", "@upstash/context7-mcp@latest"]
 }
 ```
 
@@ -632,6 +629,7 @@ Amazon Q Developer CLI 설정 파일에 다음을 추가하세요. 자세한 내
   }
 }
 ```
+
 </details>
 
 <details>
@@ -641,7 +639,7 @@ Amazon Q Developer CLI 설정 파일에 다음을 추가하세요. 자세한 내
 
 1. VSCode 또는 IntelliJ에서 Qodo Gen 채팅 패널을 엽니다.
 2. 더 많은 도구 연결을 클릭합니다.
-3. + 새 MCP 추가를 클릭합니다.
+3. - 새 MCP 추가를 클릭합니다.
 4. 다음 설정을 추가합니다:
 
 ```json
@@ -653,6 +651,7 @@ Amazon Q Developer CLI 설정 파일에 다음을 추가하세요. 자세한 내
   }
 }
 ```
+
 </details>
 
 <details>
@@ -693,10 +692,7 @@ Amazon Q Developer CLI 설정 파일에 다음을 추가하세요. 자세한 내
 {
   "Context7": {
     "command": "npx",
-    "args": [
-      "-y",
-      "@upstash/context7-mcp"
-    ],
+    "args": ["-y", "@upstash/context7-mcp"],
     "env": {},
     "working_directory": null,
     "start_on_launch": true
@@ -728,7 +724,6 @@ Opencode 설정 파일에 다음을 추가하세요. 자세한 내용은 [Openco
 #### Opencode 로컬 서버 연결
 
 ```json
-
 {
   "mcp": {
     "context7": {
@@ -755,18 +750,14 @@ Opencode 설정 파일에 다음을 추가하세요. 자세한 내용은 [Openco
 {
   "mcpServers": {
     "Context7": {
-    "command": "npx",
-    "args": [
-      "-y",
-      "@upstash/context7-mcp"
-    ],
-    "env": {},
-    "disabled": false,
-    "autoApprove": []
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "env": {},
+      "disabled": false,
+      "autoApprove": []
     }
   }
 }
-
 ```
 
 4. `Save`을 클릭하여 변경 사항을 적용합니다.
@@ -803,22 +794,26 @@ Context7 MCP는 LLM이 사용할 수 있는 다음 도구들을 제공합니다:
 ## 🛟 팁
 
 ### 규칙 추가
+
 > 모든 프롬프트에 `use context7`을 추가하고 싶지 않다면, Windsurf의 `.windsurfrules` 파일이나 Cursor의 `Cursor Settings > Rules` 섹션(또는 사용 중인 MCP 클라이언트의 해당 기능)에서 간단한 규칙을 정의하여 코드 관련 질문에 Context7을 자동으로 호출할 수 있습니다:
+>
 > ```toml
 > [[calls]]
 > match = "when the user requests code examples, setup or configuration steps, or library/API documentation"
 > tool  = "context7"
 > ```
+>
 > 그러면 추가 입력 없이도 관련 대화에서 Context7의 문서를 얻을 수 있습니다. match 부분에 여러분의 사용 사례를 추가할 수 있습니다.
 
 ### 라이브러리 ID 사용
+
 > 사용하려는 라이브러리를 이미 정확히 알고 있다면, 프롬프트에 해당 라이브러리의 Context7 ID를 추가하세요. 이렇게 하면 Context7 MCP 서버가 라이브러리 매칭 단계를 건너뛰고 바로 문서 검색을 진행할 수 있습니다.
+>
 > ```txt
 > supabase로 기본 인증을 구현해줘. API와 문서는 /supabase/supabase 라이브러리를 사용해줘
 > ```
+>
 > 슬래시 구문은 MCP 도구에게 어떤 라이브러리의 문서를 로드할지 정확히 알려줍니다.
-
-
 
 ## 💻 개발
 

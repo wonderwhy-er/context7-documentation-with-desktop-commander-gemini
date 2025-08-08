@@ -156,8 +156,6 @@ Exécutez cette commande. Voir la [documentation Claude Code MCP](https://docs.a
 claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
 ```
 
-
-
 ### Installation dans Claude Desktop
 
 Ajoutez ceci à votre fichier `claude_desktop_config.json`. Voir la [documentation Claude Desktop MCP](https://modelcontextprotocol.io/quickstart/user).
@@ -200,10 +198,7 @@ Ajoutez la configuration suivante à la section `mcp` de votre fichier de config
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
-      "tools": [
-        "get-library-docs",
-        "resolve-library-id"
-      ]
+      "tools": ["get-library-docs", "resolve-library-id"]
     }
   }
 }

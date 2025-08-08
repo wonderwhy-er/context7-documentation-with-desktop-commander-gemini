@@ -185,10 +185,7 @@ npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME>
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp"
-      ]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -270,6 +267,7 @@ npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME>
 ```
 
 如需更多資訊與疑難排解，請參閱 [Visual Studio MCP 伺服器文件](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022)。
+
 </details>
 
 <details>
@@ -380,7 +378,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 
 1. 開啟 **Cline**。
 2. 點擊漢堡選單圖示（☰）進入 **MCP 伺服器** 區段。
-3. 在 **市集** 分頁的搜尋欄中尋找 *Context7*。
+3. 在 **市集** 分頁的搜尋欄中尋找 _Context7_。
 4. 點擊 **安裝** 按鈕。
 
 </details>
@@ -418,10 +416,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
-      "tools": [
-        "get-library-docs",
-        "resolve-library-id"
-      ]
+      "tools": ["get-library-docs", "resolve-library-id"]
     }
   }
 }
@@ -494,7 +489,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 <details>
 <summary><b>在 Windows 安裝</b></summary>
 
-Windows 的設定與 Linux 或 macOS 略有不同（*範例以 Cline 為例*）。其他編輯器同理，請參考 `command` 與 `args` 設定。
+Windows 的設定與 Linux 或 macOS 略有不同（_範例以 Cline 為例_）。其他編輯器同理，請參考 `command` 與 `args` 設定。
 
 ```json
 {
@@ -582,11 +577,8 @@ Windows 的設定與 Linux 或 macOS 略有不同（*範例以 Cline 為例*）�
 
 ```json
 {
-    "command": "npx",
-    "args": [
-        "-y",
-        "@upstash/context7-mcp@latest"
-    ]
+  "command": "npx",
+  "args": ["-y", "@upstash/context7-mcp@latest"]
 }
 ```
 
@@ -609,6 +601,7 @@ Windows 的設定與 Linux 或 macOS 略有不同（*範例以 Cline 為例*）�
   }
 }
 ```
+
 </details>
 
 <details>
@@ -630,6 +623,7 @@ Windows 的設定與 Linux 或 macOS 略有不同（*範例以 Cline 為例*）�
   }
 }
 ```
+
 </details>
 
 <details>
@@ -671,10 +665,7 @@ Windows 的設定與 Linux 或 macOS 略有不同（*範例以 Cline 為例*）�
 {
   "Context7": {
     "command": "npx",
-    "args": [
-      "-y",
-      "@upstash/context7-mcp"
-    ],
+    "args": ["-y", "@upstash/context7-mcp"],
     "env": {},
     "working_directory": null,
     "start_on_launch": true
@@ -734,10 +725,7 @@ Windows 的設定與 Linux 或 macOS 略有不同（*範例以 Cline 為例*）�
   "mcpServers": {
     "Context7": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp"
-      ],
+      "args": ["-y", "@upstash/context7-mcp"],
       "env": {},
       "disabled": false,
       "autoApprove": []
@@ -769,12 +757,14 @@ command = "npx"
 詳情請參考 [LM Studio MCP 支援](https://lmstudio.ai/blog/lmstudio-v0.3.17)。
 
 #### 一鍵安裝：
+
 [![將 MCP Server context7 加入 LM Studio](https://files.lmstudio.ai/deeplink/mcp-install-light.svg)](https://lmstudio.ai/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB1cHN0YXNoL2NvbnRleHQ3LW1jcCJdfQ%3D%3D)
 
 #### 手動設定：
 
 1. 前往 `Program`（右側）> `Install` > `Edit mcp.json`
 2. 貼上以下設定：
+
 ```json
 {
   "mcpServers": {
@@ -785,6 +775,7 @@ command = "npx"
   }
 }
 ```
+
 3. 點擊 `Save` 套用變更。
 4. 可於右側 `Program` 下方或聊天框底部的插頭圖示切換 MCP 伺服器開關。
 
