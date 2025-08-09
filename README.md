@@ -123,7 +123,12 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
   "mcpServers": {
     "context7": {
       "command": "deno",
-      "args": ["run", "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION", "--allow-net", "npm:@upstash/context7-mcp"]
+      "args": [
+        "run",
+        "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION",
+        "--allow-net",
+        "npm:@upstash/context7-mcp"
+      ]
     }
   }
 }
@@ -190,10 +195,7 @@ For more details, visit the [Trae documentation](https://docs.trae.ai/ide/model-
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp"
-      ]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -275,6 +277,7 @@ Or, for a local server:
 ```
 
 For more information and troubleshooting, refer to the [Visual Studio MCP Servers documentation](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022).
+
 </details>
 
 <details>
@@ -435,7 +438,7 @@ You can easily install Context7 through the [Cline MCP Server Marketplace](https
 
 1. Open **Cline**.
 2. Click the hamburger menu icon (☰) to enter the **MCP Servers** section.
-3. Use the search bar within the **Marketplace** tab to find *Context7*.
+3. Use the search bar within the **Marketplace** tab to find _Context7_.
 4. Click the **Install** button.
 
 </details>
@@ -630,11 +633,8 @@ To configure Context7 MCP in Zencoder, follow these steps:
 
 ```json
 {
-    "command": "npx",
-    "args": [
-        "-y",
-        "@upstash/context7-mcp@latest"
-    ]
+  "command": "npx",
+  "args": ["-y", "@upstash/context7-mcp@latest"]
 }
 ```
 
@@ -657,6 +657,7 @@ Add this to your Amazon Q Developer CLI configuration file. See [Amazon Q Develo
   }
 }
 ```
+
 </details>
 
 <details>
@@ -678,6 +679,7 @@ See [Qodo Gen docs](https://docs.qodo.ai/qodo-documentation/qodo-gen/qodo-gen-ch
   }
 }
 ```
+
 </details>
 
 <details>
@@ -719,10 +721,7 @@ See [Warp Model Context Protocol Documentation](https://docs.warp.dev/knowledge-
 {
   "Context7": {
     "command": "npx",
-    "args": [
-      "-y",
-      "@upstash/context7-mcp"
-    ],
+    "args": ["-y", "@upstash/context7-mcp"],
     "env": {},
     "working_directory": null,
     "start_on_launch": true
@@ -754,7 +753,6 @@ Add this to your Opencode configuration file. See [Opencode MCP docs](https://op
 #### Opencode Local Server Connection
 
 ```json
-
 {
   "mcp": {
     "context7": {
@@ -782,10 +780,7 @@ Add the following configuration to the `mcp` section of your Copilot Coding Agen
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
-      "tools": [
-        "get-library-docs",
-        "resolve-library-id"
-      ]
+      "tools": ["get-library-docs", "resolve-library-id"]
     }
   }
 }
@@ -809,18 +804,14 @@ See [Kiro Model Context Protocol Documentation](https://kiro.dev/docs/mcp/config
 {
   "mcpServers": {
     "Context7": {
-    "command": "npx",
-    "args": [
-      "-y",
-      "@upstash/context7-mcp"
-    ],
-    "env": {},
-    "disabled": false,
-    "autoApprove": []
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "env": {},
+      "disabled": false,
+      "autoApprove": []
     }
   }
 }
-
 ```
 
 4. Click `Save` to apply the changes.
@@ -846,12 +837,14 @@ command = "npx"
 See [LM Studio MCP Support](https://lmstudio.ai/blog/lmstudio-v0.3.17) for more information.
 
 #### One-click install:
+
 [![Add MCP Server context7 to LM Studio](https://files.lmstudio.ai/deeplink/mcp-install-light.svg)](https://lmstudio.ai/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB1cHN0YXNoL2NvbnRleHQ3LW1jcCJdfQ%3D%3D)
 
 #### Manual set-up:
 
 1. Navigate to `Program` (right side) > `Install` > `Edit mcp.json`.
 2. Paste the configuration given below:
+
 ```json
 {
   "mcpServers": {
@@ -862,6 +855,7 @@ See [LM Studio MCP Support](https://lmstudio.ai/blog/lmstudio-v0.3.17) for more 
   }
 }
 ```
+
 3. Click `Save` to apply the changes.
 4. Toggle the MCP server on/off from the right hand side, under `Program`, or by clicking the plug icon at the bottom of the chat box.
 
@@ -880,14 +874,12 @@ See [Local and Remote MCPs for Perplexity](https://www.perplexity.ai/help-center
 
 ```json
 {
-  "args" : [
-    "-y",
-    "@upstash/context7-mcp"
-  ],
-  "command" : "npx",
-  "env" : {}
+  "args": ["-y", "@upstash/context7-mcp"],
+  "command": "npx",
+  "env": {}
 }
 ```
+
 7. Click `Save`.
 </details>
 
@@ -907,22 +899,26 @@ Context7 MCP provides the following tools that LLMs can use:
 ## 🛟 Tips
 
 ### Add a Rule
+
 > If you don’t want to add `use context7` to every prompt, you can define a simple rule in your `.windsurfrules` file in Windsurf or from `Cursor Settings > Rules` section in Cursor (or the equivalent in your MCP client) to auto-invoke Context7 on any code question:
+>
 > ```toml
 > [[calls]]
 > match = "when the user requests code examples, setup or configuration steps, or library/API documentation"
 > tool  = "context7"
 > ```
+>
 > From then on you’ll get Context7’s docs in any related conversation without typing anything extra. You can add your use cases to the match part.
 
 ### Use Library Id
+
 > If you already know exactly which library you want to use, add its Context7 ID to your prompt. That way, Context7 MCP server can skip the library-matching step and directly continue with retrieving docs.
+>
 > ```txt
 > implement basic authentication with supabase. use library /supabase/supabase for api and docs
 > ```
+>
 > The slash syntax tells the MCP tool exactly which library to load docs for.
-
-
 
 ## 💻 Development
 
