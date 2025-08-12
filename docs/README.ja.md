@@ -36,7 +36,7 @@ Context7 は最新のコード例とドキュメントを直接 LLM のコンテ
 
 ## 📚 プロジェクトの追加
 
-[プロジェクト追加ガイド](./docs/adding-projects.md) をチェックして、お気に入りのライブラリを Context7 に追加（または更新）する方法を学びましょう。
+[プロジェクト追加ガイド](./adding-projects.md) をチェックして、お気に入りのライブラリを Context7 に追加（または更新）する方法を学びましょう。
 
 ## 🛠️ インストール
 
@@ -124,7 +124,12 @@ Smithery キーは [Smithery.ai Web ページ](https://smithery.ai/server/@upsta
   "mcpServers": {
     "context7": {
       "command": "deno",
-      "args": ["run", "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION", "--allow-net", "npm:@upstash/context7-mcp"]
+      "args": [
+        "run",
+        "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION",
+        "--allow-net",
+        "npm:@upstash/context7-mcp"
+      ]
     }
   }
 }
@@ -240,6 +245,7 @@ Smithery キーは [Smithery.ai Web ページ](https://smithery.ai/server/@upsta
 ```
 
 詳細情報とトラブルシューティングについては、[Visual Studio MCP サーバードキュメント](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022) を参照してください。
+
 </details>
 
 <details>
@@ -317,6 +323,27 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 ```
 
 保存後、チャットで `get-library-docs` の後に Context7 ドキュメント ID を入力します（例：`get-library-docs /nuxt/ui`）。詳細情報は [BoltAI ドキュメンテーションサイト](https://docs.boltai.com/docs/plugins/mcp-servers) で利用可能です。iOS 版 BoltAI については、[このガイドを参照してください](https://docs.boltai.com/docs/boltai-mobile/mcp-servers)。
+
+</details>
+
+<details>
+<summary><b>Copilot Coding Agent へのインストール</b></summary>
+
+以下の設定を Copilot Coding Agent の `mcp` セクション（Repository->Settings->Copilot->Coding agent->MCP configuration）に追加してください：
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "tools": ["get-library-docs", "resolve-library-id"]
+    }
+  }
+}
+```
+
+詳細は [公式 GitHub ドキュメント](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/agents/copilot-coding-agent/extending-copilot-coding-agent-with-mcp) をご覧ください。
 
 </details>
 
@@ -490,11 +517,8 @@ Zencoder で Context7 MCP を設定するには、以下の手順に従います
 
 ```json
 {
-    "command": "npx",
-    "args": [
-        "-y",
-        "@upstash/context7-mcp@latest"
-    ]
+  "command": "npx",
+  "args": ["-y", "@upstash/context7-mcp@latest"]
 }
 ```
 
@@ -517,6 +541,7 @@ MCP サーバーが追加されたら、簡単に使用を続けることがで�
   }
 }
 ```
+
 </details>
 
 ## 🔨 利用可能なツール

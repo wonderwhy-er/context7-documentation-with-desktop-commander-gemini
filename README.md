@@ -1,8 +1,7 @@
 # Context7 MCP - Up-to-date Code Docs For Any Prompt
 
 [![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp) [<img alt="Install in VS Code (npx)" src="https://img.shields.io/badge/VS_Code-VS_Code?style=flat-square&label=Install%20Context7%20MCP&color=0098FF">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22context7%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40upstash%2Fcontext7-mcp%40latest%22%5D%7D)
-
-[![繁體中文](https://img.shields.io/badge/docs-繁體中文-yellow)](./docs/README.zh-TW.md) [![简体中文](https://img.shields.io/badge/docs-简体中文-yellow)](./docs/README.zh-CN.md) [![日本語](https://img.shields.io/badge/docs-日本語-b7003a)](./docs/README.ja.md) [![한국어 문서](https://img.shields.io/badge/docs-한국어-green)](./docs/README.ko.md) [![Documentación en Español](https://img.shields.io/badge/docs-Español-orange)](./docs/README.es.md) [![Documentation en Français](https://img.shields.io/badge/docs-Français-blue)](./docs/README.fr.md) [![Documentação em Português (Brasil)](<https://img.shields.io/badge/docs-Português%20(Brasil)-purple>)](./docs/README.pt-BR.md) [![Documentazione in italiano](https://img.shields.io/badge/docs-Italian-red)](./docs/README.it.md) [![Dokumentasi Bahasa Indonesia](https://img.shields.io/badge/docs-Bahasa%20Indonesia-pink)](./docs/README.id-ID.md) [![Dokumentation auf Deutsch](https://img.shields.io/badge/docs-Deutsch-darkgreen)](./docs/README.de.md) [![Документация на русском языке](https://img.shields.io/badge/docs-Русский-darkblue)](./docs/README.ru.md) [![Türkçe Doküman](https://img.shields.io/badge/docs-Türkçe-blue)](./docs/README.tr.md) [![Arabic Documentation](https://img.shields.io/badge/docs-Arabic-white)](./docs/README.ar.md)
+[![繁體中文](https://img.shields.io/badge/docs-繁體中文-yellow)](./docs/README.zh-TW.md) [![简体中文](https://img.shields.io/badge/docs-简体中文-yellow)](./docs/README.zh-CN.md) [![日本語](https://img.shields.io/badge/docs-日本語-b7003a)](./docs/README.ja.md) [![한국어 문서](https://img.shields.io/badge/docs-한국어-green)](./docs/README.ko.md) [![Documentación en Español](https://img.shields.io/badge/docs-Español-orange)](./docs/README.es.md) [![Documentation en Français](https://img.shields.io/badge/docs-Français-blue)](./docs/README.fr.md) [![Documentação em Português (Brasil)](<https://img.shields.io/badge/docs-Português%20(Brasil)-purple>)](./docs/README.pt-BR.md) [![Documentazione in italiano](https://img.shields.io/badge/docs-Italian-red)](./docs/README.it.md) [![Dokumentasi Bahasa Indonesia](https://img.shields.io/badge/docs-Bahasa%20Indonesia-pink)](./docs/README.id-ID.md) [![Dokumentation auf Deutsch](https://img.shields.io/badge/docs-Deutsch-darkgreen)](./docs/README.de.md) [![Документация на русском языке](https://img.shields.io/badge/docs-Русский-darkblue)](./docs/README.ru.md) [![Українська документація](https://img.shields.io/badge/docs-Українська-lightblue)](./docs/README.uk.md) [![Türkçe Doküman](https://img.shields.io/badge/docs-Türkçe-blue)](./docs/README.tr.md) [![Arabic Documentation](https://img.shields.io/badge/docs-Arabic-white)](./docs/README.ar.md) [![Tiếng Việt](https://img.shields.io/badge/docs-Tiếng%20Việt-red)](./docs/README.vi.md)
 
 ## ❌ Without Context7
 
@@ -19,11 +18,11 @@ Context7 MCP pulls up-to-date, version-specific documentation and code examples 
 Add `use context7` to your prompt in Cursor:
 
 ```txt
-Create a basic Next.js project with app router. use context7
+Create a Next.js middleware that checks for a valid JWT in cookies and redirects unauthenticated users to `/login`. use context7
 ```
 
 ```txt
-Create a script to delete the rows where the city is "" given PostgreSQL credentials. use context7
+Configure a Cloudflare Worker script to cache JSON API responses for five minutes. use context7
 ```
 
 Context7 fetches up-to-date code examples and documentation right into your LLM's context.
@@ -70,7 +69,7 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 
 #### Cursor Remote Server Connection
 
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=context7&config=eyJ1cmwiOiJodHRwczovL21jcC5jb250ZXh0Ny5jb20vbWNwIn0%3D)
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=context7&config=eyJ1cmwiOiJodHRwczovL21jcC5jb250ZXh0Ny5jb20vbWNwIn0%3D)
 
 ```json
 {
@@ -87,7 +86,7 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 
 #### Cursor Local Server Connection
 
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IC15IEB1cHN0YXNoL2NvbnRleHQ3LW1jcCJ9)
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IC15IEB1cHN0YXNoL2NvbnRleHQ3LW1jcCJ9)
 
 ```json
 {
@@ -146,7 +145,7 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 <details>
 <summary><b>Install in Windsurf</b></summary>
 
-Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.windsurf.com/windsurf/mcp) for more info.
+Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.windsurf.com/windsurf/cascade/mcp) for more info.
 
 #### Windsurf Remote Server Connection
 
@@ -168,6 +167,39 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
     "context7": {
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Trae</b></summary>
+
+Use the Add manually feature and fill in the JSON configuration information for that MCP server.
+For more details, visit the [Trae documentation](https://docs.trae.ai/ide/model-context-protocol?_lang=en).
+
+#### Trae Remote Server Connection
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}
+```
+
+#### Trae Local Server Connection
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -285,6 +317,18 @@ See [Gemini CLI Configuration](https://github.com/google-gemini/gemini-cli/blob/
 {
   "mcpServers": {
     "context7": {
+      "httpUrl": "https://mcp.context7.com/mcp"
+    }
+  }
+}
+```
+
+Or, for a local server:
+
+```json
+{
+  "mcpServers": {
+    "context7": {
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp"]
     }
@@ -330,6 +374,56 @@ Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude D
 {
   "mcpServers": {
     "Context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Crush</b></summary>
+
+Add this to your Crush configuration file. See [Crush MCP docs](https://github.com/charmbracelet/crush#mcps) for more info.
+
+#### Crush Remote Server Connection (HTTP)
+
+```json
+{
+  "$schema": "https://charm.land/crush.json",
+  "mcp": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}
+```
+
+#### Crush Remote Server Connection (SSE)
+
+```json
+{
+  "$schema": "https://charm.land/crush.json",
+  "mcp": {
+    "context7": {
+      "type": "sse",
+      "url": "https://mcp.context7.com/sse"
+    }
+  }
+}
+```
+
+#### Crush Local Server Connection
+
+```json
+{
+  "$schema": "https://charm.land/crush.json",
+  "mcp": {
+    "context7": {
+      "type": "stdio",
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp"]
     }
@@ -614,6 +708,7 @@ See [JetBrains AI Assistant Documentation](https://www.jetbrains.com/help/ai-ass
 ```
 
 5. Click `Apply` to save changes.
+6. The same way context7 could be added for JetBrains Junie in `Settings` -> `Tools` -> `Junie` -> `MCP Settings`
 
 </details>
 
@@ -642,6 +737,156 @@ See [Warp Model Context Protocol Documentation](https://docs.warp.dev/knowledge-
 
 </details>
 
+<details>
+<summary><b>Install in Opencode</b></summary>
+
+Add this to your Opencode configuration file. See [Opencode MCP docs](https://opencode.ai/docs/mcp-servers) docs for more info.
+
+#### Opencode Remote Server Connection
+
+```json
+"mcp": {
+  "context7": {
+    "type": "remote",
+    "url": "https://mcp.context7.com/mcp",
+    "enabled": true
+  }
+}
+```
+
+#### Opencode Local Server Connection
+
+```json
+{
+  "mcp": {
+    "context7": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "enabled": true
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+
+<summary><b>Install in Copilot Coding Agent</b></summary>
+
+## Using Context7 with Copilot Coding Agent
+
+Add the following configuration to the `mcp` section of your Copilot Coding Agent configuration file Repository->Settings->Copilot->Coding agent->MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "tools": ["get-library-docs", "resolve-library-id"]
+    }
+  }
+}
+```
+
+For more information, see the [official GitHub documentation](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/agents/copilot-coding-agent/extending-copilot-coding-agent-with-mcp).
+
+</details>
+  
+<details>
+  
+<summary><b>Install in Kiro</b></summary>
+
+See [Kiro Model Context Protocol Documentation](https://kiro.dev/docs/mcp/configuration/) for details.
+
+1. Navigate `Kiro` > `MCP Servers`
+2. Add a new MCP server by clicking the `+ Add` button.
+3. Paste the configuration given below:
+
+```json
+{
+  "mcpServers": {
+    "Context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "env": {},
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
+
+4. Click `Save` to apply the changes.
+
+</details>
+<details>
+<summary><b>Install in OpenAI Codex</b></summary>
+
+See [OpenAI Codex](https://github.com/openai/codex) for more information.
+
+Add the following configuration to your OpenAI Codex MCP server settings:
+
+```toml
+[mcp_servers.context7]
+args = ["-y", "@upstash/context7-mcp"]
+command = "npx"
+```
+
+</details>
+<details>
+<summary><b>Install in LM Studio</b></summary>
+
+See [LM Studio MCP Support](https://lmstudio.ai/blog/lmstudio-v0.3.17) for more information.
+
+#### One-click install:
+
+[![Add MCP Server context7 to LM Studio](https://files.lmstudio.ai/deeplink/mcp-install-light.svg)](https://lmstudio.ai/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB1cHN0YXNoL2NvbnRleHQ3LW1jcCJdfQ%3D%3D)
+
+#### Manual set-up:
+
+1. Navigate to `Program` (right side) > `Install` > `Edit mcp.json`.
+2. Paste the configuration given below:
+
+```json
+{
+  "mcpServers": {
+    "Context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+3. Click `Save` to apply the changes.
+4. Toggle the MCP server on/off from the right hand side, under `Program`, or by clicking the plug icon at the bottom of the chat box.
+
+</details>
+<details>
+<summary><b>Install in Perplexity Desktop</b></summary>
+
+See [Local and Remote MCPs for Perplexity](https://www.perplexity.ai/help-center/en/articles/11502712-local-and-remote-mcps-for-perplexity) for more information.
+
+1. Navigate `Perplexity` > `Settings`
+2. Select `Connectors`.
+3. Click `Add Connector`.
+4. Select `Advanced`.
+5. Enter Server Name: `Context7`
+6. Paste the following JSON in the text area:
+
+```json
+{
+  "args": ["-y", "@upstash/context7-mcp"],
+  "command": "npx",
+  "env": {}
+}
+```
+
+7. Click `Save`.
+</details>
+
 ## 🔨 Available Tools
 
 Context7 MCP provides the following tools that LLMs can use:
@@ -654,6 +899,30 @@ Context7 MCP provides the following tools that LLMs can use:
   - `context7CompatibleLibraryID` (required): Exact Context7-compatible library ID (e.g., `/mongodb/docs`, `/vercel/next.js`)
   - `topic` (optional): Focus the docs on a specific topic (e.g., "routing", "hooks")
   - `tokens` (optional, default 10000): Max number of tokens to return. Values less than the default value of 10000 are automatically increased to 10000.
+
+## 🛟 Tips
+
+### Add a Rule
+
+> If you don’t want to add `use context7` to every prompt, you can define a simple rule in your `.windsurfrules` file in Windsurf or from `Cursor Settings > Rules` section in Cursor (or the equivalent in your MCP client) to auto-invoke Context7 on any code question:
+>
+> ```toml
+> [[calls]]
+> match = "when the user requests code examples, setup or configuration steps, or library/API documentation"
+> tool  = "context7"
+> ```
+>
+> From then on you’ll get Context7’s docs in any related conversation without typing anything extra. You can add your use cases to the match part.
+
+### Use Library Id
+
+> If you already know exactly which library you want to use, add its Context7 ID to your prompt. That way, Context7 MCP server can skip the library-matching step and directly continue with retrieving docs.
+>
+> ```txt
+> implement basic authentication with supabase. use library /supabase/supabase for api and docs
+> ```
+>
+> The slash syntax tells the MCP tool exactly which library to load docs for.
 
 ## 💻 Development
 
@@ -790,7 +1059,7 @@ Context7 projects are community-contributed and while we strive to maintain high
 
 Stay updated and join our community:
 
-- 📢 Follow us on [X](https://x.com/contextai) for the latest news and updates
+- 📢 Follow us on [X](https://x.com/context7ai) for the latest news and updates
 - 🌐 Visit our [Website](https://context7.com)
 - 💬 Join our [Discord Community](https://upstash.com/discord)
 

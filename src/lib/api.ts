@@ -1,4 +1,5 @@
 import { SearchResponse } from "./types.js";
+import { generateHeaders } from "./encryption.js";
 
 const CONTEXT7_API_BASE_URL = "http://localhost:3000/api";
 const DEFAULT_TYPE = "txt";
@@ -6,15 +7,20 @@ const DEFAULT_TYPE = "txt";
 /**
  * Searches for libraries matching the given query
  * @param query The search query
+ * @param clientIp Optional client IP address to include in headers
  * @param apiKey Optional API key for authentication
  * @returns Search results or null if the request fails
  */
-export async function searchLibraries(query: string, apiKey?: string): Promise<SearchResponse> {
+export async function searchLibraries(
+  query: string,
+  clientIp?: string,
+  apiKey?: string
+): Promise<SearchResponse> {
   try {
     const url = new URL(`${CONTEXT7_API_BASE_URL}/v1/search`);
     url.searchParams.set("query", query);
 
-    const headers: Record<string, string> = {};
+    const headers = generateHeaders(clientIp);
     if (apiKey) {
       headers["Authorization"] = `Bearer ${apiKey}`;
     }
@@ -46,6 +52,7 @@ export async function searchLibraries(query: string, apiKey?: string): Promise<S
  * Fetches documentation context for a specific library
  * @param libraryId The library ID to fetch documentation for
  * @param options Options for the request
+ * @param clientIp Optional client IP address to include in headers
  * @param apiKey Optional API key for authentication
  * @returns The documentation text or null if the request fails
  */
@@ -55,6 +62,7 @@ export async function fetchLibraryDocumentation(
     tokens?: number;
     topic?: string;
   } = {},
+  clientIp?: string,
   apiKey?: string
 ): Promise<string | null> {
   try {
@@ -66,9 +74,7 @@ export async function fetchLibraryDocumentation(
     if (options.topic) url.searchParams.set("topic", options.topic);
     url.searchParams.set("type", DEFAULT_TYPE);
 
-    const headers: Record<string, string> = {
-      "X-Context7-Source": "mcp-server",
-    };
+    const headers = generateHeaders(clientIp, { "X-Context7-Source": "mcp-server" });
     if (apiKey) {
       headers["Authorization"] = `Bearer ${apiKey}`;
     }

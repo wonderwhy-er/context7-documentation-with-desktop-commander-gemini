@@ -188,6 +188,24 @@ Ouvrez la page "Settings" de l'application, naviguez jusqu'à "Plugins", et entr
 
 Une fois enregistré, saisissez dans le chat `get-library-docs` suivi de votre ID de documentation Context7 (par exemple, `get-library-docs /nuxt/ui`). Plus d'informations sont disponibles sur le [site de documentation BoltAI](https://docs.boltai.com/docs/plugins/mcp-servers). Pour BoltAI sur iOS, [consultez ce guide](https://docs.boltai.com/docs/boltai-mobile/mcp-servers).
 
+### Installation dans Copilot Coding Agent
+
+Ajoutez la configuration suivante à la section `mcp` de votre fichier de configuration Copilot Coding Agent (Repository->Settings->Copilot->Coding agent->MCP configuration) :
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "tools": ["get-library-docs", "resolve-library-id"]
+    }
+  }
+}
+```
+
+Pour plus d'informations, consultez la [documentation officielle GitHub](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/agents/copilot-coding-agent/extending-copilot-coding-agent-with-mcp).
+
 ### Utilisation avec Docker
 
 Si vous préférez exécuter le serveur MCP dans un conteneur Docker :

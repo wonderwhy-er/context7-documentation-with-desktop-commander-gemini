@@ -10,6 +10,7 @@ import { createServer } from "http";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { Command } from "commander";
+import { IncomingMessage } from "http";
 
 const DEFAULT_MINIMUM_TOKENS = 10000;
 
@@ -48,8 +49,39 @@ const CLI_PORT = (() => {
 // Store SSE transports by session ID
 const sseTransports: Record<string, SSEServerTransport> = {};
 
+function getClientIp(req: IncomingMessage): string | undefined {
+  // Check both possible header casings
+  const forwardedFor = req.headers["x-forwarded-for"] || req.headers["X-Forwarded-For"];
+
+  if (forwardedFor) {
+    // X-Forwarded-For can contain multiple IPs
+    const ips = Array.isArray(forwardedFor) ? forwardedFor[0] : forwardedFor;
+    const ipList = ips.split(",").map((ip) => ip.trim());
+
+    // Find the first public IP address
+    for (const ip of ipList) {
+      const plainIp = ip.replace(/^::ffff:/, "");
+      if (
+        !plainIp.startsWith("10.") &&
+        !plainIp.startsWith("192.168.") &&
+        !/^172\.(1[6-9]|2[0-9]|3[0-1])\./.test(plainIp)
+      ) {
+        return plainIp;
+      }
+    }
+    // If all are private, use the first one
+    return ipList[0].replace(/^::ffff:/, "");
+  }
+
+  // Fallback: use remote address, strip IPv6-mapped IPv4
+  if (req.socket?.remoteAddress) {
+    return req.socket.remoteAddress.replace(/^::ffff:/, "");
+  }
+  return undefined;
+}
+
 // Function to create a new server instance with all tools registered
-function createServerInstance(apiKey?: string) {
+function createServerInstance(clientIp?: string, apiKey?: string) {
   const server = new McpServer(
     {
       name: "Context7",
@@ -92,7 +124,7 @@ For ambiguous queries, request clarification before proceeding with a best-guess
       },
     },
     async ({ libraryName }) => {
-      const searchResponse: SearchResponse = await searchLibraries(libraryName, apiKey);
+      const searchResponse: SearchResponse = await searchLibraries(libraryName, clientIp, apiKey);
 
       if (!searchResponse.results || searchResponse.results.length === 0) {
         return {
@@ -166,6 +198,7 @@ ${resultsText}`,
           tokens,
           topic,
         },
+        clientIp,
         apiKey
       );
 
@@ -210,8 +243,9 @@ async function main() {
       res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS,DELETE");
       res.setHeader(
         "Access-Control-Allow-Headers",
-        "Content-Type, MCP-Session-Id, mcp-session-id, X-Context7-API-Key, context7-api-key, context7_api_key, x-api-key, Authorization"
+        "Content-Type, MCP-Session-Id, MCP-Protocol-Version, X-Context7-API-Key, Context7-API-Key, X-API-Key, Authorization"
       );
+      res.setHeader("Access-Control-Expose-Headers", "MCP-Session-Id");
 
       // Handle preflight OPTIONS requests
       if (req.method === "OPTIONS") {
@@ -251,8 +285,11 @@ async function main() {
         extractHeaderValue(req.headers["x-api-key"]); // Generic API key header
 
       try {
+        // Extract client IP address using socket remote address (most reliable)
+        const clientIp = getClientIp(req);
+
         // Create new server instance for each request
-        const requestServer = createServerInstance(apiKey);
+        const requestServer = createServerInstance(clientIp, apiKey);
 
         if (url === "/mcp") {
           const transport = new StreamableHTTPServerTransport({
