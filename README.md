@@ -99,46 +99,30 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 }
 ```
 
-<details>
-<summary>Alternative: Use Bun</summary>
-
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=context7&config=eyJjb21tYW5kIjoiYnVueCAteSBAdXBzdGFzaC9jb250ZXh0Ny1tY3AifQ%3D%3D)
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "bunx",
-      "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
-    }
-  }
-}
-```
-
 </details>
 
 <details>
-<summary>Alternative: Use Deno</summary>
+<summary><b>Install in Claude Code</b></summary>
 
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=context7&config=eyJjb21tYW5kIjoiZGVubyBydW4gLS1hbGxvdy1lbnYgLS1hbGxvdy1uZXQgbnBtOkB1cHN0YXNoL2NvbnRleHQ3LW1jcCJ9)
+Run this command. See [Claude Code MCP docs](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp) for more info.
 
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "deno",
-      "args": [
-        "run",
-        "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION",
-        "--allow-net",
-        "npm:@upstash/context7-mcp"
-      ]
-    }
-  }
-}
+#### Claude Code Remote Server Connection
+
+```sh
+claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "Context7-API-Key: your-key"
 ```
 
-</details>
+Or using SSE transport:
+
+```sh
+claude mcp add --transport sse context7 https://mcp.context7.com/sse --header "Context7-API-Key: your-key"
+```
+
+#### Claude Code Local Server Connection
+
+```sh
+claude mcp add context7 -- npx -y @upstash/context7-mcp --api-key your-key
+```
 
 </details>
 
@@ -167,39 +151,6 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
     "context7": {
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
-    }
-  }
-}
-```
-
-</details>
-
-<details>
-<summary><b>Install in Trae</b></summary>
-
-Use the Add manually feature and fill in the JSON configuration information for that MCP server.
-For more details, visit the [Trae documentation](https://docs.trae.ai/ide/model-context-protocol?_lang=en).
-
-#### Trae Remote Server Connection
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "url": "https://mcp.context7.com/mcp"
-    }
-  }
-}
-```
-
-#### Trae Local Server Connection
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
@@ -245,42 +196,16 @@ Add this to your VS Code MCP config file. See [VS Code MCP docs](https://code.vi
 </details>
 
 <details>
-<summary><b>Install in Visual Studio 2022</b></summary>
+<summary>
+<b>Install in Cline</b>
+</summary>
 
-You can configure Context7 MCP in Visual Studio 2022 by following the [Visual Studio MCP Servers documentation](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022).
+You can easily install Context7 through the [Cline MCP Server Marketplace](https://cline.bot/mcp-marketplace) by following these instructions:
 
-Add this to your Visual Studio MCP config file (see the [Visual Studio docs](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022) for details):
-
-```json
-{
-  "mcp": {
-    "servers": {
-      "context7": {
-        "type": "http",
-        "url": "https://mcp.context7.com/mcp"
-      }
-    }
-  }
-}
-```
-
-Or, for a local server:
-
-```json
-{
-  "mcp": {
-    "servers": {
-      "context7": {
-        "type": "stdio",
-        "command": "npx",
-        "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
-      }
-    }
-  }
-}
-```
-
-For more information and troubleshooting, refer to the [Visual Studio MCP Servers documentation](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022).
+1. Open **Cline**.
+2. Click the hamburger menu icon (☰) to enter the **MCP Servers** section.
+3. Use the search bar within the **Marketplace** tab to find _Context7_.
+4. Click the **Install** button.
 
 </details>
 
@@ -298,248 +223,6 @@ It can be installed via [Zed Extensions](https://zed.dev/extensions?query=Contex
         "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
       },
       "settings": {}
-    }
-  }
-}
-```
-
-</details>
-
-<details>
-<summary><b>Install in Gemini CLI</b></summary>
-
-See [Gemini CLI Configuration](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md) for details.
-
-1.  Open the Gemini CLI settings file. The location is `~/.gemini/settings.json` (where `~` is your home directory).
-2.  Add the following to the `mcpServers` object in your `settings.json` file:
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "httpUrl": "https://mcp.context7.com/mcp"
-    }
-  }
-}
-```
-
-Or, for a local server:
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
-    }
-  }
-}
-```
-
-If the `mcpServers` object does not exist, create it.
-
-</details>
-
-<details>
-<summary><b>Install in Claude Code</b></summary>
-
-Run this command. See [Claude Code MCP docs](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp) for more info.
-
-#### Claude Code Remote Server Connection
-
-```sh
-claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "Context7-API-Key: your-key"
-```
-
-Or using SSE transport:
-
-```sh
-claude mcp add --transport sse context7 https://mcp.context7.com/sse --header "Context7-API-Key: your-key"
-```
-
-#### Claude Code Local Server Connection
-
-```sh
-claude mcp add context7 -- npx -y @upstash/context7-mcp --api-key your-key
-```
-
-</details>
-
-<details>
-<summary><b>Install in Claude Desktop</b></summary>
-
-Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude Desktop MCP docs](https://modelcontextprotocol.io/quickstart/user) for more info.
-
-```json
-{
-  "mcpServers": {
-    "Context7": {
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
-    }
-  }
-}
-```
-
-</details>
-
-<details>
-<summary><b>Install in Crush</b></summary>
-
-Add this to your Crush configuration file. See [Crush MCP docs](https://github.com/charmbracelet/crush#mcps) for more info.
-
-#### Crush Remote Server Connection (HTTP)
-
-```json
-{
-  "$schema": "https://charm.land/crush.json",
-  "mcp": {
-    "context7": {
-      "type": "http",
-      "url": "https://mcp.context7.com/mcp"
-    }
-  }
-}
-```
-
-#### Crush Remote Server Connection (SSE)
-
-```json
-{
-  "$schema": "https://charm.land/crush.json",
-  "mcp": {
-    "context7": {
-      "type": "sse",
-      "url": "https://mcp.context7.com/sse"
-    }
-  }
-}
-```
-
-#### Crush Local Server Connection
-
-```json
-{
-  "$schema": "https://charm.land/crush.json",
-  "mcp": {
-    "context7": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
-    }
-  }
-}
-```
-
-</details>
-
-<details>
-<summary>
-<b>Install in Cline</b>
-</summary>
-
-You can easily install Context7 through the [Cline MCP Server Marketplace](https://cline.bot/mcp-marketplace) by following these instructions:
-
-1. Open **Cline**.
-2. Click the hamburger menu icon (☰) to enter the **MCP Servers** section.
-3. Use the search bar within the **Marketplace** tab to find _Context7_.
-4. Click the **Install** button.
-
-</details>
-
-<details>
-<summary><b>Install in BoltAI</b></summary>
-
-Open the "Settings" page of the app, navigate to "Plugins," and enter the following JSON:
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
-    }
-  }
-}
-```
-
-Once saved, enter in the chat `get-library-docs` followed by your Context7 documentation ID (e.g., `get-library-docs /nuxt/ui`). More information is available on [BoltAI's Documentation site](https://docs.boltai.com/docs/plugins/mcp-servers). For BoltAI on iOS, [see this guide](https://docs.boltai.com/docs/boltai-mobile/mcp-servers).
-
-</details>
-
-<details>
-<summary><b>Using Docker</b></summary>
-
-If you prefer to run the MCP server in a Docker container:
-
-1. **Build the Docker Image:**
-
-   First, create a `Dockerfile` in the project root (or anywhere you prefer):
-
-   <details>
-   <summary>Click to see Dockerfile content</summary>
-
-   ```Dockerfile
-   FROM node:18-alpine
-
-   WORKDIR /app
-
-   # Install the latest version globally
-   RUN npm install -g @upstash/context7-mcp
-
-   # Expose default port if needed (optional, depends on MCP client interaction)
-   # EXPOSE 3000
-
-   # Default command to run the server
-   CMD ["context7-mcp"]
-   ```
-
-   </details>
-
-   Then, build the image using a tag (e.g., `context7-mcp`). **Make sure Docker Desktop (or the Docker daemon) is running.** Run the following command in the same directory where you saved the `Dockerfile`:
-
-   ```bash
-   docker build -t context7-mcp .
-   ```
-
-2. **Configure Your MCP Client:**
-
-   Update your MCP client's configuration to use the Docker command.
-
-   _Example for a cline_mcp_settings.json:_
-
-   ```json
-   {
-     "mcpServers": {
-       "Сontext7": {
-         "autoApprove": [],
-         "disabled": false,
-         "timeout": 60,
-         "command": "docker",
-         "args": ["run", "-i", "--rm", "context7-mcp"],
-         "transportType": "stdio"
-       }
-     }
-   }
-   ```
-
-   _Note: This is an example configuration. Please refer to the specific examples for your MCP client (like Cursor, VS Code, etc.) earlier in this README to adapt the structure (e.g., `mcpServers` vs `servers`). Also, ensure the image name in `args` matches the tag used during the `docker build` command._
-
-</details>
-
-<details>
-<summary><b>Install in Windows</b></summary>
-
-The configuration on Windows is slightly different compared to Linux or macOS (_`Cline` is used in the example_). The same principle applies to other editors; refer to the configuration of `command` and `args`.
-
-```json
-{
-  "mcpServers": {
-    "github.com/upstash/context7-mcp": {
-      "command": "cmd",
-      "args": ["/c", "npx", "-y", "@upstash/context7-mcp@latest"],
-      "disabled": false,
-      "autoApprove": []
     }
   }
 }
@@ -626,75 +309,24 @@ Add this to your Roo Code MCP configuration file. See [Roo Code MCP docs](https:
 </details>
 
 <details>
-<summary><b>Install in Zencoder</b></summary>
+<summary><b>Install in Gemini CLI</b></summary>
 
-To configure Context7 MCP in Zencoder, follow these steps:
+See [Gemini CLI Configuration](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md) for details.
 
-1. Go to the Zencoder menu (...)
-2. From the dropdown menu, select Agent tools
-3. Click on the Add custom MCP
-4. Add the name and server configuration from below, and make sure to hit the Install button
-
-```json
-{
-  "command": "npx",
-  "args": ["-y", "@upstash/context7-mcp@latest"]
-}
-```
-
-Once the MCP server is added, you can easily continue using it.
-
-</details>
-
-<details>
-<summary><b>Install in Amazon Q Developer CLI</b></summary>
-
-Add this to your Amazon Q Developer CLI configuration file. See [Amazon Q Developer CLI docs](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line-mcp-configuration.html) for more details.
+1.  Open the Gemini CLI settings file. The location is `~/.gemini/settings.json` (where `~` is your home directory).
+2.  Add the following to the `mcpServers` object in your `settings.json` file:
 
 ```json
 {
   "mcpServers": {
     "context7": {
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "httpUrl": "https://mcp.context7.com/mcp"
     }
   }
 }
 ```
 
-</details>
-
-<details>
-<summary><b>Install in Qodo Gen</b></summary>
-
-See [Qodo Gen docs](https://docs.qodo.ai/qodo-documentation/qodo-gen/qodo-gen-chat/agentic-mode/agentic-tools-mcps) for more details.
-
-1. Open Qodo Gen chat panel in VSCode or IntelliJ.
-2. Click Connect more tools.
-3. Click + Add new MCP.
-4. Add the following configuration:
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "url": "https://mcp.context7.com/mcp"
-    }
-  }
-}
-```
-
-</details>
-
-<details>
-<summary><b>Install in JetBrains AI Assistant</b></summary>
-
-See [JetBrains AI Assistant Documentation](https://www.jetbrains.com/help/ai-assistant/configure-an-mcp-server.html) for more details.
-
-1. In JetBrains IDEs go to `Settings` -> `Tools` -> `AI Assistant` -> `Model Context Protocol (MCP)`
-2. Click `+ Add`.
-3. Click on `Command` in the top-left corner of the dialog and select the As JSON option from the list
-4. Add this configuration and click `OK`
+Or, for a local server:
 
 ```json
 {
@@ -707,33 +339,25 @@ See [JetBrains AI Assistant Documentation](https://www.jetbrains.com/help/ai-ass
 }
 ```
 
-5. Click `Apply` to save changes.
-6. The same way context7 could be added for JetBrains Junie in `Settings` -> `Tools` -> `Junie` -> `MCP Settings`
+If the `mcpServers` object does not exist, create it.
 
 </details>
 
 <details>
-<summary><b>Install in Warp</b></summary>
+<summary><b>Install in Claude Desktop</b></summary>
 
-See [Warp Model Context Protocol Documentation](https://docs.warp.dev/knowledge-and-collaboration/mcp#adding-an-mcp-server) for details.
-
-1. Navigate `Settings` > `AI` > `Manage MCP servers`.
-2. Add a new MCP server by clicking the `+ Add` button.
-3. Paste the configuration given below:
+Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude Desktop MCP docs](https://modelcontextprotocol.io/quickstart/user) for more info.
 
 ```json
 {
-  "Context7": {
-    "command": "npx",
-    "args": ["-y", "@upstash/context7-mcp"],
-    "env": {},
-    "working_directory": null,
-    "start_on_launch": true
+  "mcpServers": {
+    "Context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
   }
 }
 ```
-
-4. Click `Save` to apply the changes.
 
 </details>
 
@@ -769,31 +393,47 @@ Add this to your Opencode configuration file. See [Opencode MCP docs](https://op
 ```
 
 </details>
+<details>
+<summary><b>Install in OpenAI Codex</b></summary>
+
+See [OpenAI Codex](https://github.com/openai/codex) for more information.
+
+Add the following configuration to your OpenAI Codex MCP server settings:
+
+```toml
+[mcp_servers.context7]
+args = ["-y", "@upstash/context7-mcp"]
+command = "npx"
+```
+
+</details>
 
 <details>
+<summary><b>Install in JetBrains AI Assistant</b></summary>
 
-<summary><b>Install in Copilot Coding Agent</b></summary>
+See [JetBrains AI Assistant Documentation](https://www.jetbrains.com/help/ai-assistant/configure-an-mcp-server.html) for more details.
 
-## Using Context7 with Copilot Coding Agent
-
-Add the following configuration to the `mcp` section of your Copilot Coding Agent configuration file Repository->Settings->Copilot->Coding agent->MCP configuration:
+1. In JetBrains IDEs go to `Settings` -> `Tools` -> `AI Assistant` -> `Model Context Protocol (MCP)`
+2. Click `+ Add`.
+3. Click on `Command` in the top-left corner of the dialog and select the As JSON option from the list
+4. Add this configuration and click `OK`
 
 ```json
 {
   "mcpServers": {
     "context7": {
-      "type": "http",
-      "url": "https://mcp.context7.com/mcp",
-      "tools": ["get-library-docs", "resolve-library-id"]
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
 ```
 
-For more information, see the [official GitHub documentation](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/agents/copilot-coding-agent/extending-copilot-coding-agent-with-mcp).
+5. Click `Apply` to save changes.
+6. The same way context7 could be added for JetBrains Junie in `Settings` -> `Tools` -> `Junie` -> `MCP Settings`
 
 </details>
-  
+
 <details>
   
 <summary><b>Install in Kiro</b></summary>
@@ -821,20 +461,225 @@ See [Kiro Model Context Protocol Documentation](https://kiro.dev/docs/mcp/config
 4. Click `Save` to apply the changes.
 
 </details>
+
 <details>
-<summary><b>Install in OpenAI Codex</b></summary>
+<summary><b>Install in Trae</b></summary>
 
-See [OpenAI Codex](https://github.com/openai/codex) for more information.
+Use the Add manually feature and fill in the JSON configuration information for that MCP server.
+For more details, visit the [Trae documentation](https://docs.trae.ai/ide/model-context-protocol?_lang=en).
 
-Add the following configuration to your OpenAI Codex MCP server settings:
+#### Trae Remote Server Connection
 
-```toml
-[mcp_servers.context7]
-args = ["-y", "@upstash/context7-mcp"]
-command = "npx"
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}
+```
+
+#### Trae Local Server Connection
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
 ```
 
 </details>
+
+<details>
+<summary><b>Using Bun or Deno</b></summary>
+
+Use these alternatives to run the local Context7 MCP server with other runtimes. These examples work for any client that supports launching a local MCP server via command + args.
+
+#### Bun
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "bunx",
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
+    }
+  }
+}
+```
+
+#### Deno
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "deno",
+      "args": [
+        "run",
+        "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION",
+        "--allow-net",
+        "npm:@upstash/context7-mcp"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Using Docker</b></summary>
+
+If you prefer to run the MCP server in a Docker container:
+
+1. **Build the Docker Image:**
+
+   First, create a `Dockerfile` in the project root (or anywhere you prefer):
+
+   <details>
+   <summary>Click to see Dockerfile content</summary>
+
+   ```Dockerfile
+   FROM node:18-alpine
+
+   WORKDIR /app
+
+   # Install the latest version globally
+   RUN npm install -g @upstash/context7-mcp
+
+   # Expose default port if needed (optional, depends on MCP client interaction)
+   # EXPOSE 3000
+
+   # Default command to run the server
+   CMD ["context7-mcp"]
+   ```
+
+   </details>
+
+   Then, build the image using a tag (e.g., `context7-mcp`). **Make sure Docker Desktop (or the Docker daemon) is running.** Run the following command in the same directory where you saved the `Dockerfile`:
+
+   ```bash
+   docker build -t context7-mcp .
+   ```
+
+2. **Configure Your MCP Client:**
+
+   Update your MCP client's configuration to use the Docker command.
+
+   _Example for a cline_mcp_settings.json:_
+
+   ```json
+   {
+     "mcpServers": {
+       "Сontext7": {
+         "autoApprove": [],
+         "disabled": false,
+         "timeout": 60,
+         "command": "docker",
+         "args": ["run", "-i", "--rm", "context7-mcp"],
+         "transportType": "stdio"
+       }
+     }
+   }
+   ```
+
+   _Note: This is an example configuration. Please refer to the specific examples for your MCP client (like Cursor, VS Code, etc.) earlier in this README to adapt the structure (e.g., `mcpServers` vs `servers`). Also, ensure the image name in `args` matches the tag used during the `docker build` command._
+
+</details>
+
+<details>
+<summary><b>Install in Windows</b></summary>
+
+The configuration on Windows is slightly different compared to Linux or macOS (_`Cline` is used in the example_). The same principle applies to other editors; refer to the configuration of `command` and `args`.
+
+```json
+{
+  "mcpServers": {
+    "github.com/upstash/context7-mcp": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "@upstash/context7-mcp@latest"],
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Amazon Q Developer CLI</b></summary>
+
+Add this to your Amazon Q Developer CLI configuration file. See [Amazon Q Developer CLI docs](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line-mcp-configuration.html) for more details.
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Warp</b></summary>
+
+See [Warp Model Context Protocol Documentation](https://docs.warp.dev/knowledge-and-collaboration/mcp#adding-an-mcp-server) for details.
+
+1. Navigate `Settings` > `AI` > `Manage MCP servers`.
+2. Add a new MCP server by clicking the `+ Add` button.
+3. Paste the configuration given below:
+
+```json
+{
+  "Context7": {
+    "command": "npx",
+    "args": ["-y", "@upstash/context7-mcp"],
+    "env": {},
+    "working_directory": null,
+    "start_on_launch": true
+  }
+}
+```
+
+4. Click `Save` to apply the changes.
+
+</details>
+
+<details>
+
+<summary><b>Install in Copilot Coding Agent</b></summary>
+
+## Using Context7 with Copilot Coding Agent
+
+Add the following configuration to the `mcp` section of your Copilot Coding Agent configuration file Repository->Settings->Copilot->Coding agent->MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "tools": ["get-library-docs", "resolve-library-id"]
+    }
+  }
+}
+```
+
+For more information, see the [official GitHub documentation](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/agents/copilot-coding-agent/extending-copilot-coding-agent-with-mcp).
+
+</details>
+
 <details>
 <summary><b>Install in LM Studio</b></summary>
 
@@ -864,6 +709,160 @@ See [LM Studio MCP Support](https://lmstudio.ai/blog/lmstudio-v0.3.17) for more 
 4. Toggle the MCP server on/off from the right hand side, under `Program`, or by clicking the plug icon at the bottom of the chat box.
 
 </details>
+
+<details>
+<summary><b>Install in Visual Studio 2022</b></summary>
+
+You can configure Context7 MCP in Visual Studio 2022 by following the [Visual Studio MCP Servers documentation](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022).
+
+Add this to your Visual Studio MCP config file (see the [Visual Studio docs](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022) for details):
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "context7": {
+        "type": "http",
+        "url": "https://mcp.context7.com/mcp"
+      }
+    }
+  }
+}
+```
+
+Or, for a local server:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "context7": {
+        "type": "stdio",
+        "command": "npx",
+        "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
+      }
+    }
+  }
+}
+```
+
+For more information and troubleshooting, refer to the [Visual Studio MCP Servers documentation](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022).
+
+</details>
+
+<details>
+<summary><b>Install in Crush</b></summary>
+
+Add this to your Crush configuration file. See [Crush MCP docs](https://github.com/charmbracelet/crush#mcps) for more info.
+
+#### Crush Remote Server Connection (HTTP)
+
+```json
+{
+  "$schema": "https://charm.land/crush.json",
+  "mcp": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}
+```
+
+#### Crush Remote Server Connection (SSE)
+
+```json
+{
+  "$schema": "https://charm.land/crush.json",
+  "mcp": {
+    "context7": {
+      "type": "sse",
+      "url": "https://mcp.context7.com/sse"
+    }
+  }
+}
+```
+
+#### Crush Local Server Connection
+
+```json
+{
+  "$schema": "https://charm.land/crush.json",
+  "mcp": {
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in BoltAI</b></summary>
+
+Open the "Settings" page of the app, navigate to "Plugins," and enter the following JSON:
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+Once saved, enter in the chat `get-library-docs` followed by your Context7 documentation ID (e.g., `get-library-docs /nuxt/ui`). More information is available on [BoltAI's Documentation site](https://docs.boltai.com/docs/plugins/mcp-servers). For BoltAI on iOS, [see this guide](https://docs.boltai.com/docs/boltai-mobile/mcp-servers).
+
+</details>
+
+<details>
+<summary><b>Install in Zencoder</b></summary>
+
+To configure Context7 MCP in Zencoder, follow these steps:
+
+1. Go to the Zencoder menu (...)
+2. From the dropdown menu, select Agent tools
+3. Click on the Add custom MCP
+4. Add the name and server configuration from below, and make sure to hit the Install button
+
+```json
+{
+  "command": "npx",
+  "args": ["-y", "@upstash/context7-mcp@latest"]
+}
+```
+
+Once the MCP server is added, you can easily continue using it.
+
+</details>
+
+<details>
+<summary><b>Install in Qodo Gen</b></summary>
+
+See [Qodo Gen docs](https://docs.qodo.ai/qodo-documentation/qodo-gen/qodo-gen-chat/agentic-mode/agentic-tools-mcps) for more details.
+
+1. Open Qodo Gen chat panel in VSCode or IntelliJ.
+2. Click Connect more tools.
+3. Click + Add new MCP.
+4. Add the following configuration:
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}
+```
+
+</details>
+
 <details>
 <summary><b>Install in Perplexity Desktop</b></summary>
 

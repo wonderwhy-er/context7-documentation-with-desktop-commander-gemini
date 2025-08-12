@@ -279,10 +279,9 @@ async function main() {
       // Check headers in order of preference
       const apiKey =
         extractBearerToken(req.headers.authorization) ||
-        extractHeaderValue(req.headers["x-context7-api-key"]) || // Standard with x- prefix
-        extractHeaderValue(req.headers["context7-api-key"]) || // Without x- prefix
-        extractHeaderValue(req.headers["context7_api_key"]) || // With underscores
-        extractHeaderValue(req.headers["x-api-key"]); // Generic API key header
+        extractHeaderValue(req.headers["X-Context7-API-Key"]) || // Standard with x- prefix
+        extractHeaderValue(req.headers["Context7-API-Key"]) || // Without x- prefix
+        extractHeaderValue(req.headers["X-API-Key"]); // Generic API key header
 
       try {
         // Extract client IP address using socket remote address (most reliable)
