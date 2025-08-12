@@ -1,7 +1,7 @@
 import { SearchResponse } from "./types.js";
 import { generateHeaders } from "./encryption.js";
 
-const CONTEXT7_API_BASE_URL = "http://localhost:3000/api";
+const CONTEXT7_API_BASE_URL = "https://context7.com/api";
 const DEFAULT_TYPE = "txt";
 
 /**
