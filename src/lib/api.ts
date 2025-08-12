@@ -20,10 +20,7 @@ export async function searchLibraries(
     const url = new URL(`${CONTEXT7_API_BASE_URL}/v1/search`);
     url.searchParams.set("query", query);
 
-    const headers = generateHeaders(clientIp);
-    if (apiKey) {
-      headers["Authorization"] = `Bearer ${apiKey}`;
-    }
+    const headers = generateHeaders(clientIp, apiKey);
 
     const response = await fetch(url, { headers });
     if (!response.ok) {
@@ -74,10 +71,7 @@ export async function fetchLibraryDocumentation(
     if (options.topic) url.searchParams.set("topic", options.topic);
     url.searchParams.set("type", DEFAULT_TYPE);
 
-    const headers = generateHeaders(clientIp, { "X-Context7-Source": "mcp-server" });
-    if (apiKey) {
-      headers["Authorization"] = `Bearer ${apiKey}`;
-    }
+    const headers = generateHeaders(clientIp, apiKey, { "X-Context7-Source": "mcp-server" });
 
     const response = await fetch(url, { headers });
     if (!response.ok) {
