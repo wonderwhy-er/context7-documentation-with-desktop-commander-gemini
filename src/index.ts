@@ -97,7 +97,7 @@ function createServerInstance(clientIp?: string, apiKey?: string) {
   server.registerTool(
     "resolve-library-id",
     {
-      title: "Resolve Library ID Tool",
+      title: "Resolve Context7 Library ID",
       description: `Resolves a package/product name to a Context7-compatible library ID and returns a list of matching libraries.
 
 You MUST call this function before 'get-library-docs' to obtain a valid Context7-compatible library ID UNLESS the user explicitly provides a library ID in the format '/org/project' or '/org/project/version' in their query.
@@ -169,7 +169,7 @@ ${resultsText}`,
   server.registerTool(
     "get-library-docs",
     {
-      title: "Get Library Docs Tool",
+      title: "Get Library Docs",
       description:
         "Fetches up-to-date documentation for a library. You must call 'resolve-library-id' first to obtain the exact Context7-compatible library ID required to use this tool, UNLESS the user explicitly provides a library ID in the format '/org/project' or '/org/project/version' in their query.",
       inputSchema: {

@@ -42,7 +42,7 @@ Check out our [project addition guide](./docs/adding-projects.md) to learn how t
 ### Requirements
 
 - Node.js >= v18.0.0
-- Cursor, Windsurf, Claude Desktop or another MCP Client
+- Cursor, Claude Code, VSCode, Windsurf or another MCP Client
 - Context7 API Key (Optional for higher rate limits) (Get yours by creating an account at [context7.com/console](https://context7.com/console))
 
 <details>
@@ -153,7 +153,7 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
 {
   "mcpServers": {
     "context7": {
-      "serverUrl": "https://mcp.context7.com/sse"
+      "serverUrl": "https://mcp.context7.com/mcp"
     }
   }
 }
