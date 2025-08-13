@@ -369,7 +369,7 @@ Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude D
 ```json
 {
   "mcpServers": {
-    "Context7": {
+    "context7": {
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp"]
     }
