@@ -622,6 +622,44 @@ Add this to your Roo Code MCP configuration file. See [Roo Code MCP docs](https:
 </details>
 
 <details>
+<summary><b>Install in Rovo Dev CLI</b></summary>
+
+Edit your Rovo Dev CLI MCP config by running the command below -
+
+```bash
+acli rovodev mcp
+```
+
+Example config -
+
+#### Remote Server Connection
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "serverUrl": "https://mcp.context7.com/sse"
+    }
+  }
+}
+```
+
+#### Local Server Connection
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
 <summary><b>Install in Zencoder</b></summary>
 
 To configure Context7 MCP in Zencoder, follow these steps:
