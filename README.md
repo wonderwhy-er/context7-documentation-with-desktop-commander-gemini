@@ -346,12 +346,18 @@ If the `mcpServers` object does not exist, create it.
 <details>
 <summary><b>Install in Claude Desktop</b></summary>
 
-Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude Desktop MCP docs](https://modelcontextprotocol.io/quickstart/user) for more info.
+#### Remote Server Connection
+
+Open Claude Desktop and navigate to Settings > Connectors > Add Custom Connector. Enter the name as `Context7` and the remote MCP server URL as `https://mcp.context7.com/mcp`.
+
+#### Local Server Connection
+
+Open Claude Desktop developer settings and edit your `claude_desktop_config.json` file to add the following configuration. See [Claude Desktop MCP docs](https://modelcontextprotocol.io/quickstart/user) for more info.
 
 ```json
 {
   "mcpServers": {
-    "Context7": {
+    "context7": {
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp"]
     }
