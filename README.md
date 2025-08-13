@@ -954,7 +954,13 @@ bun run dist/index.js
 Example with http transport and port 8080:
 
 ```bash
-bun run dist/index.js --transport http --port 8080 --api-key your_api_key
+bun run dist/index.js --transport http --port 8080
+```
+
+Another example with stdio transport:
+
+```bash
+bun run dist/index.js --transport stdio --api-key your_api_key
 ```
 
 <details>

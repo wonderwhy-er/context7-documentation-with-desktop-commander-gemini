@@ -40,6 +40,22 @@ if (!allowedTransports.includes(cliOptions.transport)) {
 // Transport configuration
 const TRANSPORT_TYPE = (cliOptions.transport || "stdio") as "stdio" | "http";
 
+// Disallow incompatible flags based on transport
+const passedPortFlag = process.argv.includes("--port");
+const passedApiKeyFlag = process.argv.includes("--api-key");
+
+if (TRANSPORT_TYPE === "http" && passedApiKeyFlag) {
+  console.error(
+    "The --api-key flag is not allowed when using --transport http. Use header-based auth at the HTTP layer instead."
+  );
+  process.exit(1);
+}
+
+if (TRANSPORT_TYPE === "stdio" && passedPortFlag) {
+  console.error("The --port flag is not allowed when using --transport stdio.");
+  process.exit(1);
+}
+
 // HTTP port configuration
 const CLI_PORT = (() => {
   const parsed = parseInt(cliOptions.port, 10);
