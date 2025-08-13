@@ -638,7 +638,7 @@ Example config -
 {
   "mcpServers": {
     "context7": {
-      "serverUrl": "https://mcp.context7.com/sse"
+      "url": "https://mcp.context7.com/mcp"
     }
   }
 }
