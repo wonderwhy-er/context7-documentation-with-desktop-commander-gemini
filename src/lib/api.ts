@@ -26,10 +26,17 @@ export async function searchLibraries(
     if (!response.ok) {
       const errorCode = response.status;
       if (errorCode === 429) {
-        console.error(`Rate limited due to too many requests. Please try again later.`);
+        console.error("Rate limited due to too many requests. Please try again later.");
         return {
           results: [],
-          error: `Rate limited due to too many requests. Please try again later.`,
+          error: "Rate limited due to too many requests. Please try again later.",
+        } as SearchResponse;
+      }
+      if (errorCode === 401) {
+        console.error("Unauthorized. Please check your API key.");
+        return {
+          results: [],
+          error: "Unauthorized. Please check your API key.",
         } as SearchResponse;
       }
       console.error(`Failed to search libraries. Please try again later. Error code: ${errorCode}`);
@@ -77,7 +84,18 @@ export async function fetchLibraryDocumentation(
     if (!response.ok) {
       const errorCode = response.status;
       if (errorCode === 429) {
-        const errorMessage = `Rate limited due to too many requests. Please try again later.`;
+        const errorMessage = "Rate limited due to too many requests. Please try again later.";
+        console.error(errorMessage);
+        return errorMessage;
+      }
+      if (errorCode === 404) {
+        const errorMessage =
+          "The library you are trying to access does not exist. Please try with a different library ID.";
+        console.error(errorMessage);
+        return errorMessage;
+      }
+      if (errorCode === 401) {
+        const errorMessage = "Unauthorized. Please check your API key.";
         console.error(errorMessage);
         return errorMessage;
       }

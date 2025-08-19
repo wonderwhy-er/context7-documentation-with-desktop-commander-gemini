@@ -295,9 +295,14 @@ async function main() {
       // Check headers in order of preference
       const apiKey =
         extractBearerToken(req.headers.authorization) ||
-        extractHeaderValue(req.headers["X-Context7-API-Key"]) || // Standard with x- prefix
-        extractHeaderValue(req.headers["Context7-API-Key"]) || // Without x- prefix
-        extractHeaderValue(req.headers["X-API-Key"]); // Generic API key header
+        extractHeaderValue(req.headers["Context7-API-Key"]) ||
+        extractHeaderValue(req.headers["X-API-Key"]) ||
+        extractHeaderValue(req.headers["context7-api-key"]) ||
+        extractHeaderValue(req.headers["x-api-key"]) ||
+        extractHeaderValue(req.headers["Context7_API_Key"]) ||
+        extractHeaderValue(req.headers["X_API_Key"]) ||
+        extractHeaderValue(req.headers["context7_api_key"]) ||
+        extractHeaderValue(req.headers["x_api_key"]);
 
       try {
         // Extract client IP address using socket remote address (most reliable)
@@ -384,7 +389,7 @@ async function main() {
     startServer(initialPort);
   } else {
     // Stdio transport - this is already stateless by nature
-    const server = createServerInstance(cliOptions.apiKey);
+    const server = createServerInstance(undefined, cliOptions.apiKey);
     const transport = new StdioServerTransport();
     await server.connect(transport);
     console.error("Context7 Documentation MCP Server running on stdio");
