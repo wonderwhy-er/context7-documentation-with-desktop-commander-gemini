@@ -860,6 +860,44 @@ Once saved, enter in the chat `get-library-docs` followed by your Context7 docum
 </details>
 
 <details>
+<summary><b>Install in Rovo Dev CLI</b></summary>
+
+Edit your Rovo Dev CLI MCP config by running the command below -
+
+```bash
+acli rovodev mcp
+```
+
+Example config -
+
+#### Remote Server Connection
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}
+```
+
+#### Local Server Connection
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
 <summary><b>Install in Zencoder</b></summary>
 
 To configure Context7 MCP in Zencoder, follow these steps:
