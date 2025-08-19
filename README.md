@@ -1,6 +1,9 @@
 # Context7 MCP - Up-to-date Code Docs For Any Prompt
 
-[![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp) [<img alt="Install in VS Code (npx)" src="https://img.shields.io/badge/VS_Code-VS_Code?style=flat-square&label=Install%20Context7%20MCP&color=0098FF">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22context7%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40upstash%2Fcontext7-mcp%40latest%22%5D%7D)
+[![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp)
+
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=context7&config=eyJ1cmwiOiJodHRwczovL21jcC5jb250ZXh0Ny5jb20vbWNwIn0%3D) [<img alt="Install in VS Code (npx)" src="https://img.shields.io/badge/Install%20in%20VS%20Code-0098FF?style=for-the-badge&logo=visualstudiocode&logoColor=white">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22context7%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40upstash%2Fcontext7-mcp%40latest%22%5D%7D)
+
 [![繁體中文](https://img.shields.io/badge/docs-繁體中文-yellow)](./docs/README.zh-TW.md) [![简体中文](https://img.shields.io/badge/docs-简体中文-yellow)](./docs/README.zh-CN.md) [![日本語](https://img.shields.io/badge/docs-日本語-b7003a)](./docs/README.ja.md) [![한국어 문서](https://img.shields.io/badge/docs-한국어-green)](./docs/README.ko.md) [![Documentación en Español](https://img.shields.io/badge/docs-Español-orange)](./docs/README.es.md) [![Documentation en Français](https://img.shields.io/badge/docs-Français-blue)](./docs/README.fr.md) [![Documentação em Português (Brasil)](<https://img.shields.io/badge/docs-Português%20(Brasil)-purple>)](./docs/README.pt-BR.md) [![Documentazione in italiano](https://img.shields.io/badge/docs-Italian-red)](./docs/README.it.md) [![Dokumentasi Bahasa Indonesia](https://img.shields.io/badge/docs-Bahasa%20Indonesia-pink)](./docs/README.id-ID.md) [![Dokumentation auf Deutsch](https://img.shields.io/badge/docs-Deutsch-darkgreen)](./docs/README.de.md) [![Документация на русском языке](https://img.shields.io/badge/docs-Русский-darkblue)](./docs/README.ru.md) [![Українська документація](https://img.shields.io/badge/docs-Українська-lightblue)](./docs/README.uk.md) [![Türkçe Doküman](https://img.shields.io/badge/docs-Türkçe-blue)](./docs/README.tr.md) [![Arabic Documentation](https://img.shields.io/badge/docs-Arabic-white)](./docs/README.ar.md) [![Tiếng Việt](https://img.shields.io/badge/docs-Tiếng%20Việt-red)](./docs/README.vi.md)
 
 ## ❌ Without Context7
@@ -77,7 +80,7 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
     "context7": {
       "url": "https://mcp.context7.com/mcp",
       "headers": {
-        "CONTEXT7_API_KEY": "your_api_key"
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
       }
     }
   }
@@ -93,7 +96,7 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -109,19 +112,19 @@ Run this command. See [Claude Code MCP docs](https://docs.anthropic.com/en/docs/
 #### Claude Code Remote Server Connection
 
 ```sh
-claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "Context7-API-Key: your-key"
+claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "CONTEXT7_API_KEY: YOUR_API_KEY"
 ```
 
 Or using SSE transport:
 
 ```sh
-claude mcp add --transport sse context7 https://mcp.context7.com/sse --header "Context7-API-Key: your-key"
+claude mcp add --transport sse context7 https://mcp.context7.com/sse --header "CONTEXT7_API_KEY: YOUR_API_KEY"
 ```
 
 #### Claude Code Local Server Connection
 
 ```sh
-claude mcp add context7 -- npx -y @upstash/context7-mcp --api-key your-key
+claude mcp add context7 -- npx -y @upstash/context7-mcp --api-key YOUR_API_KEY
 ```
 
 </details>
@@ -137,7 +140,10 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
 {
   "mcpServers": {
     "context7": {
-      "serverUrl": "https://mcp.context7.com/mcp"
+      "serverUrl": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -150,7 +156,7 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -173,7 +179,10 @@ Add this to your VS Code MCP config file. See [VS Code MCP docs](https://code.vi
   "servers": {
     "context7": {
       "type": "http",
-      "url": "https://mcp.context7.com/mcp"
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -187,7 +196,7 @@ Add this to your VS Code MCP config file. See [VS Code MCP docs](https://code.vi
     "context7": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -220,7 +229,7 @@ It can be installed via [Zed Extensions](https://zed.dev/extensions?query=Contex
     "Context7": {
       "command": {
         "path": "npx",
-        "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
+        "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
       },
       "settings": {}
     }
@@ -261,15 +270,17 @@ Once the MCP server is added, you can start using Context7's up-to-date code doc
 3. Under Advanced, click Edit in settings.json
 4. Add the server configuration to the `mcpServers` array in the `augment.advanced` object
 
+```json
 "augment.advanced": {
-"mcpServers": [
-{
-"name": "context7",
-"command": "npx",
-"args": ["-y", "@upstash/context7-mcp"]
+  "mcpServers": [
+    {
+      "name": "context7",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
+    }
+  ]
 }
-]
-}
+```
 
 Once the MCP server is added, restart your editor. If you receive any errors, check the syntax to make sure closing brackets or commas are not missing.
 
@@ -300,7 +311,7 @@ Add this to your Roo Code MCP configuration file. See [Roo Code MCP docs](https:
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -311,7 +322,7 @@ Add this to your Roo Code MCP configuration file. See [Roo Code MCP docs](https:
 <details>
 <summary><b>Install in Gemini CLI</b></summary>
 
-See [Gemini CLI Configuration](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md) for details.
+See [Gemini CLI Configuration](https://google-gemini.github.io/gemini-cli/docs/tools/mcp-server.html) for details.
 
 1.  Open the Gemini CLI settings file. The location is `~/.gemini/settings.json` (where `~` is your home directory).
 2.  Add the following to the `mcpServers` object in your `settings.json` file:
@@ -320,7 +331,10 @@ See [Gemini CLI Configuration](https://github.com/google-gemini/gemini-cli/blob/
 {
   "mcpServers": {
     "context7": {
-      "httpUrl": "https://mcp.context7.com/mcp"
+      "httpUrl": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -333,7 +347,7 @@ Or, for a local server:
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -359,7 +373,7 @@ Open Claude Desktop developer settings and edit your `claude_desktop_config.json
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -379,6 +393,9 @@ Add this to your Opencode configuration file. See [Opencode MCP docs](https://op
   "context7": {
     "type": "remote",
     "url": "https://mcp.context7.com/mcp",
+    "headers": {
+      "CONTEXT7_API_KEY": "YOUR_API_KEY"
+    },
     "enabled": true
   }
 }
@@ -391,7 +408,7 @@ Add this to your Opencode configuration file. See [Opencode MCP docs](https://op
   "mcp": {
     "context7": {
       "type": "local",
-      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "command": ["npx", "-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"],
       "enabled": true
     }
   }
@@ -408,7 +425,7 @@ Add the following configuration to your OpenAI Codex MCP server settings:
 
 ```toml
 [mcp_servers.context7]
-args = ["-y", "@upstash/context7-mcp"]
+args = ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
 command = "npx"
 ```
 
@@ -429,7 +446,7 @@ See [JetBrains AI Assistant Documentation](https://www.jetbrains.com/help/ai-ass
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -455,7 +472,7 @@ See [Kiro Model Context Protocol Documentation](https://kiro.dev/docs/mcp/config
   "mcpServers": {
     "Context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"],
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"],
       "env": {},
       "disabled": false,
       "autoApprove": []
@@ -493,7 +510,7 @@ For more details, visit the [Trae documentation](https://docs.trae.ai/ide/model-
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -513,7 +530,7 @@ Use these alternatives to run the local Context7 MCP server with other runtimes.
   "mcpServers": {
     "context7": {
       "command": "bunx",
-      "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -609,7 +626,7 @@ The configuration on Windows is slightly different compared to Linux or macOS (_
   "mcpServers": {
     "github.com/upstash/context7-mcp": {
       "command": "cmd",
-      "args": ["/c", "npx", "-y", "@upstash/context7-mcp@latest"],
+      "args": ["/c", "npx", "-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"],
       "disabled": false,
       "autoApprove": []
     }
@@ -629,7 +646,7 @@ Add this to your Amazon Q Developer CLI configuration file. See [Amazon Q Develo
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -650,7 +667,7 @@ See [Warp Model Context Protocol Documentation](https://docs.warp.dev/knowledge-
 {
   "Context7": {
     "command": "npx",
-    "args": ["-y", "@upstash/context7-mcp"],
+    "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"],
     "env": {},
     "working_directory": null,
     "start_on_launch": true
@@ -676,6 +693,9 @@ Add the following configuration to the `mcp` section of your Copilot Coding Agen
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      },
       "tools": ["get-library-docs", "resolve-library-id"]
     }
   }
@@ -705,7 +725,7 @@ See [LM Studio MCP Support](https://lmstudio.ai/blog/lmstudio-v0.3.17) for more 
   "mcpServers": {
     "Context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -745,7 +765,7 @@ Or, for a local server:
       "context7": {
         "type": "stdio",
         "command": "npx",
-        "args": ["-y", "@upstash/context7-mcp", "--api-key", "your_api_key"]
+        "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
       }
     }
   }
@@ -769,7 +789,10 @@ Add this to your Crush configuration file. See [Crush MCP docs](https://github.c
   "mcp": {
     "context7": {
       "type": "http",
-      "url": "https://mcp.context7.com/mcp"
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -783,7 +806,10 @@ Add this to your Crush configuration file. See [Crush MCP docs](https://github.c
   "mcp": {
     "context7": {
       "type": "sse",
-      "url": "https://mcp.context7.com/sse"
+      "url": "https://mcp.context7.com/sse",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -798,7 +824,7 @@ Add this to your Crush configuration file. See [Crush MCP docs](https://github.c
     "context7": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -816,7 +842,7 @@ Open the "Settings" page of the app, navigate to "Plugins," and enter the follow
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -839,7 +865,7 @@ To configure Context7 MCP in Zencoder, follow these steps:
 ```json
 {
   "command": "npx",
-  "args": ["-y", "@upstash/context7-mcp@latest"]
+  "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
 }
 ```
 
@@ -856,6 +882,21 @@ See [Qodo Gen docs](https://docs.qodo.ai/qodo-documentation/qodo-gen/qodo-gen-ch
 2. Click Connect more tools.
 3. Click + Add new MCP.
 4. Add the following configuration:
+
+#### Qodo Gen Local Server Connection
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
+    }
+  }
+}
+```
+
+#### Qodo Gen Remote Server Connection
 
 ```json
 {
@@ -883,7 +924,7 @@ See [Local and Remote MCPs for Perplexity](https://www.perplexity.ai/help-center
 
 ```json
 {
-  "args": ["-y", "@upstash/context7-mcp"],
+  "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"],
   "command": "npx",
   "env": {}
 }
@@ -966,7 +1007,7 @@ bun run dist/index.js --transport http --port 8080
 Another example with stdio transport:
 
 ```bash
-bun run dist/index.js --transport stdio --api-key your_api_key
+bun run dist/index.js --transport stdio --api-key YOUR_API_KEY
 ```
 
 <details>
@@ -977,7 +1018,7 @@ bun run dist/index.js --transport stdio --api-key your_api_key
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["tsx", "/path/to/folder/context7-mcp/src/index.ts", "--api-key", "your_api_key"]
+      "args": ["tsx", "/path/to/folder/context7-mcp/src/index.ts", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
