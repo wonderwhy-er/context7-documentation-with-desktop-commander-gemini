@@ -617,6 +617,13 @@ If you prefer to run the MCP server in a Docker container:
 </details>
 
 <details>
+<summary><b>Install Using the Desktop Extension</b></summary>
+
+Install the [context7.dxt](dxt/context7.dxt) file under the dxt folder and add it to your client. For more information please check out [the desktop extensions docs](https://github.com/anthropics/dxt#desktop-extensions-dxt).
+
+</details>
+
+<details>
 <summary><b>Install in Windows</b></summary>
 
 The configuration on Windows is slightly different compared to Linux or macOS (_`Cline` is used in the example_). The same principle applies to other editors; refer to the configuration of `command` and `args`.
