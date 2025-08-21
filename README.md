@@ -738,7 +738,9 @@ Add this to your Visual Studio MCP config file (see the [Visual Studio docs](htt
     "context7": {
       "type": "sse",
       "url": "https://mcp.context7.com/mcp",
-      "headers": {}
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
