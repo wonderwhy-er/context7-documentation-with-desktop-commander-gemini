@@ -1,6 +1,10 @@
-# Context7 MCP - 为所有Prompt获取最新文档
+# Context7 MCP - 为所有 Prompt 获取最新文档
 
-[![网站](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery徽章](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp) [<img alt="在VS Code中安装 (npx)" src="https://img.shields.io/badge/VS_Code-VS_Code?style=flat-square&label=安装Context7%20MCP&color=0098FF">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%257B%2522name%2522%253A%2522context7%2522%252C%2522config%2522%253A%257B%2522command%2522%253A%2522npx%2522%252C%2522args%2522%253A%255B%2522-y%2522%252C%2522%2540upstash%252Fcontext7-mcp%2540latest%2522%255D%257D%257D)
+[![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp)
+
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=context7&config=eyJ1cmwiOiJodHRwczovL21jcC5jb250ZXh0Ny5jb20vbWNwIn0%3D) [<img alt="Install in VS Code (npx)" src="https://img.shields.io/badge/Install%20in%20VS%20Code-0098FF?style=for-the-badge&logo=visualstudiocode&logoColor=white">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22context7%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40upstash%2Fcontext7-mcp%40latest%22%5D%7D)
+
+[![繁體中文](https://img.shields.io/badge/docs-繁體中文-yellow)](./docs/README.zh-TW.md) [![简体中文](https://img.shields.io/badge/docs-简体中文-yellow)](./docs/README.zh-CN.md) [![日本語](https://img.shields.io/badge/docs-日本語-b7003a)](./docs/README.ja.md) [![한국어 문서](https://img.shields.io/badge/docs-한국어-green)](./docs/README.ko.md) [![Documentación en Español](https://img.shields.io/badge/docs-Español-orange)](./docs/README.es.md) [![Documentation en Français](https://img.shields.io/badge/docs-Français-blue)](./docs/README.fr.md) [![Documentação em Português (Brasil)](<https://img.shields.io/badge/docs-Português%20(Brasil)-purple>)](./docs/README.pt-BR.md) [![Documentazione in italiano](https://img.shields.io/badge/docs-Italian-red)](./docs/README.it.md) [![Dokumentasi Bahasa Indonesia](https://img.shields.io/badge/docs-Bahasa%20Indonesia-pink)](./docs/README.id-ID.md) [![Dokumentation auf Deutsch](https://img.shields.io/badge/docs-Deutsch-darkgreen)](./docs/README.de.md) [![Документация на русском языке](https://img.shields.io/badge/docs-Русский-darkblue)](./docs/README.ru.md) [![Українська документація](https://img.shields.io/badge/docs-Українська-lightblue)](./docs/README.uk.md) [![Türkçe Doküman](https://img.shields.io/badge/docs-Türkçe-blue)](./docs/README.tr.md) [![Arabic Documentation](https://img.shields.io/badge/docs-Arabic-white)](./docs/README.ar.md) [![Tiếng Việt](https://img.shields.io/badge/docs-Tiếng%20Việt-red)](./docs/README.vi.md)
 
 ## ❌ 不使用Context7
 
@@ -41,7 +45,7 @@ Context7将最新的代码示例和文档直接获取到你的LLM上下文中。
 ### 要求
 
 - Node.js >= v18.0.0
-- Cursor, Windsurf, Claude Desktop或其他MCP客户端
+- Cursor, Claude Code, VSCode, Windsurf 或其他MCP客户端
 
 <details>
 <summary><b>通过 Smithery 安装</b></summary>
@@ -94,46 +98,30 @@ npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME>
 }
 ```
 
-<details>
-<summary>替代方案：使用Bun</summary>
-
-[![安装 MCP 服务器](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=context7&config=eyJjb21tYW5kIjoiYnVueCAteSBAdXBzdGFzaC9jb250ZXh0Ny1tY3AifQ%3D%3D)
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "bunx",
-      "args": ["-y", "@upstash/context7-mcp"]
-    }
-  }
-}
-```
-
 </details>
 
 <details>
-<summary>替代方案：使用Deno</summary>
+<summary><b>在 Claude Code 中安装</b></summary>
 
-[![安装 MCP 服务器](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=context7&config=eyJjb21tYW5kIjoiZGVubyBydW4gLS1hbGxvdy1lbnYgLS1hbGxvdy1uZXQgbnBtOkB1cHN0YXNoL2NvbnRleHQ3LW1jcCJ9)
+运行以下命令。更多信息请参见 [Claude Code MCP 文档](https://docs.anthropic.com/zh-CN/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp)。
 
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "deno",
-      "args": [
-        "run",
-        "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION",
-        "--allow-net",
-        "npm:@upstash/context7-mcp"
-      ]
-    }
-  }
-}
+#### Claude Code 远程服务器连接
+
+```sh
+claude mcp add --transport http context7 https://mcp.context7.com/mcp
 ```
 
-</details>
+或者使用 SSE 传输：
+
+```sh
+claude mcp add --transport sse context7 https://mcp.context7.com/sse
+```
+
+#### Claude Code 本地服务器连接
+
+```sh
+claude mcp add context7 -- npx -y @upstash/context7-mcp
+```
 
 </details>
 
@@ -148,46 +136,13 @@ npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME>
 {
   "mcpServers": {
     "context7": {
-      "serverUrl": "https://mcp.context7.com/sse"
+      "serverUrl": "https://mcp.context7.com/mcp"
     }
   }
 }
 ```
 
 #### Windsurf 本地服务器连接
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
-    }
-  }
-}
-```
-
-</details>
-
-<details>
-<summary><b>在 Trae 中安装</b></summary>
-
-使用手动添加功能并填写该 MCP 服务器的 JSON 配置信息。
-更多详情，请访问 [Trae 文档](https://docs.trae.ai/ide/model-context-protocol?_lang=en)。
-
-#### Trae 远程服务器连接
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "url": "https://mcp.context7.com/mcp"
-    }
-  }
-}
-```
-
-#### Trae 本地服务器连接
 
 ```json
 {
@@ -240,49 +195,23 @@ npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME>
 </details>
 
 <details>
-<summary><b>在 Visual Studio 2022 中安装</b></summary>
+<summary>
+<b>Install in Cline</b>
+</summary>
 
-你可以按照 [Visual Studio MCP 服务器文档](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022) 在 Visual Studio 2022 中配置 Context7 MCP。
+您可以通过以下步骤轻松地通过 [Cline MCP Server 市场](https://cline.bot/mcp-marketplace) 安装 Context7：
 
-将此内容添加到你的 Visual Studio MCP 配置文件中（详细信息请参阅 [Visual Studio 文档](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022)）：
-
-```json
-{
-  "mcp": {
-    "servers": {
-      "context7": {
-        "type": "http",
-        "url": "https://mcp.context7.com/mcp"
-      }
-    }
-  }
-}
-```
-
-或者，对于本地服务器：
-
-```json
-{
-  "mcp": {
-    "servers": {
-      "context7": {
-        "type": "stdio",
-        "command": "npx",
-        "args": ["-y", "@upstash/context7-mcp"]
-      }
-    }
-  }
-}
-```
-
-更多信息和故障排除，请参阅 [Visual Studio MCP 服务器文档](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022)。
+1. 打开 **Cline**。
+2. 点击汉堡菜单图标 (☰)，进入 **MCP 服务器** 部分。
+3. 在 **市场** 标签页中的搜索栏搜索 _Context7_。
+4. 点击 **安装** 按钮。
 
 </details>
 
 <details>
-<summary><b>在 Zed 中安装</b></summary>
+<summary><b>Install in Zed</b></summary>
 
-可以通过[Zed扩展](https://zed.dev/extensions?query=Context7)安装，或者你可以将以下内容添加到你的Zed `settings.json`文件中。更多信息请参见[Zed Context Server文档](https://zed.dev/docs/assistant/context-servers)。
+它可以通过 [Zed Extensions](https://zed.dev/extensions?query=Context7) 安装，或者您也可以将以下内容添加到您的 Zed `settings.json` 中。更多信息请参见 [Zed Context Server 文档](https://zed.dev/docs/assistant/context-servers)。
 
 ```json
 {
@@ -301,9 +230,89 @@ npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME>
 </details>
 
 <details>
+<summary><b>在 Augment Code 中安装</b></summary>
+
+要在 Augment Code 中配置 Context7 MCP，您可以使用图形界面或手动配置两种方式。
+
+### **A. 在 Augment Code Code UI 中使用**
+
+1. 点击 hamburger 菜单。
+2. 选择 **Settings**。
+3. 进入 **Tools** 部分。
+4. 点击 **+ Add MCP** 按钮。
+5. 输入以下命令：
+
+   ```
+   npx -y @upstash/context7-mcp@latest
+   ```
+
+6. 给 MCP 命名为：**Context7**。
+7. 点击 **Add** 按钮。
+
+添加 MCP 服务器后，您即可在 Augment Code 内直接使用 Context7 提供的最新代码文档功能。
+
+---
+
+### **B. 手动配置**
+
+1. 按下 Cmd/Ctrl + Shift + P，或在 Augment 面板点击 hamburger 菜单。
+2. 选择编辑设置 (Edit Settings)。
+3. 在高级设置中，点击在 settings.json 中编辑 (Edit in settings.json)。
+4. 将服务器配置添加到 `augment.advanced` 对象中的 `mcpServers` 数组中。
+
+```json
+"augment.advanced": {
+  "mcpServers": [
+    {
+      "name": "context7",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  ]
+}
+```
+
+添加 MCP 服务器后，重启编辑器。如果收到任何错误，请检查语法，确保没有缺少关闭括号或逗号。
+
+</details>
+
+<details>
+<summary><b>在 Roo Code 中安装</b></summary>
+
+将此内容添加到您的 Roo Code MCP 配置文件中。更多信息请参见 [Roo Code MCP 文档](https://docs.roocode.com/features/mcp/using-mcp-in-roo)。
+
+#### Roo Code 远程服务器连接
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "type": "streamable-http",
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}
+```
+
+#### Roo Code 本地服务器连接
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
 <summary><b>在 Gemini CLI 中安装</b></summary>
 
-详细信息请参阅 [Gemini CLI 配置](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md)。
+详细信息请参阅 [Gemini CLI 配置](https://google-gemini.github.io/gemini-cli/docs/tools/mcp-server.html)。
 
 1. 打开 Gemini CLI 设置文件。位置是 `~/.gemini/settings.json`（其中 `~` 是你的主目录）。
 2. 将以下内容添加到你的 `settings.json` 文件中的 `mcpServers` 对象：
@@ -336,34 +345,15 @@ npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME>
 </details>
 
 <details>
-<summary><b>在 Claude Code 中安装</b></summary>
-
-运行此命令。更多信息请参阅 [Claude Code MCP 文档](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp)。
-
-#### Claude Code 远程服务器连接
-
-```sh
-claude mcp add --transport http context7 https://mcp.context7.com/mcp
-```
-
-或使用 SSE 传输：
-
-```sh
-claude mcp add --transport sse context7 https://mcp.context7.com/sse
-```
-
-#### Claude Code 本地服务器连接
-
-```sh
-claude mcp add context7 -- npx -y @upstash/context7-mcp
-```
-
-</details>
-
-<details>
 <summary><b>在 Claude Desktop 中安装</b></summary>
 
-将此内容添加到你的 Claude Desktop `claude_desktop_config.json` 文件中。更多信息请参阅 [Claude Desktop MCP 文档](https://modelcontextprotocol.io/quickstart/user)。
+#### 远程服务器连接
+
+打开 Claude Desktop，进入【设置】>【连接器】>【添加自定义连接器】，将名称填写为 `Context7`，远程 MCP 服务器 URL 填写为 `https://mcp.context7.com/mcp`。
+
+#### 本地服务器连接
+
+打开 Claude Desktop 开发者设置，编辑您的 `claude_desktop_config.json` 文件，添加以下配置。更多信息请参见 [Claude Desktop MCP 文档](https://modelcontextprotocol.io/quickstart/user)。
 
 ```json
 {
@@ -379,73 +369,124 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 </details>
 
 <details>
-<summary><b>在 Crush 中安装</b></summary>
+<summary><b>在 Opencode 中安装</b></summary>
 
-将此内容添加到你的 Crush 配置文件中。更多信息请参阅 [Crush MCP 文档](https://github.com/charmbracelet/crush#mcps)。
+将此内容添加到您的 Opencode 配置文件中。更多信息请参见 [Opencode MCP 文档](https://opencode.ai/docs/mcp-servers)。
 
-#### Crush 远程服务器连接 (HTTP)
+#### Opencode 远程服务器连接
+
+```json
+"mcp": {
+  "context7": {
+    "type": "remote",
+    "url": "https://mcp.context7.com/mcp",
+    "enabled": true
+  }
+}
+```
+
+#### Opencode 本地服务器连接
 
 ```json
 {
-  "$schema": "https://charm.land/crush.json",
   "mcp": {
     "context7": {
-      "type": "http",
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "enabled": true
+    }
+  }
+}
+```
+
+</details>
+<details>
+<summary><b>在 OpenAI Codex 中安装</b></summary>
+
+更多信息请参见 [OpenAI Codex](https://github.com/openai/codex)。
+
+将以下配置添加到您的 OpenAI Codex MCP 服务器设置中：
+
+```toml
+[mcp_servers.context7]
+args = ["-y", "@upstash/context7-mcp"]
+command = "npx"
+```
+
+</details>
+
+<details>
+<summary><b>在 JetBrains AI Assistant 中安装</b></summary>
+
+更多详情请参见 [JetBrains AI Assistant 文档](https://www.jetbrains.com/help/ai-assistant/configure-an-mcp-server.html)。
+
+1. 在 JetBrains IDE 中，进入 `Settings` -> `Tools` -> `AI Assistant` -> `Model Context Protocol (MCP)`。
+2. 点击 `+ Add`。
+3. 在对话框左上角点击 `Command`，然后从列表中选择 “以 JSON 形式”。
+4. 添加以下配置并点击 `OK`。
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+5. 点击 应用 以保存更改。
+6. 同样的方法可以在 `Settings` -> `Tools` -> `Junie` -> `MCP Settings` 中为 JetBrains Junie 添加 context7。
+
+</details>
+
+<details>
+<summary><b>在 Kiro 中安装</b></summary>
+
+详情请见 [Kiro 模型上下文协议文档](https://kiro.dev/docs/mcp/configuration/)。
+
+1. 进入 `Kiro` > `MCP Servers`
+2. 点击 `+ Add` 按钮，新增一个 MCP 服务器。
+3. 粘贴以下配置内容：
+
+```json
+{
+  "mcpServers": {
+    "Context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "env": {},
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
+
+4. 点击 `Save` 以应用更改。
+
+</details>
+
+<details>
+<summary><b>在 Trae 中安装</b></summary>
+
+使用“手动添加”功能，填写该 MCP 服务器的 JSON 配置信息。
+更多详情请访问 [Trae 文档](https://docs.trae.ai/ide/model-context-protocol?_lang=en)。
+
+#### Trae 远程服务器连接
+
+```json
+{
+  "mcpServers": {
+    "context7": {
       "url": "https://mcp.context7.com/mcp"
     }
   }
 }
 ```
 
-#### Crush 远程服务器连接 (SSE)
-
-```json
-{
-  "$schema": "https://charm.land/crush.json",
-  "mcp": {
-    "context7": {
-      "type": "sse",
-      "url": "https://mcp.context7.com/sse"
-    }
-  }
-}
-```
-
-#### Crush 本地服务器连接
-
-```json
-{
-  "$schema": "https://charm.land/crush.json",
-  "mcp": {
-    "context7": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
-    }
-  }
-}
-```
-
-</details>
-
-<details>
-<summary>
-<b>在 Cline 中安装</b>
-</summary>
-
-你可以按照以下说明通过 [Cline MCP 服务器市场](https://cline.bot/mcp-marketplace) 轻松安装 Context7：
-
-1. 打开 **Cline**。
-2. 点击汉堡菜单图标 (☰) 进入 **MCP 服务器** 部分。
-3. 在 **市场** 标签中使用搜索栏查找 _Context7_。
-4. 点击 **安装** 按钮。
-
-</details>
-
-<details>
-<summary><b>在 BoltAI 中安装</b></summary>
-
-打开应用的"设置"页面，导航到"插件"，并输入以下 JSON：
+#### Trae 本地服务器连接
 
 ```json
 {
@@ -458,7 +499,43 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 }
 ```
 
-保存后，在聊天中输入 `get-library-docs` 后跟你的 Context7 文档 ID（例如，`get-library-docs /nuxt/ui`）。更多信息请参阅 [BoltAI 文档网站](https://docs.boltai.com/docs/plugins/mcp-servers)。对于 iOS 上的 BoltAI，[请参阅此指南](https://docs.boltai.com/docs/boltai-mobile/mcp-servers)。
+</details>
+
+<details>
+<summary><b>在 Bun 或 Deno 中使用</b></summary>
+
+使用以下替代方法，在其他运行环境中运行本地 Context7 MCP 服务器。这些示例适用于任何支持通过命令 + 参数启动本地 MCP 服务器的客户端。
+
+#### Bun
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "bunx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+#### Deno
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "deno",
+      "args": [
+        "run",
+        "--allow-env=NO_DEPRECATION,TRACE_DEPRECATION",
+        "--allow-net",
+        "npm:@upstash/context7-mcp"
+      ]
+    }
+  }
+}
+```
 
 </details>
 
@@ -539,7 +616,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
   "mcpServers": {
     "github.com/upstash/context7-mcp": {
       "command": "cmd",
-      "args": ["/c", "npx", "-y", "@upstash/context7-mcp@latest"],
+      "args": ["/c", "npx", "-y", "@upstash/context7-mcp"],
       "disabled": false,
       "autoApprove": []
     }
@@ -550,69 +627,9 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 </details>
 
 <details>
-<summary><b>在 Augment Code 中安装</b></summary>
+<summary><b>在 Amazon Q Developer CLI 中安装</b></summary>
 
-要在 Augment Code 中配置 Context7 MCP，你可以使用图形界面或手动配置。
-
-### **A. 使用 Augment Code UI**
-
-1. 点击汉堡菜单。
-2. 选择 **设置**。
-3. 导航到 **工具** 部分。
-4. 点击 **+ 添加 MCP** 按钮。
-5. 输入以下命令：
-
-   ```
-   npx -y @upstash/context7-mcp@latest
-   ```
-
-6. 命名 MCP：**Context7**。
-7. 点击 **添加** 按钮。
-
-一旦添加了 MCP 服务器，你就可以直接在 Augment Code 中开始使用 Context7 的最新代码文档功能。
-
----
-
-### **B. 手动配置**
-
-1. 按 Cmd/Ctrl Shift P 或进入 Augment 面板中的汉堡菜单
-2. 选择编辑设置
-3. 在高级下，点击在 settings.json 中编辑
-4. 将服务器配置添加到 `augment.advanced` 对象中的 `mcpServers` 数组
-
-"augment.advanced": {
-"mcpServers": [
-{
-"name": "context7",
-"command": "npx",
-"args": ["-y", "@upstash/context7-mcp"]
-}
-]
-}
-
-一旦添加了 MCP 服务器，重启你的编辑器。如果你收到任何错误，请检查语法以确保没有遗漏结束括号或逗号。
-
-</details>
-
-<details>
-<summary><b>在 Roo Code 中安装</b></summary>
-
-将此内容添加到你的 Roo Code MCP 配置文件中。更多信息请参阅 [Roo Code MCP 文档](https://docs.roocode.com/features/mcp/using-mcp-in-roo)。
-
-#### Roo Code 远程服务器连接
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "type": "streamable-http",
-      "url": "https://mcp.context7.com/mcp"
-    }
-  }
-}
-```
-
-#### Roo Code 本地服务器连接
+将以下内容添加到您的 Amazon Q Developer CLI 配置文件中。更多详情请参见 [Amazon Q Developer CLI 文档](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line-mcp-configuration.html)。
 
 ```json
 {
@@ -628,9 +645,202 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 </details>
 
 <details>
+<summary><b>在 Warp 中安装</b></summary>
+
+详情请参见 [Warp 模型上下文协议文档](https://docs.warp.dev/knowledge-and-collaboration/mcp#adding-an-mcp-server)。
+
+1. 进入 `Settings` > `AI` > `Manage MCP servers`。
+2. 点击 `+ Add` 按钮，新增一个 MCP 服务器。
+3. 粘贴以下配置内容：
+
+```json
+{
+  "Context7": {
+    "command": "npx",
+    "args": ["-y", "@upstash/context7-mcp"],
+    "env": {},
+    "working_directory": null,
+    "start_on_launch": true
+  }
+}
+```
+
+4. 点击 `Save` 按钮以应用更改。
+
+</details>
+
+<details>
+<summary><b>在 Copilot Coding Agent 中安装</b></summary>
+
+## 在 Copilot Coding Agent 中使用 Context7
+
+将以下配置添加到您的Copilot编码代理配置文件的 `mcp` 部分，路径为 Repository->Settings->Copilot->Coding agent->MCP configuration：
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "tools": ["get-library-docs", "resolve-library-id"]
+    }
+  }
+}
+```
+
+更多信息请见 [官方 GitHub 文档](https://docs.github.com/zh/enterprise-cloud@latest/copilot/how-tos/agents/copilot-coding-agent/extending-copilot-coding-agent-with-mcp)。
+
+</details>
+
+<details>
+<summary><b>在 LM Studio 中安装</b></summary>
+
+更多详情请参见 [LM Studio MCP 支持](https://lmstudio.ai/blog/lmstudio-v0.3.17)。
+
+#### 一键安装：
+
+[![将 MCP 服务器 context7 添加到 LM Studio](https://files.lmstudio.ai/deeplink/mcp-install-light.svg)](https://lmstudio.ai/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB1cHN0YXNoL2NvbnRleHQ3LW1jcCJdfQ%3D%3D)
+
+#### 手动设置：
+
+1. 进入 `Program`（右侧）> `Install` > `Edit mcp.json`。
+2. 粘贴以下配置内容：
+
+```json
+{
+  "mcpServers": {
+    "Context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+3. 点击 `Save` 应用更改。
+4. 在右侧的 `Program` 下，或通过点击聊天框底部的插头图标，切换 MCP 服务器的开关。
+
+</details>
+
+<details>
+<summary><b>在 Visual Studio 2022 中安装</b></summary>
+
+您可以按照[Visual Studio MCP 服务器文档](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022)中的说明，在 Visual Studio 2022 中配置 Context7 MCP。
+
+将此添加到您的 Visual Studio MCP 配置文件中（详细信息请参阅[Visual Studio 文档](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022)）：
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "context7": {
+        "type": "http",
+        "url": "https://mcp.context7.com/mcp"
+      }
+    }
+  }
+}
+```
+
+或者，对于本地服务器：
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "context7": {
+        "type": "stdio",
+        "command": "npx",
+        "args": ["-y", "@upstash/context7-mcp"]
+      }
+    }
+  }
+}
+```
+
+有关更多信息和故障排除，请参阅[Visual Studio MCP 服务器文档](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022)。
+
+</details>
+
+<details>
+<summary><b>在 Crush 中安装</b></summary>
+
+将此添加到您的 Crush 配置文件中。更多信息请参见 [Crush MCP 文档](https://github.com/charmbracelet/crush#mcps)。
+
+1. 转到 Zencoder 菜单 (...)
+2. 从下拉菜单中选择代理工具
+3. 点击添加自定义 MCP
+4. 从下面添加名称和服务器配置，并确保点击安装按钮
+
+#### Crush 远程服务器连接 (HTTP)
+
+```json
+{
+  "$schema": "https://charm.land/crush.json",
+  "mcp": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}
+```
+
+#### Crush 远程服务器连接 (SSE)
+
+```json
+{
+  "$schema": "https://charm.land/crush.json",
+  "mcp": {
+    "context7": {
+      "type": "sse",
+      "url": "https://mcp.context7.com/sse"
+    }
+  }
+}
+```
+
+#### Crush 本地服务器连接
+
+```json
+{
+  "$schema": "https://charm.land/crush.json",
+  "mcp": {
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>在 BoltAI 中安装</b></summary>
+
+打开应用的“Settings”页面，导航到“Plugins”，然后输入以下 JSON：
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+保存后，在聊天中输入 `get-library-docs`，后跟您的 Context7 文档 ID（例如，`get-library-docs /nuxt/ui`）。更多信息请访问 [BoltAI 的文档网站](https://docs.boltai.com/docs/plugins/mcp-servers)。有关 iOS 版 BoltAI，请参见[此指南](https://docs.boltai.com/docs/boltai-mobile/mcp-servers)。
+
+</details>
+
+<details>
 <summary><b>在 Rovo Dev CLI 中安装</b></summary>
 
-通过运行以下命令编辑你的 Rovo Dev CLI MCP 配置 -
+通过运行以下命令编辑您的 Rovo Dev CLI MCP 配置 -
 
 ```bash
 acli rovodev mcp
@@ -670,49 +880,47 @@ acli rovodev mcp
 
 要在 Zencoder 中配置 Context7 MCP，请按照以下步骤操作：
 
-1. 转到 Zencoder 菜单 (...)
-2. 从下拉菜单中选择代理工具
-3. 点击添加自定义 MCP
-4. 从下面添加名称和服务器配置，并确保点击安装按钮
+1. 进入 Zencoder 菜单（...）
+2. 从下拉菜单中选择 Agent tools
+3. 点击 Add custom MCP
+4. 添加以下名称和服务器配置，确保点击安装按钮
 
 ```json
 {
   "command": "npx",
-  "args": ["-y", "@upstash/context7-mcp@latest"]
+  "args": ["-y", "@upstash/context7-mcp"]
 }
 ```
 
-添加 MCP 服务器后，你可以轻松继续使用它。
+一旦添加了MCP服务器，您就可以轻松继续使用它。
 
 </details>
 
 <details>
-<summary><b>在 Amazon Q Developer CLI 中安装</b></summary>
 
-将此内容添加到你的 Amazon Q Developer CLI 配置文件中。更多详情请参阅 [Amazon Q Developer CLI 文档](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line-mcp-configuration.html)。
+<summary><b>在 Qodo Gen 中安装</b></summary>
+
+详见 [Qodo Gen 文档](https://docs.qodo.ai/qodo-documentation/qodo-gen/qodo-gen-chat/agentic-mode/agentic-tools-mcps)。
+
+1. 在 VSCode 或 IntelliJ 中打开 Qodo Gen 聊天面板。  
+2. 点击 Connect more tools 。  
+3. 点击 + Add new MCP 。  
+4. 添加以下配置：
+
+#### Qodo Gen 本地服务器连接
 
 ```json
 {
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   }
 }
 ```
 
-</details>
-
-<details>
-<summary><b>在 Qodo Gen 中安装</b></summary>
-
-更多详情请参阅 [Qodo Gen 文档](https://docs.qodo.ai/qodo-documentation/qodo-gen/qodo-gen-chat/agentic-mode/agentic-tools-mcps)。
-
-1. 在 VSCode 或 IntelliJ 中打开 Qodo Gen 聊天面板。
-2. 点击连接更多工具。
-3. 点击 + 添加新 MCP。
-4. 添加以下配置：
+#### Qodo Gen 远程服务器连接
 
 ```json
 {
@@ -726,184 +934,6 @@ acli rovodev mcp
 
 </details>
 
-<details>
-<summary><b>在 JetBrains AI Assistant 中安装</b></summary>
-
-更多详情请参阅 [JetBrains AI Assistant 文档](https://www.jetbrains.com/help/ai-assistant/configure-an-mcp-server.html)。
-
-1. 在 JetBrains IDE 中转到 `设置` -> `工具` -> `AI Assistant` -> `模型上下文协议 (MCP)`
-2. 点击 `+ 添加`。
-3. 点击对话框左上角的 `命令`，从列表中选择 As JSON 选项
-4. 添加此配置并点击 `确定`
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
-    }
-  }
-}
-```
-
-5. 点击 `应用` 保存更改。
-6. 同样地，context7 可以在 `设置` -> `工具` -> `Junie` -> `MCP 设置` 中为 JetBrains Junie 添加
-
-</details>
-
-<details>
-<summary><b>在 Warp 中安装</b></summary>
-
-详细信息请参阅 [Warp 模型上下文协议文档](https://docs.warp.dev/knowledge-and-collaboration/mcp#adding-an-mcp-server)。
-
-1. 导航 `设置` > `AI` > `管理 MCP 服务器`。
-2. 通过点击 `+ 添加` 按钮添加新的 MCP 服务器。
-3. 粘贴下面给出的配置：
-
-```json
-{
-  "Context7": {
-    "command": "npx",
-    "args": ["-y", "@upstash/context7-mcp"],
-    "env": {},
-    "working_directory": null,
-    "start_on_launch": true
-  }
-}
-```
-
-4. 点击 `保存` 应用更改。
-
-</details>
-
-<details>
-<summary><b>在 Opencode 中安装</b></summary>
-
-将此内容添加到你的 Opencode 配置文件中。更多信息请参阅 [Opencode MCP 文档](https://opencode.ai/docs/mcp-servers)。
-
-#### Opencode 远程服务器连接
-
-```json
-"mcp": {
-  "context7": {
-    "type": "remote",
-    "url": "https://mcp.context7.com/mcp",
-    "enabled": true
-  }
-}
-```
-
-#### Opencode 本地服务器连接
-
-```json
-{
-  "mcp": {
-    "context7": {
-      "type": "local",
-      "command": ["npx", "-y", "@upstash/context7-mcp"],
-      "enabled": true
-    }
-  }
-}
-```
-
-</details>
-
-<details>
-
-<summary><b>在 Copilot Coding Agent 中安装</b></summary>
-
-## 在 Copilot Coding Agent 中使用 Context7
-
-将以下配置添加到你的 Copilot Coding Agent 配置文件的 `mcp` 部分 Repository->Settings->Copilot->Coding agent->MCP configuration：
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "type": "http",
-      "url": "https://mcp.context7.com/mcp",
-      "tools": ["get-library-docs", "resolve-library-id"]
-    }
-  }
-}
-```
-
-更多信息，请参阅[官方 GitHub 文档](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/agents/copilot-coding-agent/extending-copilot-coding-agent-with-mcp)。
-
-</details>
-  
-<details>
-  
-<summary><b>在 Kiro 中安装</b></summary>
-
-详细信息请参阅 [Kiro 模型上下文协议文档](https://kiro.dev/docs/mcp/configuration/)。
-
-1. 导航 `Kiro` > `MCP 服务器`
-2. 通过点击 `+ 添加` 按钮添加新的 MCP 服务器。
-3. 粘贴下面给出的配置：
-
-```json
-{
-  "mcpServers": {
-    "Context7": {
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"],
-      "env": {},
-      "disabled": false,
-      "autoApprove": []
-    }
-  }
-}
-```
-
-4. 点击 `保存` 应用更改。
-
-</details>
-<details>
-<summary><b>在 OpenAI Codex 中安装</b></summary>
-
-更多信息请参阅 [OpenAI Codex](https://github.com/openai/codex)。
-
-将以下配置添加到你的 OpenAI Codex MCP 服务器设置：
-
-```toml
-[mcp_servers.context7]
-args = ["-y", "@upstash/context7-mcp"]
-command = "npx"
-```
-
-</details>
-<details>
-<summary><b>在 LM Studio 中安装</b></summary>
-
-更多信息请参阅 [LM Studio MCP 支持](https://lmstudio.ai/blog/lmstudio-v0.3.17)。
-
-#### 一键安装：
-
-[![将 MCP 服务器 context7 添加到 LM Studio](https://files.lmstudio.ai/deeplink/mcp-install-light.svg)](https://lmstudio.ai/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB1cHN0YXNoL2NvbnRleHQ3LW1jcCJdfQ%3D%3D)
-
-#### 手动设置：
-
-1. 导航到 `程序`（右侧）> `安装` > `编辑 mcp.json`。
-2. 粘贴下面给出的配置：
-
-```json
-{
-  "mcpServers": {
-    "Context7": {
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
-    }
-  }
-}
-```
-
-3. 点击 `保存` 应用更改。
-4. 从右侧的 `程序` 下或通过点击聊天框底部的插头图标来打开/关闭 MCP 服务器。
-
-</details>
 <details>
 <summary><b>在 Perplexity Desktop 中安装</b></summary>
 
@@ -988,13 +1018,19 @@ bun run dist/index.js
 
 `context7-mcp` 接受以下 CLI 标志：
 
-- `--transport <stdio|http|sse>` – 要使用的传输（默认为 `stdio`）。
-- `--port <number>` – 使用 `http` 或 `sse` 传输时监听的端口（默认 `3000`）。
+- `--transport <stdio|http>` – 使用的传输方式（默认 `stdio`）。请注意，HTTP 传输自动提供 HTTP 和 SSE 端点。
+- `--port <number>` – 使用 `http` 传输时监听的端口（默认 `3000`）。
 
 使用 http 传输和端口 8080 的示例：
 
 ```bash
 bun run dist/index.js --transport http --port 8080
+```
+
+另一个使用 stdio 传输 的示例：
+
+```bash
+bun run dist/index.js --transport stdio
 ```
 
 <details>
