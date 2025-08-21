@@ -752,11 +752,13 @@ Add this to your Visual Studio MCP config file (see the [Visual Studio docs](htt
 
 ```json
 {
-  "mcp": {
-    "servers": {
-      "context7": {
-        "type": "http",
-        "url": "https://mcp.context7.com/mcp"
+  "inputs": [],
+  "servers": {
+    "context7": {
+      "type": "sse",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
       }
     }
   }
