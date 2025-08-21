@@ -1,3 +1,5 @@
+![Cover](public/cover.png)
+
 # Context7 MCP - Up-to-date Code Docs For Any Prompt
 
 [![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp)
