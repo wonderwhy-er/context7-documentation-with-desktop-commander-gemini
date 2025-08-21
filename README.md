@@ -1015,6 +1015,10 @@ Context7 MCP provides the following tools that LLMs can use:
 >
 > The slash syntax tells the MCP tool exactly which library to load docs for.
 
+### HTTPS Proxy
+
+For users behind a http proxy, context7 should honor the standard https_proxy/HTTPS_PROXY environment variables.
+
 ## 💻 Development
 
 Clone the project and install dependencies:
