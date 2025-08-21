@@ -902,9 +902,9 @@ acli rovodev mcp
 
 详见 [Qodo Gen 文档](https://docs.qodo.ai/qodo-documentation/qodo-gen/qodo-gen-chat/agentic-mode/agentic-tools-mcps)。
 
-1. 在 VSCode 或 IntelliJ 中打开 Qodo Gen 聊天面板。  
-2. 点击 Connect more tools 。  
-3. 点击 + Add new MCP 。  
+1. 在 VSCode 或 IntelliJ 中打开 Qodo Gen 聊天面板。
+2. 点击 Connect more tools 。
+3. 点击 + Add new MCP 。
 4. 添加以下配置：
 
 #### Qodo Gen 本地服务器连接

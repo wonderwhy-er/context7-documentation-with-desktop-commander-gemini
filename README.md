@@ -1019,7 +1019,7 @@ Context7 MCP provides the following tools that LLMs can use:
 
 ### HTTPS Proxy
 
-For users behind a http proxy, context7 should honor the standard https_proxy/HTTPS_PROXY environment variables.
+If you are behind an HTTP proxy, Context7 uses the standard `https_proxy` / `HTTPS_PROXY` environment variables.
 
 ## 💻 Development
 

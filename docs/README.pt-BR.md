@@ -44,8 +44,8 @@ Confira nosso [guia de adição de projetos](./docs/adding-projects.md) para apr
 
 ### Requisitos
 
-* Node.js >= v18.0.0
-* Cursor, Claude Code, VSCode, Windsurf ou outro Cliente MCP
+- Node.js >= v18.0.0
+- Cursor, Claude Code, VSCode, Windsurf ou outro Cliente MCP
 
 <details>
 <summary><b>Instalando via Smithery</b></summary>
@@ -203,7 +203,7 @@ Você pode instalar o Context7 facilmente pelo [Cline MCP Server Marketplace](ht
 
 1. Abra o **Cline**.
 2. Clique no ícone de menu (☰) para entrar na seção **MCP Servers**.
-3. Use a barra de busca na aba **Marketplace** para encontrar *Context7*.
+3. Use a barra de busca na aba **Marketplace** para encontrar _Context7_.
 4. Clique no botão **Install**.
 
 </details>
@@ -584,7 +584,7 @@ Se preferir executar o servidor MCP em um contêiner Docker:
 
    Atualize a configuração do seu cliente MCP para usar o comando Docker.
 
-   *Exemplo para um cline\_mcp\_settings.json:*
+   _Exemplo para um cline_mcp_settings.json:_
 
    ```json
    {
@@ -601,7 +601,7 @@ Se preferir executar o servidor MCP em um contêiner Docker:
    }
    ```
 
-   *Nota: Este é um exemplo de configuração. Consulte os exemplos específicos do seu cliente MCP (como Cursor, VS Code, etc.) anteriormente neste README para adaptar a estrutura (por exemplo, `mcpServers` vs `servers`). Além disso, garanta que o nome da imagem em `args` corresponda à tag usada durante o comando `docker build`.*
+   _Nota: Este é um exemplo de configuração. Consulte os exemplos específicos do seu cliente MCP (como Cursor, VS Code, etc.) anteriormente neste README para adaptar a estrutura (por exemplo, `mcpServers` vs `servers`). Além disso, garanta que o nome da imagem em `args` corresponda à tag usada durante o comando `docker build`._
 
 </details>
 
@@ -615,7 +615,7 @@ Instale o arquivo [context7.dxt](dxt/context7.dxt) na pasta dxt e adicione-o ao 
 <details>
 <summary><b>Instalar no Windows</b></summary>
 
-A configuração no Windows é um pouco diferente em comparação ao Linux ou macOS (*`Cline` é usado no exemplo*). O mesmo princípio se aplica a outros editores; consulte a configuração de `command` e `args`.
+A configuração no Windows é um pouco diferente em comparação ao Linux ou macOS (_`Cline` é usado no exemplo_). O mesmo princípio se aplica a outros editores; consulte a configuração de `command` e `args`.
 
 ```json
 {
@@ -963,15 +963,15 @@ Veja mais em [Local and Remote MCPs for Perplexity](https://www.perplexity.ai/he
 
 O Context7 MCP fornece as seguintes ferramentas que LLMs podem usar:
 
-* `resolve-library-id`: Resolve um nome geral de biblioteca em um ID compatível com o Context7.
+- `resolve-library-id`: Resolve um nome geral de biblioteca em um ID compatível com o Context7.
 
-  * `libraryName` (obrigatório): O nome da biblioteca a ser pesquisada
+  - `libraryName` (obrigatório): O nome da biblioteca a ser pesquisada
 
-* `get-library-docs`: Busca documentação para uma biblioteca usando um ID compatível com o Context7.
+- `get-library-docs`: Busca documentação para uma biblioteca usando um ID compatível com o Context7.
 
-  * `context7CompatibleLibraryID` (obrigatório): ID exato compatível com Context7 (por exemplo, `/mongodb/docs`, `/vercel/next.js`)
-  * `topic` (opcional): Focar os docs em um tópico específico (por exemplo, "routing", "hooks")
-  * `tokens` (opcional, padrão 10000): Número máximo de tokens para retornar. Valores menores que o padrão de 10000 são automaticamente aumentados para 10000.
+  - `context7CompatibleLibraryID` (obrigatório): ID exato compatível com Context7 (por exemplo, `/mongodb/docs`, `/vercel/next.js`)
+  - `topic` (opcional): Focar os docs em um tópico específico (por exemplo, "routing", "hooks")
+  - `tokens` (opcional, padrão 10000): Número máximo de tokens para retornar. Valores menores que o padrão de 10000 são automaticamente aumentados para 10000.
 
 ## 🛟 Dicas
 
@@ -1021,8 +1021,8 @@ bun run dist/index.js
 
 `context7-mcp` aceita as seguintes flags de CLI:
 
-* `--transport <stdio|http>` – Transporte a ser usado (`stdio` por padrão). Observe que o transporte HTTP fornece automaticamente endpoints HTTP e SSE.
-* `--port <number>` – Porta para escutar ao usar o transporte `http` (padrão `3000`).
+- `--transport <stdio|http>` – Transporte a ser usado (`stdio` por padrão). Observe que o transporte HTTP fornece automaticamente endpoints HTTP e SSE.
+- `--port <number>` – Porta para escutar ao usar o transporte `http` (padrão `3000`).
 
 Exemplo com transporte http e porta 8080:
 
@@ -1137,24 +1137,24 @@ Os projetos do Context7 são contribuídos pela comunidade e, embora nos esforce
 
 Mantenha-se atualizado e junte-se à nossa comunidade:
 
-* 📢 Siga-nos no [X](https://x.com/context7ai) para as últimas notícias e atualizações
-* 🌐 Visite nosso [Website](https://context7.com)
-* 💬 Junte-se ao nosso [Discord Community](https://upstash.com/discord)
+- 📢 Siga-nos no [X](https://x.com/context7ai) para as últimas notícias e atualizações
+- 🌐 Visite nosso [Website](https://context7.com)
+- 💬 Junte-se ao nosso [Discord Community](https://upstash.com/discord)
 
 ## 📺 Context7 na Mídia
 
-* [Better Stack: "Free Tool Makes Cursor 10x Smarter"](https://youtu.be/52FC3qObp9E)
-* [Cole Medin: "This is Hands Down the BEST MCP Server for AI Coding Assistants"](https://www.youtube.com/watch?v=G7gK8H6u7Rs)
-* [Income Stream Surfers: "Context7 + SequentialThinking MCPs: Is This AGI?"](https://www.youtube.com/watch?v=-ggvzyLpK6o)
-* [Julian Goldie SEO: "Context7: New MCP AI Agent Update"](https://www.youtube.com/watch?v=CTZm6fBYisc)
-* [JeredBlu: "Context 7 MCP: Get Documentation Instantly + VS Code Setup"](https://www.youtube.com/watch?v=-ls0D-rtET4)
-* [Income Stream Surfers: "Context7: The New MCP Server That Will CHANGE AI Coding"](https://www.youtube.com/watch?v=PS-2Azb-C3M)
-* [AICodeKing: "Context7 + Cline & RooCode: This MCP Server Makes CLINE 100X MORE EFFECTIVE!"](https://www.youtube.com/watch?v=qZfENAPMnyo)
-* [Sean Kochel: "5 MCP Servers For Vibe Coding Glory (Just Plug-In & Go)"](https://www.youtube.com/watch?v=LqTQi8qexJM)
+- [Better Stack: "Free Tool Makes Cursor 10x Smarter"](https://youtu.be/52FC3qObp9E)
+- [Cole Medin: "This is Hands Down the BEST MCP Server for AI Coding Assistants"](https://www.youtube.com/watch?v=G7gK8H6u7Rs)
+- [Income Stream Surfers: "Context7 + SequentialThinking MCPs: Is This AGI?"](https://www.youtube.com/watch?v=-ggvzyLpK6o)
+- [Julian Goldie SEO: "Context7: New MCP AI Agent Update"](https://www.youtube.com/watch?v=CTZm6fBYisc)
+- [JeredBlu: "Context 7 MCP: Get Documentation Instantly + VS Code Setup"](https://www.youtube.com/watch?v=-ls0D-rtET4)
+- [Income Stream Surfers: "Context7: The New MCP Server That Will CHANGE AI Coding"](https://www.youtube.com/watch?v=PS-2Azb-C3M)
+- [AICodeKing: "Context7 + Cline & RooCode: This MCP Server Makes CLINE 100X MORE EFFECTIVE!"](https://www.youtube.com/watch?v=qZfENAPMnyo)
+- [Sean Kochel: "5 MCP Servers For Vibe Coding Glory (Just Plug-In & Go)"](https://www.youtube.com/watch?v=LqTQi8qexJM)
 
 ## ⭐ Histórico de Stars
 
-[![Gráfico de Histórico de Stars](https://api.star-history.com/svg?repos=upstash/context7\&type=Date)](https://www.star-history.com/#upstash/context7&Date)
+[![Gráfico de Histórico de Stars](https://api.star-history.com/svg?repos=upstash/context7&type=Date)](https://www.star-history.com/#upstash/context7&Date)
 
 ## 📄 Licença
 
