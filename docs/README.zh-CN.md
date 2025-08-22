@@ -48,6 +48,7 @@ Context7将最新的代码示例和文档直接获取到你的LLM上下文中。
 
 - Node.js >= v18.0.0
 - Cursor, Claude Code, VSCode, Windsurf 或其他MCP客户端
+- Context7 API密钥（可选，用于更高的请求速率限制）（通过在[context7.com/dashboard](https://context7.com/dashboard)创建账户获取）
 
 <details>
 <summary><b>通过 Smithery 安装</b></summary>
@@ -79,7 +80,10 @@ npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME>
 {
   "mcpServers": {
     "context7": {
-      "url": "https://mcp.context7.com/mcp"
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -94,7 +98,7 @@ npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME>
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -110,19 +114,19 @@ npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME>
 #### Claude Code 远程服务器连接
 
 ```sh
-claude mcp add --transport http context7 https://mcp.context7.com/mcp
+claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "CONTEXT7_API_KEY: YOUR_API_KEY"
 ```
 
 或者使用 SSE 传输：
 
 ```sh
-claude mcp add --transport sse context7 https://mcp.context7.com/sse
+claude mcp add --transport sse context7 https://mcp.context7.com/sse --header "CONTEXT7_API_KEY: YOUR_API_KEY"
 ```
 
 #### Claude Code 本地服务器连接
 
 ```sh
-claude mcp add context7 -- npx -y @upstash/context7-mcp
+claude mcp add context7 -- npx -y @upstash/context7-mcp --header "CONTEXT7_API_KEY: YOUR_API_KEY"
 ```
 
 </details>
@@ -138,7 +142,10 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 {
   "mcpServers": {
     "context7": {
-      "serverUrl": "https://mcp.context7.com/mcp"
+      "serverUrl": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -151,7 +158,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -174,7 +181,10 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
   "servers": {
     "context7": {
       "type": "http",
-      "url": "https://mcp.context7.com/mcp"
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -188,7 +198,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
     "context7": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -221,7 +231,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
     "Context7": {
       "command": {
         "path": "npx",
-        "args": ["-y", "@upstash/context7-mcp"]
+        "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
       },
       "settings": {}
     }
@@ -268,7 +278,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
     {
       "name": "context7",
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   ]
 }
@@ -303,7 +313,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -323,7 +333,10 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 {
   "mcpServers": {
     "context7": {
-      "httpUrl": "https://mcp.context7.com/mcp"
+      "httpUrl": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -336,7 +349,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -362,7 +375,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -382,6 +395,9 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
   "context7": {
     "type": "remote",
     "url": "https://mcp.context7.com/mcp",
+    "headers": {
+      "CONTEXT7_API_KEY": "YOUR_API_KEY"
+    },
     "enabled": true
   }
 }
@@ -394,7 +410,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
   "mcp": {
     "context7": {
       "type": "local",
-      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "command": ["npx", "-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"],
       "enabled": true
     }
   }
@@ -411,7 +427,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 
 ```toml
 [mcp_servers.context7]
-args = ["-y", "@upstash/context7-mcp"]
+args = ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
 command = "npx"
 ```
 
@@ -432,7 +448,7 @@ command = "npx"
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -457,7 +473,7 @@ command = "npx"
   "mcpServers": {
     "Context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"],
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"],
       "env": {},
       "disabled": false,
       "autoApprove": []
@@ -495,7 +511,7 @@ command = "npx"
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -515,7 +531,7 @@ command = "npx"
   "mcpServers": {
     "context7": {
       "command": "bunx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -618,7 +634,7 @@ command = "npx"
   "mcpServers": {
     "github.com/upstash/context7-mcp": {
       "command": "cmd",
-      "args": ["/c", "npx", "-y", "@upstash/context7-mcp"],
+      "args": ["/c", "npx", "-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"],
       "disabled": false,
       "autoApprove": []
     }
@@ -638,7 +654,7 @@ command = "npx"
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -659,7 +675,7 @@ command = "npx"
 {
   "Context7": {
     "command": "npx",
-    "args": ["-y", "@upstash/context7-mcp"],
+    "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"],
     "env": {},
     "working_directory": null,
     "start_on_launch": true
@@ -684,6 +700,9 @@ command = "npx"
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      },
       "tools": ["get-library-docs", "resolve-library-id"]
     }
   }
@@ -713,7 +732,7 @@ command = "npx"
   "mcpServers": {
     "Context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -753,7 +772,7 @@ command = "npx"
       "context7": {
         "type": "stdio",
         "command": "npx",
-        "args": ["-y", "@upstash/context7-mcp"]
+        "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
       }
     }
   }
@@ -782,7 +801,10 @@ command = "npx"
   "mcp": {
     "context7": {
       "type": "http",
-      "url": "https://mcp.context7.com/mcp"
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -796,7 +818,10 @@ command = "npx"
   "mcp": {
     "context7": {
       "type": "sse",
-      "url": "https://mcp.context7.com/sse"
+      "url": "https://mcp.context7.com/sse",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -811,7 +836,7 @@ command = "npx"
     "context7": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -829,7 +854,7 @@ command = "npx"
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -869,7 +894,7 @@ acli rovodev mcp
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -890,7 +915,7 @@ acli rovodev mcp
 ```json
 {
   "command": "npx",
-  "args": ["-y", "@upstash/context7-mcp"]
+  "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
 }
 ```
 
@@ -916,7 +941,7 @@ acli rovodev mcp
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -950,7 +975,7 @@ acli rovodev mcp
 
 ```json
 {
-  "args": ["-y", "@upstash/context7-mcp"],
+  "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"],
   "command": "npx",
   "env": {}
 }
@@ -1022,6 +1047,7 @@ bun run dist/index.js
 
 - `--transport <stdio|http>` – 使用的传输方式（默认 `stdio`）。请注意，HTTP 传输自动提供 HTTP 和 SSE 端点。
 - `--port <number>` – 使用 `http` 传输时监听的端口（默认 `3000`）。
+- `--api-key <key>` – 用于身份验证的API密钥。您可以通过在 [context7.com/dashboard](https://context7.com/dashboard) 创建账户来获取您的API密钥。
 
 使用 http 传输和端口 8080 的示例：
 
@@ -1032,7 +1058,7 @@ bun run dist/index.js --transport http --port 8080
 另一个使用 stdio 传输 的示例：
 
 ```bash
-bun run dist/index.js --transport stdio
+bun run dist/index.js --transport stdio --api-key YOUR_API_KEY
 ```
 
 <details>
@@ -1043,7 +1069,7 @@ bun run dist/index.js --transport stdio
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["tsx", "/path/to/folder/context7-mcp/src/index.ts"]
+      "args": ["tsx", "/path/to/folder/context7-mcp/src/index.ts", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
