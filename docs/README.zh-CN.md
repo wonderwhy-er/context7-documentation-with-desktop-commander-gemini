@@ -1,3 +1,5 @@
+![Cover](public/cover.png)
+
 # Context7 MCP - 为所有 Prompt 获取最新文档
 
 [![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp)
@@ -196,7 +198,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 
 <details>
 <summary>
-<b>Install in Cline</b>
+<b>在 Cline 中安装</b>
 </summary>
 
 您可以通过以下步骤轻松地通过 [Cline MCP Server 市场](https://cline.bot/mcp-marketplace) 安装 Context7：
@@ -209,7 +211,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 </details>
 
 <details>
-<summary><b>Install in Zed</b></summary>
+<summary><b>在 Zed 中安装</b></summary>
 
 它可以通过 [Zed Extensions](https://zed.dev/extensions?query=Context7) 安装，或者您也可以将以下内容添加到您的 Zed `settings.json` 中。更多信息请参见 [Zed Context Server 文档](https://zed.dev/docs/assistant/context-servers)。
 
