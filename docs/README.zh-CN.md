@@ -1,4 +1,4 @@
-![Cover](public/cover.png)
+![Cover](../public/cover.png)
 
 # Context7 MCP - 为所有 Prompt 获取最新文档
 
