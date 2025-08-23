@@ -40,7 +40,7 @@ Context7将最新的代码示例和文档直接获取到你的LLM上下文中。
 
 ## 📚 添加项目
 
-查看我们的[项目添加指南](./docs/adding-projects.md)来学习如何将你最喜欢的库添加（或更新）到 Context7。
+查看我们的[项目添加指南](./adding-projects.md)来学习如何将你最喜欢的库添加（或更新）到 Context7。
 
 ## 🛠️ 开始使用
 
