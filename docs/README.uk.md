@@ -326,7 +326,7 @@ npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME>
 <details>
 <summary><b>Встановлення в Claude Code</b></summary>
 
-Виконайте цю команду. Детальніше див. у [документації Claude Code MCP](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp).
+Виконайте цю команду. Детальніше див. у [документації Claude Code MCP](https://docs.anthropic.com/en/docs/claude-code/mcp).
 
 #### Підключення до віддаленого сервера Claude Code
 

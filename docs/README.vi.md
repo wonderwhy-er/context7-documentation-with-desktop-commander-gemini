@@ -340,7 +340,7 @@ Nếu object `mcpServers` không tồn tại, hãy tạo nó.
 <details>
 <summary><b>Cài đặt trong Claude Code</b></summary>
 
-Chạy lệnh này. Xem [tài liệu Claude Code MCP](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp) để biết thêm thông tin.
+Chạy lệnh này. Xem [tài liệu Claude Code MCP](https://docs.anthropic.com/en/docs/claude-code/mcp) để biết thêm thông tin.
 
 #### Kết nối Claude Code Remote Server
 

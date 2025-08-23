@@ -297,7 +297,7 @@ Jika objek `mcpServers` tidak ada, buatlah.
 
 <details>
 <summary><b>Instal di Claude Code</b></summary>
-Jalankan perintah ini. Lihat [dokumentasi MCP Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp) untuk info lebih lanjut.
+Jalankan perintah ini. Lihat [dokumentasi MCP Claude Code](https://docs.anthropic.com/id/docs/claude-code/mcp) untuk info lebih lanjut.
 
 #### Koneksi Server Remote Claude Code
 

@@ -103,7 +103,7 @@ Colar a seguinte configuração no arquivo `~/.cursor/mcp.json` do Cursor é a a
 <details>
 <summary><b>Instalar no Claude Code</b></summary>
 
-Execute este comando. Veja mais em [Claude Code MCP docs](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp).
+Execute este comando. Veja mais em [Claude Code MCP docs](https://docs.anthropic.com/pt/docs/claude-code/mcp).
 
 #### Conexão Remota do Servidor Claude Code
 

@@ -152,7 +152,7 @@ Può essere installato tramite [Zed Extensions](https://zed.dev/extensions?query
 
 ### Installare in Claude Code
 
-Esegui questo comando. Vedi [Claude Code MCP docs](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp) per ulteriori informazioni.
+Esegui questo comando. Vedi [Claude Code MCP docs](https://docs.anthropic.com/it/docs/claude-code/mcp) per ulteriori informazioni.
 
 ```sh
 claude mcp add context7 -- npx -y @upstash/context7-mcp@latest

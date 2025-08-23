@@ -152,7 +152,7 @@ Bunu VS Code MCP yapılandırma dosyanıza ekleyin. Daha fazla bilgi için [VS C
 
 ### Claude Code'da Kurulum
 
-Bu komutu çalıştırın. Daha fazla bilgi için [Claude Code MCP belgelerine](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp) bakabilirsiniz.
+Bu komutu çalıştırın. Daha fazla bilgi için [Claude Code MCP belgelerine](https://docs.anthropic.com/en/docs/claude-code/mcp) bakabilirsiniz.
 
 ```sh
 claude mcp add context7 -- npx -y @upstash/context7-mcp@latest

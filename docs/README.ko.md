@@ -340,7 +340,7 @@ Visual Studio MCP 설정 파일에 다음을 추가하세요(자세한 내용은
 <details>
 <summary><b>Claude Code에 설치</b></summary>
 
-이 명령을 실행하세요. 자세한 내용은 [Claude Code MCP 문서](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp)를 참조하세요.
+이 명령을 실행하세요. 자세한 내용은 [Claude Code MCP 문서](https://docs.anthropic.com/ko/docs/claude-code/mcp)를 참조하세요.
 
 #### Claude Code 원격 서버 연결
 
