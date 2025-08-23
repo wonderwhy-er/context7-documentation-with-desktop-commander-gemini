@@ -109,7 +109,7 @@ npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME>
 <details>
 <summary><b>在 Claude Code 中安装</b></summary>
 
-运行以下命令。更多信息请参见 [Claude Code MCP 文档](https://docs.anthropic.com/zh-CN/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp)。
+运行以下命令。更多信息请参见 [Claude Code MCP 文档](https://docs.anthropic.com/zh-CN/docs/claude-code/mcp)。
 
 #### Claude Code 远程服务器连接
 
