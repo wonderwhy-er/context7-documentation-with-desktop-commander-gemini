@@ -1,10 +1,12 @@
+![Cover](../public/cover.png)
+
 # Context7 MCP - 为所有 Prompt 获取最新文档
 
 [![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp)
 
 [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=context7&config=eyJ1cmwiOiJodHRwczovL21jcC5jb250ZXh0Ny5jb20vbWNwIn0%3D) [<img alt="Install in VS Code (npx)" src="https://img.shields.io/badge/Install%20in%20VS%20Code-0098FF?style=for-the-badge&logo=visualstudiocode&logoColor=white">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22context7%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40upstash%2Fcontext7-mcp%40latest%22%5D%7D)
 
-[![繁體中文](https://img.shields.io/badge/docs-繁體中文-yellow)](./docs/README.zh-TW.md) [![简体中文](https://img.shields.io/badge/docs-简体中文-yellow)](./docs/README.zh-CN.md) [![日本語](https://img.shields.io/badge/docs-日本語-b7003a)](./docs/README.ja.md) [![한국어 문서](https://img.shields.io/badge/docs-한국어-green)](./docs/README.ko.md) [![Documentación en Español](https://img.shields.io/badge/docs-Español-orange)](./docs/README.es.md) [![Documentation en Français](https://img.shields.io/badge/docs-Français-blue)](./docs/README.fr.md) [![Documentação em Português (Brasil)](<https://img.shields.io/badge/docs-Português%20(Brasil)-purple>)](./docs/README.pt-BR.md) [![Documentazione in italiano](https://img.shields.io/badge/docs-Italian-red)](./docs/README.it.md) [![Dokumentasi Bahasa Indonesia](https://img.shields.io/badge/docs-Bahasa%20Indonesia-pink)](./docs/README.id-ID.md) [![Dokumentation auf Deutsch](https://img.shields.io/badge/docs-Deutsch-darkgreen)](./docs/README.de.md) [![Документация на русском языке](https://img.shields.io/badge/docs-Русский-darkblue)](./docs/README.ru.md) [![Українська документація](https://img.shields.io/badge/docs-Українська-lightblue)](./docs/README.uk.md) [![Türkçe Doküman](https://img.shields.io/badge/docs-Türkçe-blue)](./docs/README.tr.md) [![Arabic Documentation](https://img.shields.io/badge/docs-Arabic-white)](./docs/README.ar.md) [![Tiếng Việt](https://img.shields.io/badge/docs-Tiếng%20Việt-red)](./docs/README.vi.md)
+[![English](https://img.shields.io/badge/docs-English-purple)](../README.md) [![繁體中文](https://img.shields.io/badge/docs-繁體中文-yellow)](./README.zh-TW.md) [![日本語](https://img.shields.io/badge/docs-日本語-b7003a)](./README.ja.md) [![한국어 문서](https://img.shields.io/badge/docs-한국어-green)](./README.ko.md) [![Documentación en Español](https://img.shields.io/badge/docs-Español-orange)](./README.es.md) [![Documentation en Français](https://img.shields.io/badge/docs-Français-blue)](./README.fr.md) [![Documentação em Português (Brasil)](<https://img.shields.io/badge/docs-Português%20(Brasil)-purple>)](./README.pt-BR.md) [![Documentazione in italiano](https://img.shields.io/badge/docs-Italian-red)](./README.it.md) [![Dokumentasi Bahasa Indonesia](https://img.shields.io/badge/docs-Bahasa%20Indonesia-pink)](./README.id-ID.md) [![Dokumentation auf Deutsch](https://img.shields.io/badge/docs-Deutsch-darkgreen)](./README.de.md) [![Документация на русском языке](https://img.shields.io/badge/docs-Русский-darkblue)](./README.ru.md) [![Українська документація](https://img.shields.io/badge/docs-Українська-lightblue)](./README.uk.md) [![Türkçe Doküman](https://img.shields.io/badge/docs-Türkçe-blue)](./README.tr.md) [![Arabic Documentation](https://img.shields.io/badge/docs-Arabic-white)](./README.ar.md) [![Tiếng Việt](https://img.shields.io/badge/docs-Tiếng%20Việt-red)](./README.vi.md)
 
 ## ❌ 不使用Context7
 
@@ -38,7 +40,7 @@ Context7将最新的代码示例和文档直接获取到你的LLM上下文中。
 
 ## 📚 添加项目
 
-查看我们的[项目添加指南](./docs/adding-projects.md)来学习如何将你最喜欢的库添加（或更新）到 Context7。
+查看我们的[项目添加指南](./adding-projects.md)来学习如何将你最喜欢的库添加（或更新）到 Context7。
 
 ## 🛠️ 开始使用
 
@@ -46,6 +48,7 @@ Context7将最新的代码示例和文档直接获取到你的LLM上下文中。
 
 - Node.js >= v18.0.0
 - Cursor, Claude Code, VSCode, Windsurf 或其他MCP客户端
+- Context7 API密钥（可选，用于更高的请求速率限制）（通过在[context7.com/dashboard](https://context7.com/dashboard)创建账户获取）
 
 <details>
 <summary><b>通过 Smithery 安装</b></summary>
@@ -77,7 +80,10 @@ npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME>
 {
   "mcpServers": {
     "context7": {
-      "url": "https://mcp.context7.com/mcp"
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -92,7 +98,7 @@ npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME>
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -103,24 +109,24 @@ npx -y @smithery/cli@latest install @upstash/context7-mcp --client <CLIENT_NAME>
 <details>
 <summary><b>在 Claude Code 中安装</b></summary>
 
-运行以下命令。更多信息请参见 [Claude Code MCP 文档](https://docs.anthropic.com/zh-CN/docs/agents-and-tools/claude-code/tutorials#set-up-model-context-protocol-mcp)。
+运行以下命令。更多信息请参见 [Claude Code MCP 文档](https://docs.anthropic.com/zh-CN/docs/claude-code/mcp)。
 
 #### Claude Code 远程服务器连接
 
 ```sh
-claude mcp add --transport http context7 https://mcp.context7.com/mcp
+claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "CONTEXT7_API_KEY: YOUR_API_KEY"
 ```
 
 或者使用 SSE 传输：
 
 ```sh
-claude mcp add --transport sse context7 https://mcp.context7.com/sse
+claude mcp add --transport sse context7 https://mcp.context7.com/sse --header "CONTEXT7_API_KEY: YOUR_API_KEY"
 ```
 
 #### Claude Code 本地服务器连接
 
 ```sh
-claude mcp add context7 -- npx -y @upstash/context7-mcp
+claude mcp add context7 -- npx -y @upstash/context7-mcp --header "CONTEXT7_API_KEY: YOUR_API_KEY"
 ```
 
 </details>
@@ -136,7 +142,10 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 {
   "mcpServers": {
     "context7": {
-      "serverUrl": "https://mcp.context7.com/mcp"
+      "serverUrl": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -149,7 +158,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -172,7 +181,10 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
   "servers": {
     "context7": {
       "type": "http",
-      "url": "https://mcp.context7.com/mcp"
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -186,7 +198,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
     "context7": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -196,7 +208,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 
 <details>
 <summary>
-<b>Install in Cline</b>
+<b>在 Cline 中安装</b>
 </summary>
 
 您可以通过以下步骤轻松地通过 [Cline MCP Server 市场](https://cline.bot/mcp-marketplace) 安装 Context7：
@@ -209,7 +221,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 </details>
 
 <details>
-<summary><b>Install in Zed</b></summary>
+<summary><b>在 Zed 中安装</b></summary>
 
 它可以通过 [Zed Extensions](https://zed.dev/extensions?query=Context7) 安装，或者您也可以将以下内容添加到您的 Zed `settings.json` 中。更多信息请参见 [Zed Context Server 文档](https://zed.dev/docs/assistant/context-servers)。
 
@@ -219,7 +231,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
     "Context7": {
       "command": {
         "path": "npx",
-        "args": ["-y", "@upstash/context7-mcp"]
+        "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
       },
       "settings": {}
     }
@@ -266,7 +278,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
     {
       "name": "context7",
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   ]
 }
@@ -301,7 +313,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -321,7 +333,10 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 {
   "mcpServers": {
     "context7": {
-      "httpUrl": "https://mcp.context7.com/mcp"
+      "httpUrl": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -334,7 +349,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -360,7 +375,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -380,6 +395,9 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
   "context7": {
     "type": "remote",
     "url": "https://mcp.context7.com/mcp",
+    "headers": {
+      "CONTEXT7_API_KEY": "YOUR_API_KEY"
+    },
     "enabled": true
   }
 }
@@ -392,7 +410,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
   "mcp": {
     "context7": {
       "type": "local",
-      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "command": ["npx", "-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"],
       "enabled": true
     }
   }
@@ -409,7 +427,7 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 
 ```toml
 [mcp_servers.context7]
-args = ["-y", "@upstash/context7-mcp"]
+args = ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
 command = "npx"
 ```
 
@@ -430,7 +448,7 @@ command = "npx"
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -455,7 +473,7 @@ command = "npx"
   "mcpServers": {
     "Context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"],
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"],
       "env": {},
       "disabled": false,
       "autoApprove": []
@@ -493,7 +511,7 @@ command = "npx"
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -513,7 +531,7 @@ command = "npx"
   "mcpServers": {
     "context7": {
       "command": "bunx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -616,7 +634,7 @@ command = "npx"
   "mcpServers": {
     "github.com/upstash/context7-mcp": {
       "command": "cmd",
-      "args": ["/c", "npx", "-y", "@upstash/context7-mcp"],
+      "args": ["/c", "npx", "-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"],
       "disabled": false,
       "autoApprove": []
     }
@@ -636,7 +654,7 @@ command = "npx"
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -657,7 +675,7 @@ command = "npx"
 {
   "Context7": {
     "command": "npx",
-    "args": ["-y", "@upstash/context7-mcp"],
+    "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"],
     "env": {},
     "working_directory": null,
     "start_on_launch": true
@@ -682,6 +700,9 @@ command = "npx"
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      },
       "tools": ["get-library-docs", "resolve-library-id"]
     }
   }
@@ -711,7 +732,7 @@ command = "npx"
   "mcpServers": {
     "Context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -751,7 +772,7 @@ command = "npx"
       "context7": {
         "type": "stdio",
         "command": "npx",
-        "args": ["-y", "@upstash/context7-mcp"]
+        "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
       }
     }
   }
@@ -780,7 +801,10 @@ command = "npx"
   "mcp": {
     "context7": {
       "type": "http",
-      "url": "https://mcp.context7.com/mcp"
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -794,7 +818,10 @@ command = "npx"
   "mcp": {
     "context7": {
       "type": "sse",
-      "url": "https://mcp.context7.com/sse"
+      "url": "https://mcp.context7.com/sse",
+      "headers": {
+        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -809,7 +836,7 @@ command = "npx"
     "context7": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -827,7 +854,7 @@ command = "npx"
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -867,7 +894,7 @@ acli rovodev mcp
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -888,7 +915,7 @@ acli rovodev mcp
 ```json
 {
   "command": "npx",
-  "args": ["-y", "@upstash/context7-mcp"]
+  "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
 }
 ```
 
@@ -914,7 +941,7 @@ acli rovodev mcp
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -948,7 +975,7 @@ acli rovodev mcp
 
 ```json
 {
-  "args": ["-y", "@upstash/context7-mcp"],
+  "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"],
   "command": "npx",
   "env": {}
 }
@@ -1020,6 +1047,7 @@ bun run dist/index.js
 
 - `--transport <stdio|http>` – 使用的传输方式（默认 `stdio`）。请注意，HTTP 传输自动提供 HTTP 和 SSE 端点。
 - `--port <number>` – 使用 `http` 传输时监听的端口（默认 `3000`）。
+- `--api-key <key>` – 用于身份验证的API密钥。您可以通过在 [context7.com/dashboard](https://context7.com/dashboard) 创建账户来获取您的API密钥。
 
 使用 http 传输和端口 8080 的示例：
 
@@ -1030,7 +1058,7 @@ bun run dist/index.js --transport http --port 8080
 另一个使用 stdio 传输 的示例：
 
 ```bash
-bun run dist/index.js --transport stdio
+bun run dist/index.js --transport stdio --api-key YOUR_API_KEY
 ```
 
 <details>
@@ -1041,7 +1069,7 @@ bun run dist/index.js --transport stdio
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["tsx", "/path/to/folder/context7-mcp/src/index.ts"]
+      "args": ["tsx", "/path/to/folder/context7-mcp/src/index.ts", "--api-key", "YOUR_API_KEY"]
     }
   }
 }
