@@ -10,7 +10,7 @@
     "url": "https://upstash.com"
   },
   "homepage": "https://context7.com",
-  "documentation": "https://gihub.com/upstash/context7",
+  "documentation": "https://github.com/upstash/context7",
   "icon": "public/context7logo.png",
   "server": {
     "type": "node",
