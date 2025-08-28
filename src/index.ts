@@ -197,7 +197,7 @@ ${resultsText}`,
         topic: z
           .string()
           .optional()
-          .describe("Topic to focus documentation on (e.g., 'hooks', 'routing')."),
+          .describe("Topics to focus documentation on (e.g., 'hooks', 'routing'). Max 5 comma seperated topics, "),
         tokens: z
           .preprocess((val) => (typeof val === "string" ? Number(val) : val), z.number())
           .transform((val) => (val < DEFAULT_MINIMUM_TOKENS ? DEFAULT_MINIMUM_TOKENS : val))
