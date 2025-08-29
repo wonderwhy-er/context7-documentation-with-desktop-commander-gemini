@@ -13,7 +13,7 @@
 LLMs rely on outdated or generic information about the libraries you use. You get:
 
 - ❌ Code examples are outdated and based on year-old training data
-- ❌ Hallucinated APIs don't even exist
+- ❌ Hallucinated APIs that don't even exist
 - ❌ Generic answers for old package versions
 
 ## ✅ With Context7
