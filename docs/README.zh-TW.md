@@ -807,7 +807,6 @@ Context7 MCP 伺服器支援下列環境變數：
 Context7 MCP 提供下列工具供 LLM 使用：
 
 - `resolve-library-id`：將一般函式庫名稱解析為 Context7 相容的函式庫 ID。
-
   - `libraryName`（必填）：要查詢的函式庫名稱
 
 - `get-library-docs`：根據 Context7 相容的函式庫 ID 取得文件。

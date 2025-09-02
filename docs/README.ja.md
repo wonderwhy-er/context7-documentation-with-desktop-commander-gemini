@@ -549,7 +549,6 @@ MCP サーバーが追加されたら、簡単に使用を続けることがで�
 Context7 MCP は LLM が使用できる以下のツールを提供します：
 
 - `resolve-library-id`：一般的なライブラリ名を Context7 互換のライブラリ ID に変換します。
-
   - `libraryName`（必須）：検索するライブラリの名前
 
 - `get-library-docs`：Context7 互換のライブラリ ID を使用してライブラリのドキュメントを取得します。

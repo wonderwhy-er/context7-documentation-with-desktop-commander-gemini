@@ -783,7 +783,6 @@ command = "npx"
 Context7 MCP는 LLM이 사용할 수 있는 다음 도구들을 제공합니다:
 
 - `resolve-library-id`: 일반적인 라이브러리 이름을 Context7이 인식할 수 있는 라이브러리 ID로 변환합니다.
-
   - `libraryName` (필수): 검색할 라이브러리의 이름
 
 - `get-library-docs`: Context7이 인식하는 라이브러리 ID를 사용하여 해당 라이브러리의 문서를 가져옵니다.

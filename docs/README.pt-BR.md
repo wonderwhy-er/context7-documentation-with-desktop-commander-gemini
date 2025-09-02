@@ -964,11 +964,9 @@ Veja mais em [Local and Remote MCPs for Perplexity](https://www.perplexity.ai/he
 O Context7 MCP fornece as seguintes ferramentas que LLMs podem usar:
 
 - `resolve-library-id`: Resolve um nome geral de biblioteca em um ID compatível com o Context7.
-
   - `libraryName` (obrigatório): O nome da biblioteca a ser pesquisada
 
 - `get-library-docs`: Busca documentação para uma biblioteca usando um ID compatível com o Context7.
-
   - `context7CompatibleLibraryID` (obrigatório): ID exato compatível com Context7 (por exemplo, `/mongodb/docs`, `/vercel/next.js`)
   - `topic` (opcional): Focar os docs em um tópico específico (por exemplo, "routing", "hooks")
   - `tokens` (opcional, padrão 10000): Número máximo de tokens para retornar. Valores menores que o padrão de 10000 são automaticamente aumentados para 10000.

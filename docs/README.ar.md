@@ -249,7 +249,6 @@ docker build -t context7-mcp .
 
 - `resolve-library-id`: يحول اسم مكتبة عام إلى معرف متوافق مع Context7.
 - `get-library-docs`: يستخرج التوثيق حسب المعرف.
-
   - `context7CompatibleLibraryID`: مطلوب
   - `topic`: موضوع معين مثل "routing"
   - `tokens`: الحد الأعلى لعدد الرموز

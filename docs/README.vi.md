@@ -817,7 +817,6 @@ Xem [LM Studio MCP Support](https://lmstudio.ai/blog/lmstudio-v0.3.17) để bi�
 Context7 MCP cung cấp các công cụ sau mà LLM có thể sử dụng:
 
 - `resolve-library-id`: Chuyển đổi tên thư viện chung thành Context7-compatible library ID.
-
   - `libraryName` (bắt buộc): Tên của thư viện cần tìm kiếm
 
 - `get-library-docs`: Lấy tài liệu cho thư viện sử dụng Context7-compatible library ID.

@@ -987,7 +987,6 @@ See [Local and Remote MCPs for Perplexity](https://www.perplexity.ai/help-center
 Context7 MCP provides the following tools that LLMs can use:
 
 - `resolve-library-id`: Resolves a general library name into a Context7-compatible library ID.
-
   - `libraryName` (required): The name of the library to search for
 
 - `get-library-docs`: Fetches documentation for a library using a Context7-compatible library ID.

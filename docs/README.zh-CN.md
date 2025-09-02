@@ -989,7 +989,6 @@ acli rovodev mcp
 Context7 MCP 提供以下 LLM 可以使用的工具：
 
 - `resolve-library-id`：将通用库名称解析为 Context7 兼容的库 ID。
-
   - `libraryName`（必需）：要搜索的库名称
 
 - `get-library-docs`：使用 Context7 兼容的库 ID 获取库的文档。
