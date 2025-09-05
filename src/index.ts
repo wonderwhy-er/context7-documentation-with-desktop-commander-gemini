@@ -12,7 +12,7 @@ import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { Command } from "commander";
 import { IncomingMessage } from "http";
 
-const DEFAULT_MINIMUM_TOKENS = 10000;
+const DEFAULT_MINIMUM_TOKENS = 1000;
 
 // Parse CLI arguments using commander
 const program = new Command()
