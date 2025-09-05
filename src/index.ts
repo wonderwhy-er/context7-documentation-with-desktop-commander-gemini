@@ -12,12 +12,17 @@ import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { Command } from "commander";
 import { IncomingMessage } from "http";
 
-const DEFAULT_MINIMUM_TOKENS = 1000;
+/** Minimum allowed tokens for documentation retrieval */
+const MINIMUM_TOKENS = 1000;
+/** Default tokens when none specified */
+const DEFAULT_TOKENS = 5000;
+/** Default HTTP server port */
+const DEFAULT_PORT = 3000;
 
 // Parse CLI arguments using commander
 const program = new Command()
   .option("--transport <stdio|http>", "transport type", "stdio")
-  .option("--port <number>", "port for HTTP transport", "3000")
+  .option("--port <number>", "port for HTTP transport", DEFAULT_PORT.toString())
   .option("--api-key <key>", "API key for authentication")
   .allowUnknownOption() // let MCP Inspector / other wrappers pass through extra flags
   .parse(process.argv);
@@ -200,14 +205,14 @@ ${resultsText}`,
           .describe("Topic to focus documentation on (e.g., 'hooks', 'routing')."),
         tokens: z
           .preprocess((val) => (typeof val === "string" ? Number(val) : val), z.number())
-          .transform((val) => (val < DEFAULT_MINIMUM_TOKENS ? DEFAULT_MINIMUM_TOKENS : val))
+          .transform((val) => (val < MINIMUM_TOKENS ? MINIMUM_TOKENS : val))
           .optional()
           .describe(
-            `Maximum number of tokens of documentation to retrieve (default: ${DEFAULT_MINIMUM_TOKENS}). Higher values provide more context but consume more tokens.`
+            `Maximum number of tokens of documentation to retrieve (default: ${DEFAULT_TOKENS}). Higher values provide more context but consume more tokens.`
           ),
       },
     },
-    async ({ context7CompatibleLibraryID, tokens = DEFAULT_MINIMUM_TOKENS, topic = "" }) => {
+    async ({ context7CompatibleLibraryID, tokens = DEFAULT_TOKENS, topic = "" }) => {
       const fetchDocsResponse = await fetchLibraryDocumentation(
         context7CompatibleLibraryID,
         {
@@ -248,7 +253,7 @@ async function main() {
 
   if (transportType === "http") {
     // Get initial port from environment or use default
-    const initialPort = CLI_PORT ?? 3000;
+    const initialPort = CLI_PORT ?? DEFAULT_PORT;
     // Keep track of which port we end up using
     let actualPort = initialPort;
     const httpServer = createServer(async (req, res) => {

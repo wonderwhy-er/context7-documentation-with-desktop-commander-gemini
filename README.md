@@ -53,7 +53,7 @@ Check out our [project addition guide](./docs/adding-projects.md) to learn how t
 > [!WARNING]
 > **SSE Protocol Deprecation Notice**
 >
-> The Server-Sent Events (SSE) transport protocol is deprecated and it's endpoint will be removed in upcoming releases. Please use HTTP or stdio transport methods instead.
+> The Server-Sent Events (SSE) transport protocol is deprecated and its endpoint will be removed in upcoming releases. Please use HTTP or stdio transport methods instead.
 
 <details>
 <summary><b>Installing via Smithery</b></summary>
@@ -975,7 +975,7 @@ Context7 MCP provides the following tools that LLMs can use:
 - `get-library-docs`: Fetches documentation for a library using a Context7-compatible library ID.
   - `context7CompatibleLibraryID` (required): Exact Context7-compatible library ID (e.g., `/mongodb/docs`, `/vercel/next.js`)
   - `topic` (optional): Focus the docs on a specific topic (e.g., "routing", "hooks")
-  - `tokens` (optional, default 10000): Max number of tokens to return. Values less than the default value of 10000 are automatically increased to 10000.
+  - `tokens` (optional, default 5000): Max number of tokens to return. Values less than 1000 are automatically increased to 1000.
 
 ## 🛟 Tips
 
