@@ -36,7 +36,7 @@ Context7 fetches up-to-date code examples and documentation right into your LLM'
 - 2️⃣ Tell the LLM to `use context7`
 - 3️⃣ Get working code answers
 
-No tab-switching, no hallucinated APIs that don't exist, no outdated code generations.
+No tab-switching, no hallucinated APIs that don't exist, no outdated code generation.
 
 ## 📚 Adding Projects
 
@@ -386,7 +386,7 @@ Open Claude Desktop developer settings and edit your `claude_desktop_config.json
 <details>
 <summary><b>Install in Opencode</b></summary>
 
-Add this to your Opencode configuration file. See [Opencode MCP docs](https://opencode.ai/docs/mcp-servers) docs for more info.
+Add this to your Opencode configuration file. See [Opencode MCP docs](https://opencode.ai/docs/mcp-servers) for more info.
 
 #### Opencode Remote Server Connection
 
@@ -438,7 +438,7 @@ command = "npx"
 
 See [JetBrains AI Assistant Documentation](https://www.jetbrains.com/help/ai-assistant/configure-an-mcp-server.html) for more details.
 
-1. In JetBrains IDEs go to `Settings` -> `Tools` -> `AI Assistant` -> `Model Context Protocol (MCP)`
+1. In JetBrains IDEs, go to `Settings` -> `Tools` -> `AI Assistant` -> `Model Context Protocol (MCP)`
 2. Click `+ Add`.
 3. Click on `Command` in the top-left corner of the dialog and select the As JSON option from the list
 4. Add this configuration and click `OK`
@@ -621,7 +621,7 @@ If you prefer to run the MCP server in a Docker container:
 <details>
 <summary><b>Install Using the Desktop Extension</b></summary>
 
-Install the [context7.dxt](dxt/context7.dxt) file under the dxt folder and add it to your client. For more information please check out [the desktop extensions docs](https://github.com/anthropics/dxt#desktop-extensions-dxt).
+Install the [context7.dxt](dxt/context7.dxt) file under the dxt folder and add it to your client. For more information, please check out [the desktop extensions docs](https://github.com/anthropics/dxt#desktop-extensions-dxt).
 
 </details>
 
@@ -981,22 +981,31 @@ Context7 MCP provides the following tools that LLMs can use:
 
 ### Add a Rule
 
-> If you don’t want to add `use context7` to every prompt, you can define a simple rule in your `.windsurfrules` file in Windsurf or from `Cursor Settings > Rules` section in Cursor (or the equivalent in your MCP client) to auto-invoke Context7 on any code question:
+> If you don’t want to add `use context7` to every prompt, you can define a simple rule in your MCP client's rule section:
 >
+> * For Windsurf, in `.windsurfrules` file
+>
+> * For Cursor, from `Cursor Settings > Rules` section
+>
+> * For Claude Code, in `CLAUDE.md` file 
+>
+> Or the equivalent in your MCP client to auto-invoke Context7 on any code question.
+>
+> Example Rule:
 > ```toml
-> [[calls]]
-> match = "when the user requests code examples, setup or configuration steps, or library/API documentation"
-> tool  = "context7"
+> Always use context7 when I need code generation, setup or configuration steps, or 
+> library/API documentation. This means you should automatically use the Context7 MCP 
+> tools to resolve library id and get library docs without me having to explicitly ask.
 > ```
 >
-> From then on you’ll get Context7’s docs in any related conversation without typing anything extra. You can add your use cases to the match part.
+> From then on, you’ll get Context7’s docs in any related conversation without typing anything extra. You can alter the rule to match your use cases.
 
 ### Use Library Id
 
 > If you already know exactly which library you want to use, add its Context7 ID to your prompt. That way, Context7 MCP server can skip the library-matching step and directly continue with retrieving docs.
 >
 > ```txt
-> implement basic authentication with supabase. use library /supabase/supabase for api and docs
+> Implement basic authentication with Supabase. use library /supabase/supabase for API and docs.
 > ```
 >
 > The slash syntax tells the MCP tool exactly which library to load docs for.
@@ -1033,7 +1042,7 @@ bun run dist/index.js
 - `--port <number>` – Port to listen on when using `http` transport (default `3000`).
 - `--api-key <key>` – API key for authentication. You can get your API key by creating an account at [context7.com/dashboard](https://context7.com/dashboard).
 
-Example with http transport and port 8080:
+Example with HTTP transport and port 8080:
 
 ```bash
 bun run dist/index.js --transport http --port 8080
