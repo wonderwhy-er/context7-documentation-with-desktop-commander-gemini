@@ -117,12 +117,6 @@ Run this command. See [Claude Code MCP docs](https://docs.anthropic.com/en/docs/
 claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "CONTEXT7_API_KEY: YOUR_API_KEY"
 ```
 
-Or using SSE transport:
-
-```sh
-claude mcp add --transport sse context7 https://mcp.context7.com/sse --header "CONTEXT7_API_KEY: YOUR_API_KEY"
-```
-
 #### Claude Code Local Server Connection
 
 ```sh
@@ -757,7 +751,7 @@ Add this to your Visual Studio MCP config file (see the [Visual Studio docs](htt
   "inputs": [],
   "servers": {
     "context7": {
-      "type": "sse",
+      "type": "http",
       "url": "https://mcp.context7.com/mcp",
       "headers": {
         "CONTEXT7_API_KEY": "YOUR_API_KEY"
@@ -801,23 +795,6 @@ Add this to your Crush configuration file. See [Crush MCP docs](https://github.c
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "YOUR_API_KEY"
-      }
-    }
-  }
-}
-```
-
-#### Crush Remote Server Connection (SSE)
-
-```json
-{
-  "$schema": "https://charm.land/crush.json",
-  "mcp": {
-    "context7": {
-      "type": "sse",
-      "url": "https://mcp.context7.com/sse",
       "headers": {
         "CONTEXT7_API_KEY": "YOUR_API_KEY"
       }
