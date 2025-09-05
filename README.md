@@ -50,6 +50,11 @@ Check out our [project addition guide](./docs/adding-projects.md) to learn how t
 - Cursor, Claude Code, VSCode, Windsurf or another MCP Client
 - Context7 API Key (Optional for higher rate limits) (Get yours by creating an account at [context7.com/dashboard](https://context7.com/dashboard))
 
+> [!WARNING]
+> **SSE Protocol Deprecation Notice**
+>
+> The Server-Sent Events (SSE) transport protocol is deprecated and its endpoint will be removed in upcoming releases. Please use HTTP or stdio transport methods instead.
+
 <details>
 <summary><b>Installing via Smithery</b></summary>
 
@@ -115,12 +120,6 @@ Run this command. See [Claude Code MCP docs](https://docs.anthropic.com/en/docs/
 
 ```sh
 claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "CONTEXT7_API_KEY: YOUR_API_KEY"
-```
-
-Or using SSE transport:
-
-```sh
-claude mcp add --transport sse context7 https://mcp.context7.com/sse --header "CONTEXT7_API_KEY: YOUR_API_KEY"
 ```
 
 #### Claude Code Local Server Connection
@@ -335,7 +334,8 @@ See [Gemini CLI Configuration](https://google-gemini.github.io/gemini-cli/docs/t
     "context7": {
       "httpUrl": "https://mcp.context7.com/mcp",
       "headers": {
-        "CONTEXT7_API_KEY": "YOUR_API_KEY"
+        "CONTEXT7_API_KEY": "YOUR_API_KEY",
+        "Accept": "application/json, text/event-stream"
       }
     }
   }
@@ -757,7 +757,7 @@ Add this to your Visual Studio MCP config file (see the [Visual Studio docs](htt
   "inputs": [],
   "servers": {
     "context7": {
-      "type": "sse",
+      "type": "http",
       "url": "https://mcp.context7.com/mcp",
       "headers": {
         "CONTEXT7_API_KEY": "YOUR_API_KEY"
@@ -801,23 +801,6 @@ Add this to your Crush configuration file. See [Crush MCP docs](https://github.c
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "YOUR_API_KEY"
-      }
-    }
-  }
-}
-```
-
-#### Crush Remote Server Connection (SSE)
-
-```json
-{
-  "$schema": "https://charm.land/crush.json",
-  "mcp": {
-    "context7": {
-      "type": "sse",
-      "url": "https://mcp.context7.com/sse",
       "headers": {
         "CONTEXT7_API_KEY": "YOUR_API_KEY"
       }
@@ -992,7 +975,7 @@ Context7 MCP provides the following tools that LLMs can use:
 - `get-library-docs`: Fetches documentation for a library using a Context7-compatible library ID.
   - `context7CompatibleLibraryID` (required): Exact Context7-compatible library ID (e.g., `/mongodb/docs`, `/vercel/next.js`)
   - `topic` (optional): Focus the docs on a specific topic (e.g., "routing", "hooks")
-  - `tokens` (optional, default 10000): Max number of tokens to return. Values less than the default value of 10000 are automatically increased to 10000.
+  - `tokens` (optional, default 5000): Max number of tokens to return. Values less than 1000 are automatically increased to 1000.
 
 ## 🛟 Tips
 
