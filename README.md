@@ -50,6 +50,11 @@ Check out our [project addition guide](./docs/adding-projects.md) to learn how t
 - Cursor, Claude Code, VSCode, Windsurf or another MCP Client
 - Context7 API Key (Optional for higher rate limits) (Get yours by creating an account at [context7.com/dashboard](https://context7.com/dashboard))
 
+> [!WARNING]
+> **SSE Protocol Deprecation Notice**
+>
+> The Server-Sent Events (SSE) transport protocol is deprecated and it's endpoint will be removed in upcoming releases. Please use HTTP or stdio transport methods instead.
+
 <details>
 <summary><b>Installing via Smithery</b></summary>
 
