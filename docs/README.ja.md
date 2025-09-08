@@ -209,6 +209,32 @@ Smithery キーは [Smithery.ai Web ページ](https://smithery.ai/server/@upsta
 </details>
 
 <details>
+<summary>
+<b>Cline でのインストール</b>
+</summary>
+
+1. **Cline** を開きます。
+2. メニューアイコン (☰) をクリックし、**MCP サーバー**セクションに移動します。
+3. **リモートサーバー** タブを選択します。
+4. **設定を編集** ボタンをクリックします。
+5. context7 に関連する設定を `mcpServers` に追加します：
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp",
+      "type": "streamableHttp",
+      "headers": {
+        "Authorization": "Bearer YOUR_API_KEY"
+      }
+    }
+  }
+}
+```
+
+</details>
+<details>
 <summary><b>Visual Studio 2022 へのインストール</b></summary>
 
 [Visual Studio MCP サーバードキュメント](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022) に従って、Visual Studio 2022 で Context7 MCP を設定できます。
