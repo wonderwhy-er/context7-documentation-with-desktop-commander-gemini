@@ -377,9 +377,31 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp
 您可以按照以下說明，透過 [Cline MCP 伺服器市集](https://cline.bot/mcp-marketplace) 輕鬆安裝 Context7：
 
 1. 開啟 **Cline**。
-2. 點擊漢堡選單圖示（☰）進入 **MCP 伺服器** 區段。
+2. 點擊選單圖示（☰）進入 **MCP 伺服器** 區段。
 3. 在 **市集** 分頁的搜尋欄中尋找 _Context7_。
 4. 點擊 **安裝** 按鈕。
+
+您也可以直接修改 MCP servers 設定檔案：
+
+1. 開啟 Cline。
+2. 點擊選單圖示 (☰)，進入 MCP 伺服器部分。
+3. 選擇遠端伺服器標籤。
+4. 點擊編輯設定按鈕。
+5. 將 context7 相關設定新增至 mcpServers：
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp",
+      "type": "streamableHttp",
+      "headers": {
+        "Authorization": "Bearer YOUR_API_KEY"
+      }
+    }
+  }
+}
+```
 
 </details>
 
