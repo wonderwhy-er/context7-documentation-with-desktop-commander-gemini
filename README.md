@@ -1005,18 +1005,17 @@ Context7 MCP provides the following tools that LLMs can use:
 
 > If you don’t want to add `use context7` to every prompt, you can define a simple rule in your MCP client's rule section:
 >
-> * For Windsurf, in `.windsurfrules` file
->
-> * For Cursor, from `Cursor Settings > Rules` section
->
-> * For Claude Code, in `CLAUDE.md` file 
+> - For Windsurf, in `.windsurfrules` file
+> - For Cursor, from `Cursor Settings > Rules` section
+> - For Claude Code, in `CLAUDE.md` file
 >
 > Or the equivalent in your MCP client to auto-invoke Context7 on any code question.
 >
 > Example Rule:
+>
 > ```toml
-> Always use context7 when I need code generation, setup or configuration steps, or 
-> library/API documentation. This means you should automatically use the Context7 MCP 
+> Always use context7 when I need code generation, setup or configuration steps, or
+> library/API documentation. This means you should automatically use the Context7 MCP
 > tools to resolve library id and get library docs without me having to explicitly ask.
 > ```
 >
