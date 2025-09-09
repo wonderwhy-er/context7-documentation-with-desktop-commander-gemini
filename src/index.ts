@@ -320,6 +320,10 @@ async function main() {
           const transport = new StreamableHTTPServerTransport({
             sessionIdGenerator: undefined,
           });
+          res.on("close", () => {
+            transport.close();
+            requestServer.close();
+          });
           await requestServer.connect(transport);
           await transport.handleRequest(req, res);
         } else if (url === "/sse" && req.method === "GET") {
@@ -330,6 +334,8 @@ async function main() {
           // Clean up transport when connection closes
           res.on("close", () => {
             delete sseTransports[sseTransport.sessionId];
+            sseTransport.close();
+            requestServer.close();
           });
           await requestServer.connect(sseTransport);
         } else if (url === "/messages" && req.method === "POST") {
