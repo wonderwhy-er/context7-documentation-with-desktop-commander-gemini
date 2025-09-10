@@ -2,6 +2,10 @@
 
 **Note:** This repository is a fork of the original Context7. It has been updated by Gemini and Desktop Commander to include an Obsidian vault with documentation, reformatted for GitHub-friendly links.
 
+**Live Stream:** This fork was created during a live stream! You can watch the process here: [https://www.youtube.com/live/523coCdL8ZI](https://www.youtube.com/live/523coCdL8ZI)
+
+**Powered By:** The automation and file system interactions were powered by [Desktop Commander](https://desktopcommander.app/).
+
 ![Cover](public/cover.png)
 
 # Context7 MCP - Up-to-date Code Docs For Any Prompt
@@ -100,7 +104,7 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 
 #### Cursor Local Server Connection
 
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IC15IEB1cHN0YXNoL2NvbnRleHQ3LW1jcCJ9)
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IC15IEB1c3B0YXNoL2NvbnRleHQ3LW1jcCJ9)
 
 ```json
 {
@@ -748,7 +752,7 @@ See [LM Studio MCP Support](https://lmstudio.ai/blog/lmstudio-v0.3.17) for more 
 
 #### One-click install:
 
-[![Add MCP Server context7 to LM Studio](https://files.lmstudio.ai/deeplink/mcp-install-light.svg)](https://lmstudio.ai/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB1cHN0YXNoL2NvbnRleHQ3LW1jcCJdfQ%3D%3D)
+[![Add MCP Server context7 to LM Studio](https://files.lmstudio.ai/deeplink/mcp-install-light.svg)](https://lmstudio.ai/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB1c3B0YXNoL2NvbnRleHQ3LW1jcCJdfQ%3D%3D)
 
 #### Manual set-up:
 
