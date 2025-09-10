@@ -1,0 +1,20 @@
+{
+  "legacyEditor": false,
+  "livePreview": true,
+  "showUnsupportedFiles": false,
+  "newFileLocation": "current",
+  "attachmentFolderPath": "./Assets",
+  "showLineNumber": true,
+  "spellcheck": true,
+  "strictLineBreaks": false,
+  "readableLineLength": true,
+  "alwaysUpdateLinks": true,
+  "useMarkdownLinks": true,
+  "autoPairMarkdown": true,
+  "showFrontmatter": false,
+  "foldHeading": true,
+  "foldIndent": true,
+  "showIndentGuide": true,
+  "vimMode": false,
+  "defaultViewMode": "preview"
+}
