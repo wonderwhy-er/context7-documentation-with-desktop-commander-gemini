@@ -10,7 +10,7 @@ If you prefer to run the MCP server in a Docker container:
 
 ## 1. Build the Docker Image:
 
-First, create a `Dockerfile` in the project root (or anywhere you prefer). The full content of the Dockerfile can be found in [[_Attachments/Dockerfile]].
+First, create a `Dockerfile` in the project root (or anywhere you prefer). The full content of the Dockerfile can be found in [Dockerfile](../../_Attachments/Dockerfile.md).
 
 Then, build the image using a tag (e.g., `context7-mcp`). **Make sure Docker Desktop (or the Docker daemon) is running.** Run the following command in the same directory where you saved the `Dockerfile`:
 

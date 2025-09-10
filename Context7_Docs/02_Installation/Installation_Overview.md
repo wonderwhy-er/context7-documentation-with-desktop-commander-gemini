@@ -20,34 +20,34 @@ Context7 can be installed and configured in several ways, depending on your pref
 
 Below are links to detailed installation guides for specific clients:
 
-- [[02_Installation/Client_Installations/Smithery_Installation|Smithery]]
-- [[02_Installation/Client_Installations/Cursor_Installation|Cursor]]
-- [[02_Installation/Client_Installations/Claude_Code_Installation|Claude Code]]
-- [[02_Installation/Client_Installations/Windsurf_Installation|Windsurf]]
-- [[02_Installation/Client_Installations/VSCode_Installation|VS Code]]
-- [[02_Installation/Client_Installations/Cline_Installation|Cline]]
-- [[02_Installation/Client_Installations/Zed_Installation|Zed]]
-- [[02_Installation/Client_Installations/Augment_Code_Installation|Augment Code]]
-- [[02_Installation/Client_Installations/Roo_Code_Installation|Roo Code]]
-- [[02_Installation/Client_Installations/Gemini_CLI_Installation|Gemini CLI]]
-- [[02_Installation/Client_Installations/Claude_Desktop_Installation|Claude Desktop]]
-- [[02_Installation/Client_Installations/Opencode_Installation|OpenCode]]
-- [[02_Installation/Client_Installations/OpenAI_Codex_Installation|OpenAI Codex]]
-- [[02_Installation/Client_Installations/JetBrains_AI_Assistant_Installation|JetBrains AI Assistant]]
-- [[02_Installation/Client_Installations/Kiro_Installation|Kiro]]
-- [[02_Installation/Client_Installations/Trae_Installation|Trae]]
-- [[02_Installation/Client_Installations/Bun_Deno_Installation|Bun or Deno]]
-- [[02_Installation/Client_Installations/Docker_Installation|Docker]]
-- [[02_Installation/Client_Installations/Desktop_Extension_Installation|Desktop Extension (.dxt)]]
-- [[02_Installation/Client_Installations/Windows_Installation|Windows Specific Configuration]]
-- [[02_Installation/Client_Installations/Amazon_Q_Developer_CLI_Installation|Amazon Q Developer CLI]]
-- [[02_Installation/Client_Installations/Warp_Installation|Warp]]
-- [[02_Installation/Client_Installations/Copilot_Coding_Agent_Installation|Copilot Coding Agent]]
-- [[02_Installation/Client_Installations/LM_Studio_Installation|LM Studio]]
-- [[02_Installation/Client_Installations/Visual_Studio_2022_Installation|Visual Studio 2022]]
-- [[02_Installation/Client_Installations/Crush_Installation|Crush]]
-- [[02_Installation/Client_Installations/BoltAI_Installation|BoltAI]]
-- [[02_Installation/Client_Installations/Rovo_Dev_CLI_Installation|Rovo Dev CLI]]
-- [[02_Installation/Client_Installations/Zencoder_Installation|Zencoder]]
-- [[02_Installation/Client_Installations/Qodo_Gen_Installation|Qodo Gen]]
-- [[02_Installation/Client_Installations/Perplexity_Desktop_Installation|Perplexity Desktop]]
+- [Smithery](Client_Installations/Smithery_Installation.md)
+- [Cursor](Client_Installations/Cursor_Installation.md)
+- [Claude Code](Client_Installations/Claude_Code_Installation.md)
+- [Windsurf](Client_Installations/Windsurf_Installation.md)
+- [VS Code](Client_Installations/VSCode_Installation.md)
+- [Cline](Client_Installations/Cline_Installation.md)
+- [Zed](Client_Installations/Zed_Installation.md)
+- [Augment Code](Client_Installations/Augment_Code_Installation.md)
+- [Roo Code](Client_Installations/Roo_Code_Installation.md)
+- [Gemini CLI](Client_Installations/Gemini_CLI_Installation.md)
+- [Claude Desktop](Client_Installations/Claude_Desktop_Installation.md)
+- [OpenCode](Client_Installations/Opencode_Installation.md)
+- [OpenAI Codex](Client_Installations/OpenAI_Codex_Installation.md)
+- [JetBrains AI Assistant](Client_Installations/JetBrains_AI_Assistant_Installation.md)
+- [Kiro](Client_Installations/Kiro_Installation.md)
+- [Trae](Client_Installations/Trae_Installation.md)
+- [Bun or Deno](Client_Installations/Bun_Deno_Installation.md)
+- [Docker](Client_Installations/Docker_Installation.md)
+- [Desktop Extension (.dxt)](Client_Installations/Desktop_Extension_Installation.md)
+- [Windows Specific Configuration](Client_Installations/Windows_Installation.md)
+- [Amazon Q Developer CLI](Client_Installations/Amazon_Q_Developer_CLI_Installation.md)
+- [Warp](Client_Installations/Warp_Installation.md)
+- [Copilot Coding Agent](Client_Installations/Copilot_Coding_Agent_Installation.md)
+- [LM Studio](Client_Installations/LM_Studio_Installation.md)
+- [Visual Studio 2022](Client_Installations/Visual_Studio_2022_Installation.md)
+- [Crush](Client_Installations/Crush_Installation.md)
+- [BoltAI](Client_Installations/BoltAI_Installation.md)
+- [Rovo Dev CLI](Client_Installations/Rovo_Dev_CLI_Installation.md)
+- [Zencoder](Client_Installations/Zencoder_Installation.md)
+- [Qodo Gen](Client_Installations/Qodo_Gen_Installation.md)
+- [Perplexity Desktop](Client_Installations/Perplexity_Desktop_Installation.md)

@@ -8,7 +8,7 @@ Context7 MCP provides specific tools that Large Language Models (LLMs) can utili
 
 Currently, Context7 offers the following tools:
 
-- [[resolve-library-id|`resolve-library-id`]]: Used to resolve a general library name into a Context7-compatible library ID.
-- [[get-library-docs|`get-library-docs`]]: Used to fetch documentation for a library using its Context7-compatible library ID.
+- [`resolve-library-id`](../resolve-library-id.md): Used to resolve a general library name into a Context7-compatible library ID.
+- [`get-library-docs`](../get-library-docs.md): Used to fetch documentation for a library using its Context7-compatible library ID.
 
 Each of these tools is detailed further in their respective sections.

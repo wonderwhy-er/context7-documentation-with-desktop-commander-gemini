@@ -4,11 +4,11 @@ Welcome to the Context7 documentation vault. This vault aims to provide a compre
 
 ## Table of Contents
 
-- [[01_Overview/What_is_Context7|What is Context7?]]
-- [[01_Overview/How_Context7_Works|How Context7 Works]]
-- [[02_Installation/Installation_Overview|Installation Guide]]
-- [[03_Usage/Available_Tools|Available Tools]]
-- [[04_Adding_Projects/Adding_Projects_Guide|Adding Projects to Context7]]
+- [What is Context7?](01_Overview/What_is_Context7.md)
+- [How Context7 Works](01_Overview/How_Context7_Works.md)
+- [Installation Guide](02_Installation/Installation_Overview.md)
+- [Available Tools](03_Usage/Available_Tools.md)
+- [Adding Projects to Context7](04_Adding_Projects/Adding_Projects_Guide.md)
 
 ---
 
