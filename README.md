@@ -2,8 +2,8 @@
 
 **🤖 Dual AI Documentation Example**: This repository showcases documentation creation using two different AI models with [Desktop Commander](https://desktopcommander.app/):
 
-- **🔸 Gemini 2.5 Flash**: Traditional markdown documentation → [View Gemini Docs](./Context7_Docs/00_Index.md)
-- **🔸 Claude Sonnet 4**: Obsidian-style vault with GitHub compatibility → [View Claude Vault](./obsidian-vault/README.md)
+- **🔸 Gemini 2.5 Flash**: Obsidian-style documentation → [View Gemini Docs](./Context7_Docs/00_Index.md)
+- **🔸 Claude Sonnet 4**: Obsidian-style vault with advanced features → [View Claude Vault](./obsidian-vault/README.md)
 
 **📺 Live Stream**: Both documentation systems were created during a live coding session: [YouTube Stream](https://www.youtube.com/live/523coCdL8ZI)
 
@@ -15,29 +15,30 @@
 
 | Feature | Gemini 2.5 Flash | Claude Sonnet 4 |
 |---------|------------------|------------------|
-| **Style** | Traditional Markdown | Obsidian Vault |
+| **Style** | Obsidian Documentation | Obsidian Vault |
 | **Structure** | Hierarchical Folders | MOC + Cross-linking |
 | **GitHub Compatibility** | ✅ Native | ✅ Auto-converted |
-| **Obsidian Compatibility** | ⚠️ Basic | ✅ Full Featured |
-| **Navigation** | Linear | Graph-based |
-| **Link Conversion** | Not needed | Automated system |
+| **Obsidian Compatibility** | ✅ Compatible | ✅ Full Featured |
+| **Navigation** | Linear + Links | Graph-based |
+| **Link Conversion** | GitHub-ready | Automated system |
 
 ## 🎯 Choose Your Documentation Style
 
-### 📁 **Gemini's Traditional Approach**
+### 📁 **Gemini's Structured Approach**
 **[→ Explore Gemini Documentation](./Context7_Docs/00_Index.md)**
 
-- Clean, hierarchical structure
-- Platform-agnostic markdown
-- Traditional technical writing approach
+- Clean, hierarchical Obsidian-style structure
+- Comprehensive installation guides for each platform
 - Direct GitHub compatibility
+- Systematic organization
 
-### 🕸️ **Claude's Obsidian Vault**
+### 🕸️ **Claude's Advanced Vault**
 **[→ Explore Claude Vault](./obsidian-vault/README.md)**
 
-- Knowledge graph with interconnected notes
-- MOC (Map of Content) organization
-- Advanced cross-referencing
+- Full Obsidian vault with MOC (Map of Content)
+- Advanced cross-referencing and graph navigation
+- Automated link conversion system
+- Rich interconnected documentation
 - Dual Obsidian + GitHub compatibility
 
 ---
