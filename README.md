@@ -1,5 +1,7 @@
 # Context7 MCP Documentation - AI Model Comparison
 
+> **🎬 Live Stream Fork**: This is a fork of the original [Context7 repository](https://github.com/upstash/context7) created during a live coding session to demonstrate how different AI models approach documentation creation with [Desktop Commander](https://desktopcommander.app/).
+
 **🤖 Dual AI Documentation Example**: This repository showcases documentation creation using two different AI models with [Desktop Commander](https://desktopcommander.app/):
 
 - **🔸 Gemini 2.5 Flash**: Obsidian-style documentation → [View Gemini Docs](./Context7_Docs/00_Index.md)
@@ -58,6 +60,15 @@ Context7 MCP is a Model Context Protocol (MCP) server that provides **up-to-date
 This repository serves as a **live comparison** of how different AI models approach documentation creation when given the same task and tools.
 
 **📊 [Read the Full Comparison Analysis →](./AI-DOCUMENTATION-COMPARISON.md)**
+
+## 🎯 About This Demonstration
+
+This fork exists purely as a **documentation creation experiment** and **live coding demonstration**. The original Context7 MCP functionality remains completely intact, but the focus here is on showcasing:
+
+- How different AI models approach the same documentation task
+- The power of Desktop Commander for complex file operations
+- Real-time AI-assisted documentation workflows
+- Comparison of documentation strategies and philosophies
 
 ## 🛠️ About Desktop Commander
 
