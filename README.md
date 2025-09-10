@@ -1,3 +1,11 @@
+# Context7 MCP - Up-to-date Code Docs For Any Prompt
+
+**Note:** This repository is a fork of the original Context7. It has been updated by Gemini and Desktop Commander to include an Obsidian vault with documentation, reformatted for GitHub-friendly links.
+
+**Live Stream:** This fork was created during a live stream! You can watch the process here: [https://www.youtube.com/live/523coCdL8ZI](https://www.youtube.com/live/523coCdL8ZI)
+
+**Powered By:** The automation and file system interactions were powered by [Desktop Commander](https://desktopcommander.app/).
+
 ![Cover](public/cover.png)
 
 # Context7 MCP - Up-to-date Code Docs For Any Prompt
@@ -10,7 +18,7 @@
 
 [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=context7&config=eyJ1cmwiOiJodHRwczovL21jcC5jb250ZXh0Ny5jb20vbWNwIn0%3D) [<img alt="Install in VS Code (npx)" src="https://img.shields.io/badge/Install%20in%20VS%20Code-0098FF?style=for-the-badge&logo=visualstudiocode&logoColor=white">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22context7%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40upstash%2Fcontext7-mcp%40latest%22%5D%7D)
 
-[![繁體中文](https://img.shields.io/badge/docs-繁體中文-yellow)](./docs/README.zh-TW.md) [![简体中文](https://img.shields.io/badge/docs-简体中文-yellow)](./docs/README.zh-CN.md) [![日本語](https://img.shields.io/badge/docs-日本語-b7003a)](./docs/README.ja.md) [![한국어 문서](https://img.shields.io/badge/docs-한국어-green)](./docs/README.ko.md) [![Documentación en Español](https://img.shields.io/badge/docs-Español-orange)](./docs/README.es.md) [![Documentation en Français](https://img.shields.io/badge/docs-Français-blue)](./docs/README.fr.md) [![Documentação em Português (Brasil)](<https://img.shields.io/badge/docs-Português%20(Brasil)-purple>)](./docs/README.pt-BR.md) [![Documentazione in italiano](https://img.shields.io/badge/docs-Italian-red)](./docs/README.it.md) [![Dokumentasi Bahasa Indonesia](https://img.shields.io/badge/docs-Bahasa%20Indonesia-pink)](./docs/README.id-ID.md) [![Dokumentation auf Deutsch](https://img.shields.io/badge/docs-Deutsch-darkgreen)](./docs/README.de.md) [![Документация на русском языке](https://img.shields.io/badge/docs-Русский-darkblue)](./docs/README.ru.md) [![Українська документація](https://img.shields.io/badge/docs-Українська-lightblue)](./docs/README.uk.md) [![Türkçe Doküman](https://img.shields.io/badge/docs-Türkçe-blue)](./docs/README.tr.md) [![Arabic Documentation](https://img.shields.io/badge/docs-Arabic-white)](./docs/README.ar.md) [![Tiếng Việt](https://img.shields.io/badge/docs-Tiếng%20Việt-red)](./docs/README.vi.md)
+[![繁體中文](https://img.shields.io/badge/docs-繁體中文-yellow)](./docs/README.zh-TW.md) [![简体中文](https://img.shields.io/badge/docs-简体中文-yellow)](./docs/README.zh-CN.md) [![日本語](https://img.shields.io/badge/docs-日本語-b7003a)](./docs/README.ja.md) [![한국어 문서](https://img.shields.io/badge/docs-한국어-green)](./docs/README.ko.md) [![Documentación en Español](https://img.shields.io/badge/docs-Español-orange)](./docs/README.es.md) [![Documentation en Français](https://img.shields.io/badge/docs-Français-blue)](./docs/README.fr.md) [![Documentação em Português (Brasil)](<https://img.shields.io/badge/docs-Português%20(Brasil)-purple>)](./docs/README.pt-BR.md) [![Documentazione in italiano](https://img.shields.io/badge/docs-Italian-red)](./docs/README.it.md) [![Dokumentasi Bahasa Indonesia](https://img.shields.io/badge/docs-Bahasa%20Indonesia-pink)](./docs/README.id-ID.md) [![Dokumentation auf Deutsch](https://img.shields.io/badge/docs-Deutsch-darkgreen)](./docs/README.de.md) [![Документация на русском языке](https://img.shields.io/badge/docs-Русский-darkblue)](./docs/README.ru.md) [![Українська документація](https://img.shields.io/badge/docs-Українська-lightblue)](./docs/README.uk.md) [![Türkçe Doküman](https://img.shields.io/badge//docs-Türkçe-blue)](./docs/README.tr.md) [![Arabic Documentation](https://img.shields.io/badge/docs-Arabic-white)](./docs/README.ar.md) [![Tiếng Việt](https://img.shields.io/badge/docs-Tiếng%20Việt-red)](./docs/README.vi.md)
 
 ## ❌ Without Context7
 
@@ -100,7 +108,7 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 
 #### Cursor Local Server Connection
 
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IC15IEB1cHN0YXNoL2NvbnRleHQ3LW1jcCJ9)
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IC15IEB1c3B0YXNoL2NvbnRleHQ3LW1jcCJ9)
 
 ```json
 {
@@ -748,7 +756,7 @@ See [LM Studio MCP Support](https://lmstudio.ai/blog/lmstudio-v0.3.17) for more 
 
 #### One-click install:
 
-[![Add MCP Server context7 to LM Studio](https://files.lmstudio.ai/deeplink/mcp-install-light.svg)](https://lmstudio.ai/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB1cHN0YXNoL2NvbnRleHQ3LW1jcCJdfQ%3D%3D)
+[![Add MCP Server context7 to LM Studio](https://files.lmstudio.ai/deeplink/mcp-install-light.svg)](https://lmstudio.ai/install-mcp?name=context7&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB1c3B0YXNoL2NvbnRleHQ3LW1jcCJdfQ%3D%3D)
 
 #### Manual set-up:
 
@@ -1002,203 +1010,3 @@ Context7 MCP provides the following tools that LLMs can use:
   - `context7CompatibleLibraryID` (required): Exact Context7-compatible library ID (e.g., `/mongodb/docs`, `/vercel/next.js`)
   - `topic` (optional): Focus the docs on a specific topic (e.g., "routing", "hooks")
   - `tokens` (optional, default 5000): Max number of tokens to return. Values less than 1000 are automatically increased to 1000.
-
-## 🛟 Tips
-
-### Add a Rule
-
-> If you don’t want to add `use context7` to every prompt, you can define a simple rule in your MCP client's rule section:
->
-> - For Windsurf, in `.windsurfrules` file
-> - For Cursor, from `Cursor Settings > Rules` section
-> - For Claude Code, in `CLAUDE.md` file
->
-> Or the equivalent in your MCP client to auto-invoke Context7 on any code question.
->
-> Example Rule:
->
-> ```toml
-> Always use context7 when I need code generation, setup or configuration steps, or
-> library/API documentation. This means you should automatically use the Context7 MCP
-> tools to resolve library id and get library docs without me having to explicitly ask.
-> ```
->
-> From then on, you’ll get Context7’s docs in any related conversation without typing anything extra. You can alter the rule to match your use cases.
-
-### Use Library Id
-
-> If you already know exactly which library you want to use, add its Context7 ID to your prompt. That way, Context7 MCP server can skip the library-matching step and directly continue with retrieving docs.
->
-> ```txt
-> Implement basic authentication with Supabase. use library /supabase/supabase for API and docs.
-> ```
->
-> The slash syntax tells the MCP tool exactly which library to load docs for.
-
-### HTTPS Proxy
-
-If you are behind an HTTP proxy, Context7 uses the standard `https_proxy` / `HTTPS_PROXY` environment variables.
-
-## 💻 Development
-
-Clone the project and install dependencies:
-
-```bash
-bun i
-```
-
-Build:
-
-```bash
-bun run build
-```
-
-Run the server:
-
-```bash
-bun run dist/index.js
-```
-
-### CLI Arguments
-
-`context7-mcp` accepts the following CLI flags:
-
-- `--transport <stdio|http>` – Transport to use (`stdio` by default). Note that HTTP transport automatically provides both HTTP and SSE endpoints.
-- `--port <number>` – Port to listen on when using `http` transport (default `3000`).
-- `--api-key <key>` – API key for authentication. You can get your API key by creating an account at [context7.com/dashboard](https://context7.com/dashboard).
-
-Example with HTTP transport and port 8080:
-
-```bash
-bun run dist/index.js --transport http --port 8080
-```
-
-Another example with stdio transport:
-
-```bash
-bun run dist/index.js --transport stdio --api-key YOUR_API_KEY
-```
-
-<details>
-<summary><b>Local Configuration Example</b></summary>
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "npx",
-      "args": ["tsx", "/path/to/folder/context7/src/index.ts", "--api-key", "YOUR_API_KEY"]
-    }
-  }
-}
-```
-
-</details>
-
-<details>
-<summary><b>Testing with MCP Inspector</b></summary>
-
-```bash
-npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp
-```
-
-</details>
-
-## 🚨 Troubleshooting
-
-<details>
-<summary><b>Module Not Found Errors</b></summary>
-
-If you encounter `ERR_MODULE_NOT_FOUND`, try using `bunx` instead of `npx`:
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "bunx",
-      "args": ["-y", "@upstash/context7-mcp"]
-    }
-  }
-}
-```
-
-This often resolves module resolution issues in environments where `npx` doesn't properly install or resolve packages.
-
-</details>
-
-<details>
-<summary><b>ESM Resolution Issues</b></summary>
-
-For errors like `Error: Cannot find module 'uriTemplate.js'`, try the `--experimental-vm-modules` flag:
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "npx",
-      "args": ["-y", "--node-options=--experimental-vm-modules", "@upstash/context7-mcp@1.0.6"]
-    }
-  }
-}
-```
-
-</details>
-
-<details>
-<summary><b>TLS/Certificate Issues</b></summary>
-
-Use the `--experimental-fetch` flag to bypass TLS-related problems:
-
-```json
-{
-  "mcpServers": {
-    "context7": {
-      "command": "npx",
-      "args": ["-y", "--node-options=--experimental-fetch", "@upstash/context7-mcp"]
-    }
-  }
-}
-```
-
-</details>
-
-<details>
-<summary><b>General MCP Client Errors</b></summary>
-
-1. Try adding `@latest` to the package name
-2. Use `bunx` as an alternative to `npx`
-3. Consider using `deno` as another alternative
-4. Ensure you're using Node.js v18 or higher for native fetch support
-
-</details>
-
-## ⚠️ Disclaimer
-
-Context7 projects are community-contributed and while we strive to maintain high quality, we cannot guarantee the accuracy, completeness, or security of all library documentation. Projects listed in Context7 are developed and maintained by their respective owners, not by Context7. If you encounter any suspicious, inappropriate, or potentially harmful content, please use the "Report" button on the project page to notify us immediately. We take all reports seriously and will review flagged content promptly to maintain the integrity and safety of our platform. By using Context7, you acknowledge that you do so at your own discretion and risk.
-
-## 🤝 Connect with Us
-
-Stay updated and join our community:
-
-- 📢 Follow us on [X](https://x.com/context7ai) for the latest news and updates
-- 🌐 Visit our [Website](https://context7.com)
-- 💬 Join our [Discord Community](https://upstash.com/discord)
-
-## 📺 Context7 In Media
-
-- [Better Stack: "Free Tool Makes Cursor 10x Smarter"](https://youtu.be/52FC3qObp9E)
-- [Cole Medin: "This is Hands Down the BEST MCP Server for AI Coding Assistants"](https://www.youtube.com/watch?v=G7gK8H6u7Rs)
-- [Income Stream Surfers: "Context7 + SequentialThinking MCPs: Is This AGI?"](https://www.youtube.com/watch?v=-ggvzyLpK6o)
-- [Julian Goldie SEO: "Context7: New MCP AI Agent Update"](https://www.youtube.com/watch?v=CTZm6fBYisc)
-- [JeredBlu: "Context 7 MCP: Get Documentation Instantly + VS Code Setup"](https://www.youtube.com/watch?v=-ls0D-rtET4)
-- [Income Stream Surfers: "Context7: The New MCP Server That Will CHANGE AI Coding"](https://www.youtube.com/watch?v=PS-2Azb-C3M)
-- [AICodeKing: "Context7 + Cline & RooCode: This MCP Server Makes CLINE 100X MORE EFFECTIVE!"](https://www.youtube.com/watch?v=qZfENAPMnyo)
-- [Sean Kochel: "5 MCP Servers For Vibe Coding Glory (Just Plug-In & Go)"](https://www.youtube.com/watch?v=LqTQi8qexJM)
-
-## ⭐ Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=upstash/context7&type=Date)](https://www.star-history.com/#upstash/context7&Date)
-
-## 📄 License
-
-MIT
