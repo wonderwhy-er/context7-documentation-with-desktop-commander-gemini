@@ -2,6 +2,21 @@
 
 ![Context7 Logo](Assets/context7-logo.png)
 
+> 🎥 **Live Stream Demo**: This fork was created during a live coding session demonstrating how [Desktop Commander](https://desktopcommander.app/) in Claude can generate comprehensive, well-structured documentation that works seamlessly in both Obsidian and GitHub.
+> 
+> **📺 Watch the stream**: [Creating Obsidian & GitHub-friendly Documentation with Desktop Commander](https://www.youtube.com/live/523coCdL8ZI)
+
+## 🛠️ About Desktop Commander
+
+[Desktop Commander](https://desktopcommander.app/) is a powerful MCP (Model Context Protocol) server that gives Claude direct access to your desktop environment. It enables Claude to:
+
+- 📁 **File System Operations**: Read, write, and manage files and directories
+- 🔍 **Search & Analysis**: Find and analyze content across your projects
+- 🏃 **Process Management**: Run commands and scripts
+- 📊 **Data Processing**: Work with CSVs, logs, and other data formats
+
+**This documentation vault itself was created using Desktop Commander**, showcasing how AI can help generate professional-grade documentation with proper structure, cross-references, and dual compatibility for both Obsidian and GitHub!
+
 ## 🎯 Quick Navigation
 
 | Section | Description | Links |
@@ -58,7 +73,12 @@ graph TD
 
 ## 🏷️ Tags
 
-#context7 #mcp #documentation #api #nodejs #typescript
+#context7 #mcp #documentation #api #nodejs #typescript #desktop-commander #obsidian #github
+
+## 🔗 Related Projects
+
+- **[Desktop Commander](https://desktopcommander.app/)** - The MCP server that made this documentation possible
+- **[Original Context7 Repository](https://github.com/upstash/context7)** - The upstream project this fork is based on
 
 ## 📝 Recent Updates
 
@@ -68,3 +88,9 @@ graph TD
 ---
 
 *This vault contains comprehensive documentation for the Context7 MCP project. Use the navigation above or browse the folder structure to explore specific topics.*
+
+**🎯 Documentation Features:**
+- ✅ **Obsidian Compatible**: Full linking and navigation in Obsidian
+- ✅ **GitHub Compatible**: All links work perfectly on GitHub
+- ✅ **Auto-Conversion**: Pre-commit hooks convert `[[]]` links to relative markdown links
+- ✅ **Live Demo**: Created live on stream with Desktop Commander + Claude
