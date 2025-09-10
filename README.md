@@ -56,6 +56,8 @@ Context7 MCP is a Model Context Protocol (MCP) server that provides **up-to-date
 
 This repository serves as a **live comparison** of how different AI models approach documentation creation when given the same task and tools.
 
+**📊 [Read the Full Comparison Analysis →](./AI-DOCUMENTATION-COMPARISON.md)**
+
 ## 🛠️ About Desktop Commander
 
 [Desktop Commander](https://desktopcommander.app/) is the MCP server that made this entire documentation experiment possible. It provides Claude and other AI assistants with direct access to:
@@ -71,6 +73,23 @@ This repository serves as a **live comparison** of how different AI models appro
 ## 🎯 Fork Information
 
 This is a fork of [upstash/context7](https://github.com/upstash/context7) created to showcase different AI approaches to documentation. The original Context7 functionality remains intact.
+
+---
+
+## 📁 Repository Contents
+
+- **🔸 [Gemini Documentation](./Context7_Docs/00_Index.md)** - Traditional markdown approach
+- **🔸 [Claude Documentation](./obsidian-vault/README.md)** - Obsidian vault approach  
+- **📊 [Detailed Comparison Analysis](./AI-DOCUMENTATION-COMPARISON.md)** - In-depth study
+- **🔄 [Repository Rename Suggestion](./REPOSITORY-RENAME-SUGGESTION.md)** - Better naming ideas
+
+## 🏷️ Tags
+
+`#ai-comparison` `#documentation` `#obsidian` `#gemini` `#claude` `#desktop-commander` `#mcp` `#live-coding` `#context7`
+
+---
+
+*⚡ Made possible by [Desktop Commander](https://desktopcommander.app/) - Empowering AI with direct system access*
 
 ## ❌ Without Context7
 

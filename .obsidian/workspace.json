@@ -11,10 +11,14 @@
             "id": "1ebe9a0f4295decc",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "obsidian-vault/00-Index/Master Index.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Master Index"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "obsidian-vault/00-Index/Master Index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Master Index"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "obsidian-vault/00-Index/Master Index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from Master Index"
             }
           },
           {
@@ -136,12 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "obsidian-vault/00-Index/Master Index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Master Index"
             }
           }
         ]
@@ -164,6 +171,12 @@
   },
   "active": "1ebe9a0f4295decc",
   "lastOpenFiles": [
+    "AI-DOCUMENTATION-COMPARISON.md",
+    "REPOSITORY-RENAME-SUGGESTION.md",
+    "run_all_conversions.py",
+    "convert_links.py",
+    "obsidian-vault/00-Index/Changelog.md",
+    "obsidian-vault/00-Index/Master Index.md",
     "obsidian-vault/00-Index/Roadmap.md",
     "obsidian-vault/02-Architecture/System Architecture.md",
     "__pycache__/convert_obsidian_links.cpython-313.pyc",
@@ -171,7 +184,6 @@
     "setup-hooks.sh",
     "convert_all_obsidian_links.py",
     "MCP Protocol Implementation.md",
-    "obsidian-vault/00-Index/Changelog.md",
     "obsidian-vault/04-Installation/Claude Desktop Installation.md",
     "obsidian-vault/04-Installation/VS Code Installation.md",
     "obsidian-vault/04-Installation/Cursor Installation.md",
@@ -192,12 +204,8 @@
     "Context7_Docs/02_Installation/Client_Installations/Rovo_Dev_CLI_Installation.md",
     "Context7_Docs/02_Installation/Client_Installations/Roo_Code_Installation.md",
     "Context7_Docs/02_Installation/Client_Installations/Qodo_Gen_Installation.md",
-    "Context7_Docs/02_Installation/Client_Installations/Perplexity_Desktop_Installation.md",
-    "Context7_Docs/02_Installation/Client_Installations/Opencode_Installation.md",
     "Context7_Docs/02_Installation/Client_Installations",
     "Context7_Docs/_Attachments",
-    "Context7_Docs/Templates",
-    "Context7_Docs/04_Adding_Projects",
-    "Context7_Docs/03_Usage"
+    "Context7_Docs/Templates"
   ]
 }
