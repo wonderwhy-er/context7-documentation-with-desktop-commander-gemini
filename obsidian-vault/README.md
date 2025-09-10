@@ -6,14 +6,14 @@
 
 | Section | Description | Links |
 |---------|-------------|-------|
-| **📋 Project Overview** | What is Context7 MCP and why it matters | [[01-Project-Overview/What is Context7]] |
-| **🏗️ Architecture** | Technical design and system overview | [[02-Architecture/System Architecture]] |
-| **📚 API Reference** | Complete API documentation | [[03-API-Reference/API Overview]] |
-| **⚙️ Installation** | Setup guides for all platforms | [[04-Installation/Installation Guide]] |
-| **🛠️ Development** | Development setup and workflows | [[05-Development/Development Setup]] |
-| **🤝 Contributing** | How to contribute to the project | [[06-Contributing/Contributing Guide]] |
-| **💡 Examples** | Practical usage examples | [[07-Examples/Usage Examples]] |
-| **🔧 Troubleshooting** | Common issues and solutions | [[08-Troubleshooting/Common Issues]] |
+| **📋 Project Overview** | What is Context7 MCP and why it matters | [What is Context7](01-Project-Overview/What%20is%20Context7.md) |
+| **🏗️ Architecture** | Technical design and system overview | [System Architecture](02-Architecture/System%20Architecture.md) |
+| **📚 API Reference** | Complete API documentation | [API Overview](03-API-Reference/API%20Overview.md) |
+| **⚙️ Installation** | Setup guides for all platforms | [Installation Guide](04-Installation/Installation%20Guide.md) |
+| **🛠️ Development** | Development setup and workflows | [Development Setup](05-Development/Development%20Setup.md) |
+| **🤝 Contributing** | How to contribute to the project | [Contributing Guide](06-Contributing/Contributing%20Guide.md) |
+| **💡 Examples** | Practical usage examples | [Usage Examples](07-Examples/Usage%20Examples.md) |
+| **🔧 Troubleshooting** | Common issues and solutions | [Common Issues](08-Troubleshooting/Common%20Issues.md) |
 
 ## 🔥 What is Context7 MCP?
 
@@ -31,9 +31,9 @@ Context7 MCP is a Model Context Protocol (MCP) server that provides **up-to-date
 
 ### 1. Install Context7 MCP
 Choose your preferred method:
-- [[04-Installation/Cursor Installation|Cursor Setup]]
-- [[04-Installation/VS Code Installation|VS Code Setup]]
-- [[04-Installation/Claude Desktop Installation|Claude Desktop Setup]]
+- [Cursor Setup](04-Installation/Cursor%20Installation.md)
+- [VS Code Setup](04-Installation/VS%20Code%20Installation.md)
+- [Claude Desktop Setup](04-Installation/Claude%20Desktop%20Installation.md)
 
 ### 2. Use in Your Prompts
 ```
@@ -62,8 +62,8 @@ graph TD
 
 ## 📝 Recent Updates
 
-- [[00-Index/Changelog]] - All project updates
-- [[00-Index/Roadmap]] - Future development plans
+- [Changelog](00-Index/Changelog.md) - All project updates
+- [Roadmap](00-Index/Roadmap.md) - Future development plans
 
 ---
 

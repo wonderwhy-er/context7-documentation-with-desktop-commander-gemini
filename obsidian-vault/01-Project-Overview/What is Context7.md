@@ -125,7 +125,7 @@ export function middleware(request: NextRequest) {
 Context7 implements the [[02-Architecture/MCP Protocol Implementation|MCP standard]] created by Anthropic for connecting AI assistants to external data sources.
 
 ### Documentation as Context
-Context7 treats documentation as [[02-Architecture/System Architecture|contextual knowledge]] that enhances AI responses rather than replacing them.
+Context7 treats documentation as [contextual knowledge](../02-Architecture/System%20Architecture.md) that enhances AI responses rather than replacing them.
 
 ### Version-Aware Development
 Context7 enables [[07-Examples/Best Practices|version-conscious coding]] by providing library-specific, version-specific information.
@@ -140,4 +140,4 @@ Context7 enables [[07-Examples/Best Practices|version-conscious coding]] by prov
 - [[Key Features]] - Detailed feature breakdown
 - [[Use Cases]] - Specific scenarios where Context7 excels
 - [[Comparison with Alternatives]] - How Context7 differs from other solutions
-- [[04-Installation/Installation Guide]] - Get started with Context7
+- [Installation Guide](../04-Installation/Installation%20Guide.md) - Get started with Context7
