@@ -1,24 +1,76 @@
-# Context7 MCP - Up-to-date Code Docs For Any Prompt
+# Context7 MCP Documentation - AI Model Comparison
 
-**Note:** This repository is a fork of the original Context7. It has been updated by Gemini and Desktop Commander to include an Obsidian vault with documentation, reformatted for GitHub-friendly links.
+**🤖 Dual AI Documentation Example**: This repository showcases documentation creation using two different AI models with [Desktop Commander](https://desktopcommander.app/):
 
-**Live Stream:** This fork was created during a live stream! You can watch the process here: [https://www.youtube.com/live/523coCdL8ZI](https://www.youtube.com/live/523coCdL8ZI)
+- **🔸 Gemini 2.5 Flash**: Traditional markdown documentation → [View Gemini Docs](./Context7_Docs/00_Index.md)
+- **🔸 Claude Sonnet 4**: Obsidian-style vault with GitHub compatibility → [View Claude Vault](./obsidian-vault/README.md)
 
-**Powered By:** The automation and file system interactions were powered by [Desktop Commander](https://desktopcommander.app/).
+**📺 Live Stream**: Both documentation systems were created during a live coding session: [YouTube Stream](https://www.youtube.com/live/523coCdL8ZI)
+
+**⚡ Powered By**: [Desktop Commander](https://desktopcommander.app/) - The MCP server that enabled direct file system manipulation and automation.
+
+---
+
+## 📊 Documentation Comparison
+
+| Feature | Gemini 2.5 Flash | Claude Sonnet 4 |
+|---------|------------------|------------------|
+| **Style** | Traditional Markdown | Obsidian Vault |
+| **Structure** | Hierarchical Folders | MOC + Cross-linking |
+| **GitHub Compatibility** | ✅ Native | ✅ Auto-converted |
+| **Obsidian Compatibility** | ⚠️ Basic | ✅ Full Featured |
+| **Navigation** | Linear | Graph-based |
+| **Link Conversion** | Not needed | Automated system |
+
+## 🎯 Choose Your Documentation Style
+
+### 📁 **Gemini's Traditional Approach**
+**[→ Explore Gemini Documentation](./Context7_Docs/00_Index.md)**
+
+- Clean, hierarchical structure
+- Platform-agnostic markdown
+- Traditional technical writing approach
+- Direct GitHub compatibility
+
+### 🕸️ **Claude's Obsidian Vault**
+**[→ Explore Claude Vault](./obsidian-vault/README.md)**
+
+- Knowledge graph with interconnected notes
+- MOC (Map of Content) organization
+- Advanced cross-referencing
+- Dual Obsidian + GitHub compatibility
+
+---
+
+## 🚀 About Context7 MCP
 
 ![Cover](public/cover.png)
 
-# Context7 MCP - Up-to-date Code Docs For Any Prompt
-
-> 🎥 **Live Documentation Demo**: This fork showcases comprehensive documentation creation using [Desktop Commander](https://desktopcommander.app/) + Claude. Watch how professional-grade, dual-compatible (Obsidian + GitHub) documentation was created live: [YouTube Stream](https://www.youtube.com/live/523coCdL8ZI)
-> 
-> 📚 **[View the Complete Documentation Vault →](./obsidian-vault/README.md)**
+Context7 MCP is a Model Context Protocol (MCP) server that provides **up-to-date documentation and code examples** for any library directly in your AI coding environment.
 
 [![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://smithery.ai/server/@upstash/context7-mcp) [![NPM Version](https://img.shields.io/npm/v/%40upstash%2Fcontext7-mcp?color=red)](https://www.npmjs.com/package/@upstash/context7-mcp) [![MIT licensed](https://img.shields.io/npm/l/%40upstash%2Fcontext7-mcp)](./LICENSE)
 
 [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=context7&config=eyJ1cmwiOiJodHRwczovL21jcC5jb250ZXh0Ny5jb20vbWNwIn0%3D) [<img alt="Install in VS Code (npx)" src="https://img.shields.io/badge/Install%20in%20VS%20Code-0098FF?style=for-the-badge&logo=visualstudiocode&logoColor=white">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22context7%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40upstash%2Fcontext7-mcp%40latest%22%5D%7D)
 
-[![繁體中文](https://img.shields.io/badge/docs-繁體中文-yellow)](./docs/README.zh-TW.md) [![简体中文](https://img.shields.io/badge/docs-简体中文-yellow)](./docs/README.zh-CN.md) [![日本語](https://img.shields.io/badge/docs-日本語-b7003a)](./docs/README.ja.md) [![한국어 문서](https://img.shields.io/badge/docs-한국어-green)](./docs/README.ko.md) [![Documentación en Español](https://img.shields.io/badge/docs-Español-orange)](./docs/README.es.md) [![Documentation en Français](https://img.shields.io/badge/docs-Français-blue)](./docs/README.fr.md) [![Documentação em Português (Brasil)](<https://img.shields.io/badge/docs-Português%20(Brasil)-purple>)](./docs/README.pt-BR.md) [![Documentazione in italiano](https://img.shields.io/badge/docs-Italian-red)](./docs/README.it.md) [![Dokumentasi Bahasa Indonesia](https://img.shields.io/badge/docs-Bahasa%20Indonesia-pink)](./docs/README.id-ID.md) [![Dokumentation auf Deutsch](https://img.shields.io/badge/docs-Deutsch-darkgreen)](./docs/README.de.md) [![Документация на русском языке](https://img.shields.io/badge/docs-Русский-darkblue)](./docs/README.ru.md) [![Українська документація](https://img.shields.io/badge/docs-Українська-lightblue)](./docs/README.uk.md) [![Türkçe Doküman](https://img.shields.io/badge//docs-Türkçe-blue)](./docs/README.tr.md) [![Arabic Documentation](https://img.shields.io/badge/docs-Arabic-white)](./docs/README.ar.md) [![Tiếng Việt](https://img.shields.io/badge/docs-Tiếng%20Việt-red)](./docs/README.vi.md)
+## 🔄 Documentation Experiment: AI Model Comparison
+
+This repository serves as a **live comparison** of how different AI models approach documentation creation when given the same task and tools.
+
+## 🛠️ About Desktop Commander
+
+[Desktop Commander](https://desktopcommander.app/) is the MCP server that made this entire documentation experiment possible. It provides Claude and other AI assistants with direct access to:
+
+- **📁 File System**: Read, write, create, and organize files and directories
+- **🔍 Search Operations**: Find and analyze content across projects
+- **🏃 Process Management**: Execute commands and scripts
+- **📊 Data Processing**: Handle various file formats (CSV, JSON, etc.)
+- **🔗 Git Operations**: Commit, push, and manage version control
+
+**Both documentation systems in this repository were created using Desktop Commander**, demonstrating its power for complex, multi-file operations.
+
+## 🎯 Fork Information
+
+This is a fork of [upstash/context7](https://github.com/upstash/context7) created to showcase different AI approaches to documentation. The original Context7 functionality remains intact.
 
 ## ❌ Without Context7
 
